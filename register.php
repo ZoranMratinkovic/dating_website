@@ -46,10 +46,11 @@
                               <input type="email" class="form-control" id="reg_first" placeholder="email">
                           </div>
                           <div class="form-group">
-                            <label for="">Email</label>
+                            <label for="">Passwort</label>
                               <input type="password" class="form-control" id="reg_user" placeholder="Password">
                           </div>
                           <div class="form-group">
+                            <label for="">Passwort again</label>
                               <input type="password" class="form-control" id="reg_pass" placeholder="Password">
                           </div>
                           <?php $upituser="SELECT * FROM tip";
@@ -93,7 +94,7 @@
                   <div class="registration_form_s">
   <h4>Registration</h4>                  <div class="form-group">
     <label for="">Grosse</label>
-        <input type="password" class="form-control" id="reg_pass" placeholder="Grosse">
+        <input type="text" class="form-control" id="reg_pass" placeholder="Grosse">
     </div>
                                 <?php $upituser="SELECT * FROM sex_orj";
 
@@ -281,6 +282,8 @@
                   </div>
               </div>
               <div class="col-md-6">
+                <br/>
+
                   <div class="registration_form_s">
 
 
@@ -330,11 +333,11 @@
                     <h4>Location Treffen wo</h4>
                           <div class="form-group">
                             <label for="">Adresse</label>
-                              <input type="password" class="form-control" id="reg_pass" placeholder="Password">
+                              <input type="text" class="form-control" id="reg_pass" placeholder="Burgger Strasse 15">
                           </div>
                           <div class="form-group">
                             <label for="">Name der Location</label>
-                              <input type="password" class="form-control" id="reg_pass" placeholder="Password">
+                              <input type="text" class="form-control" id="reg_pass" placeholder="Los Lita">
                           </div>
 
                           <?php $upituser="SELECT * FROM sredjenost";

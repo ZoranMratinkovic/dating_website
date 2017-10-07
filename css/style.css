@@ -21,17 +21,17 @@ Table of Content:
 03/ header
 04/ slider
 05/ photography
-06/ button 
-07/ work 
+06/ button
+07/ work
 08/ team
-09/ contact 
-10/ price 
-11/ portfolio 
-12/ blog 
-13/ sidebar  
-13/ page-header  
-13/ project  
-13/ we-dope  
+09/ contact
+10/ price
+11/ portfolio
+12/ blog
+13/ sidebar
+13/ page-header
+13/ project
+13/ we-dope
 13/ progress
 13/ comingsoon
 13/ error
@@ -45,7 +45,7 @@ Table of Content:
   margin-right: 8.33333333%;
 }
 
-/* 
+/*
 @font-face {
     font-family: "ralH";
     src: url(../fonts/theme-font/Raleway-Heavy.woff);
@@ -79,6 +79,9 @@ Table of Content:
 }
 .mb-60{
   margin-bottom:60px!important;
+}
+.black{
+  background-color:#000!important;
 }
 /*Our code end*/
 ul {
@@ -135,6 +138,7 @@ body, p, h1, h2, h3, h4, h5, h6 {
   width: 100%;
   display: none;
 }
+
 
 /* Ripple Out css
 ============================================================================================ */
@@ -8055,3 +8059,69 @@ body, p, h1, h2, h3, h4, h5, h6 {
 /*---------------------------------------------------- */
 
 /*# sourceMappingURL=style.css.map */
+/* TESTTT */
+.menu-large {
+  position: static !important;
+}
+.megamenu{
+  padding: 20px 0px;
+  width:100%;
+}
+.megamenu> li > ul {
+  padding: 0;
+  margin: 0;
+}
+.megamenu> li > ul > li {
+  list-style: none;
+}
+.megamenu> li > ul > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.428571429;
+  color: #333333;
+  white-space: normal;
+}
+.megamenu> li ul > li > a:hover,
+.megamenu> li ul > li > a:focus {
+  text-decoration: none;
+  color: #262626;
+  background-color: #f5f5f5;
+}
+.megamenu.disabled > a,
+.megamenu.disabled > a:hover,
+.megamenu.disabled > a:focus {
+  color: #999999;
+}
+.megamenu.disabled > a:hover,
+.megamenu.disabled > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  cursor: not-allowed;
+}
+.megamenu.dropdown-header {
+  color: #428bca;
+  font-size: 18px;
+}
+@media (max-width: 768px) {
+  .megamenu{
+    margin-left: 0 ;
+    margin-right: 0 ;
+  }
+  .megamenu> li {
+    margin-bottom: 30px;
+  }
+  .megamenu> li:last-child {
+    margin-bottom: 0;
+  }
+  .megamenu.dropdown-header {
+    padding: 3px 15px !important;
+
+  }
+  .navbar-nav .open .dropdown-menu .dropdown-header{
+  color:#fff;
+  }
+}
