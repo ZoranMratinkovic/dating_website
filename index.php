@@ -67,33 +67,23 @@
         <!--================Register Members slider Area =================-->
              <?php include('parts/members_slider.php'); ?>
         <!--================End Register Members  slider Area =================-->
-
+         
         <!--================Download Area =================-->
             <?php include('parts/download_area.php'); ?>
         <!--================End Download Area =================-->
-        
+           
         <!--================Find Your Soul Area =================-->
             <?php include('parts/find_your_soul_area.php'); ?>
         <!--================End Find Your Soul Area =================-->
         
-        <!--================Video Area =================-->
-            <?php include('parts/video_area.php'); ?>
-        <!--================End Video Area =================-->
-        
-        <!--================Testimonials Area =================-->
-            <?php include('parts/testimonials.php'); ?>
-        <!--================End Testimonials Area =================-->
-        
         <!--================Blog slider Area =================-->
              <?php include('parts/blog_area.php'); ?>
         <!--================End Blog slider Area =================-->
-        
-        
-        
-        <!--================Map Area =================-->
-            <?php //include('parts/map.php'); ?>
-        <!--================End Map Area =================-->
-        
+          
+        <!--================Testimonials Area =================-->
+          <?php include('parts/testimonials.php'); ?>
+        <!--================End Testimonials Area =================-->
+
         <!--================Footer Area =================-->
             <?php include('parts/footer.php'); ?>
         <!--================End Footer Area =================-->

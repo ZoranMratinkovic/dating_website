@@ -1,4 +1,10 @@
-<section class="blog_slider_area">
+<div class="container mt-35">
+    <div class="welcome_title">
+            <h3>Most Popular Categories</h3>
+            <img src="img/w-title-b.png" alt="" title="">
+    </div>
+</div>
+<section class="blog_slider_area mt-35">
             <div class="blog_slider_inner">
                 <div class="item">
                     <div class="single_blog_slider">
