@@ -1,4 +1,4 @@
-   <header class="header_menu_area white_menu">
+   <header class="header_menu_area">
             <nav class="navbar navbar-default">
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->

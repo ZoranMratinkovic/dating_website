@@ -43,9 +43,12 @@
     </head>
     <body>
     <?php 
-        if(isset($_POST['profil']))
+        if(isset($_GET['id_girl']))
         {
-            
+            /*Ne zaboravi da proveris id girl*/
+            include('connectionFile/connection.php');
+
+            $sqlGirl = "SELECT * FROM user_oglas ug INNER JOIN boja_kose bk ON ug.i";
         }
         else
         {

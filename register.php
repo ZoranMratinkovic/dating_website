@@ -1,4 +1,4 @@
-  <?php include("/connectionFile/connection.php");?>
+  <?php include("connectionFile/connection.php");?>
    <body>
      <link href="vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
      <link href="css/font-awesome.min.css" rel="stylesheet">
