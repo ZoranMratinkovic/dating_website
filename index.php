@@ -37,6 +37,7 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
        
         <script src="js/map-custome.js"></script>
+        
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -141,7 +142,7 @@
                         <li class="dropdown submenu active">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
                             <ul class="dropdown-menu">
-                                <li><a href="index.html">Home 01</a></li>
+                                <li><a href="index.php">Home</a></li>
                                 <li><a href="index-2.html">Home 02</a></li>
                                 <li><a href="index-3.html">Home 03</a></li>
                             </ul>
@@ -920,7 +921,7 @@
             </div>
         </div>
         
-        
+        <script type="text/javascript" src='js/our_script.js'></script>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="js/jquery-2.1.4.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->

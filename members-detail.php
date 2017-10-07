@@ -42,6 +42,16 @@
         <![endif]-->
     </head>
     <body>
+    <?php 
+        if(isset($_POST['profil']))
+        {
+            
+        }
+        else
+        {
+            echo "<script>alert('nije je');</script>";
+        }
+     ?>
        <div class="login_form_inner zoom-anim-dialog mfp-hide" id="small-dialog">
            <h4>User Login</h4>
            <form>
@@ -137,7 +147,7 @@
                         <li class="dropdown submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
                             <ul class="dropdown-menu">
-                                <li><a href="index.html">Home 01</a></li>
+                                <li><a href="index.php">Home 01</a></li>
                                 <li><a href="index-2.html">Home 02</a></li>
                                 <li><a href="index-3.html">Home 03</a></li>
                             </ul>
@@ -219,7 +229,7 @@
                             <img class="img-circle" src="img/members/single_members.png" alt="">
                         </div>
                         <div class="user_name">
-                            <h3>Lena Adms</h3>
+                            <h3><?php echo $_POST['profil']; ?></h3>
                             <h4>26 years old</h4>
                             <ul>
                                 <li><a href="#">Frace, Paris</a></li>
