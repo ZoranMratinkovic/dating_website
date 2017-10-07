@@ -1,6 +1,4 @@
-  <?php include("connectionFile/connection.php");?>
    <header class="header_menu_area white_menu">
-
             <nav class="navbar navbar-default">
                 <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -25,23 +23,6 @@
                                 <li><a href="index-3.html">Home 03</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown menu-large">
-                  				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
-                  				<ul class="dropdown-menu megamenu row">
-                  					<li class="col-sm-12">
-                  						  <ul>
-                      <?php $upitcat="SELECT * FROM kategorije";
-                      $rezupituser=$conn->query($upitcat)or die("los upit");;
-                      while($r1=mysqli_fetch_array($rezupituser)){
-                        echo "<li style='width:10%'>".$r1['kategorija']."</li>";
-                      }
-                             ?>
-                  						  </ul>
-                  					</li>
-
-                  				</ul>
-
-                  			</li>
                         <li class="dropdown submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
                             <ul class="dropdown-menu">
@@ -57,7 +38,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community</a>
                             <ul class="dropdown-menu">
                                 <li><a href="community.html">Community</a></li>
-                                <li><a href="members.php">Members</a></li>
+                                <li><a href="members.html">Members</a></li>
                                 <li><a href="members-detail.html">Members Details</a></li>
                                 <li><a href="discussions.html">Discussions</a></li>
                                 <li><a href="forums.html">Forums</a></li>
@@ -88,9 +69,77 @@
                                 <li><a href="404.html">Error</a></li>
                             </ul>
                         </li>
-
                         <li><a href="contact.html">Contact us</a></li>
                     </ul>
+                    <div class="navbar navbar-default navbar-static-top">
+                        <div class="container">
+
+
+                        <ul class="nav navbar-nav">
+                        <li class="dropdown menu-large">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
+                          <ul class="dropdown-menu megamenu row">
+                            <li class="col-sm-3">
+                              <ul>
+                                <li class="dropdown-header">Glyphicons</li>
+                                <li><a href="#">Available glyphs</a></li>
+                                <li class="disabled"><a href="#">How to use</a></li>
+                                <li><a href="#">Examples</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Dropdowns</li>
+                                <li><a href="#">Example</a></li>
+                                <li><a href="#">Aligninment options</a></li>
+                                <li><a href="#">Headers</a></li>
+                                <li><a href="#">Disabled menu items</a></li>
+                              </ul>
+                            </li>
+                            <li class="col-sm-3">
+                              <ul>
+                                <li class="dropdown-header">Button groups</li>
+                                <li><a href="#">Basic example</a></li>
+                                <li><a href="#">Button toolbar</a></li>
+                                <li><a href="#">Sizing</a></li>
+                                <li><a href="#">Nesting</a></li>
+                                <li><a href="#">Vertical variation</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Button dropdowns</li>
+                                <li><a href="#">Single button dropdowns</a></li>
+                              </ul>
+                            </li>
+                            <li class="col-sm-3">
+                              <ul>
+                                <li class="dropdown-header">Input groups</li>
+                                <li><a href="#">Basic example</a></li>
+                                <li><a href="#">Sizing</a></li>
+                                <li><a href="#">Checkboxes and radio addons</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Navs</li>
+                                <li><a href="#">Tabs</a></li>
+                                <li><a href="#">Pills</a></li>
+                                <li><a href="#">Justified</a></li>
+                              </ul>
+                            </li>
+                            <li class="col-sm-3">
+                              <ul>
+                                <li class="dropdown-header">Navbar</li>
+                                <li><a href="#">Default navbar</a></li>
+                                <li><a href="#">Buttons</a></li>
+                                <li><a href="#">Text</a></li>
+                                <li><a href="#">Non-nav links</a></li>
+                                <li><a href="#">Component alignment</a></li>
+                                <li><a href="#">Fixed to top</a></li>
+                                <li><a href="#">Fixed to bottom</a></li>
+                                <li><a href="#">Static top</a></li>
+                                <li><a href="#">Inverted navbar</a></li>
+                              </ul>
+                            </li>
+                          </ul>
+
+                        </li>
+                      </ul>
+
+                        </div>
+                      </div>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="popup-with-zoom-anim" href="#small-dialog"><i class="mdi mdi-key-variant"></i>Login</a></li>
                           <li class="dropdown submenu">

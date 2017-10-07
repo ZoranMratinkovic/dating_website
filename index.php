@@ -12,12 +12,12 @@
         <link href="vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
         <link href="vendors/linears-icon/style.css" rel="stylesheet">
-        
+
         <!-- RS5.0 Layers and Navigation Styles -->
         <link rel="stylesheet" type="text/css" href="vendors/revolution/css/layers.css">
         <link rel="stylesheet" type="text/css" href="vendors/revolution/css/navigation.css">
         <link rel="stylesheet" type="text/css" href="vendors/revolution/css/settings.css">
-        
+
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="vendors/image-dropdown/dd.css" rel="stylesheet">
@@ -30,14 +30,24 @@
         <link href="vendors/animate-css/animate.css" rel="stylesheet">
         <link href="vendors/bs-tooltip/jquery.webui-popover.css" rel="stylesheet">
         <link href="vendors/jquery-ui/jquery-ui.css" rel="stylesheet">
-        
+
         <link href="css/style.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
-        
+
+        <script type="text/javascript">
+        jQuery(document).ready(function(){
+            $(".dropdown").hover(
+                function() { $('.dropdown-menu', this).stop().fadeIn("fast");
+                },
+                function() { $('.dropdown-menu', this).stop().fadeOut("fast");
+            });
+        });
+        </script>
+
        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-       
+
         <script src="js/map-custome.js"></script>-->
-        
+
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -47,7 +57,7 @@
         <![endif]-->
     </head>
     <body>
-       
+
        <!--================ login.php =================-->
             <?php include('parts/login.php'); ?>
        <!--================ login.php =================-->
@@ -55,31 +65,31 @@
         <!--================ Registration.php =================-->
             <?php include('parts/registration.php'); ?>
         <!--================ Registration.php =================-->
-       
+
         <!--================Frist Main hader Area =================-->
             <?php include('parts/menu.php'); ?>
         <!--================Frist Main hader Area =================-->
-        
+
         <!--================Slider Reg Area =================-->
             <?php include('parts/slider.php'); ?>
         <!--================End Slider Reg Area =================-->
-          
+
         <!--================Register Members slider Area =================-->
              <?php include('parts/members_slider.php'); ?>
         <!--================End Register Members  slider Area =================-->
-         
+
         <!--================Download Area =================-->
             <?php include('parts/download_area.php'); ?>
         <!--================End Download Area =================-->
-           
+
         <!--================Find Your Soul Area =================-->
             <?php include('parts/find_your_soul_area.php'); ?>
         <!--================End Find Your Soul Area =================-->
-        
+
         <!--================Blog slider Area =================-->
              <?php include('parts/blog_area.php'); ?>
         <!--================End Blog slider Area =================-->
-          
+
         <!--================Testimonials Area =================-->
           <?php include('parts/testimonials.php'); ?>
         <!--================End Testimonials Area =================-->
@@ -87,7 +97,7 @@
         <!--================Footer Area =================-->
             <?php include('parts/footer.php'); ?>
         <!--================End Footer Area =================-->
-        
+
         <div id="largeContent" style="display:none;">
             <div class="media tool_content">
                 <div class="media-left">
@@ -101,7 +111,7 @@
                 </div>
             </div>
         </div>
-        
+
         <script type="text/javascript" src='js/our_script.js'></script>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="js/jquery-2.1.4.min.js"></script>
@@ -119,7 +129,7 @@
         <script src="vendors/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
         <script src="vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
         <script src="vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
-  
+
         <!-- Extra plugin js -->
         <script src="vendors/image-dropdown/jquery.dd.min.js"></script>
         <script src="vendors/animate-css/wow.min.js"></script>
@@ -132,8 +142,8 @@
         <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
         <script src="vendors/bs-tooltip/jquery.webui-popover.min.js"></script>
         <script src="vendors/jquery-ui/jquery-ui.js"></script>
-          
-        
+
+
         <script src="js/video_player.js"></script>
         <script src="js/theme.js"></script>
     </body>
