@@ -72,14 +72,30 @@
 
                               </div>
                           </div>
+                          <?php $upituser="SELECT * FROM poreklo";
+
+                      $rezupituser=$conn->query($upituser)or die("los upit");?>
+                          <div class="form-group">
+                              <div class="btn-group">
+                                <label for="">Herkunft</label>
+                              <select class="form-control" name="">
+                              <?php while($r=mysqli_fetch_array($rezupituser)){
+                                echo "<option value='{$r['id_poreklo']}'>".$r['naziv_poreklo']."</option>";
+                              } ?>
+                              </select>
+                              </div>
+                          </div>
 
 
                   </div>
               </div>
               <div class="col-md-6">
                   <div class="registration_form_s">
-  <h4>Registration</h4>
-                                              <?php $upituser="SELECT * FROM sex_orj";
+  <h4>Registration</h4>                  <div class="form-group">
+    <label for="">Grosse</label>
+        <input type="password" class="form-control" id="reg_pass" placeholder="Grosse">
+    </div>
+                                <?php $upituser="SELECT * FROM sex_orj";
 
                                           $rezupituser=$conn->query($upituser)or die("los upit");?>
                                           <div class="form-group">
@@ -105,12 +121,26 @@
                                           </select>
                                           </div>
                                       </div>
+                                      <?php $upituser="SELECT * FROM brak_status";
+
+                                  $rezupituser=$conn->query($upituser)or die("los upit");?>
+                                  <div class="form-group">
+                                      <div class="btn-group">
+                                        <label for="">Status</label>
+                                      <select class="form-control" name="">
+                                      <?php while($r=mysqli_fetch_array($rezupituser)){
+                                        echo "<option value='{$r['id_brak_status']}'>".$r['brak_status']."</option>";
+                                      } ?>
+                                      </select>
+                                      </div>
+                                  </div>
+
                                       <?php $upituser="SELECT * FROM poreklo";
 
                                   $rezupituser=$conn->query($upituser)or die("los upit");?>
                                       <div class="form-group">
                                           <div class="btn-group">
-                                            <label for="">Herkunft</label>
+                                            <label for="">Ethnie</label>
                                           <select class="form-control" name="">
                                           <?php while($r=mysqli_fetch_array($rezupituser)){
                                             echo "<option value='{$r['id_poreklo']}'>".$r['naziv_poreklo']."</option>";
@@ -131,24 +161,32 @@
                                           </select>
                                           </div>
                                       </div>
-                          <div class="form-group">
-                              <div class="btn-group">
-                                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                  <span data-bind="label">Gender</span>&nbsp;<span class="arrow_carrot-down"><i class="fa fa-sort-asc" aria-hidden="true"></i><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
-                                  </button>
-                                  <ul class="dropdown-menu" role="menu">
-                                      <li><a href="#">Male</a></li>
-                                      <li><a href="#">Female</a></li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <div class="datepicker">
-                                  <input type='text' class="form-control datetimepicker4" placeholder="Birthday" />
-                                  <span class="add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                              </div>
-                          </div>
+                                      <?php $upituser="SELECT * FROM tvoja_uloga";
 
+                                  $rezupituser=$conn->query($upituser)or die("los upit");?>
+                                      <div class="form-group">
+                                          <div class="btn-group">
+                                            <label for="">Was du magst </label>
+                                          <select class="form-control" name="">
+                                          <?php while($r=mysqli_fetch_array($rezupituser)){
+                                            echo "<option value='{$r['id_tvoja_uloga']}'>".$r['naziv_tvoja_uloga']."</option>";
+                                          } ?>
+                                          </select>
+                                          </div>
+                                      </div>
+                                      <?php $upituser="SELECT * FROM njegova_uloga";
+
+                                  $rezupituser=$conn->query($upituser)or die("los upit");?>
+                                      <div class="form-group">
+                                          <div class="btn-group">
+                                            <label for="">Was du magst wen er Sie/Er dir macht </label>
+                                          <select class="form-control" name="">
+                                          <?php while($r=mysqli_fetch_array($rezupituser)){
+                                            echo "<option value='{$r['id_njeg_uloga']}'>".$r['naziv_njeg_uloga']."</option>";
+                                          } ?>
+                                          </select>
+                                          </div>
+                                      </div>
                   </div>
               </div>
 
@@ -157,36 +195,86 @@
               <div class="col-md-6">
                   <div class="registration_form_s">
 
+                                    <h4>Mehr Uber dich</h4>
+                                    <?php $upituser="SELECT * FROM gradja";
 
-                          <div class="form-group">
-                              <input type="email" class="form-control" id="reg_email" placeholder="Email">
-                          </div>
-                          <div class="form-group">
-                              <input type="text" class="form-control" id="reg_first" placeholder="Full Name">
-                          </div>
-                          <div class="form-group">
-                              <input type="text" class="form-control" id="reg_user" placeholder="Username">
-                          </div>
-                          <div class="form-group">
-                              <input type="password" class="form-control" id="reg_pass" placeholder="Password">
-                          </div>
-                          <div class="form-group">
-                              <div class="btn-group">
-                                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                  <span data-bind="label">Gender</span>&nbsp;<span class="arrow_carrot-down"><i class="fa fa-sort-asc" aria-hidden="true"></i><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
-                                  </button>
-                                  <ul class="dropdown-menu" role="menu">
-                                      <li><a href="#">Male</a></li>
-                                      <li><a href="#">Female</a></li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <div class="datepicker">
-                                  <input type='text' class="form-control datetimepicker4" placeholder="Birthday" />
-                                  <span class="add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                              </div>
-                          </div>
+                                $rezupituser=$conn->query($upituser)or die("los upit");?>
+                                    <div class="form-group">
+                                        <div class="btn-group">
+                                          <label for="">Wie bist du gebaut? </label>
+                                        <select class="form-control" name="">
+                                        <?php while($r=mysqli_fetch_array($rezupituser)){
+                                          echo "<option value='{$r['id_gradja']}'>".$r['naziv_gradja']."</option>";
+                                        } ?>
+                                        </select>
+                                        </div>
+                                    </div>
+
+                                    <?php $upituser="SELECT * FROM duzina_kose";
+
+                                $rezupituser=$conn->query($upituser)or die("los upit");?>
+                                    <div class="form-group">
+                                        <div class="btn-group">
+                                          <label for="">Haar Lange </label>
+                                        <select class="form-control" name="">
+                                        <?php while($r=mysqli_fetch_array($rezupituser)){
+                                          echo "<option value='{$r['id_duz_kose']}'>".$r['duzina_kose']."</option>";
+                                        } ?>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    <?php $upituser="SELECT * FROM boja_kose";
+
+                                $rezupituser=$conn->query($upituser)or die("los upit");?>
+                                    <div class="form-group">
+                                        <div class="btn-group">
+                                          <label for="">Haar Farbe </label>
+                                        <select class="form-control" name="">
+                                        <?php while($r=mysqli_fetch_array($rezupituser)){
+                                          echo "<option value='{$r['id_boja_kose']}'>".$r['boja_kose']."</option>";
+                                        } ?>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    <?php $upituser="SELECT * FROM boja_kose";
+
+                                $rezupituser=$conn->query($upituser)or die("los upit");?>
+                                    <div class="form-group">
+                                        <div class="btn-group">
+                                          <label for="">Haar Farbe </label>
+                                        <select class="form-control" name="">
+                                        <?php while($r=mysqli_fetch_array($rezupituser)){
+                                          echo "<option value='{$r['id_boja_kose']}'>".$r['boja_kose']."</option>";
+                                        } ?>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    <?php $upituser="SELECT * FROM boja_ociju";
+
+                                $rezupituser=$conn->query($upituser)or die("los upit");?>
+                                    <div class="form-group">
+                                        <div class="btn-group">
+                                          <label for="">Augen Farbe </label>
+                                        <select class="form-control" name="">
+                                        <?php while($r=mysqli_fetch_array($rezupituser)){
+                                          echo "<option value='{$r['id_boja_ociju']}'>".$r['boja_ociju']."</option>";
+                                        } ?>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    <?php $upituser="SELECT * FROM nocare_sociva";
+
+                                $rezupituser=$conn->query($upituser)or die("los upit");?>
+                                    <div class="form-group">
+                                        <div class="btn-group">
+                                          <label for="">Brille Kontaktlizen</label>
+                                        <select class="form-control" name="">
+                                        <?php while($r=mysqli_fetch_array($rezupituser)){
+                                          echo "<option value='{$r['id_naocare_sociva']}'>".$r['naziv_naoc_soc']."</option>";
+                                        } ?>
+                                        </select>
+                                        </div>
+                                    </div>
 
 
 
@@ -196,34 +284,71 @@
                   <div class="registration_form_s">
 
 
+                    <?php $upituser="SELECT * FROM oberweite";
+
+                $rezupituser=$conn->query($upituser)or die("los upit");?>
+                    <div class="form-group">
+                        <div class="btn-group">
+                          <label for="">Oberweite </label>
+                        <select class="form-control" name="">
+                        <?php while($r=mysqli_fetch_array($rezupituser)){
+                          echo "<option value='{$r['id_oberweite']}'>".$r['oberweite']."</option>";
+                        } ?>
+                        </select>
+                        </div>
+                    </div>
+                    <?php $upituser="SELECT * FROM brus";
+
+                $rezupituser=$conn->query($upituser)or die("los upit");?>
+                    <div class="form-group">
+                        <div class="btn-group">
+                          <label for="">Körbchen grösse </label>
+                        <select class="form-control" name="">
+                        <?php while($r=mysqli_fetch_array($rezupituser)){
+                          echo "<option value='{$r['id_brus']}'>".$r['naziv_brus']."</option>";
+                        } ?>
+                        </select>
+                        </div>
+                    </div>
+                    <?php $upituser="SELECT * FROM kome_se_pojavljuje";
+
+                $rezupituser=$conn->query($upituser)or die("los upit");?>
+                    <div class="form-group">
+                        <div class="btn-group">
+                          <label for="">Wer kann mich sehen? </label>
+                        <select class="form-control" name="">
+                        <?php while($r=mysqli_fetch_array($rezupituser)){
+                          echo "<option value='{$r['id_kome_pojava']}'>".$r['naziv_pojava']."</option>";
+                        } ?>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="">Meine Website</label>
+                        <input type="text" class="form-control" id="reg_pass" placeholder="www.sexchange.ch">
+                    </div>
+                    <h4>Location Treffen wo</h4>
                           <div class="form-group">
-                              <input type="email" class="form-control" id="reg_email" placeholder="Email">
-                          </div>
-                          <div class="form-group">
-                              <input type="text" class="form-control" id="reg_first" placeholder="Full Name">
-                          </div>
-                          <div class="form-group">
-                              <input type="text" class="form-control" id="reg_user" placeholder="Username">
-                          </div>
-                          <div class="form-group">
+                            <label for="">Adresse</label>
                               <input type="password" class="form-control" id="reg_pass" placeholder="Password">
                           </div>
                           <div class="form-group">
-                              <div class="btn-group">
-                                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                  <span data-bind="label">Gender</span>&nbsp;<span class="arrow_carrot-down"><i class="fa fa-sort-asc" aria-hidden="true"></i><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
-                                  </button>
-                                  <ul class="dropdown-menu" role="menu">
-                                      <li><a href="#">Male</a></li>
-                                      <li><a href="#">Female</a></li>
-                                  </ul>
-                              </div>
+                            <label for="">Name der Location</label>
+                              <input type="password" class="form-control" id="reg_pass" placeholder="Password">
                           </div>
+
+                          <?php $upituser="SELECT * FROM sredjenost";
+
+                      $rezupituser=$conn->query($upituser)or die("los upit");?>
                           <div class="form-group">
-                              <div class="datepicker">
-                                  <input type='text' class="form-control datetimepicker4" placeholder="Birthday" />
-                                  <span class="add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                              </div>
+                              <div class="btn-group">
+                                <label for="">Ist die Location eingerichtet? </label>
+                              <select class="form-control" name="">
+                              <?php while($r=mysqli_fetch_array($rezupituser)){
+                                echo "<option value='{$r['id_sredjenost']}'>".$r['sredjenost']."</option>";
+                              } ?>
+                              </select>
+                              </div></div>
                           </div>
                           <div class="reg_chose form-group">
                               <div class="reg_check_box">
@@ -234,7 +359,7 @@
                               <button type="submit" value="LogIn" class="btn form-control login_btn">Register</button>
                           </div>
                       </form>
-                      <img class="mfp-close" src="img/close-btn.png" alt="">
+
                   </div>
               </div>
 
