@@ -34,9 +34,9 @@
         <link href="css/style.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
         
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+       <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
        
-        <script src="js/map-custome.js"></script>
+        <script src="js/map-custome.js"></script>-->
         
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -63,37 +63,35 @@
         <!--================Slider Reg Area =================-->
             <?php include('parts/slider.php'); ?>
         <!--================End Slider Reg Area =================-->
-        
-        <!--================Welcome Area =================-->
-        <?php include('parts/welcome_area.php'); ?>
-        <!--================End Welcome Area =================-->
-        
+          
+        <!--================Register Members slider Area =================-->
+             <?php include('parts/members_slider.php'); ?>
+        <!--================End Register Members  slider Area =================-->
+
         <!--================Download Area =================-->
-        <?php include('parts/download_area.php'); ?>
+            <?php include('parts/download_area.php'); ?>
         <!--================End Download Area =================-->
         
         <!--================Find Your Soul Area =================-->
-         <?php include('parts/find_your_soul_area.php'); ?>
+            <?php include('parts/find_your_soul_area.php'); ?>
         <!--================End Find Your Soul Area =================-->
         
         <!--================Video Area =================-->
-        <?php include('parts/video_area.php'); ?>
+            <?php include('parts/video_area.php'); ?>
         <!--================End Video Area =================-->
         
         <!--================Testimonials Area =================-->
-       <?php include('parts/testimonials.php'); ?>
+            <?php include('parts/testimonials.php'); ?>
         <!--================End Testimonials Area =================-->
         
         <!--================Blog slider Area =================-->
-        <?php include('parts/blog_area.php'); ?>
+             <?php include('parts/blog_area.php'); ?>
         <!--================End Blog slider Area =================-->
         
-        <!--================Register Members slider Area =================-->
-        <?php include('parts/members_slider.php'); ?>
-        <!--================End Register Members  slider Area =================-->
+        
         
         <!--================Map Area =================-->
-        <?php include('parts/map.php'); ?>
+            <?php //include('parts/map.php'); ?>
         <!--================End Map Area =================-->
         
         <!--================Footer Area =================-->

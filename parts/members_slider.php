@@ -46,5 +46,13 @@
                         <h5>25 years old</h5>
                     </div>
                 </div>
+                
+            </div>
+            <div class="container mt-35">
+                <div class="row">
+                    <div class="col-xs-12 text-center ">
+                        <a href="#" role='button' class='btn btn-lg btn-danger'>See more profiles</a>
+                    </div>
+                </div>
             </div>
         </section>
