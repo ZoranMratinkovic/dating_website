@@ -34,8 +34,11 @@
         <link href="css/style.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
 
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> 2a4da23b18d9ef95468d8d97431c685d3db4e223
        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 
         <script src="js/map-custome.js"></script>-->
