@@ -120,6 +120,11 @@ Table of Content:
   background-color:#e74c3c;
   margin-top:15px;
 }
+.dugmeSearch:hover{
+  background-color: #fff!important;
+  color:#e74c3c!important;
+  border:1px solid #e74c3c;
+}
 /*Obrisati posle ove klase jer ces da smanjis stvarno slike*/
 /*Our code end*/
 
