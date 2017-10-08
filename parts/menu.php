@@ -27,11 +27,14 @@
                   				<ul class="dropdown-menu megamenu row backg">
                   					<li class="col-sm-12">
                   						  <ul>
-                      <?php $upitcat="SELECT * FROM kategorije";
-                      $rezupituser=$conn->query($upitcat)or die("los upit");;
-                      while($r1=mysqli_fetch_array($rezupituser)){
-                        echo "<a href='#' class='nothing'><li style='width:20%'>".$r1['kategorija']."</li></a>";
-                      }
+                                  <?php $upitcat="SELECT * FROM kategorije ORDER BY kategorija";
+
+                                  $rezupituser=$conn->query($upitcat)or die("los upit");;
+
+                                  while($r1=mysqli_fetch_array($rezupituser))
+                                  {
+                                    echo "<a href='members1.php?category={$r1['id_kat']}' class='nothing'><li style='width:20%'>".$r1['kategorija']."</li></a>";
+                                  }
                              ?>
                   						  </ul>
                   					</li>

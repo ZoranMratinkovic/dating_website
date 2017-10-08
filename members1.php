@@ -60,7 +60,7 @@
             <div class="container">
                 <div class="banner_content">
                     <h3 title="Blog"><img class="left_img" src="img/banner/t-left-img.png" alt="">Blog<img class="right_img" src="img/banner/t-right-img.png" alt=""></h3>
-                    <a href="index.html">Home</a>
+                    <a href="index.php">Home</a>
                     <a href="blog.html">Blog</a>
                     <a href="blog.html">Blog Full Width</a>
                 </div>
@@ -75,207 +75,30 @@
                     <div class="col-md-9 right_side">
                         <div class="row">
                             <div class="blog_grid_inner">
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="blog_grid_item">
-                                        <div class="blog_grid_img">
-                                            <img src="img/blog/blog-grid/blog-grid-1.jpg" alt="">
-                                            <div class="blog_share_area">
-                                                <a href="#"><i class="mdi mdi-comment-multiple-outline"></i>16</a>
-                                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i>95</a>
-                                                <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i>Share</a>
-                                            </div>
-                                        </div>
-                                        <div class="blog_grid_content">
-                                            <h3>Your Blog title here</h3>
-                                            <div class="blog_grid_date">
-                                                <a href="#">By David</a>
-                                                <a href="#">03 Sep, 2016</a>
-                                                <a href="#">Dating</a>
-                                            </div>
-                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                            <a href="#">Read More <i class="fa fa-angle-double-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="blog_grid_item">
-                                        <div class="blog_grid_img">
-                                            <img src="img/blog/blog-grid/blog-grid-2.jpg" alt="">
-                                            <div class="blog_share_area">
-                                                <a href="#"><i class="mdi mdi-comment-multiple-outline"></i>16</a>
-                                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i>95</a>
-                                                <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i>Share</a>
-                                            </div>
-                                        </div>
-                                        <div class="blog_grid_content">
-                                            <h3>Your Blog title here</h3>
-                                            <div class="blog_grid_date">
-                                                <a href="#">By David</a>
-                                                <a href="#">03 Sep, 2016</a>
-                                                <a href="#">Dating</a>
-                                            </div>
-                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                            <a href="#">Read More <i class="fa fa-angle-double-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="blog_grid_item">
-                                        <div class="blog_grid_img">
-                                            <img src="img/blog/blog-grid/blog-grid-3.jpg" alt="">
-                                            <div class="blog_share_area">
-                                                <a href="#"><i class="mdi mdi-comment-multiple-outline"></i>16</a>
-                                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i>95</a>
-                                                <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i>Share</a>
-                                            </div>
-                                        </div>
-                                        <div class="blog_grid_content">
-                                            <h3>Your Blog title here</h3>
-                                            <div class="blog_grid_date">
-                                                <a href="#">By David</a>
-                                                <a href="#">03 Sep, 2016</a>
-                                                <a href="#">Dating</a>
-                                            </div>
-                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                            <a href="#">Read More <i class="fa fa-angle-double-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="blog_grid_item">
-                                        <div class="blog_grid_img">
-                                            <img src="img/blog/blog-grid/blog-grid-4.jpg" alt="">
-                                            <div class="blog_share_area">
-                                                <a href="#"><i class="mdi mdi-comment-multiple-outline"></i>16</a>
-                                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i>95</a>
-                                                <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i>Share</a>
-                                            </div>
-                                        </div>
-                                        <div class="blog_grid_content">
-                                            <h3>Your Blog title here</h3>
-                                            <div class="blog_grid_date">
-                                                <a href="#">By David</a>
-                                                <a href="#">03 Sep, 2016</a>
-                                                <a href="#">Dating</a>
-                                            </div>
-                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                            <a href="#">Read More <i class="fa fa-angle-double-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="blog_grid_item">
-                                        <div class="blog_grid_img">
-                                            <img src="img/blog/blog-grid/blog-grid-5.jpg" alt="">
-                                            <div class="blog_share_area">
-                                                <a href="#"><i class="mdi mdi-comment-multiple-outline"></i>16</a>
-                                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i>95</a>
-                                                <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i>Share</a>
-                                            </div>
-                                        </div>
-                                        <div class="blog_grid_content">
-                                            <h3>Your Blog title here</h3>
-                                            <div class="blog_grid_date">
-                                                <a href="#">By David</a>
-                                                <a href="#">03 Sep, 2016</a>
-                                                <a href="#">Dating</a>
-                                            </div>
-                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                            <a href="#">Read More <i class="fa fa-angle-double-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="blog_grid_item">
-                                        <div class="blog_grid_img">
-                                            <img src="img/blog/blog-grid/blog-grid-6.jpg" alt="">
-                                            <div class="blog_share_area">
-                                                <a href="#"><i class="mdi mdi-comment-multiple-outline"></i>16</a>
-                                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i>95</a>
-                                                <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i>Share</a>
-                                            </div>
-                                        </div>
-                                        <div class="blog_grid_content">
-                                            <h3>Your Blog title here</h3>
-                                            <div class="blog_grid_date">
-                                                <a href="#">By David</a>
-                                                <a href="#">03 Sep, 2016</a>
-                                                <a href="#">Dating</a>
-                                            </div>
-                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                            <a href="#">Read More <i class="fa fa-angle-double-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="blog_grid_item">
-                                        <div class="blog_grid_img">
-                                            <img src="img/blog/blog-grid/blog-grid-10.jpg" alt="">
-                                            <div class="blog_share_area">
-                                                <a href="#"><i class="mdi mdi-comment-multiple-outline"></i>16</a>
-                                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i>95</a>
-                                                <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i>Share</a>
-                                            </div>
-                                        </div>
-                                        <div class="blog_grid_content">
-                                            <h3>Your Blog title here</h3>
-                                            <div class="blog_grid_date">
-                                                <a href="#">By David</a>
-                                                <a href="#">03 Sep, 2016</a>
-                                                <a href="#">Dating</a>
-                                            </div>
-                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                            <a href="#">Read More <i class="fa fa-angle-double-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="blog_grid_item">
-                                        <div class="blog_grid_img">
-                                            <img src="img/blog/blog-grid/blog-grid-11.jpg" alt="">
-                                            <div class="blog_share_area">
-                                                <a href="#"><i class="mdi mdi-comment-multiple-outline"></i>16</a>
-                                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i>95</a>
-                                                <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i>Share</a>
-                                            </div>
-                                        </div>
-                                        <div class="blog_grid_content">
-                                            <h3>Your Blog title here</h3>
-                                            <div class="blog_grid_date">
-                                                <a href="#">By David</a>
-                                                <a href="#">03 Sep, 2016</a>
-                                                <a href="#">Dating</a>
-                                            </div>
-                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                            <a href="#">Read More <i class="fa fa-angle-double-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="blog_grid_item">
-                                        <div class="blog_grid_img">
-                                            <img src="img/blog/blog-grid/blog-grid-12.jpg" alt="">
-                                            <div class="blog_share_area">
-                                                <a href="#"><i class="mdi mdi-comment-multiple-outline"></i>16</a>
-                                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i>95</a>
-                                                <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i>Share</a>
-                                            </div>
-                                        </div>
-                                        <div class="blog_grid_content">
-                                            <h3>Your Blog title here</h3>
-                                            <div class="blog_grid_date">
-                                                <a href="#">By David</a>
-                                                <a href="#">03 Sep, 2016</a>
-                                                <a href="#">Dating</a>
-                                            </div>
-                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less like readable English. </p>
-                                            <a href="#">Read More <i class="fa fa-angle-double-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
+                             <?php  
+                                include('functions.php');
+                                if(isset($_GET['category']) && preg_match("/^[0-9]{1,2}$/",$_GET['category']))
+                                {
+                                    $data = (int)$_GET['category'];
+                                    $data = trim($data);
+                                    $data = stripslashes($data);
+                                    $data = htmlspecialchars($data);
+                                    
+                                    show_specific_category($data);
+                                }
+                                else
+                                {
+                                     all_members_with_desc();
+                                //lists all members
+                                }
+                               
+                             ?>
+                                
+                                
                             </div>
                         </div>
-                        <div class="pagination_area">
+                       
+                        <div class="pagination_area " id='Paginacija'>
                             <a class="prev" href="#">Previous</a>
                             <a class="arrow_left" href="#"><i class="fa fa-angle-left"></i></a>
                             <a class="arrow_right" href="#"><i class="fa fa-angle-right"></i></a>

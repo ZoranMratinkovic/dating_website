@@ -11,25 +11,30 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="img/logo-2.png" alt=""></a>
+                    <a class="navbar-brand" href="index.php"><img src="img/logo-2.png" alt=""></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="dropdown submenu active">
-                            <a href="index.php">Home</a>
+                            
+                                <a href="index.php">Home</a>
+                            
                         </li>
                         <li class="dropdown menu-large">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
-                                <ul class="dropdown-menu megamenu row">
+                                <ul class="dropdown-menu megamenu row backg">
                                     <li class="col-sm-12">
                                           <ul>
-                      <?php $upitcat="SELECT * FROM kategorije";
-                      $rezupituser=$conn->query($upitcat)or die("los upit");;
-                      while($r1=mysqli_fetch_array($rezupituser)){
-                        echo "<li style='width:10%'>".$r1['kategorija']."</li>";
-                      }
+                                  <?php $upitcat="SELECT * FROM kategorije ORDER BY kategorija";
+
+                                  $rezupituser=$conn->query($upitcat)or die("los upit");;
+
+                                  while($r1=mysqli_fetch_array($rezupituser))
+                                  {
+                                    echo "<a href='members1.php?category={$r1['id_kat']}' class='nothing'><li style='width:20%'>".$r1['kategorija']."</li></a>";
+                                  }
                              ?>
                                           </ul>
                                     </li>
