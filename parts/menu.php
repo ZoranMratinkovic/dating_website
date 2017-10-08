@@ -27,13 +27,13 @@
                         </li>
                         <li class="dropdown menu-large">
                   				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
-                  				<ul class="dropdown-menu megamenu row">
+                  				<ul class="dropdown-menu megamenu row backg">
                   					<li class="col-sm-12">
                   						  <ul>
                       <?php $upitcat="SELECT * FROM kategorije";
                       $rezupituser=$conn->query($upitcat)or die("los upit");;
                       while($r1=mysqli_fetch_array($rezupituser)){
-                        echo "<li style='width:10%'>".$r1['kategorija']."</li>";
+                        echo "<a href='#' class='nothing'><li style='width:20%'>".$r1['kategorija']."</li></a>";
                       }
                              ?>
                   						  </ul>
