@@ -34,16 +34,6 @@
         <link href="css/style.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
 
-        <script type="text/javascript">
-        jQuery(document).ready(function(){
-            $(".dropdown").hover(
-                function() { $('.dropdown-menu', this).stop().fadeIn("fast");
-                },
-                function() { $('.dropdown-menu', this).stop().fadeOut("fast");
-            });
-        });
-        </script>
-
        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 
         <script src="js/map-custome.js"></script>-->

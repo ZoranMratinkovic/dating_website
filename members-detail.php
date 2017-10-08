@@ -47,180 +47,81 @@
         {
             /*Ne zaboravi da proveris id girl*/
             include('connectionFile/connection.php');
+            $id_girl = (int)$_GET['id_girl'];
+         
+           $sqlGirl = "SELECT * FROM user_oglas ug INNER JOIN boja_kose bk ON ug.id_boja_kose = bk.id_boja_kose INNER JOIN boja_ociju bo ON ug.id_boja_ociju = bo.id_boja_ociju INNER JOIN brak_status bs ON ug.id_brak_status = bs.id_brak_status INNER JOIN brus br ON ug.id_brus = br.id_brus INNER JOIN drzava drz ON ug.id_drzava = drz.id_drzava INNER JOIN duzina_kose dk ON ug.id_duz_kose=dk.id_duz_kose INNER JOIN gradja g on ug.id_gradja = g.id_gradja INNER JOIN kanton k ON ug.id_kanton=k.id_kanton INNER JOIN user_kat uk on ug.id_user = uk.id_user INNER JOIN kategorije kat on uk.id_kat = kat.id_kat INNER JOIN kome_se_pojavljuje kms ON ug.id_kome_pojavljuje = kms.id_kome_pojavljuje INNER JOIN njegova_uloga nju ON ug.id_njeg_uloga = nju.id_njeg_uloga INNER JOIN nocare_sociva naocs ON ug.id_naocare_sociva = naocs.id_naocare_sociva INNER JOIN oberweite ober ON ug.id_oberweite = ober.id_oberweite INNER JOIN poreklo po ON ug.id_rasa = po.id_poreklo INNER JOIN sex_orj sex ON ug.id_sex_orj = sex.id_sexorj INNER JOIN sredjenost sredj ON ug.id_sredjenost = sredj.id_sredjenost INNER JOIN status_gold sg ON ug.id_status_gold = sg.id_status INNER JOIN tip tp ON ug.id_tip = tp.id_tip INNER JOIN trazim traz ON ug.id_trazim = traz.id_trazim INNER JOIN tvoja_uloga tu ON ug.id_tvoja_uloga = tu.id_tvoja_uloga WHERE ug.id_user =? GROUP BY uk.id_user";
+           
+           
 
-            $sqlGirl = "SELECT * FROM user_oglas ug INNER JOIN boja_kose bk ON ug.i";
+            $stm = $conn->prepare($sqlGirl);
+            $stm->bind_param("i",$id_girl);
+            $stm->execute();
+            if($stm)
+            {
+                if($rez=$stm->get_result())
+                { 
+                    while($row=$rez->fetch_assoc())
+                    {
+                         $name = $row['umetnicko_ime'];
+                         $datum = $row['datum'];
+                         $boja_kose = $row['boja_kose'];
+                         $boja_ociju = $row['boja_ociju'];
+                         $brak = $row['brak_status'];
+                         $brus = $row['naziv_brus'];
+                         $drzava = $row['naziv'];
+                         $duz_kose = $row['duzina_kose'];
+                         $gradja = $row['naziv_gradja'];
+                         $kanton = $row['naziv_kanton'];
+                         $kategorija = $row['kategorija'];
+                         $ko_vidi = $row['naziv_pojava'];
+                         $njeg_uloga = $row['naziv_njeg_uloga'];
+                         $naoc = $row['naziv_naoc_soc'];
+                         $oberweite = $row['oberweite'];
+                         $poreklo = $row['naziv_poreklo'];
+                         $sex_orj = $row['naziv_sexorj'];
+                         $sredjenost = $row['sredjenost'];
+                         $status = $row['status'];
+                         $tip = $row['naziv_tip'];
+                         $trazim = $row['Naziv'];
+                         $tvoja_ul = $row['naziv_tvoja_uloga'];
+                         $email = $row['email'];
+                         $title = $row['title'];
+                         $opis = $row['opis'];
+                         $visina = $row['visina'];
+                         $ulica = $row['ulica'];
+                         $platz = $row['platz'];
+                         $tel = $row['tel'];
+                         $interfon = $row['interfon'];
+                         $link = $row['link'];
+                         $video = $row['video'];
+                         $slika = $row['profilna_slika'];
+                         $studio_name = $row['studio_name'];
+                         $location_name = $row['location_name'];
+                    }
+
+                }
+            }
+            else
+            {
+                echo "<script>alert('nije izvrseno');</script>";
+            }
         }
         else
         {
             echo "<script>alert('nije je');</script>";
         }
      ?>
-       <div class="login_form_inner zoom-anim-dialog mfp-hide" id="small-dialog">
-           <h4>User Login</h4>
-           <form>
-               <input type="text" placeholder="Username">
-               <input type="password" placeholder="Password">
-               <div class="login_btn_area">
-                   <button type="submit" value="LogIn" class="btn form-control login_btn">LogIn</button>
-                   <div class="login_social">
-                       <h5>Login With</h5>
-                       <ul>
-                           <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                           <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                       </ul>
-                   </div>
-               </div>
-           </form>
-           <img class="mfp-close" src="img/close-btn.png" alt="">
-        </div>
-       
-        <div class="register_form_inner zoom-anim-dialog mfp-hide" id="register_form">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="registration_man">
-                        <img src="img/Registration_man.png" alt="">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="registration_form_s">
-                        <h4>Registration</h4>
-                        <form>
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="reg_email" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="reg_first" placeholder="Full Name">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="reg_user" placeholder="Username">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" id="reg_pass" placeholder="Password">
-                            </div>
-                            <div class="form-group">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                    <span data-bind="label">Gender</span>&nbsp;<span class="arrow_carrot-down"><i class="fa fa-sort-asc" aria-hidden="true"></i><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Male</a></li>
-                                        <li><a href="#">Female</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="datepicker">
-                                    <input type='text' class="form-control datetimepicker4" placeholder="Birthday" />
-                                    <span class="add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                                </div>
-                            </div>
-                            <div class="reg_chose form-group">
-                                <div class="reg_check_box">
-                                    <input type="radio" id="s-option" name="selector">
-                                    <label for="s-option">I`m Not Robot</label>
-                                    <div class="check"><div class="inside"></div></div>
-                                </div>
-                                <button type="submit" value="LogIn" class="btn form-control login_btn">Register</button>
-                            </div>
-                        </form>
-                        <img class="mfp-close" src="img/close-btn.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-       
-        <!--================Frist Main hader Area =================-->
-        <header class="header_menu_area">
-            <nav class="navbar navbar-default">
-                <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt=""></a>
-                </div>
+        
+        <!--================ login.php =================-->
+            <?php include('parts/login.php'); ?>
+       <!--================ login.php =================-->
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown submenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="index.php">Home 01</a></li>
-                                <li><a href="index-2.html">Home 02</a></li>
-                                <li><a href="index-3.html">Home 03</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown submenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
-                                <li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>
-                                <li><a href="single-blog-fullwidth.html">Blog Single Fullwidth</a></li>
-                                <li><a href="single-blog-left-sidebar.html">Blog Single left sidebar</a></li>
-                                <li><a href="single-blog-right-sidebar.html">Blog Single right sidebar</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown submenu active">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="community.html">Community</a></li>
-                                <li><a href="members.html">Members</a></li>
-                                <li><a href="members-detail.html">Members Details</a></li>
-                                <li><a href="discussions.html">Discussions</a></li>
-                                <li><a href="forums.html">Forums</a></li>
-                                <li><a href="groups.html">Groups</a></li>
-                                <li><a href="matches.html">Matches</a></li>
-                                <li><a href="quick.html">Quick</a></li>
-                                <li><a href="search.html">Search</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown submenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="shop-left.html">Shop Left</a></li>
-                                <li><a href="shop-right.html">Shop Right</a></li>
-                                <li><a href="product-details.html">Product Details</a></li>
-                                <li><a href="shop-cart.html">Shop Cart</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown submenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="stories.html">Stories</a></li>
-                                <li><a href="why-us.html">Why us</a></li>
-                                <li><a href="404.html">Error</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="contact.html">Contact us</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a class="popup-with-zoom-anim" href="#small-dialog"><i class="mdi mdi-key-variant"></i>Login</a></li>
-                        <li><a href="#register_form" class="popup-with-zoom-anim"><i class="fa fa-user-plus"></i>Registration</a></li>
-                        <li class="flag_drop">
-                            <div class="selector">
-                                <select class="language_drop" name="countries" id="countries" style="width:300px;">
-                                  <option value='yt' data-image="img/country-aus.png" data-imagecss="flag yt" data-title="English">English</option>
-                                  <option value='yu' data-image="img/country-bang.png" data-imagecss="flag yu" data-title="Bangladesh">Bangla</option>
-                                  <option value='yt' data-image="img/country-aus.png" data-imagecss="flag yt" data-title="English">English</option>
-                                  <option value='yu' data-image="img/country-bang.png" data-imagecss="flag yu" data-title="Bangladesh">Bangla</option>
-                                </select>
-                            </div>
-                        </li>
-                    </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav>
-        </header>
+        <!--================ Registration.php =================-->
+            <?php include('parts/registration.php'); ?>
+        <!--================ Registration.php =================-->
+
+        <!--================Frist Main hader Area =================-->
+            <?php include('parts/menu.php'); ?>
         <!--================Frist Main hader Area =================-->
         
         <!--================Banner Area =================-->
@@ -229,31 +130,13 @@
                 <div class="container">
                     <div class="profile_content">
                         <div class="user_img">
-                            <img class="img-circle" src="img/members/single_members.png" alt="">
+                            <img class="profilnaSlika img-circle" src="<?php echo $slika; ?>" alt="">
                         </div>
                         <div class="user_name">
-                            <h3><?php echo $_POST['profil']; ?></h3>
-                            <h4>26 years old</h4>
+                            <h3><?php echo $name; ?></h3>
                             <ul>
-                                <li><a href="#">Frace, Paris</a></li>
-                                <li class="dropdown extara">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">80% Match</a>
-                                    <ul class="dropdown-menu">
-                                       <li>Match</li>
-                                        <li>
-                                            <div class="circle1">
-                                                <strong></strong>
-                                            </div>
-                                            <h4>Match</h4>
-                                        </li>
-                                        <li>
-                                            <div class="circle2">
-                                                <strong></strong>
-                                            </div>
-                                            <h4>Enemy</h4>
-                                        </li>
-                                    </ul>
-                                </li>
+                                <li><a href="#"><?php echo $drzava; ?>, <?php echo $kanton; ?></a></li>
+                                <li><a href="#"><?php echo $brak; ?></a></li>
                             </ul>
                         </div>
                         <div class="right_side_content">
@@ -284,15 +167,13 @@
                     <div class="col-md-9">
                         <div class="members_profile_inners">
                             <ul class="nav nav-tabs profile_menu" role="tablist">
-                                <li role="presentation"><a href="#activity" aria-controls="activity" role="tab" data-toggle="tab">Activity</a></li>
-                                <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-                                <li role="presentation"><a href="#sites" aria-controls="sites" role="tab" data-toggle="tab">Sites</a></li>
-                                <li role="presentation"><a href="#friend" aria-controls="friend" role="tab" data-toggle="tab">Friend (260)</a></li>
-                                <li role="presentation"><a href="#group" aria-controls="group" role="tab" data-toggle="tab">Groups (3)</a></li>
-                                <li role="presentation"><a href="#forums" aria-controls="forums" role="tab" data-toggle="tab">Forums</a></li>
+                                <li role="presentation" class="active"><a href="#activity" aria-controls="activity" role="tab" data-toggle="tab">Personal Information</a></li>
+                                <li role="presentation" ><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Activity</a></li>
+                                <li role="presentation"><a href="#sites" aria-controls="sites" role="tab" data-toggle="tab">Contact Information</a></li>
+                               
                             </ul>
                             <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane fade" id="activity">
+                                <div role="tabpanel" class="tab-pane active fade in" id="activity">
                                     <div class="profile_list">
                                         <ul>
                                             <li><a href="#">Gender</a></li>
@@ -302,264 +183,105 @@
                                             <li><a href="#">Birthday</a></li>
                                             <li><a href="#">Relationship</a></li>
                                             <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
+                                            <li><a href="#">Race</a></li>
                                         </ul>
                                         <ul>
-                                            <li><a href="#">Female</a></li>
+                                            <li><a href="#"><?php echo $tip; ?></a></li>
                                             <li><a href="#">26 years old</a></li>
-                                            <li><a href="#">France</a></li>
-                                            <li><a href="#">Paris</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li>
+                                            <li><a href="#"><?php echo $drzava; ?></a></li>
+                                            <li><a href="#"><?php echo $kanton; ?></a></li>
+                                            <li><a href="#"><?php echo $datum; ?></a></li>
+                                            <li><a href="#"><?php echo $brak; ?></a></li>
+                                            <li><a href="#"><?php echo $trazim; ?></a></li>
+                                            <li><a href="#"><?php echo $poreklo; ?></a></li>
                                         </ul>
                                         <ul>
-                                            <li><a href="#">Education</a></li>
-                                            <li><a href="#">Know</a></li>
-                                            <li><a href="#">Interests</a></li>
-                                            <li><a href="#">Smoking</a></li>
                                             <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
+                                            <li><a href="#">Hair Color</a></li>
+                                            <li><a href="#">Hair Length</a></li>
+                                            <li><a href="#">Bra Size</a></li>
+                                            <li><a href="#">Oberweite</a></li>
+                                            <li><a href="#">Height</a></li>
+                                            <li><a href="#">Shape</a></li>
+                                            <li><a href="#">Glasses</a></li>
                                         </ul>
                                         <ul>
-                                            <li><a href="#">Graduate Degree</a></li>
-                                            <li><a href="#">French, Russian</a></li>
-                                            <li><a href="#">Billiards</a></li>
-                                            <li><a href="#">No</a></li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li>
+                                            <li><a href="#"><?php echo $boja_ociju; ?></a></li>
+                                            <li><a href="#"><?php echo $boja_kose; ?></a></li>
+                                            <li><a href="#"><?php echo $duz_kose; ?></a></li>
+                                            <li><a href="#"><?php echo $brus; ?></a></li>
+                                            <li><a href="#"><?php echo $oberweite; ?></a></li>
+                                            <li><a href="#"><?php echo $visina; ?></a></li>
+                                            <li><a href="#"><?php echo $gradja; ?></a></li>
+                                            <li><a href="#"><?php echo $naoc; ?></a></li>
                                         </ul>
                                     </div>
                                 </div>
-                                <div role="tabpanel" class="tab-pane active fade in" id="profile">
+                                <div role="tabpanel" class="tab-pane fade" id="profile">
                                     <div class="profile_list">
                                         <ul>
-                                            <li><a href="#">Gender</a></li>
-                                            <li><a href="#">Age</a></li>
-                                            <li><a href="#">Country</a></li>
-                                            <li><a href="#">City</a></li>
-                                            <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
+                                            <li><a href="#">Sex Orientation</a></li>
+                                            <li><a href="#">My Role</a></li>
+                                            <li><a href="#">Partner's Role</a></li>
+                                            <li><a href="#">Services</a></li>
+                                            
                                         </ul>
                                         <ul>
-                                            <li><a href="#">Female</a></li>
-                                            <li><a href="#">26 years old</a></li>
-                                            <li><a href="#">France</a></li>
-                                            <li><a href="#">Paris</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li>
+                                            <li><a href="#"><?php echo $sex_orj; ?></a></li>
+                                            <li><a href="#"><?php echo $tvoja_ul; ?></a></li>
+                                            <li><a href="#"><?php echo $njeg_uloga; ?></a></li>
+                                            <li><a href="#"><?php echo $kategorija; ?></a></li>
+                                           
                                         </ul>
-                                        <ul>
-                                            <li><a href="#">Education</a></li>
-                                            <li><a href="#">Know</a></li>
-                                            <li><a href="#">Interests</a></li>
-                                            <li><a href="#">Smoking</a></li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Graduate Degree</a></li>
-                                            <li><a href="#">French, Russian</a></li>
-                                            <li><a href="#">Billiards</a></li>
-                                            <li><a href="#">No</a></li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li>
-                                        </ul>
+                                       
                                     </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane fade" id="sites">
                                     <div class="profile_list">
                                         <ul>
-                                            <li><a href="#">Gender</a></li>
-                                            <li><a href="#">Age</a></li>
-                                            <li><a href="#">Country</a></li>
+                                            <li><a href="#">State</a></li>
                                             <li><a href="#">City</a></li>
-                                            <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
+                                            <li><a href="#">Studio Name</a></li>
+                                            <li><a href="#">Location Name</a></li>
+                                            <li><a href="#">Appartment</a></li>
+                                            <li><a href="#">Street Address</a></li>
+                                            
                                         </ul>
                                         <ul>
-                                            <li><a href="#">Female</a></li>
-                                            <li><a href="#">26 years old</a></li>
-                                            <li><a href="#">France</a></li>
-                                            <li><a href="#">Paris</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li>
+                                            <li><a href="#"><?php echo $drzava; ?></a></li>
+                                            <li><a href="#"><?php echo $kanton; ?></a></li>
+                                            <li><a href="#"><?php echo $studio_name; ?></a></li>
+                                            <li><a href="#"><?php echo $location_name; ?></a></li>
+                                            <li><a href="#"><?php echo $interfon; ?></a></li>
+                                            <li><a href="#"><?php echo $ulica; ?></a></li>
+                                            
                                         </ul>
                                         <ul>
-                                            <li><a href="#">Education</a></li>
-                                            <li><a href="#">Know</a></li>
-                                            <li><a href="#">Interests</a></li>
-                                            <li><a href="#">Smoking</a></li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
+                                             <li><a href="#">Sredjenost</a></li>
+                                            <li><a href="#">Platz</a></li>
+                                            <li><a href="#">Name</a></li>
+                                            <li><a href="#">Email</a></li>
+                                            <li><a href="#">Phone Number</a></li>
+                                            <li><a href="#">Website</a></li>
+                                           
                                         </ul>
                                         <ul>
-                                            <li><a href="#">Graduate Degree</a></li>
-                                            <li><a href="#">French, Russian</a></li>
-                                            <li><a href="#">Billiards</a></li>
-                                            <li><a href="#">No</a></li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li>
+                                            <li><a href="#"><?php echo $sredjenost; ?></a></li>
+                                            <li><a href="#"><?php echo $platz; ?></a></li>
+                                            <li><a href="#"><?php echo $name; ?></a></li>
+                                            <li><a href="#"><?php echo $email; ?></a></li>
+                                            <li><a href="#"><?php echo $tel; ?></a></li>
+                                            <li><a href="#"><?php echo $link; ?></a></li>
+                                            
                                         </ul>
                                     </div>
                                 </div>
-                                <div role="tabpanel" class="tab-pane fade" id="friend">
-                                    <div class="profile_list">
-                                        <ul>
-                                            <li><a href="#">Gender</a></li>
-                                            <li><a href="#">Age</a></li>
-                                            <li><a href="#">Country</a></li>
-                                            <li><a href="#">City</a></li>
-                                            <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Female</a></li>
-                                            <li><a href="#">26 years old</a></li>
-                                            <li><a href="#">France</a></li>
-                                            <li><a href="#">Paris</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Education</a></li>
-                                            <li><a href="#">Know</a></li>
-                                            <li><a href="#">Interests</a></li>
-                                            <li><a href="#">Smoking</a></li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Graduate Degree</a></li>
-                                            <li><a href="#">French, Russian</a></li>
-                                            <li><a href="#">Billiards</a></li>
-                                            <li><a href="#">No</a></li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade" id="group">
-                                    <div class="profile_list">
-                                        <ul>
-                                            <li><a href="#">Gender</a></li>
-                                            <li><a href="#">Age</a></li>
-                                            <li><a href="#">Country</a></li>
-                                            <li><a href="#">City</a></li>
-                                            <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Female</a></li>
-                                            <li><a href="#">26 years old</a></li>
-                                            <li><a href="#">France</a></li>
-                                            <li><a href="#">Paris</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Education</a></li>
-                                            <li><a href="#">Know</a></li>
-                                            <li><a href="#">Interests</a></li>
-                                            <li><a href="#">Smoking</a></li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Graduate Degree</a></li>
-                                            <li><a href="#">French, Russian</a></li>
-                                            <li><a href="#">Billiards</a></li>
-                                            <li><a href="#">No</a></li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade" id="forums">
-                                    <div class="profile_list">
-                                        <ul>
-                                            <li><a href="#">Gender</a></li>
-                                            <li><a href="#">Age</a></li>
-                                            <li><a href="#">Country</a></li>
-                                            <li><a href="#">City</a></li>
-                                            <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Female</a></li>
-                                            <li><a href="#">26 years old</a></li>
-                                            <li><a href="#">France</a></li>
-                                            <li><a href="#">Paris</a></li>
-                                            <li><a href="#">16 December 1990</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Education</a></li>
-                                            <li><a href="#">Know</a></li>
-                                            <li><a href="#">Interests</a></li>
-                                            <li><a href="#">Smoking</a></li>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Marital Status</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Work as</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#">Graduate Degree</a></li>
-                                            <li><a href="#">French, Russian</a></li>
-                                            <li><a href="#">Billiards</a></li>
-                                            <li><a href="#">No</a></li>
-                                            <li><a href="#">Brown</a></li>
-                                            <li><a href="#">Single</a></li>
-                                            <li><a href="#">Man</a></li>
-                                            <li><a href="#">Designer </a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                         
+
                             </div>
                             <div class="members_about_box">
                                 <h4>About me</h4>
-                                <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know extremely painful.</p>
+                                <p><?php echo $opis; ?></p>
                             </div>
                             <div class="members_about_box">
                                 <h4>Looking For</h4>

@@ -11,19 +11,16 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="img/logo-2.png" alt=""></a>
+                    <a class="navbar-brand" href="index.php"><img src="img/logo-2.png" alt=""></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="dropdown submenu active">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="index.php">Home</a></li>
-                                <li><a href="index-2.html">Home 02</a></li>
-                                <li><a href="index-3.html">Home 03</a></li>
-                            </ul>
+                            
+                                <a href="index.php">Home</a>
+                            
                         </li>
                         <li class="dropdown menu-large">
                   				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
@@ -42,30 +39,13 @@
                   				</ul>
 
                   			</li>
-                        <li class="dropdown submenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
-                                <li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>
-                                <li><a href="single-blog-fullwidth.html">Blog Single Fullwidth</a></li>
-                                <li><a href="single-blog-left-sidebar.html">Blog Single left sidebar</a></li>
-                                <li><a href="single-blog-right-sidebar.html">Blog Single right sidebar</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown submenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="community.html">Community</a></li>
-                                <li><a href="members.php">Members</a></li>
-                                <li><a href="members-detail.html">Members Details</a></li>
-                                <li><a href="discussions.html">Discussions</a></li>
-                                <li><a href="forums.html">Forums</a></li>
-                                <li><a href="groups.html">Groups</a></li>
-                                <li><a href="matches.html">Matches</a></li>
-                                <li><a href="quick.html">Quick</a></li>
-                                <li><a href="search.html">Search</a></li>
-                            </ul>
+                        
+                       
+                                <li><a href="members1.php">Members</a></li>
+                    
+
+                                <li><a href="members.php?all_members">Members 2</a></li>
+                
                         </li>
                         <li class="dropdown submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>

@@ -83,11 +83,32 @@ Table of Content:
 .black{
   background-color:#000!important;
 }
-/*Our code end*/
+/*Members list*/
 .members_profile{
   width: 172px!important;
   height: 257px!important;
 }
+.profilnaSlika
+{
+  width: 270px!important;
+  height: 270px!important;
+}
+.AllMembersPic{
+  width: 170px!important;
+  height: 170px!important;
+}
+.img-60x60{
+  width: 60px!important;
+  height: 60px!important;
+  padding-left: 0!important;
+}
+.img-slider{
+  height: 550px!important;
+  width: 550px!important;
+}
+/*Obrisati posle ove klase jer ces da smanjis stvarno slike*/
+/*Our code end*/
+
 ul {
   list-style: none;
   margin: 0px;
