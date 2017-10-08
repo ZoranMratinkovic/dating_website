@@ -432,7 +432,7 @@
         $website=$_POST['website'];
         $adresse_tref=$_POST['adresse_tref'];
         $name_tref=$_POST['location'];
-        $spremnost=$_POST['spremonst']
+        $spremnost=$_POST['spremonst'];
 
 
 
