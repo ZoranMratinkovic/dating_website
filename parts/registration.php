@@ -68,7 +68,6 @@ if(reime.test(ime))
 			greske.push('erorr');
 
 	}
-  if()
 
 
 
@@ -160,18 +159,3 @@ else {alert('ima greske!!!')}
                 </div>
             </div>
         </div>
-        <?php/*
-        if(isset($_REQUEST['registeru'])){
-        $email=$_POST['email'];
-        $fullname=$_POST['fullname'];
-        $username=$_POST['username'];
-        $password=$_POST['password'];
-        $password1=$_POST['password1'];
-        $geschlecht=$_POST['gender'];
-        $monat=$_REQUEST['monat'];
-        $tag=$_REQUEST['tag'];
-        $jahr=$_REQUEST['jahr'];
-          $upit="INSERT INTO user VALUES('','$email','$username','$password','$geschlecht',$tag,$monat,$jahr)";
-          $rezupit=$conn->query($upit)or die('losee');
-        }*/
-          ?>
