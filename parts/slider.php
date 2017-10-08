@@ -106,7 +106,7 @@
                                 data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
                                 data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"  
                                 data-start="1800" >
-                                <img src="img/slider-img/slider-item-1.png" alt="">
+                                <img class='img-slider2' src="img/slider-img/slider2.png" alt="">
                             </div>
                             <div class="tp-caption first_text" 
                                 data-width="none"

@@ -37,7 +37,8 @@
             <div class="container mt-35">
                 <div class="row">
                     <div class="col-xs-12 text-center ">
-                        <a href="members1.php" role='button' class='btn btn-lg btn-danger'>SEE ALL PROFILES</a>
+                        <a href="members1.php" role='button' class='btn btn-lg dugmeSearch'>SEE ALL PROFILES</a>
+
                     </div>
                 </div>
             </div>

@@ -57,7 +57,7 @@
         <!--================Frist Main hader Area =================-->
         
         <!--================Banner Area =================-->
-        <section class="banner_area">
+        <section class="banner_area profilSlika">
             <div class="container">
                 <div class="banner_content">
                     <h3 title="Blog"><img class="left_img" src="img/banner/t-left-img.png" alt="">Blog<img class="right_img" src="img/banner/t-right-img.png" alt=""></h3>
@@ -78,7 +78,7 @@
                             <div class="blog_grid_inner">
                              <?php  
                                 include('functions.php');
-                                if(isset($_GET['category']) && preg_match("/^[0-9]{1,2}$/",$_GET['category']))
+                                if(isset($_GET['category']) && preg_match("/^[0-9]{1,10}$/",$_GET['category']) && !isset($_POST['filterGirlsLeft']))
                                 {
                                     $data = (int)$_GET['category'];
                                     $data = trim($data);
@@ -86,11 +86,17 @@
                                     $data = htmlspecialchars($data);
                                     
                                     show_specific_category($data);
+                                    //list girls from category - menu
+                                }
+                                else if(isset($_POST['filterGirlsLeft']))
+                                {
+                                    //search form on the ledt
+                                    filter_girls_left();
                                 }
                                 else
                                 {
                                      all_members_with_desc();
-                                //lists all members
+                                    //lists all members
                                 }
                                
                              ?>
@@ -133,6 +139,7 @@
                                 </div>
 
                                 <select name='ddlSexOrj' id='ddlSexOrj' class='form-control'>
+                                   <option value="">Choose</option>
                                     <?php 
                                             include("connectionFile/connection.php");
                                             $query = "SELECT * FROM sex_orj";

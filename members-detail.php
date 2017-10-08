@@ -121,7 +121,7 @@
         <!--================ Registration.php =================-->
 
         <!--================Frist Main hader Area =================-->
-            <?php include('parts/menu.php'); ?>
+            <?php include('parts/menu_others.php'); ?>
         <!--================Frist Main hader Area =================-->
         
         <!--================Banner Area =================-->

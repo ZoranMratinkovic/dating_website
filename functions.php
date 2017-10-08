@@ -122,14 +122,91 @@ function show_specific_category($id_cat)
             else
             {
                         
-                        echo "<div class='alert alert-warning'>
-                            <strong>Warning!</strong> No results for that category!
+                        echo "<div class='alert alert-danger'>
+                            <h2>No results for that category!</h2>
                             </div>";
                         
             }
             
         }
     }
+
+}
+function filter_girls_left()
+{
+        include("connectionFile/connection.php");
+        
+        $sqlInv="SELECT uo.id_user,uo.title,uo.umetnicko_ime,uo.datum,uo.profilna_slika,uo.opis,k.naziv_kanton,bs.brak_status,kat.kategorija FROM user_oglas uo INNER JOIN kanton k ON uo.id_kanton=k.id_kanton INNER JOIN brak_status bs ON uo.id_brak_status = bs.id_brak_status INNER JOIN user_kat uk on uo.id_user = uk.id_user INNER JOIN kategorije kat on uk.id_kat = kat.id_kat INNER JOIN sex_orj sr on uo.id_sex_orj =sr.id_sexorj WHERE 1";
+               
+                $cat = trim($_POST['tbCategory']);
+                $cat = stripslashes($cat);
+                $cat = htmlspecialchars($cat);
+
+                $kanton1 = trim($_POST['tbKanton']);
+                $kanton1 = stripslashes($kanton1);
+                $kanton1 = htmlspecialchars($kanton1);
+
+                $id_sex_orj = (int)($_POST['ddlSexOrj']);
+                $id_sex_orj = stripslashes($id_sex_orj);
+                $id_sex_orj = htmlspecialchars($id_sex_orj);
+                if($_POST['tbCategory']!="" && preg_match("/^[a-zA-Z\s]{1,30}$/",$cat))
+                {
+                    $sqlInv.= " AND kat.kategorija = '{$cat}'";
+                }
+                if($_POST['tbKanton']!="" && preg_match("/^[a-zA-Z\s-]{1,30}$/",$kanton1))
+                {
+                    $sqlInv.= " AND naziv_kanton = '{$kanton1}'";
+                }
+                if(!empty($_POST['ddlSexOrj']) && preg_match("/^[0-9]{1,10}$/",$id_sex_orj))
+                {
+                    $sqlInv.= " AND uo.id_sex_orj =". $id_sex_orj;
+                }
+        
+        $rez1 = $conn->query($sqlInv);
+        if($rez1)
+        {
+            if(mysqli_num_rows($rez1) > 0)
+            {
+                while($row = mysqli_fetch_array($rez1))
+                {                   
+
+                                $opis = substr($row['opis'],0,strlen($row['opis'])/4);
+                                    echo " <div class='col-md-4 col-sm-6 sa'>
+                                        <div class='blog_grid_item'>
+                                            <div class='blog_grid_img '>
+                                                <img src='{$row['profilna_slika']}' class='img-270x299' alt=''>
+                                                <div class='blog_share_area '>
+                                                    <a href='members-detail.php?id_girl={$row['id_user']}'><i class='fa fa-heart' aria-hidden='true'></i>95</a>
+                                                </div>
+                                            </div>
+                                            <div class='blog_grid_content'>
+                                                <h3>{$row['title']}</h3>
+                                                <div class='blog_grid_date'>
+                                                    <a href='members-detail.php?id_girl={$row['id_user']}'>{$row['umetnicko_ime']}</a>
+                                                    <a href='members-detail.php?id_girl={$row['id_user']}'>{$row['datum']}</a>
+                                                    <a href='members-detail.php?id_girl={$row['id_user']}'>{$row['brak_status']}</a>
+                                                </div>
+                                                <p>{$opis}...</p>
+                                                <a href='members-detail.php?id_girl={$row['id_user']}'>Get in touch<i class='fa fa-angle-double-right'></i></a>
+                                            </div>
+                                        </div>
+                                    </div>";
+                }
+            }
+            else
+            {
+                            echo "<div class='alert alert-danger'>
+                                    <h2>No results! Try again!</h2>
+                                 </div>";
+            }
+            
+        }
+        else
+        {
+            echo "<div class='alert alert-warning'>
+                                     <strong>Warning!</strong> No results for! Try again!
+                  </div>";
+        }
 
 }	
  ?>
