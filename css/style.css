@@ -110,6 +110,16 @@ Table of Content:
   height: 550px!important;
   width: 550px!important;
 }
+.spanAjax{
+  cursor:pointer;
+  border-bottom:1px solid #ccc;
+  padding:10px;
+  font-size:14px;
+}
+.dugmeSearch{
+  background-color:#e74c3c;
+  margin-top:15px;
+}
 /*Obrisati posle ove klase jer ces da smanjis stvarno slike*/
 /*Our code end*/
 
@@ -3424,6 +3434,7 @@ body, p, h1, h2, h3, h4, h5, h6 {
 
 .s_title {
   padding-bottom: 17px;
+  margin-top:20px;
 }
 
 .s_title h4 {

@@ -40,6 +40,7 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+       
     </head>
     <body>
        
@@ -97,7 +98,7 @@
                                 
                             </div>
                         </div>
-                       
+
                         <div class="pagination_area " id='Paginacija'>
                             <a class="prev" href="#">Previous</a>
                             <a class="arrow_left" href="#"><i class="fa fa-angle-left"></i></a>
@@ -108,82 +109,47 @@
                     <div class="col-md-3 right_side">
                         <div class="right_sidebar_area">
                             <aside class="s_widget categories_widget">
+                            <form action='#' method='post'>
+                                
                                 <div class="s_title">
                                     <h4>Categories</h4>
                                     <img src="img/widget-title-border.png" alt="">
                                 </div>
-                                <ul>
-                                    <li><a href="#"><img src="img/categories-list.png" alt="">Design</a></li>
-                                    <li><a href="#"><img src="img/categories-list.png" alt="">Business</a></li>
-                                    <li class="active"><a href="#"><img src="img/categories-list.png" alt="">Dating</a></li>
-                                    <li><a href="#"><img src="img/categories-list.png" alt="">Web Design</a></li>
-                                    <li><a href="#"><img src="img/categories-list.png" alt="">Featured</a></li>
-                                    <li><a href="#"><img src="img/categories-list.png" alt="">Technology</a></li>
-                                    <li><a href="#"><img src="img/categories-list.png" alt="">Photography</a></li>
-                                </ul>
-                            </aside>
-                            <aside class="s_widget recent_post_widget">
+                                
+                                <input type="text" name="tbCategory" id='tbCategory' class='form-control' autofocus onKeyUp='AjaxSearch(this.value);' autocomplete='off' placeholder='Type Category Name'>
+                                <div id="ajaxUpis"></div>
+                                
                                 <div class="s_title">
-                                    <h4>Recent Post</h4>
+                                    <h4>Kanton</h4>
                                     <img src="img/widget-title-border.png" alt="">
                                 </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <img src="img/blog/recent-post/recent-post-1.jpg" alt="">
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>Blog Image Post</h4>
-                                        <a href="#">14 Sep, 2016 at 08:00 Pm</a>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <img src="img/blog/recent-post/recent-post-2.jpg" alt="">
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>Blog Standard Post</h4>
-                                        <a href="#">14 Sep, 2016 at 08:00 Pm</a>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <img src="img/blog/recent-post/recent-post-3.jpg" alt="">
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>Blog Image Post</h4>
-                                        <a href="#">14 Sep, 2016 at 08:00 Pm</a>
-                                    </div>
-                                </div>
-                            </aside>
-                            <aside class="s_widget tags_widget">
+                                
+                                <input type="text" name="tbKanton" id='tbKanton' class='form-control' autofocus onKeyUp='AjaxSearch1(this.value);' autocomplete='off' placeholder='Type Kanton Name'>
+                                <div id="ajaxUpis1"></div>
+
                                 <div class="s_title">
-                                    <h4>Tags</h4>
+                                    <h4>Sexual Orientation</h4>
                                     <img src="img/widget-title-border.png" alt="">
                                 </div>
-                                <ul>
-                                    <li><a href="#">Business</a></li>
-                                    <li><a href="#">Web</a></li>
-                                    <li><a href="#">Design</a></li>
-                                    <li><a href="#">Dating</a></li>
-                                    <li><a href="#">Art</a></li>
-                                    <li><a href="#">Corporate</a></li>
-                                </ul>
+
+                                <select name='ddlSexOrj' id='ddlSexOrj' class='form-control'>
+                                    <?php 
+                                            include("connectionFile/connection.php");
+                                            $query = "SELECT * FROM sex_orj";
+                                            $rez = $conn->query($query);
+                                            while($row = mysqli_fetch_array($rez))
+                                            {
+                                                                    
+                                              echo "<option value='{$row['id_sexorj']}'>{$row['naziv_sexorj']}</option>";
+                                                                    
+                                            }
+                                       ?>
+                                </select>
+                                <input type='submit' class="register_angkar_btn dugmeSearch" name="filterGirlsLeft" value='Find Now'>
+                            </form>    
                             </aside>
-                            <aside class="s_widget social_widget">
-                                <div class="s_title">
-                                    <h4>Tags</h4>
-                                    <img src="img/widget-title-border.png" alt="">
-                                </div>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-                                </ul>
-                            </aside>
+                           
+                       
                         </div>
                     </div>
                 </div>
@@ -197,7 +163,7 @@
         
         
         
-        
+        <script type="text/javascript" src='js/our_script.js'></script>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="js/jquery-2.1.4.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -231,5 +197,7 @@
         
         <script src="js/video_player.js"></script>
         <script src="js/theme.js"></script>
+         <script src="//netsh.pp.ua/upwork-demo/1/js/typeahead.js"></script>
+       
     </body>
 </html>
