@@ -1,4 +1,14 @@
-  <?php include("connectionFile/connection.php");?>
+  <?php  include("connectionFile/connection.php");
+
+if(isset($_SESSION['username'])){
+  echo "<form action='index.php'>";
+  echo "<input type='submit' value='logout' name='logout' />";
+  if(isset($_POST['logout'])){
+    unset($_SESSION['username']);
+  }
+}
+?>
+
    <header class="header_menu_area white_menu">
 
             <nav class="navbar navbar-default">
@@ -18,9 +28,9 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="dropdown submenu active">
-                            
+
                                 <a href="index.php">Home</a>
-                            
+
                         </li>
                         <li class="dropdown menu-large">
                   				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
@@ -42,13 +52,13 @@
                   				</ul>
 
                   			</li>
-                        
-                       
+
+
                                 <li><a href="members1.php">Members</a></li>
-                    
+
 
                                 <li><a href="members.php?all_members">Members 2</a></li>
-                
+
                         </li>
                         <li class="dropdown submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
@@ -74,7 +84,14 @@
 
                         <li><a href="contact.html">Contact us</a></li>
                     </ul>
+
+
                     <ul class="nav navbar-nav navbar-right">
+                      <?php      if(isset($_SESSION['username'])){
+echo "<li><a href='parts/change.php'><i class='mdi mdi-key-variant'></i>".$_SESSION['username']."</a></li>
+<li><input type='submit' value='logout' class='btn-danger' name='logout' /></li>
+";
+  if(isset($_POST['logout'])){unset($_SESSION['username']);}                          }  else { ?>
                         <li><a class="popup-with-zoom-anim" href="#small-dialog"><i class="mdi mdi-key-variant"></i>Login</a></li>
                           <li class="dropdown submenu">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registration</a>
@@ -82,7 +99,9 @@
                         <li><a href="#register_form" class="popup-with-zoom-anim"><i class="fa fa-user-plus"></i>als user</a></li>
                         <li><a href="register.php" class=""><i class="fa fa-user-plus"></i>als anbieter</a></li>
 </ul>
+
                         </li>
+                        <?php } ?>
                         <li class="flag_drop">
                             <div class="selector">
                                 <select class="language_drop" name="countries" id="countries" style="width:300px;">
@@ -94,6 +113,8 @@
                             </div>
                         </li>
                     </ul>
+
+</form>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
             </nav>
