@@ -1,42 +1,136 @@
   <?php include("connectionFile/connection.php");?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <meta charset="UTF-8">
+  <link href="vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="vendors/linears-icon/style.css" rel="stylesheet">
+
+  <!-- RS5.0 Layers and Navigation Styles -->
+  <link rel="stylesheet" type="text/css" href="vendors/revolution/css/layers.css">
+  <link rel="stylesheet" type="text/css" href="vendors/revolution/css/navigation.css">
+  <link rel="stylesheet" type="text/css" href="vendors/revolution/css/settings.css">
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendors/image-dropdown/dd.css" rel="stylesheet">
+  <link href="vendors/image-dropdown/flags.css" rel="stylesheet">
+  <link href="vendors/image-dropdown/skin2.css" rel="stylesheet">
+  <link href="vendors/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="vendors/bootstrap-selector/bootstrap-select.css" rel="stylesheet">
+  <link href="vendors/bootstrap-datepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+  <link href="vendors/owl-carousel/assets/owl.carousel.css" rel="stylesheet">
+  <link href="vendors/animate-css/animate.css" rel="stylesheet">
+  <link href="vendors/bs-tooltip/jquery.webui-popover.css" rel="stylesheet">
+  <link href="vendors/jquery-ui/jquery-ui.css" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+  <script src="assets/fancybox/jquery.easing-1.3.pack.js"></script>
+  <script src="assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+  <script src="assets/webcam/webcam.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+
+  <script src="js/map-custome.js"></script>
+</html>
+
    <body>
-     <meta charset="UTF-8">
-     <link href="vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
-     <link href="css/font-awesome.min.css" rel="stylesheet">
-     <link href="vendors/linears-icon/style.css" rel="stylesheet">
+     <header class="header_menu_area white_menu">
 
-     <!-- RS5.0 Layers and Navigation Styles -->
-     <link rel="stylesheet" type="text/css" href="vendors/revolution/css/layers.css">
-     <link rel="stylesheet" type="text/css" href="vendors/revolution/css/navigation.css">
-     <link rel="stylesheet" type="text/css" href="vendors/revolution/css/settings.css">
+              <nav class="navbar navbar-default">
+                  <div class="container">
+                  <!-- Brand and toggle get grouped for better mobile display -->
+                  <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="index.php"><img src="img/logo-2.png" alt=""></a>
+                  </div>
 
-     <!-- Bootstrap -->
-     <link href="css/bootstrap.min.css" rel="stylesheet">
-     <link href="vendors/image-dropdown/dd.css" rel="stylesheet">
-     <link href="vendors/image-dropdown/flags.css" rel="stylesheet">
-     <link href="vendors/image-dropdown/skin2.css" rel="stylesheet">
-     <link href="vendors/magnific-popup/magnific-popup.css" rel="stylesheet">
-     <link href="vendors/bootstrap-selector/bootstrap-select.css" rel="stylesheet">
-     <link href="vendors/bootstrap-datepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-     <link href="vendors/owl-carousel/assets/owl.carousel.css" rel="stylesheet">
-     <link href="vendors/animate-css/animate.css" rel="stylesheet">
-     <link href="vendors/bs-tooltip/jquery.webui-popover.css" rel="stylesheet">
-     <link href="vendors/jquery-ui/jquery-ui.css" rel="stylesheet">
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                      <ul class="nav navbar-nav">
+                          <li class="dropdown submenu active">
 
-     <link href="css/style.css" rel="stylesheet">
-     <link href="css/responsive.css" rel="stylesheet">
-     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-     <script src="assets/fancybox/jquery.easing-1.3.pack.js"></script>
-     <script src="assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-     <script src="assets/webcam/webcam.js"></script>
-     <script src="assets/js/script.js"></script>
-     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+                                  <a href="index.php">Home</a>
 
-     <script src="js/map-custome.js"></script>
+                          </li>
+                          <li class="dropdown menu-large">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
+                            <ul class="dropdown-menu megamenu row backg">
+                              <li class="col-sm-12">
+                                  <ul>
+                                    <?php $upitcat="SELECT * FROM kategorije ORDER BY kategorija";
+
+                                    $rezupituser=$conn->query($upitcat)or die("los upit");;
+
+                                    while($r1=mysqli_fetch_array($rezupituser))
+                                    {
+                                      echo "<a href='members1.php?category={$r1['id_kat']}' class='nothing'><li style='width:20%'>".$r1['kategorija']."</li></a>";
+                                    }
+                               ?>
+                                  </ul>
+                              </li>
+
+                            </ul>
+
+                          </li>
+
+
+                                  <li><a href="members1.php">Members</a></li>
+
+
+                                  <li><a href="members.php?all_members">Members 2</a></li>
+
+                          </li>
+                          <li class="dropdown submenu">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
+                              <ul class="dropdown-menu">
+                                  <li><a href="shop.html">Shop</a></li>
+                                  <li><a href="shop-left.html">Shop Left</a></li>
+                                  <li><a href="shop-right.html">Shop Right</a></li>
+                                  <li><a href="product-details.html">Product Details</a></li>
+                                  <li><a href="shop-cart.html">Shop Cart</a></li>
+                                  <li><a href="checkout.html">Checkout</a></li>
+                              </ul>
+                          </li>
+                          <li class="dropdown submenu">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
+                              <ul class="dropdown-menu">
+                                  <li><a href="about-us.html">About Us</a></li>
+                                  <li><a href="pricing.html">Pricing</a></li>
+                                  <li><a href="stories.html">Stories</a></li>
+                                  <li><a href="why-us.html">Why us</a></li>
+                                  <li><a href="404.html">Error</a></li>
+                              </ul>
+                          </li>
+
+                          <li><a href="contact.html">Contact us</a></li>
+                      </ul>
+
+
+
+  </form>
+                      </div><!-- /.navbar-collapse -->
+                  </div><!-- /.container-fluid -->
+              </nav>
+          </header>
+<div class="container">
+  <div class="col-xs-12 col-sm-12 col-lg-12">
+
 
     <div class="register_form_inner zoom-anim-dialog" id="register_form">
 
-            <div class="row">
+            <div class="row margintp">
               <div class="col-md-6">
                   <div class="registration_form_s">
                       <h4>Registration</h4>
@@ -52,7 +146,10 @@
                           <a href="capture.php"><input type="button" name="" id="kamerap" class="btn" value="bild jetzt aufnehmen"></a>
 
                         </div>
-
+                        <div class="form-group">
+                          <label for="">Username</label>
+                            <input type="text" class="form-control" name="username" id="reg_email" placeholder="Name">
+                        </div>
                           <div class="form-group">
                             <label for="">Name</label>
                               <input type="text" class="form-control" name="name" id="reg_email" placeholder="Name">
@@ -64,11 +161,19 @@
                           </div>
                           <div class="form-group">
                             <label for="">Passwort</label>
-                              <input type="password" class="form-control" name="passwrod" id="reg_user" placeholder="Password">
+                              <input type="password" class="form-control" name="password" id="reg_user" placeholder="Password">
                           </div>
                           <div class="form-group">
                             <label for="">Passwort again</label>
-                              <input type="password" class="form-control" name="passwrod1" id="reg_pass" placeholder="Password">
+                              <input type="password" class="form-control" name="password1" id="reg_pass" placeholder="Password">
+                          </div>
+                          <div class="form-group">
+                            <label for="">text</label>
+                              <input type="password" class="form-control" name="titel" id="reg_pass" placeholder="Password">
+                          </div>
+                          <div class="form-group">
+                            <label for="">text</label>
+                              <textarea name="opis" rows="8" cols="40"></textarea>
                           </div>
                           <?php $upituser="SELECT * FROM tip";
 
@@ -360,7 +465,7 @@
                           <label for="">Wer kann mich sehen? </label>
                         <select class="form-control" name="who_see">
                         <?php while($r=mysqli_fetch_array($rezupituser)){
-                          echo "<option value='{$r['id_kome_pojava']}'>".$r['naziv_pojava']."</option>";
+                          echo "<option value='{$r['id_kome_pojavljuje']}'>".$r['naziv_pojava']."</option>";
                         } ?>
                         </select>
                         </div>
@@ -370,9 +475,21 @@
                         <input type="text" class="form-control" id="reg_pass" name="website" placeholder="www.sexchange.ch">
                     </div>
                     <h4>Location Treffen wo</h4>
+                    <div class="form-group">
+                      <label for="">Tel</label>
+                        <input type="text" class="form-control" id="reg_pass" name="tel" placeholder="Burgger Strasse 15">
+                    </div>
+                    <div class="form-group">
+                      <label for="">Klinge</label>
+                        <input type="text" class="form-control" id="reg_pass" name="klinge" placeholder="Burgger Strasse 15">
+                    </div>
                           <div class="form-group">
                             <label for="">Adresse</label>
                               <input type="text" class="form-control" id="reg_pass" name="adresse_tref" placeholder="Burgger Strasse 15">
+                          </div>
+                          <div class="form-group">
+                            <label for="">Platz</label>
+                              <input type="text" class="form-control" id="reg_pass" name="platz" placeholder="Burgger Strasse 15">
                           </div>
                           <div class="form-group">
                             <label for="">Name der Location</label>
@@ -407,15 +524,15 @@
       <?php if(isset($_POST['register'])){
         $name=$_POST['name'];
         $email=$_POST['email'];
-        $password=$_POST['passwort'];
+        $password=$_POST['password1'];
         $geschlecht=$_POST['geschlecht'];
         $monat=$_POST['monat'];
         $tag=$_POST['tag'];
         $jahr=$_POST['jahr'];
         $herkunft=$_POST['herkunft'];
         $grosse=$_POST['grosse'];
-        $sex_orj=$_POST['sexorj'];
-        $interesse_am=$_POST['interesse_an'];
+        $sex_orj=$_POST['sex_orj'];
+        $interesse_am=$_POST['interessiert_an'];
         $status=$_POST['status'];
         $poreklo=$_POST['poreklo'];
         $kanton=$_POST['kanton'];
@@ -426,19 +543,61 @@
         $haarfarbe=$_POST['haar_farbe'];
         $augenfarbe=$_POST['augen_farbe'];
         $whoseeme=$_POST['who_see'];
-        $bh=$_POST['bg'];
-        $berweite=$_POST['oberweite'];
+        $bh=$_POST['bh'];
+        $oberweite=$_POST['oberweite'];
         $brille=$_POST['brille'];
         $website=$_POST['website'];
         $adresse_tref=$_POST['adresse_tref'];
         $name_tref=$_POST['location'];
-        $spremnost=$_POST['spremonst'];
+        $spremnost=$_POST['spremnost'];
+        $username=$_POST['username'];
+        $titel=$_POST['titel'];
+        $opis=$_POST['opis'];
+        $platz=$_POST['platz'];
+        $klinge=$_POST['klinge'];
+        $tel=$_POST['klinge'];
+        $datum=$tag.$monat.$jahr;
+echo $titel."<br/>";
+echo $opis."<br/>";
+echo $platz."<br/>";
+echo $klinge."<br/>";
+echo $tel."<br/>";
+echo $datum."<br/>";
+echo $name."<br/>";
+echo $email."<br/>";
+echo $password."<br/>";
+echo $geschlecht."<br/>";
+echo $monat."<br/>";
+echo $tag."<br/>";
+echo $jahr."<br/>";
+echo $herkunft."<br/>";
+echo $grosse."<br/>";
+echo $sex_orj."<br/>";
+echo $interesse_am."<br/>";
+echo $status."<br/>";
+echo $poreklo."<br/>";
+echo $kanton."<br/>";
+echo $was_magst_du."<br/>";
+echo $was_mag_er."<br/>";
+echo $gebaut."<br/>";
+echo $haarlength."<br/>";
+echo $haarfarbe."<br/>";
+echo $whoseeme."<br/>";
+echo $bh."<br/>";
+echo $oberweite."<br/>";
+echo $brille."<br/>";
+echo $website."<br/>";
+echo $haarfarbe."<br/>";
+echo $whoseeme."<br/>";
+echo $bh."<br/>";
+
+echo $adresse_tref."<br/>";
+echo $name_tref."<br/>";
+echo $spremnost."<br/>";
 
 
-
-
-
-
+$upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,$grosse,$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref',$platz,'mes','$tel','$name_tref',$name_tref','$klinge',$spremnost,'$website','slikaideovde','idgalerijeideovde','video ovde',1)";
+$query = mysqli_query($conn, $upitunos1) or die (mysqli_error());
 
 
 
@@ -448,4 +607,9 @@
 
       } ?>
 
+    </div>
+
+      </div>
+      <?php include("parts/footer.php"); ?>
       </body>
+      </html>

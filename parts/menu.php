@@ -4,6 +4,7 @@ if(isset($_SESSION['username'])){
   echo "<form action='index.php'>";
   echo "<input type='submit' value='logout' name='logout' />";
   echo $_SESSION['id'];
+  echo $_SESSION['id_uloga'];
   if(isset($_POST['logout'])){
     unset($_SESSION['username']);
   }
