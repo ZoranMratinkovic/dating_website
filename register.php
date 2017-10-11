@@ -487,6 +487,19 @@
                             <label for="">Adresse</label>
                               <input type="text" class="form-control" id="reg_pass" name="adresse_tref" placeholder="Burgger Strasse 15">
                           </div>
+                          <?php $upituser="SELECT * FROM kanton";
+
+                      $rezupituser=$conn->query($upituser)or die("los upit");?>
+                          <div class="form-group">
+                              <div class="btn-group">
+                                <label for="">Kanton</label>
+                              <select class="form-control" name="kanton1">
+                              <?php while($r=mysqli_fetch_array($rezupituser)){
+                                echo "<option value='{$r['id_kanton']}'>".$r['naziv_kanton']."</option>";
+                              } ?>
+                              </select>
+                              </div>
+                          </div>
                           <div class="form-group">
                             <label for="">Platz</label>
                               <input type="text" class="form-control" id="reg_pass" name="platz" placeholder="Burgger Strasse 15">
@@ -494,6 +507,10 @@
                           <div class="form-group">
                             <label for="">Name der Location</label>
                               <input type="text" class="form-control" id="reg_pass" name="location" placeholder="Los Lita">
+                          </div>
+                          <div class="form-group">
+                            <label for="">Name des Studio</label>
+                              <input type="text" class="form-control" id="reg_pass" name="location1" placeholder="Los Lita">
                           </div>
 
                           <?php $upituser="SELECT * FROM sredjenost";
@@ -536,6 +553,7 @@
         $status=$_POST['status'];
         $poreklo=$_POST['poreklo'];
         $kanton=$_POST['kanton'];
+        $kanton1=$_POST['kanton1'];
         $was_magst_du=$_POST['was_magst_du'];
         $was_mag_er=$_POST['was_mag_er'];
         $gebaut=$_POST['gebaut'];
@@ -549,57 +567,65 @@
         $website=$_POST['website'];
         $adresse_tref=$_POST['adresse_tref'];
         $name_tref=$_POST['location'];
+          $name_tref1=$_POST['location1'];
         $spremnost=$_POST['spremnost'];
         $username=$_POST['username'];
         $titel=$_POST['titel'];
         $opis=$_POST['opis'];
         $platz=$_POST['platz'];
         $klinge=$_POST['klinge'];
-        $tel=$_POST['klinge'];
+        $tel=$_POST['tel'];
         $datum=$tag.$monat.$jahr;
-echo $titel."<br/>";
-echo $opis."<br/>";
-echo $platz."<br/>";
-echo $klinge."<br/>";
-echo $tel."<br/>";
-echo $datum."<br/>";
-echo $name."<br/>";
-echo $email."<br/>";
-echo $password."<br/>";
-echo $geschlecht."<br/>";
-echo $monat."<br/>";
-echo $tag."<br/>";
-echo $jahr."<br/>";
-echo $herkunft."<br/>";
-echo $grosse."<br/>";
-echo $sex_orj."<br/>";
-echo $interesse_am."<br/>";
-echo $status."<br/>";
-echo $poreklo."<br/>";
-echo $kanton."<br/>";
-echo $was_magst_du."<br/>";
-echo $was_mag_er."<br/>";
-echo $gebaut."<br/>";
-echo $haarlength."<br/>";
-echo $haarfarbe."<br/>";
-echo $whoseeme."<br/>";
-echo $bh."<br/>";
-echo $oberweite."<br/>";
-echo $brille."<br/>";
-echo $website."<br/>";
-echo $haarfarbe."<br/>";
-echo $whoseeme."<br/>";
-echo $bh."<br/>";
-
-echo $adresse_tref."<br/>";
-echo $name_tref."<br/>";
-echo $spremnost."<br/>";
+        echo $geschlecht."<br/>";
+        echo $interesse_am."<br/>";
+        echo $datum."<br/>";
+        echo $name."<br/>";
+        echo $kanton."<br/>";
+        echo $herkunft."<br/>";
+        echo $email."<br/>";
+        echo $username."<br/>";
+        echo $titel."<br/>";
+        echo $opis."<br/>";
+        echo $platz."<br/>";
+        echo $klinge."<br/>";
+        echo $tel."<br/>";
+        echo $datum."<br/>";
 
 
-$upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,$grosse,$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref',$platz,'mes','$tel','$name_tref',$name_tref','$klinge',$spremnost,'$website','slikaideovde','idgalerijeideovde','video ovde',1)";
+        echo $password."<br/>";
+
+        echo $monat."<br/>";
+        echo $tag."<br/>";
+        echo $jahr."<br/>";
+
+        echo $grosse."<br/>";
+        echo $sex_orj."<br/>";
+
+        echo $status."<br/>";
+        echo $poreklo."<br/>";
+
+        echo $was_magst_du."<br/>";
+        echo $was_mag_er."<br/>";
+        echo $gebaut."<br/>";
+        echo $haarlength."<br/>";
+        echo $haarfarbe."<br/>";
+        echo $whoseeme."<br/>";
+        echo $bh."<br/>";
+        echo $oberweite."<br/>";
+        echo $brille."<br/>";
+        echo $website."<br/>";
+        echo $haarfarbe."<br/>";
+        echo $whoseeme."<br/>";
+        echo $bh."<br/>";
+
+        echo $adresse_tref."<br/>";
+        echo $name_tref."<br/>";
+        echo $spremnost."<br/>";
+
+
+
+$upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,$grosse,$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref',$platz,'$kanton1','$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','slikaideovde',1,'video ovde',1,2)";
 $query = mysqli_query($conn, $upitunos1) or die (mysqli_error());
-
-
 
 
 
