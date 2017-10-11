@@ -64,7 +64,8 @@
              $row=mysqli_fetch_array($rezupit1);
                 echo "<script>alert('radi');</script>";
                   $_SESSION['username'] = $row['username'];
-                  echo $_SESSION['username'];
+                  $_SESSION['id_uloga'] = $row['id_user_uloga'];
+                  $_SESSION['id'] = $row['user_id'];
              }
            else {
 

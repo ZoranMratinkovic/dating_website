@@ -204,7 +204,7 @@ else {
 
 
 
-                                  $upit="INSERT INTO user VALUES('','$email','$username','$password','$geschlecht',$tag,$monat,$jahr)";
+                                  $upit="INSERT INTO user VALUES('','$email','$username','$password','$geschlecht',$tag,$monat,$jahr,1)";
                                   $rezupit=$conn->query($upit)or die('losee');
 
 

@@ -3,6 +3,7 @@
 if(isset($_SESSION['username'])){
   echo "<form action='index.php'>";
   echo "<input type='submit' value='logout' name='logout' />";
+  echo $_SESSION['id'];
   if(isset($_POST['logout'])){
     unset($_SESSION['username']);
   }
