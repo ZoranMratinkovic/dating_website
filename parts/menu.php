@@ -1,13 +1,10 @@
-  <?php  include("connectionFile/connection.php");
-
-if(isset($_SESSION['username'])){
-  echo "<form action='index.php'>";
-  echo "<input type='submit' value='logout' name='logout' />";
-  echo $_SESSION['id'];
-  if(isset($_POST['logout'])){
+  <?php 
+  if(isset($_POST['logout']))
+  {
     unset($_SESSION['username']);
+    unset($_SESSION['id']);
+    unset($_SESSION['id_uloga']);
   }
-}
 ?>
 
    <header class="header_menu_area white_menu">
@@ -39,7 +36,7 @@ if(isset($_SESSION['username'])){
                   					<li class="col-sm-12">
                   						  <ul>
                                   <?php $upitcat="SELECT * FROM kategorije ORDER BY kategorija";
-
+                                  include("connectionFile/connection.php");
                                   $rezupituser=$conn->query($upitcat)or die("los upit");;
 
                                   while($r1=mysqli_fetch_array($rezupituser))
@@ -88,11 +85,12 @@ if(isset($_SESSION['username'])){
 
 
                     <ul class="nav navbar-nav navbar-right">
-                      <?php      if(isset($_SESSION['username'])){
-echo "<li><a href='parts/change.php'><i class='mdi mdi-key-variant'></i>".$_SESSION['username']."</a></li>
-<li><input type='submit' value='logout' class='btn-danger' name='logout' /></li>
-";
-  if(isset($_POST['logout'])){unset($_SESSION['username']);}                          }  else { ?>
+                      <?php if(isset($_SESSION['username']))
+                      {
+                          echo "<li><a href='parts/change.php'><i class='mdi mdi-key-variant'></i>".$_SESSION['username']."</a></li>
+                          <li><form method='post'><input type='submit' value='logout' class='btn-danger' name='logout' /></form></li>
+                          ";
+                           } else { ?>
                         <li><a class="popup-with-zoom-anim" href="#small-dialog"><i class="mdi mdi-key-variant"></i>Login</a></li>
                           <li class="dropdown submenu">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registration</a>
@@ -115,7 +113,6 @@ echo "<li><a href='parts/change.php'><i class='mdi mdi-key-variant'></i>".$_SESS
                         </li>
                     </ul>
 
-</form>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
             </nav>
