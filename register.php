@@ -42,9 +42,94 @@
 <script src="assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 <script src="assets/webcam/webcam.js"></script>
 <script src="assets/js/script.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-
 <script src="js/map-custome.js"></script>
+<script type="text/javascript">
+<script type="text/javascript">
+function posalji() {
+  alert('radii');
+var email = document.getElementById('reg_email').value;
+var ime = document.getElementById('reg_first').value;
+var user = document.getElementById('reg_user').value;
+var pass=document.getElementById('reg_pass').value;
+var pass1=document.getElementById('reg_pass1').value;
+
+var greske= new Array();
+var sadrzaj=new Array();
+var greskeID = new Array();
+var reime= /^[A-z/s]{2,14}$/;
+var reemail= /^(\w+[\-\.])*\w+@(\w+\.)+[A-Za-z]+$/;
+var repass= /^[a-zA-Z0-9!@#$%^&*-_]{6,}/;
+var reuser= /^[A-z0-9]{2,14}$/;
+
+if(reime.test(ime))
+{
+sadrzaj.push(ime);
+
+
+}
+else
+
+{
+
+greske.push('erorr');
+
+}
+if(reuser.test(user))
+{
+  sadrzaj.push(user)
+
+
+}
+else
+
+{
+
+    greske.push('erorr');
+
+}
+if(reemail.test(email))
+{
+sadrzaj.push(email);
+
+}
+else
+{
+greske.push('erorr');
+
+}
+
+if(pass==pass1){
+  sadrzaj.push(pass)
+}
+else{
+greske.push('error')
+}
+if(repass.test(pass))
+{
+sadrzaj.push(pass)
+
+}
+else
+{
+  greske.push('erorr');
+
+}
+
+
+
+if(sadrzaj.length == 5)
+{
+alert("Vaša poruka je poslata,odgovor ce biti najkasnije sledečeg radnog dana");
+return true;
+
+
+}
+else {alert('ima greske!!!');
+return false;}
+}
+
+</script>
+</script>
 
 
 </head>
@@ -144,7 +229,7 @@
             <div class="col-md-6">
                 <div class="registration_form_s">
                     <h4>Registration</h4>
-                  <form class="" action="#" method="post" enctype = "multipart/form-data">
+                  <form class="" action="#" method="post" enctype = "multipart/form-data" onsubmit="return posalji();">
                     <?php   if(isset($_FILES['image1'])){
                          $errors= array();
                          $file_name = $_FILES['image1']['name'];

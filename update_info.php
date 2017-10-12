@@ -77,6 +77,8 @@
                                     {
                                       echo "<a href='members1.php?category={$r1['id_kat']}' class='nothing'><li style='width:20%'>".$r1['kategorija']."</li></a>";
                                     }
+                                    $upitkur="SELECT * FROM user_oglas where id_user=".$_GET['id_girl'];
+                                    $rezupituser1=$conn->query($upitkur)or die("los upit");
                                ?>
                                   </ul>
                               </li>
