@@ -11,7 +11,7 @@
                     while($r=mysqli_fetch_array($rezupit)){
                           echo "  <div class='item'>
                                 <div class='single_blog_slider'>
-                                    <img src='{$r['profilna_slika']}' height='505px' alt=''>
+                                    <img src='{$r['profilna_slika']}' height='400' alt=''>
                                     <div class='blog_item_content'>
                                         <h4>{$r['umetnicko_ime']}</h4>
                                         <h5>{$r['datum']} <span>|</span> Dating</h5>
