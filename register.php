@@ -64,13 +64,13 @@ var reuser= /^[A-z0-9]{2,14}$/;
 if(reime.test(ime))
 {
 sadrzaj.push(ime);
-
+  document.getElementById('reg_first').className = 'green';
 
 }
 else
 
 {
-
+  document.getElementById('reg_first').className = 'red';
 greske.push('erorr');
 
 }
@@ -91,27 +91,33 @@ else
 if(reemail.test(email))
 {
 sadrzaj.push(email);
+  document.getElementById('reg_email').className = 'green';
 
 }
 else
 {
 greske.push('erorr');
+  document.getElementById('reg_email').className = 'red';
 
 }
 
 if(pass==pass1){
-  sadrzaj.push(pass)
+  sadrzaj.push(pass);
+
 }
 else{
-greske.push('error')
+greske.push('error');
+document.getElementById('reg_pass1').className = 'red';
 }
 if(repass.test(pass))
 {
+  document.getElementById('reg_pass').className = 'green';
 sadrzaj.push(pass)
 
 }
 else
 {
+    document.getElementById('reg_pass').className = 'red';
   greske.push('erorr');
 
 }
@@ -284,7 +290,7 @@ return false;}
                         </div>
                         <div class="form-group">
                           <label for="">Passwort again</label>
-                            <input type="password" class="form-control" name="password1" id="reg_pass1" placeholder="Sag etwas Kurz über dich">
+                            <input type="password" class="form-control" name="password1" id="reg_pass1" placeholder="Repeat Password">
                         </div>
 
                         <?php $upituser="SELECT * FROM tip";
