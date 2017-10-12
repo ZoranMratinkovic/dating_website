@@ -138,7 +138,9 @@ return false;}
 
 
 </head>
- <body>
+ <body style="
+    background: url(img/background.jpeg);
+">
    <header class="header_menu_area white_menu">
 
             <nav class="navbar navbar-default">
@@ -281,7 +283,7 @@ return false;}
                         </div>
                         <div class="form-group">
                           <label for="">Passwort again</label>
-                            <input type="password" class="form-control" name="password1" id="reg_pass1" placeholder="Sag etwas Kurz über dich">
+                            <input type="password" class="form-control" name="password1" id="reg_pass1" placeholder="Passwort again">
                         </div>
 
                         <?php $upituser="SELECT * FROM tip";
@@ -563,7 +565,7 @@ return false;}
 
 
                 </div>
-          
+
             </div>
             <div class="col-md-6">
               <br/>
