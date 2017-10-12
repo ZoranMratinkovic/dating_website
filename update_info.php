@@ -563,41 +563,7 @@ return false;}
 
 
                 </div>
-                <div class="form-group mgt">
-                  <div class="row style-select">
-  			<div class="col-md-12">
-  				<div class="col-md-5">
-            <?php $upituser="SELECT * FROM kategorije";
-
-        $rezupituser=$conn->query($upituser)or die("los upit");?>
-  					<label>Kategorien</label>
-  					<select multiple class="form-control multy" id="lstBox1">
-              <?php while($r=mysqli_fetch_array($rezupituser)){
-                echo "<option value='{$r['id_kat']}'>".$r['kategorija']."</option>";
-              } ?>
-  					</select>
-  				</div>
-
-  				<div class="col-md-2">
-  					<br /><br />
-  					<input type='button' id='btnAllRight' value='>>' class="btn btn-default" /><br />
-  					<input type='button' id='btnRight' value='>' class="btn btn-default" /><br />
-  					<input type='button' id='btnLeft' value='<' class="btn btn-default" /><br />
-  					<input type='button' id='btnAllLeft' value='<<' class="btn btn-default" />
-  				</div>
-
-  				<div class="col-md-5">
-  					<label>Ihre Kategorien</label>
-  					<select multiple class="form-control multy" name="select2[]" id="lstBox2">
-
-  					</select>
-
-  				</div>
-
-  				<div class="clearfix"></div>
-  			</div>
-  		</div>
-                </div>
+          
             </div>
             <div class="col-md-6">
               <br/>

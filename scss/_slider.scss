@@ -15,13 +15,13 @@
                     z-index: 4 !important;
                     .tp-bgimg{
                         z-index: 5 !important;
-                        
+
                     }
                     .first_text{
                         color: #fff;
                         font-family: $ub;
                         span{
-                            color: $baseColor; 
+                            color: $baseColor;
                             font-weight: bold;
                         }
                     }
@@ -67,7 +67,7 @@
                     z-index: 4 !important;
                     .tp-bgimg{
                         z-index: 5 !important;
-                        
+
                     }
                     .left_img{
                     }
@@ -79,7 +79,7 @@
                         font-family: $ub;
                     }
                     .third_text{
-                        
+
                     }
                 }
             }
@@ -154,7 +154,7 @@
                 }
                 &:focus{
                     border: 1px solid $baseColor;
-                }   
+                }
             }
             .btn-group{
                 width: 100%;
@@ -196,7 +196,7 @@
             }
             .form_datetime{
                 position: relative;
-               
+
                 .datetimepicker-dropdown-bottom-right{
                     left: 0px;
                 }
@@ -294,13 +294,13 @@
                 .bootstrap-select{
                     width: 112px;
                 }
-                
+
             }
             &:nth-child(4){
                 .bootstrap-select{
                     width: 112px;
                 }
-                
+
             }
             &:last-child{
                 padding-right: 0px;
@@ -526,4 +526,3 @@
 }
 /* End Adms slider area css
 ============================================================================================ */
-

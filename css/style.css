@@ -8288,3 +8288,15 @@ margin-top: 32px;
 .red{
 	border:1px solid #FF0000!important;
 }
+.redbg{
+  background: url(/../img/background.jpeg);
+}
+.slider_area.slider_bg {
+    /* background: #2e3c43; */
+    background:url(../img/background2.jpg)!important;
+}
+.imgreg{
+  width: 495px;
+height: 568px;
+padding: 15px;
+}

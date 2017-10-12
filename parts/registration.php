@@ -100,7 +100,7 @@ return false;}
             <div class="row">
                 <div class="col-md-6">
                     <div class="registration_man">
-                        <img src="img/girl.jpg" alt="">
+                        <img src="img/girl.jpg" alt="" class="imgreg">
                     </div>
                 </div>
                 <div class="col-md-6">

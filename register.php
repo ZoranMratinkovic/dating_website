@@ -46,17 +46,20 @@
 <script type="text/javascript">
 
 function posalji() {
-  alert('radii');
+
 var email = document.getElementById('reg_email').value;
 var ime = document.getElementById('reg_first').value;
 var user = document.getElementById('reg_user').value;
 var pass=document.getElementById('reg_pass').value;
 var pass1=document.getElementById('reg_pass1').value;
 
+
+
+
 var greske= new Array();
 var sadrzaj=new Array();
 var greskeID = new Array();
-var reime= /^[A-z/s]{2,14}$/;
+var reime= /^[A-z/s0-9]{2,20}$/;
 var reemail= /^(\w+[\-\.])*\w+@(\w+\.)+[A-Za-z]+$/;
 var repass= /^[a-zA-Z0-9!@#$%^&*-_]{6,}/;
 var reuser= /^[A-z0-9]{2,14}$/;
@@ -131,16 +134,26 @@ return true;
 
 
 }
-else {alert('ima greske!!!');
+else {alert('Bitte angaben überprüfen!!!');
 return false;}
 }
+function toggle(source) {
 
-</script>
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i] != source)
+            checkboxes[i].checked = source.checked;
+    }
+}
+
+
 </script>
 
 
 </head>
- <body>
+ <body class="redbg" style="
+    background: url(img/background.jpeg);
+">
    <header class="header_menu_area white_menu">
 
             <nav class="navbar navbar-default">
@@ -191,20 +204,10 @@ return false;}
                                 <li><a href="members1.php">Members</a></li>
 
 
-                                <li><a href="members.php?all_members">Members 2</a></li>
+
 
                         </li>
-                        <li class="dropdown submenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="shop-left.html">Shop Left</a></li>
-                                <li><a href="shop-right.html">Shop Right</a></li>
-                                <li><a href="product-details.html">Product Details</a></li>
-                                <li><a href="shop-cart.html">Shop Cart</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
-                            </ul>
-                        </li>
+
                         <li class="dropdown submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
                             <ul class="dropdown-menu">
@@ -311,21 +314,21 @@ return false;}
 
                               <?php
 
-  echo '<select name="monat" class="trecina form-control">';
+  echo '<select name="monat" class="trecina form-control" required>';
     echo '<option>Monat</option>';
     for($i = 1; $i <= 12; $i++){
       $i = str_pad($i, 2, 0, STR_PAD_LEFT);
       echo "<option value='$i'>$i</option>";
     }
   echo '</select>';
-  echo '<select name="tag" class="trecina form-control">';
+  echo '<select name="tag" class="trecina form-control" required>';
     echo '<option>Tag</option>';
     for($i = 1; $i <= 31; $i++){
       $i = str_pad($i, 2, 0, STR_PAD_LEFT);
       echo "<option value='$i'>$i</option>";
     }
   echo '</select>';
-  echo '<select name="jahr" class="trecina form-control">';
+  echo '<select name="jahr" class="trecina form-control" required>';
     echo '<option>Jahr</option>';
     for($i = date('Y'); $i >= date('Y', strtotime('-100 years')); $i--){
       echo "<option value='$i'>$i</option>";
@@ -360,11 +363,11 @@ return false;}
   </div>
   <div class="form-group">
     <label for="">text</label>
-      <input type="text" class="form-control" name="titel" id="reg_pass" placeholder="Password">
+      <input type="text" class="form-control" name="titel" id="reg_pass" placeholder="Titel über dich!">
   </div>
   <div class="form-group">
     <label for="">text</label>
-      <textarea name="opis" rows="8" cols="40"></textarea>
+      <textarea name="opis" rows="8" cols="40" placeholder="Hallo ich bin Klara und mag es !!"></textarea>
   </div>
                               <?php $upituser="SELECT * FROM sex_orj";
 
@@ -552,36 +555,30 @@ return false;}
                 </div>
                 <div class="form-group mgt">
                   <div class="row style-select">
+                    <?php $upituser="SELECT * FROM kategorije";
+
+                      $rezupituser=$conn->query($upituser)or die("los upit"); ?>
   			<div class="col-md-12">
-  				<div class="col-md-5">
-            <?php $upituser="SELECT * FROM kategorije";
+          <h3>Kategorien</h3>
+<input type="checkbox" onClick="toggle(this)" /> Ich Kann alles <br/>
+          <?php
+                     while($r=mysqli_fetch_array($rezupituser)){
+            if($r['id_kat']==20){
+              echo "<div class='col-md-6'>";
+              echo "<input type='checkbox' name='kateg[]' class='checks' id='foo' value='{$r['id_kat']}'>".$r['kategorija']."<br/>";
+              echo "</div>";
+            }else {
+                echo "<div class='col-md-6'>";
+                echo "<input type='checkbox' name='kateg[]' class='checks' id='foo' value='{$r['id_kat']}'>".$r['kategorija']."<br/>";
+                echo "</div>";
+            }
 
-        $rezupituser=$conn->query($upituser)or die("los upit");?>
-  					<label>Kategorien</label>
-  					<select multiple class="form-control multy" id="lstBox1">
-              <?php while($r=mysqli_fetch_array($rezupituser)){
-                echo "<option value='{$r['id_kat']}'>".$r['kategorija']."</option>";
-              } ?>
-  					</select>
-  				</div>
+          } ?>
 
-  				<div class="col-md-2">
-  					<br /><br />
-  					<input type='button' id='btnAllRight' value='>>' class="btn btn-default" /><br />
-  					<input type='button' id='btnRight' value='>' class="btn btn-default" /><br />
-  					<input type='button' id='btnLeft' value='<' class="btn btn-default" /><br />
-  					<input type='button' id='btnAllLeft' value='<<' class="btn btn-default" />
-  				</div>
 
-  				<div class="col-md-5">
-  					<label>Ihre Kategorien</label>
-  					<select multiple class="form-control multy" name="select2[]" id="lstBox2">
 
-  					</select>
 
-  				</div>
 
-  				<div class="clearfix"></div>
   			</div>
   		</div>
                 </div>
@@ -638,11 +635,11 @@ return false;}
                   <h4>Location Treffen wo</h4>
                   <div class="form-group">
                     <label for="">Tel</label>
-                      <input type="text" class="form-control" id="reg_pass" name="tel" placeholder="Burgger Strasse 15">
+                      <input type="text" class="form-control" id="reg_pass" name="tel" placeholder="078888888">
                   </div>
                   <div class="form-group">
                     <label for="">Klinge</label>
-                      <input type="text" class="form-control" id="reg_pass" name="klinge" placeholder="Burgger Strasse 15">
+                      <input type="text" class="form-control" id="reg_pass" name="klinge" placeholder="15">
                   </div>
                         <div class="form-group">
                           <label for="">Adresse</label>
@@ -663,7 +660,7 @@ return false;}
                         </div>
                         <div class="form-group">
                           <label for="">Platz</label>
-                            <input type="text" class="form-control" id="reg_pass" name="platz" placeholder="Burgger Strasse 15">
+                            <input type="text" class="form-control" id="reg_pass" name="platz" placeholder="9015">
                         </div>
                         <div class="form-group">
                           <label for="">Name der Location</label>
@@ -671,7 +668,7 @@ return false;}
                         </div>
                         <div class="form-group">
                           <label for="">Name des Studio</label>
-                            <input type="text" class="form-control" id="reg_pass" name="location1" placeholder="Los Lita">
+                            <input type="text" class="form-control" id="reg_pass" name="location1" placeholder="Los Lita Studio">
                         </div>
 
                         <?php $upituser="SELECT * FROM sredjenost";
@@ -700,6 +697,10 @@ return false;}
 
       </form>
     <?php if(isset($_POST['register'])){
+  $kategorijee=$_POST['kateg'];
+    if(count($kategorijee)==0){
+      echo "<script>alert('Bitte Kategorijen auswahlen')</script>";
+    } else{
       $name=$_POST['name'];
       $email=$_POST['email'];
       $password=$_POST['password1'];
@@ -789,16 +790,26 @@ return false;}
 
 
 
-$upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,$grosse,$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref',$platz,$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2)";
+$upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2)";
 $query = mysqli_query($conn, $upitunos1) or die (mysqli_error());
 echo "<script>alert('erfolgreich registriert!');</script>";
-header('Location : index.php');
+
+
+$upitprikaz="SELECT id_user from user_oglas ORDER BY id_user DESC limit 1";
+$rezupitprikazus=$conn->query($upitprikaz) or die("1 upit los");
+$r3=mysqli_fetch_array($rezupitprikazus);
+$iduser1=$r3['id_user'];
+foreach($_POST['kateg'] as $item){
+  echo "<h1>$item</h1>";
+  echo "<h3>$iduser1</h3>";
+  $upitkat="INSERT INTO user_kat VALUES('',$iduser1,$item)";
+  $rezupitprikazus=$conn->query($upitkat) or die("2 upit los");
+
+}
 
 
 
-
-
-    } ?>
+    } }?>
 
   </div>
 
