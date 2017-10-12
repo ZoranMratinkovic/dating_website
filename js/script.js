@@ -226,4 +226,5 @@ $(document).ready(function(){
 			return data[group.toLowerCase()];
 		});
 	}
+	
 });
