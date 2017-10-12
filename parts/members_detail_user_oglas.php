@@ -88,23 +88,23 @@
                     <div class="col-md-9">
                         <div class="members_profile_inners">
                             <ul class="nav nav-tabs profile_menu" role="tablist">
-                                <li role="presentation" class="active"><a href="#activity" aria-controls="activity" role="tab" data-toggle="tab">Personal Information</a></li>
-                                <li role="presentation" ><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Activity</a></li>
-                                <li role="presentation"><a href="#sites" aria-controls="sites" role="tab" data-toggle="tab">Contact Information</a></li>
+                                <li role="presentation" class="active"><a href="#activity" aria-controls="activity" role="tab" data-toggle="tab">Personal Informationen</a></li>
+                                <li role="presentation" ><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Details</a></li>
+                                <li role="presentation"><a href="#sites" aria-controls="sites" role="tab" data-toggle="tab">Teff Location</a></li>
 
                             </ul>
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active fade in" id="activity">
                                     <div class="profile_list">
                                         <ul>
-                                            <li><a href="#">Gender</a></li>
-                                            <li><a href="#">Age</a></li>
-                                            <li><a href="#">Country</a></li>
-                                            <li><a href="#">City</a></li>
-                                            <li><a href="#">Birthday</a></li>
-                                            <li><a href="#">Relationship</a></li>
-                                            <li><a href="#">Looking for a</a></li>
-                                            <li><a href="#">Race</a></li>
+                                            <li><a href="#">Geschlecht</a></li>
+                                            <li><a href="#">Alter</a></li>
+                                            <li><a href="#">Land</a></li>
+                                            <li><a href="#">Stadt</a></li>
+                                            <li><a href="#">Geburtstag</a></li>
+                                            <li><a href="#">Beziehungsstatus</a></li>
+                                            <li><a href="#">Interessiert an</a></li>
+                                            <li><a href="#">Herkunft</a></li>
                                         </ul>
                                         <ul>
                                             <li><a href="#"><?php echo $tip; ?></a></li>
@@ -117,14 +117,14 @@
                                             <li><a href="#"><?php echo $poreklo; ?></a></li>
                                         </ul>
                                         <ul>
-                                            <li><a href="#">Eye Color</a></li>
-                                            <li><a href="#">Hair Color</a></li>
-                                            <li><a href="#">Hair Length</a></li>
-                                            <li><a href="#">Bra Size</a></li>
+                                            <li><a href="#">Augenfarbe</a></li>
+                                            <li><a href="#">Haarfarbe</a></li>
+                                            <li><a href="#">Haarlänge</a></li>
+                                            <li><a href="#">Körbchengrösse</a></li>
                                             <li><a href="#">Oberweite</a></li>
-                                            <li><a href="#">Height</a></li>
-                                            <li><a href="#">Shape</a></li>
-                                            <li><a href="#">Glasses</a></li>
+                                            <li><a href="#">Grösse</a></li>
+                                            <li><a href="#">Gebaut</a></li>
+                                            <li><a href="#">Brille/Kontaktlinzen</a></li>
                                         </ul>
                                         <ul>
                                             <li><a href="#"><?php echo $boja_ociju; ?></a></li>
@@ -141,10 +141,10 @@
                                 <div role="tabpanel" class="tab-pane fade" id="profile">
                                     <div class="profile_list">
                                         <ul>
-                                            <li><a href="#">Sex Orientation</a></li>
-                                            <li><a href="#">My Role</a></li>
-                                            <li><a href="#">Partner's Role</a></li>
-                                            <li><a href="#">Services</a></li>
+                                            <li><a href="#">Sex Orientierung</a></li>
+                                            <li><a href="#">Was ich mag</a></li>
+                                            <li><a href="#">Was erwate ich</a></li>
+                                            <li><a href="#">Kategor</a></li>
 
                                         </ul>
                                         <ul>
@@ -160,12 +160,12 @@
                                 <div role="tabpanel" class="tab-pane fade" id="sites">
                                     <div class="profile_list">
                                         <ul>
-                                            <li><a href="#">State</a></li>
-                                            <li><a href="#">City</a></li>
+                                            <li><a href="#">Kanton</a></li>
+                                            <li><a href="#">Stadt</a></li>
                                             <li><a href="#">Studio Name</a></li>
                                             <li><a href="#">Location Name</a></li>
-                                            <li><a href="#">Appartment</a></li>
-                                            <li><a href="#">Street Address</a></li>
+                                            <li><a href="#">Klinge</a></li>
+                                            <li><a href="#">Adresse</a></li>
 
                                         </ul>
                                         <ul>
@@ -178,11 +178,11 @@
 
                                         </ul>
                                         <ul>
-                                             <li><a href="#">Sredjenost</a></li>
+                                             <li><a href="#">Wohnungs zustand</a></li>
                                             <li><a href="#">Platz</a></li>
                                             <li><a href="#">Name</a></li>
                                             <li><a href="#">Email</a></li>
-                                            <li><a href="#">Phone Number</a></li>
+                                            <li><a href="#">Telefonnummer</a></li>
                                             <li><a href="#">Website</a></li>
 
                                         </ul>
