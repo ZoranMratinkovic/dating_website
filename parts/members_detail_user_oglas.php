@@ -13,31 +13,31 @@
                                 <form action='' id='ChangeProfilePicture' method='post' enctype='multipart/form-data'>
                                     <span class="btn btn-default btn-file">
                                         Change Picture<input type="file" id='ChangeProfilePic' name='ChangeProfilePic'>
-                                        
+
                                     </span>
                                     <input type="submit" name="SubmitProfileChange" id='SubmitProfileChange' class='none btn btn-default' value='Submit'>
-                                    <?php 
+                                    <?php
                                            if(isset($_POST['SubmitProfileChange'])&&isset($_FILES['ChangeProfilePic']['tmp_name']))
                                            {
                                                    $ime_slike = $_FILES['ChangeProfilePic']['name'];
                                                    $tmp = $_FILES['ChangeProfilePic']['tmp_name'];
                                                    $target_dir = "img/";
                                                    $resized_dir = "/profiles";
-                                                  
+
                                                    include('functions.php');
-                                                   
+
                                                    $dest = upload_img($ime_slike,$tmp,$target_dir,$resized_dir);
                                                    if($dest)
                                                    {
                                                         $d = compress($target_dir.$ime_slike,$target_dir.$resized_dir."/".$ime_slike,80,270);
                                                         $sqlUpit = "UPDATE user_oglas SET profilna_slika = ? WHERE id_user = ?";
                                                         $id_user_girl = (int)$_SESSION['id'];
-                                                   
+
                                                        include('connectionFile/connection.php');
                                                        $stmtInsert = $conn->prepare($sqlUpit);
                                                        $stmtInsert->bind_param('si',$d,$id_user_girl);
                                                        $stmtInsert->execute();
-                                                      
+
                                                        if($stmtInsert)
                                                        {
                                                           echo "<script>alert('uspeh');</script>";
@@ -51,10 +51,10 @@
                                                    {
                                                          echo "<script>alert('Your picture already exists');</script>";
                                                    }
-                                                   
+
 
                                            }
-                                           
+
                                      ?>
                                 </form>
                             </ul>
@@ -72,7 +72,7 @@
                                 </li>
                               </ul>
 
-                            <a href='update_info.php' class="btn form-control login_btn">Change info</a>
+                            <a href='update_info.php?idgirla=<?php echo $_SESSION['id']; ?>' class="btn form-control login_btn">Change info</a>
                             <button type="submit" value="LogIn" class="btn form-control login_btn">How others see you</button>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
             </div>
         </section>
         <!--================End Banner Area =================-->
-        
+
         <!--================Blog grid Area =================-->
         <section class="blog_grid_area">
             <div class="container">
@@ -91,7 +91,7 @@
                                 <li role="presentation" class="active"><a href="#activity" aria-controls="activity" role="tab" data-toggle="tab">Personal Information</a></li>
                                 <li role="presentation" ><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Activity</a></li>
                                 <li role="presentation"><a href="#sites" aria-controls="sites" role="tab" data-toggle="tab">Contact Information</a></li>
-                               
+
                             </ul>
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active fade in" id="activity">
@@ -145,16 +145,16 @@
                                             <li><a href="#">My Role</a></li>
                                             <li><a href="#">Partner's Role</a></li>
                                             <li><a href="#">Services</a></li>
-                                            
+
                                         </ul>
                                         <ul>
                                             <li><a href="#"><?php echo $sex_orj; ?></a></li>
                                             <li><a href="#"><?php echo $tvoja_ul; ?></a></li>
                                             <li><a href="#"><?php echo $njeg_uloga; ?></a></li>
                                             <li><a href="#"><?php echo $kategorija; ?></a></li>
-                                           
+
                                         </ul>
-                                       
+
                                     </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane fade" id="sites">
@@ -166,7 +166,7 @@
                                             <li><a href="#">Location Name</a></li>
                                             <li><a href="#">Appartment</a></li>
                                             <li><a href="#">Street Address</a></li>
-                                            
+
                                         </ul>
                                         <ul>
                                             <li><a href="#"><?php echo $drzava; ?></a></li>
@@ -175,7 +175,7 @@
                                             <li><a href="#"><?php echo $location_name; ?></a></li>
                                             <li><a href="#"><?php echo $interfon; ?></a></li>
                                             <li><a href="#"><?php echo $ulica; ?></a></li>
-                                            
+
                                         </ul>
                                         <ul>
                                              <li><a href="#">Sredjenost</a></li>
@@ -184,7 +184,7 @@
                                             <li><a href="#">Email</a></li>
                                             <li><a href="#">Phone Number</a></li>
                                             <li><a href="#">Website</a></li>
-                                           
+
                                         </ul>
                                         <ul>
                                             <li><a href="#"><?php echo $sredjenost; ?></a></li>
@@ -193,11 +193,11 @@
                                             <li><a href="#"><?php echo $email; ?></a></li>
                                             <li><a href="#"><?php echo $tel; ?></a></li>
                                             <li><a href="#"><?php echo $link; ?></a></li>
-                                            
+
                                         </ul>
                                     </div>
                                 </div>
-                         
+
 
                             </div>
                             <div class="members_about_box">

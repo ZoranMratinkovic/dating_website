@@ -268,11 +268,11 @@ return false;}
                       </div>
                       <div class="form-group">
                         <label for="">Username</label>
-                          <input type="text" class="form-control" name="username" id="reg_email" placeholder="Name">
+                          <input type="text" class="form-control" name="username" id="reg_user" placeholder="Name">
                       </div>
                         <div class="form-group">
                           <label for="">Name</label>
-                            <input type="text" class="form-control" name="name" id="reg_email" placeholder="Name">
+                            <input type="text" class="form-control" name="name" id="reg_first" placeholder="Name">
                         </div>
 
                         <div class="form-group">
@@ -281,11 +281,11 @@ return false;}
                         </div>
                         <div class="form-group">
                           <label for="">Passwort</label>
-                            <input type="password" class="form-control" name="password" id="reg_user" placeholder="Password">
+                            <input type="password" class="form-control" name="password" id="reg_pass" placeholder="Password">
                         </div>
                         <div class="form-group">
                           <label for="">Passwort again</label>
-                            <input type="password" class="form-control" name="password1" id="reg_pass" placeholder="Sag etwas Kurz über dich">
+                            <input type="password" class="form-control" name="password1" id="reg_pass1" placeholder="Sag etwas Kurz über dich">
                         </div>
 
                         <?php $upituser="SELECT * FROM tip";
