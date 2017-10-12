@@ -214,14 +214,14 @@ function upload_img($name,$tmp,$target_dir,$resized_dir)
     $upload = 1;
     $imageFileType = pathinfo($target_dir.$name,PATHINFO_EXTENSION);
     
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" )
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" && $imageFileType != "JPG" && $imageFileType != "PNG" && $imageFileType != "JPEG")
     {
         $upload = 0;
     }
-    if(file_exists($target_dir.$name))
+    /*if(file_exists($target_dir.$name))
     {   
         $upload = 0;
-    }
+    }*///ovo moras da promenis da se ne bi nalepilo jedno preko drugog
     if($upload == 1)
     {
         if(move_uploaded_file($tmp, $target_dir.$name))
