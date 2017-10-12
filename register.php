@@ -44,7 +44,7 @@
 <script src="assets/js/script.js"></script>
 <script src="js/map-custome.js"></script>
 <script type="text/javascript">
-<script type="text/javascript">
+
 function posalji() {
   alert('radii');
 var email = document.getElementById('reg_email').value;
@@ -76,14 +76,15 @@ greske.push('erorr');
 }
 if(reuser.test(user))
 {
-  sadrzaj.push(user)
+  sadrzaj.push(user);
+  document.getElementById('reg_user').className = 'green';
 
 
 }
 else
 
 {
-
+      document.getElementById('reg_user').className = 'red';
     greske.push('erorr');
 
 }
@@ -240,9 +241,7 @@ return false;}
 
                          $expensions= array("jpeg","jpg","png");
 
-                         if(in_array($file_ext,$expensions)=== false){
-                            $errors[]="extension not allowed, please choose a JPEG or PNG file.";
-                         }
+
 
                          if($file_size > 2097152) {
                             $errors[]='File size must be excately 2 MB';
@@ -277,7 +276,7 @@ return false;}
 
                         <div class="form-group">
                           <label for="">Email</label>
-                            <input type="email" class="form-control" name="email" id="reg_first" placeholder="email">
+                            <input type="email" class="form-control" name="email" id="reg_email" placeholder="email">
                         </div>
                         <div class="form-group">
                           <label for="">Passwort</label>
@@ -786,6 +785,8 @@ return false;}
 
 $upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,$grosse,$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref',$platz,$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2)";
 $query = mysqli_query($conn, $upitunos1) or die (mysqli_error());
+echo "<script>alert('erfolgreich registriert!');</script>";
+header('Location : index.php');
 
 
 

@@ -264,7 +264,7 @@ return false;}
 
                       <div class="form-group">
                         <label for="">Username</label>
-                          <input type="text" class="form-control" name="username" id="reg_user" placeholder="Name" value="<?php echo  $r11['username'] ?>">
+                          <input type="text" class="form-control" name="username" id="reg_user" disabled placeholder="Name" value="<?php echo  $r11['username'] ?>">
                       </div>
                         <div class="form-group">
                           <label for="">Name</label>
@@ -722,7 +722,7 @@ return false;}
                         </div>
                         <div class="reg_chose form-group">
 
-                            <input type="submit" name="register" value="jetzt registrieren" class="btn">
+                            <input type="submit" name="register" value="Informationen aendern" class="btn">
                         </div>
 
                 </div>
@@ -770,53 +770,9 @@ return false;}
       $klinge=$_POST['klinge'];
       $tel=$_POST['tel'];
       $datum=$_POST['datum'];
-      echo $geschlecht."<br/>";
-      echo $interesse_am."<br/>";
-      echo $datum."<br/>";
-      echo $name."<br/>";
-
-      echo $herkunft."<br/>";
-      echo $email."<br/>";
-      echo $username."<br/>";
-      echo $titel."<br/>";
-      echo $opis."<br/>";
-      echo $platz."<br/>";
-      echo $klinge."<br/>";
-      echo $tel."<br/>";
-      echo $datum."<br/>";
 
 
-      echo $password."<br/>";
-
-      echo $grosse."<br/>";
-      echo $sex_orj."<br/>";
-
-      echo $status."<br/>";
-      echo $poreklo."<br/>";
-
-      echo $was_magst_du."<br/>";
-      echo $was_mag_er."<br/>";
-      echo $gebaut."<br/>";
-      echo $haarlength."<br/>";
-      echo $haarfarbe."<br/>";
-      echo $whoseeme."<br/>";
-      echo $bh."<br/>";
-      echo $oberweite."<br/>";
-      echo $brille."<br/>";
-      echo $website."<br/>";
-      echo $haarfarbe."<br/>";
-      echo $whoseeme."<br/>";
-      echo $bh."<br/>";
-
-      echo $adresse_tref."<br/>";
-      echo $name_tref."<br/>";
-      echo $spremnost."<br/>";
-
-
-echo $kanton;
-
-
-$newupitunos="UPDATE user_oglas SET id_tip=$geschlecht,id_trazim=$interesse_am,umetnicko_ime='$name',id_drzava=$herkunft,email='$email',username='$username',sifra='$password',id_rasa=$poreklo,id_kome_pojavljuje=$whoseeme,id_gradja=$gebaut,id_sex_orj=$sex_orj,id_brak_status=$status,id_tvoja_uloga=$was_magst_du,id_njeg_uloga=$was_mag_er,title='$titel',opis='$opis',id_pol=$geschlecht,visina=$grosse,id_boja_kose=$haarfarbe,id_duz_kose=$haarlength,id_boja_ociju=$augenfarbe,id_naocare_sociva=$brille,id_oberweite=$oberweite,ulica='$adresse_tref',platz=$platz,id_mesto=$kanton1,tel='$tel',studio_name='$name_tref',location_name='$name_tref1',interfon='$klinge',id_sredjenost=$spremnost,link='$website',id_brus=$bh,datum='$datum',id_kanton=$kanton where id_user=".$_GET['idgirla'];
+$newupitunos="UPDATE user_oglas SET id_tip=$geschlecht,id_trazim=$interesse_am,umetnicko_ime='$name',id_drzava=$herkunft,email='$email',sifra='$password',id_rasa=$poreklo,id_kome_pojavljuje=$whoseeme,id_gradja=$gebaut,id_sex_orj=$sex_orj,id_brak_status=$status,id_tvoja_uloga=$was_magst_du,id_njeg_uloga=$was_mag_er,title='$titel',opis='$opis',id_pol=$geschlecht,visina=$grosse,id_boja_kose=$haarfarbe,id_duz_kose=$haarlength,id_boja_ociju=$augenfarbe,id_naocare_sociva=$brille,id_oberweite=$oberweite,ulica='$adresse_tref',platz=$platz,id_mesto=$kanton1,tel='$tel',studio_name='$name_tref',location_name='$name_tref1',interfon='$klinge',id_sredjenost=$spremnost,link='$website',id_brus=$bh,datum='$datum',id_kanton=$kanton where id_user=".$_GET['idgirla'];
 $query =$conn->query($newupitunos) or die("los upit".mysqli_error());
 
 

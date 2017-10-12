@@ -1,4 +1,13 @@
       <?php include("connectionFile/connection.php");?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
     <script type="text/javascript">
     function posalji() {
       alert('radii');
@@ -18,7 +27,9 @@ var reuser= /^[A-z0-9]{2,14}$/;
 
 if(reime.test(ime))
 	{
+
 		sadrzaj.push(ime);
+
 
 
 	}
@@ -27,6 +38,7 @@ if(reime.test(ime))
 	{
 
 		greske.push('erorr');
+
 
 	}
   if(reuser.test(user))

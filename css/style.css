@@ -8279,3 +8279,9 @@ background: rgba(0, 0, 0, 0.9);
   text-align: center;
 margin-top: 32px;
 }
+.green {
+	border:1px solid #00FF00!important;
+}
+.red{
+	border:1px solid #FF0000!important;
+}

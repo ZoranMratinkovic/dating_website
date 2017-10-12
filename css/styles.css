@@ -229,6 +229,9 @@ a:hover{
 .margintp{
       margin-top: 112px;
 }
-#lstBox1{
-    height: 399px!important;
+.green {
+	border:1px solid #00FF00;
+}
+.red{
+	border:1px solid #FF0000;
 }
