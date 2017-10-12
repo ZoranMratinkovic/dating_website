@@ -413,7 +413,7 @@ return false;}
                                     <div class="form-group">
                                         <div class="btn-group">
                                           <label for="">Kanton</label>
-                                        <select class="form-control" name="newkanton">
+                                        <select class="form-control" name="kanton">
                                           <?php while($r=mysqli_fetch_array($rezupituser)){
                                             if($r['id_kanton']==$r11['id_kanton']){
                                                     echo "<option selected value='{$r['id_kanton']}'>".$r['naziv_kanton']."</option>";
@@ -738,7 +738,7 @@ return false;}
       $password=$_POST['password1'];
       $geschlecht=$_POST['geschlecht'];
 
-        $kanton=$_POST['newkanton'];
+        $kanton=$_POST['kanton'];
 
       $herkunft=$_POST['herkunft'];
       $grosse=$_POST['grosse'];
