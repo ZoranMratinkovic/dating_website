@@ -66,6 +66,7 @@
                 { 
                     while($row=$rez->fetch_assoc())
                     {
+                         $id_user_uloga = $row['id_user_uloga'];
                          $name = $row['umetnicko_ime'];
                          $datum = $row['datum'];
                          $boja_kose = $row['boja_kose'];
@@ -135,7 +136,7 @@
         
         <!--================Banner Area =================-->
         <?php 
-            if(isset($_SESSION['id']) && $_SESSION['id']==1)
+            if(isset($_SESSION['id']) && $_SESSION['id']==$id_user_uloga)
             {
                 include('parts/members_detail_user_oglas.php');
             }
@@ -193,5 +194,13 @@
         <script src="js/video_player.js"></script>
         <script src="js/costome-circle.js"></script>
         <script src="js/theme.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#ChangeProfilePic').change(function(){
+                    $('#SubmitProfileChange').fadeIn();
+
+                });
+            });
+        </script>
     </body>
 </html>
