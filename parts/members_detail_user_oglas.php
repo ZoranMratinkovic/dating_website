@@ -1,3 +1,5 @@
+
+
 <section class="banner_area profile_banner">
             <div class="profiles_inners">
                 <div class="container">
@@ -29,11 +31,12 @@
                                                    $dest = upload_img($ime_slike,$tmp,$target_dir,$resized_dir);
                                                    if($dest)
                                                    {
-                                                        $d = compress($target_dir.$ime_slike,$target_dir.$resized_dir."/".$ime_slike,80,270);
+                                                        $d = compress($target_dir.$ime_slike,$target_dir.$resized_dir."/".$ime_slike, 80, 270);
                                                         $sqlUpit = "UPDATE user_oglas SET profilna_slika = ? WHERE id_user = ?";
                                                         $id_user_girl = (int)$_SESSION['id'];
 
                                                        include('connectionFile/connection.php');
+                                                       
                                                        $stmtInsert = $conn->prepare($sqlUpit);
                                                        $stmtInsert->bind_param('si',$d,$id_user_girl);
                                                        $stmtInsert->execute();
@@ -64,17 +67,18 @@
                                 <li class="dropdown">
                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-h"></i></a>
                                   <ul class="dropdown-menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
+                                    <?php include('create_album.php'); ?>
+                                    <li><a class="popup-with-zoom-anim" href="#create-album">Create an album</a></li>
+                                    <li><a href="#">Create an album</a></li>
                                     <li><a href="#">Another action</a></li>
                                     <li><a href="#">Another action</a></li>
                                   </ul>
                                 </li>
                               </ul>
 
-                            <a href='update_info.php?idgirla=<?php echo $_SESSION['id']; ?>' class="btn form-control login_btn">Change info</a>
+                            <a href='update_info.php?idgirla=<?php echo $_SESSION['id']; ?>' class="buttonChangeInfo btn form-control login_btn">Change info</a>
                             <button type="submit" value="LogIn" class="btn form-control login_btn">How others see you</button>
-                        </div>
+                       </div>
                     </div>
                 </div>
             </div>
@@ -213,23 +217,12 @@
                     </div>
                     <div class="col-md-3">
                         <div class="right_sidebar_area">
-                            <aside class="s_widget photo_widget">
-                                <div class="s_title">
-                                    <h4>Photo</h4>
-                                    <img src="img/widget-title-border.png" alt="">
-                                </div>
-                                <ul>
-                                    <li><a href="#"><img src="img/photo/photo-1.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="img/photo/photo-2.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="img/photo/photo-3.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="img/photo/photo-4.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="img/photo/photo-5.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="img/photo/photo-6.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="img/photo/photo-7.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="img/photo/photo-8.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="img/photo/photo-9.jpg" alt=""></a></li>
-                                </ul>
-                            </aside>
+                            
+                            <?php 
+                                include('functions.php');
+                                $id_userr = (int)$_SESSION['id'];
+                                list_of_albums($id_userr);
+                             ?>
                             <aside class="s_widget recent_post_widget">
                                 <div class="s_title">
                                     <h4>Recent Post</h4>

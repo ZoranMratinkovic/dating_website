@@ -17,7 +17,7 @@
                </div>
            </form>
            <img class="mfp-close" src="img/close-btn.png" alt="">
-        </div>
+</div>
 
 
         <?php

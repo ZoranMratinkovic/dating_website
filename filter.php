@@ -1,7 +1,7 @@
 <?php 
     if(isset($_GET['filter']) && !empty($_GET['filter']))
     {
-        
+        //ajax for multiple search box on the left on members page
         $filter = "{$_GET['filter']}%";
 
         include("connectionFile/connection.php");

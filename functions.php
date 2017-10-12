@@ -271,4 +271,69 @@ function compress($source, $destination, $quality, $w) {
 
     return $destination;
 }
+
+function list_of_albums($id)
+{
+    /*$listALbums = "SELECT * FROM images i INNER JOIN album_image ai on i.id_image=ai.id_image INNER JOIN album a on ai.id_album = a.id_album WHERE a.id_user=?";*/
+    $listAlbums = "SELECT * FROM album WHERE id_user = ?";
+    include('connectionFile/connection.php');
+    $i=0;
+    $stmtAlbum = $conn->prepare($listAlbums);
+    $stmtAlbum->bind_param('i',$id);
+    $stmtAlbum->execute();
+    $rez = $stmtAlbum->get_result();
+
+        if($rez->num_rows > 0)//If she actually has an album, show it
+        {
+            
+            while($row = $rez->fetch_assoc())
+            {
+                
+                $listAlbumss = "SELECT * FROM `images` i INNER JOIN `album_image` ai ON i.id_image = ai.id_image INNER JOIN album a ON ai.id_album= a.id_album where ai.id_album={$row['id_album']}";
+                
+                $result = $conn->query($listAlbumss);
+                
+                if(mysqli_num_rows($result) > 0)
+                {
+                     echo "<aside class='s_widget photo_widget'>
+                                <div class='s_title'>
+                                    <h4>{$row['album_name']}</h4>
+                                    <img src='img/widget-title-border.png' alt=''>
+                                </div>
+                                <ul>";
+               
+                    while($row1 = mysqli_fetch_array($result))
+                    {
+                        echo "<li><a href='#'><img src='{$row1['image_src']}' alt=''></a></li>";
+                    }
+
+                    echo "</ul></aside><form action='insertImagesIntoAlbum.php?id_album={$row['id_album']}' method='post' enctype='multipart/form-data'>
+                                    <input type='file' name='AlbumPictures'>
+                                   <input type='submit' value='Insert' name='InsertPics{$i}' class='btn btn-lg dugmeSearch'>
+                                </form>";
+                }
+                else
+                {
+                        //if she doesn't have an album, show her the form, to insert images
+                        echo 
+                            "
+                                <h4>{$row['album_name']}</h4>
+                                <img src='img/widget-title-border.png' alt=''>
+                                <form action='insertImagesIntoAlbum.php?id_album={$row['id_album']}' method='post' enctype='multipart/form-data'>
+                                    <input type='file' name='AlbumPictures'>
+                                   <input type='submit' value='Insert' name='InsertPics{$i}' class='btn btn-lg dugmeSearch'>
+                                </form>
+                                <br/>
+                            ";
+                }
+               
+                 $i++;              
+            }
+           
+        }
+
+
+}
+
+
  ?>

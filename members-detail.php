@@ -136,9 +136,10 @@
         
         <!--================Banner Area =================-->
         <?php 
-            if(isset($_SESSION['id']) && $_SESSION['id']==$id_user_uloga)
+            if(isset($_SESSION['id_uloga']) && $_SESSION['id_uloga']==$id_user_uloga)
             {
                 include('parts/members_detail_user_oglas.php');
+
             }
             else
             {
