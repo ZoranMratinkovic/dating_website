@@ -153,6 +153,9 @@ Table of Content:
     cursor: inherit;
     display: block;
 }
+.none{
+  display:none;
+}
 /*Obrisati posle ove klase jer ces da smanjis stvarno slike*/
 /*Our code end*/
 

@@ -27,7 +27,7 @@ $(document).ready(function(){
 		Binding event listeners
 	----------------------------------*/
 
-
+	
 	var shootEnabled = false;
 
 	$('#shootButton').click(function(){

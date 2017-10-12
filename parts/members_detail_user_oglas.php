@@ -10,17 +10,51 @@
                             <ul>
                                 <li><a href="#"><?php echo $drzava; ?>, <?php echo $kanton; ?></a></li>
                                 <li><a href="#"><?php echo $brak; ?></a></li>
-                                <form action='' method='post' enctype='multipart/form-data'>
+                                <form action='' id='ChangeProfilePicture' method='post' enctype='multipart/form-data'>
                                     <span class="btn btn-default btn-file">
-                                        Change Picture<input type="file" name='ChangeProfilePic'>
+                                        Change Picture<input type="file" id='ChangeProfilePic' name='ChangeProfilePic'>
+                                        
                                     </span>
+                                    <input type="submit" name="SubmitProfileChange" id='SubmitProfileChange' class='none btn btn-default' value='Submit'>
                                     <?php 
-                                        if(isset($_POST['ChangeProfilePic']))
-                                        {
-                                            $ime_slike = $FILES['ChangeProfilePic']['name'];
-                                            $tmp = $FILES['ChangeProfilePic']['tmp_name'];
-                                            $target_dir = "img/";
-                                        }
+                                           if(isset($_POST['SubmitProfileChange'])&&isset($_FILES['ChangeProfilePic']['tmp_name']))
+                                           {
+                                                   $ime_slike = $_FILES['ChangeProfilePic']['name'];
+                                                   $tmp = $_FILES['ChangeProfilePic']['tmp_name'];
+                                                   $target_dir = "img/";
+                                                   $resized_dir = "/profiles";
+                                                  
+                                                   include('functions.php');
+                                                   
+                                                   $dest = upload_img($ime_slike,$tmp,$target_dir,$resized_dir);
+                                                   if($dest)
+                                                   {
+                                                        $d = compress($target_dir.$ime_slike,$target_dir.$resized_dir."/".$ime_slike,80,270);
+                                                        $sqlUpit = "UPDATE user_oglas SET profilna_slika = ? WHERE id_user = ?";
+                                                        $id_user_girl = (int)$_SESSION['id'];
+                                                   
+                                                       include('connectionFile/connection.php');
+                                                       $stmtInsert = $conn->prepare($sqlUpit);
+                                                       $stmtInsert->bind_param('si',$d,$id_user_girl);
+                                                       $stmtInsert->execute();
+                                                      
+                                                       if($stmtInsert)
+                                                       {
+                                                          echo "<script>alert('uspeh');</script>";
+                                                       }
+                                                       else
+                                                       {
+                                                          echo "<script>alert('neuspeh');</script>";
+                                                       }
+                                                   }
+                                                   else
+                                                   {
+                                                         echo "<script>alert('Your picture already exists');</script>";
+                                                   }
+                                                   
+
+                                           }
+                                           
                                      ?>
                                 </form>
                             </ul>

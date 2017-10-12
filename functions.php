@@ -209,8 +209,66 @@ function filter_girls_left()
         }
 
 }	
-function upload_img($name,$tmp)
+function upload_img($name,$tmp,$target_dir,$resized_dir)
 {
+    $upload = 1;
+    $imageFileType = pathinfo($target_dir.$name,PATHINFO_EXTENSION);
     
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" )
+    {
+        $upload = 0;
+    }
+    if(file_exists($target_dir.$name))
+    {   
+        $upload = 0;
+    }
+    if($upload == 1)
+    {
+        if(move_uploaded_file($tmp, $target_dir.$name))
+        {
+            return true;
+        }
+           
+        else{
+            echo "No success";
+        }
+    }
+}
+
+function compress($source, $destination, $quality, $w) {
+
+    $info = getimagesize($source);
+    if ($info['mime'] == 'image/jpeg') 
+    {
+        $image = imagecreatefromjpeg($source);
+        
+    }
+
+    else if ($info['mime'] == 'image/gif') 
+    {
+        $image = imagecreatefromgif($source);
+        
+    }
+      
+    else if ($info['mime'] == 'image/png') 
+    {
+          $image = imagecreatefrompng($source);
+    }
+
+    list($width,$height) = getimagesize($source);
+    
+    $new_width = $w;
+    $new_height = ($height/$width)*$new_width;
+
+    $tmp = imagecreatetruecolor($new_width,$new_height);
+
+    imagecopyresampled($tmp,$image,0,0,0,0,$new_width,$new_height,$width,$height);
+
+
+     
+   
+    imagejpeg($tmp, $destination, $quality);
+
+    return $destination;
 }
  ?>
