@@ -10,6 +10,19 @@
                             <ul>
                                 <li><a href="#"><?php echo $drzava; ?>, <?php echo $kanton; ?></a></li>
                                 <li><a href="#"><?php echo $brak; ?></a></li>
+                                <form action='' method='post' enctype='multipart/form-data'>
+                                    <span class="btn btn-default btn-file">
+                                        Change Picture<input type="file" name='ChangeProfilePic'>
+                                    </span>
+                                    <?php 
+                                        if(isset($_POST['ChangeProfilePic']))
+                                        {
+                                            $ime_slike = $FILES['ChangeProfilePic']['name'];
+                                            $tmp = $FILES['ChangeProfilePic']['tmp_name'];
+                                            $target_dir = "img/";
+                                        }
+                                     ?>
+                                </form>
                             </ul>
                         </div>
                         <div class="right_side_content">
@@ -24,8 +37,9 @@
                                   </ul>
                                 </li>
                               </ul>
-                            <button type="submit" value="LogIn" class="btn form-control login_btn">Add Friend <img src="img/user.png" alt=""></button>
-                            <button type="submit" value="LogIn" class="btn form-control login_btn">Chat Now <img src="img/comment.png" alt=""></button>
+
+                            <a href='update_info.php' class="btn form-control login_btn">Change info</a>
+                            <button type="submit" value="LogIn" class="btn form-control login_btn">How others see you</button>
                         </div>
                     </div>
                 </div>

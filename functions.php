@@ -209,4 +209,8 @@ function filter_girls_left()
         }
 
 }	
+function upload_img($name,$tmp)
+{
+    
+}
  ?>
