@@ -1,5 +1,5 @@
 
-<?php 
+<?php
   if(isset($_POST['logout']))
   {
     unset($_SESSION['username']);
@@ -88,7 +88,7 @@
                     <ul class="nav navbar-nav navbar-right">
                       <?php if(isset($_SESSION['username']))
                       {
-                          echo "<li><a href='parts/change.php'><i class='mdi mdi-key-variant'></i>".$_SESSION['username']."</a></li>
+                          echo "<li><a href='update_info.php?idgirla={$_SESSION['id']}'<i class='mdi mdi-key-variant'></i>".$_SESSION['username']."</a></li>
                           <li><form method='post'><input type='submit' value='logout' class='btn-danger' name='logout' /></form></li>
                           ";
                            } else { ?>
