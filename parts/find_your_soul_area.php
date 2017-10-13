@@ -1,29 +1,29 @@
 <section class="find_soul_area">
             <div class="container">
                 <div class="welcome_title">
-                    <h3>Step to Find Your Soul mate</h3>
+                    <h3>Was bieten wir an</h3>
                     <img src="img/w-title-b.png" alt="">
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="find_soul_item">
                             <img src="img/soul-icon/soul-1.png" alt="">
-                            <h4>Create a profile</h4>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.</p>
+                            <h4>Profil erstellen</h4>
+                            <p>Erstellen sie ein Profil als user oder anbieter und profietieren sie.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="find_soul_item">
                             <img src="img/soul-icon/soul-2.png" alt="">
-                            <h4>Find matches </h4>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.</p>
+                            <h4>Finden sie was sie wollen! </h4>
+                            <p>Leicht zu durchsuchen viele kategorien viele angebote</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="find_soul_item">
                             <img src="img/soul-icon/soul-3.png" alt="">
-                            <h4>Start Dating</h4>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.</p>
+                            <h4>Treffen sie sich</h4>
+                            <p>Die user haben die möglich keit ihre treff location abzugeben</p>
                         </div>
                     </div>
                 </div>

@@ -6,8 +6,8 @@
                             <aside class="f_widget">
                                 <div class="vero_widget">
                                     <h4><span>Vero</span>Date</h4>
-                                    <p>There are many variations of passag-es of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
-                                    <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything .</p>
+                                    <p>Ob beste Freunde, lockerer Flirt oder die große Liebe – Bei uns kannst, was du daraus machst. Schau dir hier einige unserer Erfolgsgeschichten an und fange noch heute damit an, deine eigene zu schreiben.</p>
+                                    <p>Chats, Dates oder Bekanntschaften? Wähle aus, wonach du suchst und erhalte passende Vorschläge .</p>
                                 </div>
                             </aside>
                         </div>
@@ -18,11 +18,11 @@
                                 </div>
                                 <div class="information_widget">
                                     <ul>
-                                        <li><a href="#">About us</a></li>
-                                        <li><a href="#">Contact us</a></li>
-                                        <li><a href="#">Membership</a></li>
-                                        <li><a href="#">Private Policy</a></li>
-                                        <li><a href="#">Forum Support</a></li>
+                                        <li><a href="#">Über uns</a></li>
+                                        <li><a href="#">Kontakt</a></li>
+                                        <li><a href="#">user</a></li>
+                                        <li><a href="#">AGBS</a></li>
+                                        <li><a href="#">Support</a></li>
                                     </ul>
                                 </div>
                             </aside>
@@ -65,7 +65,7 @@
             <div class="copyright">
                 <div class="copyright_left">
                     <div class="copyright_text">
-                        <h4>Copyright © 2017. <a href="#">VeroDate</a> . all rights reserved</h4>
+                        <h4>Copyright © 2017. <a href="#">VeroDate</a> . all rights reserved. Design by <a href="#">Supermedia</a></h4>
                     </div>
                 </div>
                 <div class="copyright_right">

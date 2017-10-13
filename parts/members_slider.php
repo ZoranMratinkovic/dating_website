@@ -1,12 +1,12 @@
 <section class="register_members_slider">
             <div class="container">
                 <div class="welcome_title">
-                    <h3>Latest registered members</h3>
+                    <h3>Zuletzt registrierte user</h3>
                     <img src="img/w-title-b.png" alt="">
                 </div>
                 <div class="r_members_inner">
 
-                    <?php 
+                    <?php
                         include("connectionFile/connection.php");
 
                         $members = "SELECT id_user,umetnicko_ime,datum,profilna_slika FROM user_oglas";
@@ -29,15 +29,15 @@
                             echo "<script>alert('radi');</script>";
                         }
                      ?>
-                    
-                    
+
+
                 </div>
-                
+
             </div>
             <div class="container mt-35">
                 <div class="row">
                     <div class="col-xs-12 text-center ">
-                        <a href="members1.php" role='button' class='btn btn-lg dugmeSearch'>SEE ALL PROFILES</a>
+                        <a href="members1.php" role='button' class='btn btn-lg dugmeSearch'>Alle anzeigen</a>
 
                     </div>
                 </div>

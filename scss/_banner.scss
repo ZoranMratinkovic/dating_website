@@ -1,7 +1,7 @@
 /* Banner area css
 ============================================================================================ */
 .banner_area{
-    background: url(../img/banner/banner-bg-1.jpg) no-repeat scroll center center;
+    background: url(../img/banner/banner-bg-1.jpg) no-repeat scroll center center!important;
     min-height: 311px;
     position: relative;
     background-size: cover;
@@ -51,7 +51,7 @@
         a{
             font-size: 16px;
             color: #fff;
-            font-family: $av; 
+            font-family: $av;
             z-index: 3;
             margin-right: 15px;
             position: relative;
@@ -348,7 +348,7 @@
                                     border-bottom: 1px solid $baseColor;
                                     border-radius: 0px;
                                     text-align: center;
-                                    background: transparent; 
+                                    background: transparent;
                                     top: 163%;
                                     li{
                                         a{

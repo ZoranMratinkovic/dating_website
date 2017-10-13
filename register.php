@@ -129,7 +129,7 @@ else
 
 if(sadrzaj.length == 5)
 {
-alert("Vaša poruka je poslata,odgovor ce biti najkasnije sledečeg radnog dana");
+alert("Erfolgreich!");
 return true;
 
 
@@ -178,7 +178,7 @@ function toggle(source) {
 
                         </li>
                         <li class="dropdown menu-large">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kategorien <b class="caret"></b></a>
                           <ul class="dropdown-menu megamenu row backg">
                             <li class="col-sm-12">
                                 <ul>
@@ -201,7 +201,7 @@ function toggle(source) {
                         </li>
 
 
-                                <li><a href="members1.php">Members</a></li>
+                                <li><a href="members1.php">User</a></li>
 
 
 
@@ -219,7 +219,7 @@ function toggle(source) {
                             </ul>
                         </li>
 
-                        <li><a href="contact.html">Contact us</a></li>
+                        <li><a href="contact.html">Kontakt</a></li>
                     </ul>
 
 

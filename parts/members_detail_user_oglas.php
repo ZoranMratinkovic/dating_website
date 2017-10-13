@@ -14,7 +14,7 @@
                                 <li><a href="#"><?php echo $brak; ?></a></li>
                                 <form action='' id='ChangeProfilePicture' method='post' enctype='multipart/form-data'>
                                     <span class="btn btn-default btn-file">
-                                        Change Picture<input type="file" id='ChangeProfilePic' name='ChangeProfilePic'>
+                                        Profil Bild ändern<input type="file" id='ChangeProfilePic' name='ChangeProfilePic'>
 
                                     </span>
                                     <input type="submit" name="SubmitProfileChange" id='SubmitProfileChange' class='none btn btn-default' value='Submit'>
@@ -36,7 +36,7 @@
                                                         $id_user_girl = (int)$_SESSION['id'];
 
                                                        include('connectionFile/connection.php');
-                                                       
+
                                                        $stmtInsert = $conn->prepare($sqlUpit);
                                                        $stmtInsert->bind_param('si',$d,$id_user_girl);
                                                        $stmtInsert->execute();
@@ -68,7 +68,7 @@
                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-h"></i></a>
                                   <ul class="dropdown-menu">
                                     <?php include('create_album.php'); ?>
-                                    <li><a class="popup-with-zoom-anim" href="#create-album">Create an album</a></li>
+                                    <li><a class="popup-with-zoom-anim" href="#create-album">Album erstellen</a></li>
                                     <li><a href="#">Create an album</a></li>
                                     <li><a href="#">Another action</a></li>
                                     <li><a href="#">Another action</a></li>
@@ -76,8 +76,8 @@
                                 </li>
                               </ul>
 
-                            <a href='update_info.php?idgirla=<?php echo $_SESSION['id']; ?>' class="buttonChangeInfo btn form-control login_btn">Change info</a>
-                            <button type="submit" value="LogIn" class="btn form-control login_btn">How others see you</button>
+                            <a href='update_info.php?idgirla=<?php echo $_SESSION['id']; ?>' class="buttonChangeInfo btn form-control login_btn">Informationen Aktulisieren</a>
+                            <button type="submit" value="LogIn" class="btn form-control login_btn">Wie sehen andere dein profil?</button>
                        </div>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                                         </ul>
                                         <ul>
                                             <li><a href="#"><?php echo $tip; ?></a></li>
-                                            <li><a href="#">26 years old</a></li>
+
                                             <li><a href="#"><?php echo $drzava; ?></a></li>
                                             <li><a href="#"><?php echo $kanton; ?></a></li>
                                             <li><a href="#"><?php echo $datum; ?></a></li>
@@ -217,8 +217,8 @@
                     </div>
                     <div class="col-md-3">
                         <div class="right_sidebar_area">
-                            
-                            <?php 
+
+                            <?php
                                 include('functions.php');
                                 $id_userr = (int)$_SESSION['id'];
                                 list_of_albums($id_userr);

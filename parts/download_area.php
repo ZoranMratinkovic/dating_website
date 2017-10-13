@@ -5,17 +5,29 @@
                         <div class="item">
                             <div class="col-md-7">
                                 <div class="download_app_icon">
-                                    <h3>Download <span>Vero</span><span>Date</span> app</h3>
-                                    <h5>Free Available in All Store PlayStore, AppStore & Microsoft Store</h5>
+                                    <h3>Alles <span>Was</span><span> Sie</span> Wollen</h3>><br/>><br/>
+
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-android"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-apple"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-windows"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-check"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-facebook-official"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+
                                     </ul>
                                 </div>
                                 <div class="download_content">
                                     <div class="item">
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.The point of using Lorem Ipsum is that it has a more-or-less normal distribution.</p>
+                                        <p>Wow super Website echt hammer!</p>
+                                        <h4>Eine 5+ von mir!</h4>
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="item">
+                                        <p>Das ist einfach der Hammer alles was man will findet man hier!</p>
                                         <h4>Amanda Davidson</h4>
                                         <ul>
                                             <li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -26,19 +38,8 @@
                                         </ul>
                                     </div>
                                     <div class="item">
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.The point of using Lorem Ipsum is that it has a more-or-less normal distribution.</p>
-                                        <h4>Amanda Davidson</h4>
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="item">
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.The point of using Lorem Ipsum is that it has a more-or-less normal distribution.</p>
-                                        <h4>Amanda Davidson</h4>
+                                        <p>Schlagt zu super angebote!</p>
+                                        <h4>Hans Peter</h4>
                                         <ul>
                                             <li><a href="#"><i class="fa fa-star"></i></a></li>
                                             <li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -55,13 +56,13 @@
                                         <img src="img/mobile-slider/mobile-1.png" alt="">
                                         <div class="download_moblile_slider">
                                             <div class="item">
-                                                <img src="img/mobile-slider/screen-1.png" alt="">
+                                                <img src="img/mobile-slider/hot1.jpg" height="419px" width="292px" alt="">
                                             </div>
                                             <div class="item">
-                                                <img src="img/mobile-slider/screen-1.png" alt="">
+                                                <img src="img/mobile-slider/hot2.jpg" height="419px" width="292px" alt="">
                                             </div>
                                             <div class="item">
-                                                <img src="img/mobile-slider/screen-1.png" alt="">
+                                                <img src="img/mobile-slider/hot3.jpg" height="419px" width="292px" alt="">
                                             </div>
                                         </div>
                                     </div>

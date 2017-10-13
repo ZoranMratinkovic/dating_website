@@ -9,7 +9,7 @@
 .welcome_item{
     text-align: center;
     img{
-        
+
     }
     h4{
         font-size: 30px;
@@ -64,7 +64,7 @@
 .download_area{
     position: relative;
     padding-top: 80px;
-    background: url(../img/download_bg.jpg) no-repeat scroll center center;
+    background: url(../img/background1.jpg) no-repeat scroll center center;
     background-size: cover;
     position: relative;
     &:before{
@@ -350,7 +350,7 @@
             .left_inner_right{
                 max-width: 585px;
                 float: right;
-                width: 100%; 
+                width: 100%;
                 h4{
                     color: #fff;
                     font-family: $ub;
@@ -518,7 +518,7 @@
 /* Forums area css
 ============================================================================================ */
 .forums_area{
-    
+
 }
 .forums_table{
     .table-responsive{
@@ -533,7 +533,7 @@
                         font-family: $ub;
                         font-size: 16px;
                         font-weight: bold;
-                        color: $dip; 
+                        color: $dip;
                         &:first-child{
                             padding-left: 30px;
                         }
@@ -580,7 +580,7 @@
                             padding-left: 40px;
                         }
                         &:last-child{
-                            
+
                         }
                         .media{
                             width: auto;

@@ -32,7 +32,7 @@
 
                         </li>
                         <li class="dropdown menu-large">
-                  				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
+                  				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Kategorien <b class="caret"></b></a>
                   				<ul class="dropdown-menu megamenu row backg">
                   					<li class="col-sm-12">
                   						  <ul>
@@ -56,10 +56,10 @@
                                 <li><a href="members1.php">Members</a></li>
 
 
-                                <li><a href="members.php?all_members">Members 2</a></li>
+
 
                         </li>
-                        <li class="dropdown submenu">
+            <!--            <li class="dropdown submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
                             <ul class="dropdown-menu">
                                 <li><a href="shop.html">Shop</a></li>
@@ -80,8 +80,8 @@
                                 <li><a href="404.html">Error</a></li>
                             </ul>
                         </li>
-
-                        <li><a href="contact.html">Contact us</a></li>
+-->
+                        <li><a href="contact.html">Kontakt</a></li>
                     </ul>
 
 
@@ -105,10 +105,8 @@
                         <li class="flag_drop">
                             <div class="selector">
                                 <select class="language_drop" name="countries" id="countries" style="width:300px;">
-                                  <option value='yt' data-image="img/country-aus.png" data-imagecss="flag yt" data-title="English">English</option>
-                                  <option value='yu' data-image="img/country-bang.png" data-imagecss="flag yu" data-title="Bangladesh">Bangla</option>
-                                  <option value='yt' data-image="img/country-aus.png" data-imagecss="flag yt" data-title="English">English</option>
-                                  <option value='yu' data-image="img/country-bang.png" data-imagecss="flag yu" data-title="Bangladesh">Bangla</option>
+                                  <option value='yt' data-image="img/country-aus.png" data-imagecss="flag yt" data-title="English">Deutsch</option>
+
                                 </select>
                             </div>
                         </li>
