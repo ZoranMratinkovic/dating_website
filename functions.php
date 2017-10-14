@@ -324,10 +324,10 @@ function list_of_albums($id)
                                    <input type='submit' value='Insert' name='InsertPics{$i}' class='btn btn-lg dugmeSearch'>
                                 </form>
                                 <br/>
-                            ";
+                           ";
                 }
                
-                 $i++;              
+                  $i++;              
             }
            
         }
