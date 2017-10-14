@@ -5,6 +5,7 @@
     unset($_SESSION['username']);
     unset($_SESSION['id']);
     unset($_SESSION['id_uloga']);
+    unset($_SESSION['age']);
   }
 ?>
 

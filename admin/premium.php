@@ -1,7 +1,7 @@
 <?php   session_start();
 
  if(isset($_SESSION['id_uloga'])==4){
-  include("/../connectionFile/connection.php");
+  include("../connectionFile/connection.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
