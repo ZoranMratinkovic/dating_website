@@ -16,19 +16,22 @@ var ime = document.getElementById('reg_first').value;
 var user = document.getElementById('reg_user').value;
 var pass=document.getElementById('reg_pass').value;
 var pass1=document.getElementById('reg_pass1').value;
+var age=document.getElementById('age').value;
 
 var greske= new Array();
 var sadrzaj=new Array();
   var greskeID = new Array();
-var reime= /^[A-z/s]{2,14}$/;
+var reime= /^[A-z\s]{2,40}$/;
 var reemail= /^(\w+[\-\.])*\w+@(\w+\.)+[A-Za-z]+$/;
 var repass= /^[a-zA-Z0-9!@#$%^&*-_]{6,}/;
-var reuser= /^[A-z0-9]{2,14}$/;
+var reuser= /^[A-z0-9]{2,25}$/;
+var reage= /^[0-9]{1,3}$/;
 
 if(reime.test(ime))
 	{
 
 		sadrzaj.push(ime);
+      document.getElementById('reg_first').className = 'green';
 
 
 
@@ -38,12 +41,34 @@ if(reime.test(ime))
 	{
 
 		greske.push('erorr');
+    document.getElementById('reg_first').className = 'red';
+
 
 
 	}
+  if(reage.test(age))
+  	{
+
+  		sadrzaj.push(age);
+        document.getElementById('age').className = 'green';
+
+
+
+  	}
+  	else
+
+  	{
+
+  		greske.push('erorr');
+      document.getElementById('age').className = 'red';
+
+
+
+  	}
   if(reuser.test(user))
   	{
-  		sadrzaj.push(user)
+  		sadrzaj.push(user);
+        document.getElementById('reg_user').className = 'green';
 
 
   	}
@@ -52,39 +77,47 @@ if(reime.test(ime))
   	{
 
   			greske.push('erorr');
+        document.getElementById('reg_user').className = 'red';
+
 
   	}
 	if(reemail.test(email))
 	{
 		sadrzaj.push(email);
+      document.getElementById('reg_email').className = 'green';
 
 	}
 	else
 	{
 		greske.push('erorr');
+    document.getElementById('reg_email').className = 'red';
+
 
 	}
 
   if(pass==pass1){
-      sadrzaj.push(pass)
+      sadrzaj.push(pass);
+        document.getElementById('reg_pass1').className = 'green';
   }
   else{
-    greske.push('error')
+    greske.push('error');    document.getElementById('reg_pass1').className = 'red';
   }
 	if(repass.test(pass))
 	{
-		sadrzaj.push(pass)
+		sadrzaj.push(pass);  document.getElementById('reg_pass').className = 'green';
 
 	}
 	else
 	{
 			greske.push('erorr');
+      document.getElementById('reg_pass').className = 'red';
+
 
 	}
 
 
 
-if(sadrzaj.length == 5)
+if(sadrzaj.length == 6)
 	{
 		alert("Vaša poruka je poslata,odgovor ce biti najkasnije sledečeg radnog dana");
     return true;
@@ -114,6 +147,9 @@ return false;}
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="reg_first" placeholder="Full Name" name="fullname" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="age" placeholder="26" name="age" required>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="reg_user" placeholder="Username" name="username" required>
@@ -178,7 +214,7 @@ return false;}
                                 $monat=$_REQUEST['monat'];
                                 $tag=$_REQUEST['tag'];
                                 $jahr=$_REQUEST['jahr'];
-
+                                $age=$_REQUEST['age'];
 
           $reusername="/^[A-z0-9]{2,14}$/";
           $reime_prezime="/^[A-z0-9]{2,14}$/";
@@ -197,7 +233,7 @@ if(preg_match($reime_prezime,$fullname)){
   $podaci[]=$reime_prezime;
 }
 else {
-  $errors[]="username nije dobroo!";
+  $errors[]="ime nije dobroo!";
 }
 if(preg_match($reemail,$email)){
   $podaci[]=$reemail;
@@ -216,7 +252,7 @@ else {
 
 
 
-                                  $upit="INSERT INTO user VALUES('','$email','$username','$password','$geschlecht',$tag,$monat,$jahr,1)";
+                                  $upit="INSERT INTO user VALUES('','$email','$username','$password','$geschlecht',$tag,$monat,$jahr,1,$age)";
                                   $rezupit=$conn->query($upit)or die('losee');
 
 

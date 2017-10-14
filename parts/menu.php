@@ -5,7 +5,6 @@
     unset($_SESSION['username']);
     unset($_SESSION['id']);
     unset($_SESSION['id_uloga']);
-     unset($_SESSION['age']);
   }
 ?>
 
@@ -88,11 +87,22 @@
 
                     <ul class="nav navbar-nav navbar-right">
                       <?php if(isset($_SESSION['username']))
-                      {
+                      {  $upit="SELECT * FROM user where user_id=".$_SESSION['id']."&& id_user_uloga=4";
+                         $rezupit=$conn->query($upit) or die('los upit');
+                         if(mysqli_num_rows($rezupit)==1){
+                           echo "<li><a href='admin/admin.php'<i class='mdi mdi-key-variant'></i>Adminpanel</a></li>
+                           <li><form method='post'><input type='submit' value='logout' class='btn-danger' name='logout' /></form></li>";
+
+                         }else if($_SESSION['id_uloga']==2){
                           echo "<li><a href='members-detail.php?id_girl={$_SESSION['id']}'<i class='mdi mdi-key-variant'></i>".$_SESSION['username']."</a></li>
                           <li><form method='post'><input type='submit' value='logout' class='btn-danger' name='logout' /></form></li>
                           ";
-                           } else { ?>
+                        }
+                          else{
+                            echo "<li><a href='update.php?userch={$_SESSION['id']}'<i class='mdi mdi-key-variant'></i>".$_SESSION['username']."</a></li>
+                            <li><form method='post'><input type='submit' value='logout' class='btn-danger' name='logout' /></form></li>
+                            "; }
+                      } else { ?>
                         <li><a class="popup-with-zoom-anim" href="#small-dialog"><i class="mdi mdi-key-variant"></i>Login</a></li>
                           <li class="dropdown submenu">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registration</a>
