@@ -355,7 +355,7 @@ function list_of_albums_reg_user($id)
                 
                 if(mysqli_num_rows($result) > 0)
                 {
-                    if($_SESSION['age'] >= $row['age_type'])
+                    if(isset($_SESSION['age']) && $_SESSION['age'] >= $row['age_type'])
                     {
                         //make sure that user_age and album age permission matches
                         echo "<aside class='s_widget photo_widget brd pad'>
