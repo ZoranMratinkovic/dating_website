@@ -320,7 +320,7 @@ function list_of_albums($id)
                                 <h4>{$row['album_name']}</h4>
                                 <img src='img/widget-title-border.png' alt=''>
                                 <form action='insertImagesIntoAlbum.php?id_album={$row['id_album']}' method='post' enctype='multipart/form-data'>
-                                    <input type='file' name='AlbumPictures'>
+                                    <span class='btn btn-default btn-file'>Choose image<input type='file' name='AlbumPictures'></span>
                                    <input type='submit' value='Insert' name='InsertPics{$i}' class='btn btn-lg dugmeSearch'>
                                 </form>
                                 <br/>
