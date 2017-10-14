@@ -60,7 +60,7 @@
             $stm = $conn->prepare($sqlGirl);
             $stm->bind_param("i",$id_girl);
             $stm->execute();
-            if($stm)
+             if($stm)
             {   
                 if($rez=$stm->get_result())
                 { 
