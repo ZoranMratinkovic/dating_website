@@ -49,19 +49,22 @@ if(isset($_GET['idgirla'])){
 <script src="assets/js/script.js"></script>
 <script src="js/map-custome.js"></script>
 <script type="text/javascript">
-<script type="text/javascript">
+
 function posalji() {
-  alert('radii');
+
 var email = document.getElementById('reg_email').value;
 var ime = document.getElementById('reg_first').value;
 var user = document.getElementById('reg_user').value;
 var pass=document.getElementById('reg_pass').value;
 var pass1=document.getElementById('reg_pass1').value;
 
+
+
+
 var greske= new Array();
 var sadrzaj=new Array();
 var greskeID = new Array();
-var reime= /^[A-z/s]{2,14}$/;
+var reime= /^[A-z\s0-9]{2,20}$/;
 var reemail= /^(\w+[\-\.])*\w+@(\w+\.)+[A-Za-z]+$/;
 var repass= /^[a-zA-Z0-9!@#$%^&*-_]{6,}/;
 var reuser= /^[A-z0-9]{2,14}$/;
@@ -69,72 +72,108 @@ var reuser= /^[A-z0-9]{2,14}$/;
 if(reime.test(ime))
 {
 sadrzaj.push(ime);
-
+  document.getElementById('reg_first').className = 'green';
 
 }
 else
 
 {
-
+  document.getElementById('reg_first').className = 'red';
 greske.push('erorr');
 
 }
+if(reage.test(age))
+  {
+
+    sadrzaj.push(age);
+      document.getElementById('age').className = 'green';
+
+
+
+  }
+  else
+
+  {
+
+    greske.push('erorr');
+    document.getElementById('age').className = 'red';
+
+
+
+  }
 if(reuser.test(user))
 {
-  sadrzaj.push(user)
+  sadrzaj.push(user);
+  document.getElementById('reg_user').className = 'green';
 
 
 }
 else
 
 {
-
+      document.getElementById('reg_user').className = 'red';
     greske.push('erorr');
 
 }
 if(reemail.test(email))
 {
 sadrzaj.push(email);
+  document.getElementById('reg_email').className = 'green';
 
 }
 else
 {
 greske.push('erorr');
+  document.getElementById('reg_email').className = 'red';
 
 }
 
 if(pass==pass1){
-  sadrzaj.push(pass)
+  sadrzaj.push(pass);
+
 }
 else{
-greske.push('error')
+greske.push('error');
+document.getElementById('reg_pass1').className = 'red';
 }
 if(repass.test(pass))
 {
+  document.getElementById('reg_pass').className = 'green';
 sadrzaj.push(pass)
 
 }
 else
 {
+    document.getElementById('reg_pass').className = 'red';
   greske.push('erorr');
 
 }
 
 
 
-if(sadrzaj.length == 5)
+if(sadrzaj.length == 6)
 {
-alert("Vaša poruka je poslata,odgovor ce biti najkasnije sledečeg radnog dana");
+alert("Erfolgreich!");
 return true;
 
 
 }
-else {alert('ima greske!!!');
+else {alert('Bitte angaben überprüfen!!!');
 return false;}
 }
+function toggle(source) {
+
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i] != source)
+            checkboxes[i].checked = source.checked;
+    }
+}
+
 
 </script>
-</script>
+
+
 
 
 </head>
@@ -165,7 +204,7 @@ return false;}
 
                         </li>
                         <li class="dropdown menu-large">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kategorien <b class="caret"></b></a>
                           <ul class="dropdown-menu megamenu row backg">
                             <li class="col-sm-12">
                                 <ul>
@@ -188,35 +227,16 @@ return false;}
                         </li>
 
 
-                                <li><a href="members1.php">Members</a></li>
+                                <li><a href="members1.php">Users</a></li>
 
 
-                                <li><a href="members.php?all_members">Members 2</a></li>
+
 
                         </li>
-                        <li class="dropdown submenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="shop-left.html">Shop Left</a></li>
-                                <li><a href="shop-right.html">Shop Right</a></li>
-                                <li><a href="product-details.html">Product Details</a></li>
-                                <li><a href="shop-cart.html">Shop Cart</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown submenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="stories.html">Stories</a></li>
-                                <li><a href="why-us.html">Why us</a></li>
-                                <li><a href="404.html">Error</a></li>
-                            </ul>
-                        </li>
 
-                        <li><a href="contact.html">Contact us</a></li>
+
+
+                        <li><a href="contact.php">Kontakt</a></li>
                     </ul>
 
 
@@ -266,7 +286,7 @@ return false;}
 
                       <div class="form-group">
                         <label for="">Username</label>
-                          <input type="text" class="form-control" name="username" id="reg_user" disabled placeholder="Name" value="<?php echo  $r11['username'] ?>">
+                          <input type="text" class="form-control" name="username" id="reg_user"  placeholder="Name" value="<?php echo  $r11['username'] ?>">
                       </div>
                         <div class="form-group">
                           <label for="">Name</label>
@@ -275,15 +295,15 @@ return false;}
 
                         <div class="form-group">
                           <label for="">Email</label>
-                            <input type="email" class="form-control" name="email" id="reg_first" placeholder="email" value="<?php echo  $r11['email'] ?>">
+                            <input type="email" class="form-control" name="email" id="reg_email" placeholder="email" value="<?php echo  $r11['email'] ?>">
                         </div>
                         <div class="form-group">
                           <label for="">Passwort</label>
-                            <input type="password" class="form-control" name="password" id="reg_pass" placeholder="Password">
+                            <input type="password" class="form-control" name="password" id="reg_pass" placeholder="Password" required>
                         </div>
                         <div class="form-group">
                           <label for="">Passwort again</label>
-                            <input type="password" class="form-control" name="password1" id="reg_pass1" placeholder="Passwort again">
+                            <input type="password" class="form-control" name="password1" id="reg_pass1" placeholder="Passwort again" required>
                         </div>
 
                         <?php $upituser="SELECT * FROM tip";
@@ -731,7 +751,7 @@ return false;}
       $name_tref=$_POST['location'];
         $name_tref1=$_POST['location1'];
       $spremnost=$_POST['spremnost'];
-      $username=$_POST['username'];
+
       $titel=$_POST['titel'];
       $opis=$_POST['opis'];
       $platz=$_POST['platz'];
@@ -740,8 +760,9 @@ return false;}
       $datum=$_POST['datum'];
 
 
-$newupitunos="UPDATE user_oglas SET id_tip=$geschlecht,id_trazim=$interesse_am,umetnicko_ime='$name',id_drzava=$herkunft,email='$email',sifra='$password',id_rasa=$poreklo,id_kome_pojavljuje=$whoseeme,id_gradja=$gebaut,id_sex_orj=$sex_orj,id_brak_status=$status,id_tvoja_uloga=$was_magst_du,id_njeg_uloga=$was_mag_er,title='$titel',opis='$opis',id_pol=$geschlecht,visina=$grosse,id_boja_kose=$haarfarbe,id_duz_kose=$haarlength,id_boja_ociju=$augenfarbe,id_naocare_sociva=$brille,id_oberweite=$oberweite,ulica='$adresse_tref',platz=$platz,id_mesto=$kanton1,tel='$tel',studio_name='$name_tref',location_name='$name_tref1',interfon='$klinge',id_sredjenost=$spremnost,link='$website',id_brus=$bh,datum='$datum',id_kanton=$kanton where id_user=".$_GET['idgirla'];
+$newupitunos="UPDATE user_oglas SET id_tip=$geschlecht,id_trazim=$interesse_am,umetnicko_ime='$name',id_drzava=$herkunft,email='$email',sifra='$password',id_rasa=$poreklo,id_kome_pojavljuje=$whoseeme,id_gradja=$gebaut,id_sex_orj=$sex_orj,id_brak_status=$status,id_tvoja_uloga=$was_magst_du,id_njeg_uloga=$was_mag_er,title='$titel',opis='$opis',id_pol=$geschlecht,visina='$grosse',id_boja_kose=$haarfarbe,id_duz_kose=$haarlength,id_boja_ociju=$augenfarbe,id_naocare_sociva=$brille,id_oberweite=$oberweite,ulica='$adresse_tref',platz='$platz',id_mesto=$kanton1,tel='$tel',studio_name='$name_tref',location_name='$name_tref1',interfon='$klinge',id_sredjenost=$spremnost,link='$website',id_brus=$bh,datum='$datum',id_kanton=$kanton where id_user=".$_GET['idgirla'];
 $query =$conn->query($newupitunos) or die("los upit".mysqli_error());
+echo "<script>alert('ihre informationen wurden geändert')</script>";
 
 
 /*

@@ -21,7 +21,7 @@
 
 
         <?php
-             
+
 
 
               if(isset($_POST['login'])){
@@ -43,7 +43,7 @@
                              $podaci1[]=$password1;
 
                            }
-                           else 
+                           else
                            {
                              $greske1[]="Greska u password";
                            }
@@ -63,8 +63,9 @@
                                   $_SESSION['id_uloga'] = $row['id_user_uloga'];
                                   $_SESSION['id'] = $row['user_id'];
                                   $_SESSION['age'] = $row['age'];
+                                  
                            }
-                           else 
+                           else
                            {
 
                                $upitlogin12 = "SELECT * FROM user_oglas where username='$username1' and sifra ='$password1'";
@@ -88,10 +89,8 @@
                         {
                           echo "<script>alert('ima gresaka');</script>";
                         }
-                         
+
 
          }
 
          ?>
-                        
-                        

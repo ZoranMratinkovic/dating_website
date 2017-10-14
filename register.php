@@ -59,7 +59,7 @@ var pass1=document.getElementById('reg_pass1').value;
 var greske= new Array();
 var sadrzaj=new Array();
 var greskeID = new Array();
-var reime= /^[A-z/s0-9]{2,20}$/;
+var reime= /^[A-z\s0-9]{2,20}$/;
 var reemail= /^(\w+[\-\.])*\w+@(\w+\.)+[A-Za-z]+$/;
 var repass= /^[a-zA-Z0-9!@#$%^&*-_]{6,}/;
 var reuser= /^[A-z0-9]{2,14}$/;
@@ -77,6 +77,25 @@ else
 greske.push('erorr');
 
 }
+if(reage.test(age))
+  {
+
+    sadrzaj.push(age);
+      document.getElementById('age').className = 'green';
+
+
+
+  }
+  else
+
+  {
+
+    greske.push('erorr');
+    document.getElementById('age').className = 'red';
+
+
+
+  }
 if(reuser.test(user))
 {
   sadrzaj.push(user);
@@ -127,7 +146,7 @@ else
 
 
 
-if(sadrzaj.length == 5)
+if(sadrzaj.length == 6)
 {
 alert("Erfolgreich!");
 return true;
@@ -208,16 +227,7 @@ function toggle(source) {
 
                         </li>
 
-                        <li class="dropdown submenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="stories.html">Stories</a></li>
-                                <li><a href="why-us.html">Why us</a></li>
-                                <li><a href="404.html">Error</a></li>
-                            </ul>
-                        </li>
+
 
                         <li><a href="contact.html">Kontakt</a></li>
                     </ul>
@@ -281,6 +291,9 @@ function toggle(source) {
                         <div class="form-group">
                           <label for="">Name</label>
                             <input type="text" class="form-control" name="name" id="reg_first" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="age" placeholder="26" name="age" required>
                         </div>
 
                         <div class="form-group">
@@ -737,6 +750,7 @@ function toggle(source) {
       $platz=$_POST['platz'];
       $klinge=$_POST['klinge'];
       $tel=$_POST['tel'];
+      $age=$_POST['age'];
       $datum=$tag.'.'.$monat.'.'.$jahr;
       echo $geschlecht."<br/>";
       echo $interesse_am."<br/>";
@@ -790,7 +804,7 @@ function toggle(source) {
 
 
 
-$upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2)";
+$upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2,$age)";
 $query = mysqli_query($conn, $upitunos1) or die (mysqli_error());
 echo "<script>alert('erfolgreich registriert!');</script>";
 
