@@ -1,5 +1,5 @@
 
-<?php 
+<?php
   if(isset($_POST['logout']))
   {
     unset($_SESSION['username']);
@@ -57,30 +57,11 @@
                                 <li><a href="members1.php">Members</a></li>
 
 
-                                <li><a href="members.php?all_members">Members 2</a></li>
+
 
                         </li>
-                        <li class="dropdown submenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="shop-left.html">Shop Left</a></li>
-                                <li><a href="shop-right.html">Shop Right</a></li>
-                                <li><a href="product-details.html">Product Details</a></li>
-                                <li><a href="shop-cart.html">Shop Cart</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown submenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="stories.html">Stories</a></li>
-                                <li><a href="why-us.html">Why us</a></li>
-                                <li><a href="404.html">Error</a></li>
-                            </ul>
-                        </li>
+
+
 
                         <li><a href="contact.html">Contact us</a></li>
                     </ul>
@@ -88,11 +69,22 @@
 
                     <ul class="nav navbar-nav navbar-right">
                       <?php if(isset($_SESSION['username']))
-                      {
-                          echo "<li><a href='parts/change.php'><i class='mdi mdi-key-variant'></i>".$_SESSION['username']."</a></li>
+                      {  $upit="SELECT * FROM user where user_id=".$_SESSION['id']."&& id_user_uloga=4";
+                         $rezupit=$conn->query($upit) or die('los upit');
+                         if(mysqli_num_rows($rezupit)==1){
+                           echo "<li><a href='admin/admin.php'<i class='mdi mdi-key-variant'></i>Adminpanel</a></li>
+                           <li><form method='post'><input type='submit' value='logout' class='btn-danger' name='logout' /></form></li>";
+
+                         }else if($_SESSION['id_uloga']==2){
+                          echo "<li><a href='members-detail.php?id_girl={$_SESSION['id']}'<i class='mdi mdi-key-variant'></i>".$_SESSION['username']."</a></li>
                           <li><form method='post'><input type='submit' value='logout' class='btn-danger' name='logout' /></form></li>
                           ";
-                           } else { ?>
+                        }
+                          else{
+                            echo "<li><a href='update.php?userch={$_SESSION['id']}'<i class='mdi mdi-key-variant'></i>".$_SESSION['username']."</a></li>
+                            <li><form method='post'><input type='submit' value='logout' class='btn-danger' name='logout' /></form></li>
+                            "; }
+                      } else { ?>
                         <li><a class="popup-with-zoom-anim" href="#small-dialog"><i class="mdi mdi-key-variant"></i>Login</a></li>
                           <li class="dropdown submenu">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registration</a>
@@ -106,10 +98,8 @@
                         <li class="flag_drop">
                             <div class="selector">
                                 <select class="language_drop" name="countries" id="countries" style="width:300px;">
-                                  <option value='yt' data-image="img/country-aus.png" data-imagecss="flag yt" data-title="English">English</option>
-                                  <option value='yu' data-image="img/country-bang.png" data-imagecss="flag yu" data-title="Bangladesh">Bangla</option>
-                                  <option value='yt' data-image="img/country-aus.png" data-imagecss="flag yt" data-title="English">English</option>
-                                  <option value='yu' data-image="img/country-bang.png" data-imagecss="flag yu" data-title="Bangladesh">Bangla</option>
+                                  <option value='yt' data-image="img/country-aus.png" data-imagecss="flag yt" data-title="English">Deutsch</option>
+
                                 </select>
                             </div>
                         </li>
