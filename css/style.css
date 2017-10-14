@@ -173,8 +173,18 @@ Table of Content:
   border-bottom: 1px solid #ff0000;
 
 }
-.btnInsertAlbumImg{
+#btnInsertAlbumImg{
   line-height: 0.33px!important;
+}
+.imgAlbum{
+  height: 90px!important;
+}
+.lgnBtn
+{
+  width: 220px!important;
+}
+#insertVideo{
+  display:none;
 }
 /*Obrisati posle ove klase jer ces da smanjis stvarno slike*/
 /*Our code end*/
@@ -3638,7 +3648,7 @@ body, p, h1, h2, h3, h4, h5, h6 {
 
 .photo_widget ul li {
   float: left;
-  width: calc(100% / 3);
+  width: calc(100% / 2);
 }
 
 .photo_widget ul li a {
@@ -5469,16 +5479,16 @@ body, p, h1, h2, h3, h4, h5, h6 {
 }
 
 .banner_area.profile_banner .profiles_inners .profile_content .right_side_content .nav.navbar-nav li.dropdown .dropdown-menu li a {
-  display: block;
-  line-height: 40px;
-  display: block;
-  color: #fff;
-  position: relative;
-  text-shadow: none;
-  border-bottom: 1px solid #0e0e0e;
-  background: rgba(0, 0, 0, 0.62);
-  font-size: 14px;
-  font-family: "Ubuntu", sans-serif;
+    display: block;
+    line-height: 40px;
+    display: block;
+    color: #fff;
+    position: relative;
+    text-shadow: none;
+    /* border-bottom: 1px solid #0e0e0e; */
+    background: #b93d30;
+    font-size: 14px;
+    font-family: "Ubuntu", sans-serif;
 }
 
 .banner_area.profile_banner .profiles_inners .profile_content .right_side_content .nav.navbar-nav li.dropdown .dropdown-menu li:hover a {

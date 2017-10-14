@@ -31,7 +31,7 @@
                                                    $dest = upload_img($ime_slike,$tmp,$target_dir,$resized_dir);
                                                    if($dest)
                                                    {
-                                                        $d = compress($target_dir.$ime_slike,$target_dir.$resized_dir."/".$ime_slike, 80, 270);
+                                                        $d = compress($target_dir.$ime_slike,$target_dir.$resized_dir."/".$ime_slike, 80, 130);
                                                         $sqlUpit = "UPDATE user_oglas SET profilna_slika = ? WHERE id_user = ?";
                                                         $id_user_girl = (int)$_SESSION['id'];
 
@@ -69,15 +69,11 @@
                                   <ul class="dropdown-menu">
                                     <?php include('create_album.php'); ?>
                                     <li><a class="popup-with-zoom-anim" href="#create-album">Album erstellen</a></li>
-                                    <li><a href="#">Create an album</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Another action</a></li>
                                   </ul>
                                 </li>
                               </ul>
 
-                            <a href='update_info.php?idgirla=<?php echo $_SESSION['id']; ?>' class="buttonChangeInfo btn form-control login_btn">Informationen Aktulisieren</a>
-                            <button type="submit" value="LogIn" class="btn form-control login_btn">Wie sehen andere dein profil?</button>
+                            <a href='update_info.php?idgirla=<?php echo $_SESSION['id']; ?>' class="buttonChangeInfo btn form-control login_btn lgnBtn">Informationen Aktulisieren</a>
                        </div>
                     </div>
                 </div>
@@ -213,17 +209,28 @@
                                 <h5>Man, 27 years and older</h5>
                                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</p>
                             </div>
+                            <div class="members_about_box">
+                                <div class="row">
+                                    <?php 
+                                        include('functions.php');
+                                        $id_userr = (int)$_SESSION['id'];
+
+                                        show_video($id_userr);
+                                     ?>
+                                </div>
+                                    
+                                    
+                               
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="right_sidebar_area">
 
                             <?php
-                                include('functions.php');
-                                $id_userr = (int)$_SESSION['id'];
                                 list_of_albums($id_userr);
                              ?>
-                            <aside class="s_widget recent_post_widget">
+                            <!--<aside class="s_widget recent_post_widget">
                                 <div class="s_title">
                                     <h4>Recent Post</h4>
                                     <img src="img/widget-title-border.png" alt="">
@@ -255,7 +262,7 @@
                                         <a href="#">14 Sep, 2016 at 08:00 Pm</a>
                                     </div>
                                 </div>
-                            </aside>
+                            </aside>-->
                             <aside class="s_widget social_widget">
                                 <div class="s_title">
                                     <h4>Tags</h4>

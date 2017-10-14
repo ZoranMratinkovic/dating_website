@@ -13,19 +13,7 @@
                             </ul>
                         </div>
                         <div class="right_side_content">
-                             <ul class="nav navbar-nav">
-                                <li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-h"></i></a>
-                                  <ul class="dropdown-menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                  </ul>
-                                </li>
-                              </ul>
-                            <button type="submit" value="LogIn" class="btn form-control login_btn">Add Friend <img src="img/user.png" alt=""></button>
-                            <button type="submit" value="LogIn" class="btn form-control login_btn">Chat Now <img src="img/comment.png" alt=""></button>
+                            <button type="submit" value="LogIn" class="btn form-control login_btn">Follow<img src="img/user.png" alt=""></button>
                         </div>
                     </div>
                 </div>
@@ -157,21 +145,26 @@
                                 <p><?php echo $opis; ?></p>
                             </div>
                             <div class="members_about_box">
-                                <h4>Looking For</h4>
-                                <h5>Man, 27 years and older</h5>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</p>
+                                <div class="row">
+                                    <?php 
+                                        include('functions.php');
+                                        $id_userr = (int)$_GET['id_girl'];
+
+                                        show_video_reg_user($id_userr);
+                                     ?>
+                                </div>
+                               
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="right_sidebar_area">
                             <?php
-                                include('functions.php');
-                                $id_userr = (int)$_GET['id_girl'];
+
                                 list_of_albums_reg_user($id_userr);
                                 //This functions will show albums to regular users, without form etc
                              ?>
-                            <aside class="s_widget recent_post_widget">
+                            <!--<aside class="s_widget recent_post_widget">
                                 <div class="s_title">
                                     <h4>Recent Post</h4>
                                     <img src="img/widget-title-border.png" alt="">
@@ -203,7 +196,7 @@
                                         <a href="#">14 Sep, 2016 at 08:00 Pm</a>
                                     </div>
                                 </div>
-                            </aside>
+                            </aside>-->
                             <aside class="s_widget social_widget">
                                 <div class="s_title">
                                     <h4>Tags</h4>

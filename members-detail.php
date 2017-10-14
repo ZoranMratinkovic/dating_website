@@ -203,6 +203,10 @@
                     $('#SubmitProfileChange').fadeIn();
 
                 });
+                $('#video1').change(function(){
+                    $('#insertVideo').fadeIn();
+
+                });
             });
         </script>
     </body>

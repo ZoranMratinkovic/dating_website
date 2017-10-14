@@ -304,12 +304,12 @@ function list_of_albums($id)
                
                     while($row1 = mysqli_fetch_array($result))
                     {
-                        echo "<li><a href='#'><img src='{$row1['image_src']}' alt=''></a></li>";
+                        echo "<li><a href='#'><img class='imgAlbum' src='{$row1['image_resized']}' alt=''></a></li>";
                     }
 
                     echo "</ul><br/><form action='insertImagesIntoAlbum.php?id_album={$row['id_album']}' method='post' enctype='multipart/form-data'>
-                                    <input type='file' name='AlbumPictures'>
-                                   <input type='submit' value='Insert' name='InsertPics{$i}' class='btn btn-lg dugmeSearch form-control' id='btnInsertAlbumImg'>
+                                    <span class='btn btn-default btn-file'>Choose image<input type='file' name='AlbumPictures'></span>
+                                    <input type='submit' value='Insert' name='InsertPics{$i}' class='btn btn-lg dugmeSearch form-control' id='btnInsertAlbumImg'>
                                 </form></aside>";
                 }
                 else
@@ -415,5 +415,92 @@ function list_of_albums_reg_user($id)
 
 
 }
+function show_video($id_user)
+{
+    $listVideo = "SELECT * FROM videos WHERE id_user = ?";
+    include('connectionFile/connection.php');
+    $stmtVideo = $conn->prepare($listVideo);
+    $stmtVideo->bind_param('i',$id_user);
+    $stmtVideo->execute();
+    $rez = $stmtVideo->get_result();
+    $count = $rez->num_rows;
 
+    if($count > 0)
+    {
+
+        while($row = $rez->fetch_assoc())
+        {
+            echo 
+            "   <div class='col-xs-6'>
+                <video width='350' height='350' controls>
+                  <source src='{$row['video_src']}' type='video/mp4'>
+             
+                  Your browser does not support the video tag.
+                </video><br/>
+                </div>
+
+            ";
+        }
+        echo "
+            <div class='col-xs-12'>
+            <form action='parts/upload_video.php' method='post' enctype='multipart/form-data'>
+                    <span class='btn btn-default btn-file'> 
+                        Choose video<input type='file' name='video1' id='video1'>
+
+                    </span>
+                    <input type='submit' value='Insert video' id='insertVideo' name='insertVideo' class='btn btn-danger'>
+            </form></div>";
+    }
+    else
+    {
+       echo 
+       "
+            <form action='parts/upload_video.php' method='post' enctype='multipart/form-data'>
+                <h3 class='mb-35'>Insert video that only <strong>Premium</strong> members can see.</h3>
+                    <span class='btn btn-default btn-file'> 
+                        Choose video<input type='file' name='video1' id='video1'>
+
+                    </span>
+                    <input type='submit' value='Insert video' id='insertVideo' name='insertVideo' class='btn btn-danger'>
+            </form>
+       "; 
+    }
+    
+}
+function show_video_reg_user($id_user)
+{
+    $listVideo = "SELECT * FROM videos WHERE id_user = ?";
+    include('connectionFile/connection.php');
+    $stmtVideo = $conn->prepare($listVideo);
+    $stmtVideo->bind_param('i',$id_user);
+    $stmtVideo->execute();
+    $rez = $stmtVideo->get_result();
+    $count = $rez->num_rows;
+
+    if($count > 0)
+    {
+
+        while($row = $rez->fetch_assoc())
+        {
+            echo 
+            "   <div class='col-xs-6'>
+                <video width='350' height='350' controls>
+                  <source src='{$row['video_src']}' type='video/mp4'>
+             
+                  Your browser does not support the video tag.
+                </video><br/>
+                </div>
+
+            ";
+        }
+    }
+    else
+    {
+       echo 
+       "
+            <h3>No videos yet!</h3>
+       "; 
+    }
+    
+}
  ?>
