@@ -342,6 +342,11 @@ function list_of_albums_reg_user($id)
     $stmtAlbum = $conn->prepare($listAlbums);
     $stmtAlbum->bind_param('i',$id);
     $stmtAlbum->execute();
+
+    if(!isset($_SESSION['username']))
+    {
+        $_SESSION['age']=2;
+    }
     $rez = $stmtAlbum->get_result();
         if($rez->num_rows > 0)//If she actually has an album, show it
         {
@@ -373,13 +378,15 @@ function list_of_albums_reg_user($id)
                         echo "</ul></aside>";
                     }
                     else
+                    {
                         echo "   <aside class='s_widget photo_widget brd pad'>
                                         <h3>{$row['album_name']}<h3>
                                         <img src='img/widget-title-border.png' alt=''>
                                         <h5>Users under 18 or unregistered users can't see this album!</h5>
                                   </aside>
+                    
                     ";  
-                     
+                    }
                 }
                 else
                 {
