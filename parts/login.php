@@ -62,6 +62,7 @@
                                   $_SESSION['username'] = $row['username'];
                                   $_SESSION['id_uloga'] = $row['id_user_uloga'];
                                   $_SESSION['id'] = $row['user_id'];
+                                  $_SESSION['age'] = $row['age'];
                            }
                            else 
                            {
@@ -75,6 +76,7 @@
                                       $_SESSION['username'] = $row['username'];
                                       $_SESSION['id_uloga'] = $row['id_user_uloga'];
                                       $_SESSION['id'] = $row['id_user'];
+                                      $_SESSION['age'] = $row['age'];
                                }
                                else
                                {

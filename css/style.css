@@ -62,6 +62,13 @@ Table of Content:
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
 /*Our code*/
+.mauto{
+  margin: 0 auto;
+  width: 70%;
+}
+.pad{
+  padding:10px;
+}
 .mt-0{
   margin-top:0!important;
 }
@@ -158,6 +165,16 @@ Table of Content:
 }
 .buttonChangeInfo{
   line-height: 2.5;
+}
+.form_radio{
+  width: 50%!important;
+}
+.brd{
+  border-bottom: 1px solid #ff0000;
+
+}
+.btnInsertAlbumImg{
+  line-height: 0.33px!important;
 }
 /*Obrisati posle ove klase jer ces da smanjis stvarno slike*/
 /*Our code end*/
@@ -3475,7 +3492,7 @@ body, p, h1, h2, h3, h4, h5, h6 {
 
 .s_title {
   padding-bottom: 17px;
-  margin-top:20px;
+  /*margin-top:20px;*/
 }
 
 .s_title h4 {

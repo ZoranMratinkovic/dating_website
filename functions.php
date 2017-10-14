@@ -295,22 +295,22 @@ function list_of_albums($id)
                 
                 if(mysqli_num_rows($result) > 0)
                 {
-                     echo "<aside class='s_widget photo_widget'>
-                                <div class='s_title'>
+                     echo "<aside class='s_widget photo_widget brd pad'>
+                                <div class='s_title '>
                                     <h4>{$row['album_name']}</h4>
                                     <img src='img/widget-title-border.png' alt=''>
                                 </div>
-                                <ul>";
+                                <ul class=''>";
                
                     while($row1 = mysqli_fetch_array($result))
                     {
                         echo "<li><a href='#'><img src='{$row1['image_src']}' alt=''></a></li>";
                     }
 
-                    echo "</ul></aside><form action='insertImagesIntoAlbum.php?id_album={$row['id_album']}' method='post' enctype='multipart/form-data'>
+                    echo "</ul><br/><form action='insertImagesIntoAlbum.php?id_album={$row['id_album']}' method='post' enctype='multipart/form-data'>
                                     <input type='file' name='AlbumPictures'>
-                                   <input type='submit' value='Insert' name='InsertPics{$i}' class='btn btn-lg dugmeSearch'>
-                                </form>";
+                                   <input type='submit' value='Insert' name='InsertPics{$i}' class='btn btn-lg dugmeSearch form-control' id='btnInsertAlbumImg'>
+                                </form></aside>";
                 }
                 else
                 {
@@ -334,6 +334,79 @@ function list_of_albums($id)
 
 
 }
+function list_of_albums_reg_user($id)
+{
+    //This functions will show albums to regular users, without form etc
+    $listAlbums = "SELECT * FROM album WHERE id_user = ?";
+    include('connectionFile/connection.php');
+    $stmtAlbum = $conn->prepare($listAlbums);
+    $stmtAlbum->bind_param('i',$id);
+    $stmtAlbum->execute();
+    $rez = $stmtAlbum->get_result();
+        if($rez->num_rows > 0)//If she actually has an album, show it
+        {
+            
+            while($row = $rez->fetch_assoc())
+            {
+                
+                $listAlbumss = "SELECT * FROM `images` i INNER JOIN `album_image` ai ON i.id_image = ai.id_image INNER JOIN album a ON ai.id_album= a.id_album where ai.id_album={$row['id_album']}";
+                
+                $result = $conn->query($listAlbumss);
+                
+                if(mysqli_num_rows($result) > 0)
+                {
+                    if($_SESSION['age'] >= $row['age_type'])
+                    {
+                        //make sure that user_age and album age permission matches
+                        echo "<aside class='s_widget photo_widget brd pad'>
+                                <div class='s_title'>
+                                    <h4>{$row['album_name']}</h4>
+                                    <img src='img/widget-title-border.png' alt=''>
+                                </div>
+                                <ul>";
+               
+                        while($row1 = mysqli_fetch_array($result))
+                        {
+                            echo "<li><a href='#'><img src='{$row1['image_src']}' alt=''></a></li>";
+                        }
 
+                        echo "</ul></aside>";
+                    }
+                    else
+                        echo "   <aside class='s_widget photo_widget brd pad'>
+                                        <h3>{$row['album_name']}<h3>
+                                        <img src='img/widget-title-border.png' alt=''>
+                                        <h5>Users under 18 or unregistered users can't see this album!</h5>
+                                  </aside>
+                    ";  
+                     
+                }
+                else
+                {
+                        //if she doesn't have an album, show her the form, to insert images
+                        echo 
+                            "  
+                                <h4>{$row['album_name']}</h4>
+                                <img src='img/widget-title-border.png' alt=''>
+                                <form action='insertImagesIntoAlbum.php?id_album={$row['id_album']}' method='post' enctype='multipart/form-data'>
+                                    <input type='file' name='AlbumPictures'>
+                                   <input type='submit' value='Insert' name='InsertPics{$i}' class='btn btn-lg dugmeSearch'>
+                                </form>
+                              
+                               
+                            ";
+                }
+                          
+            }
+           
+        }
+        else
+        {
+            echo "<h3>No albums yet!</h3>";
+            echo "<img src='img/widget-title-border.png' alt=''>";
+        }
+
+
+}
 
  ?>

@@ -66,6 +66,7 @@
                 { 
                     while($row=$rez->fetch_assoc())
                     {
+                         $usernm = $row['username'];
                          $id_user_uloga = $row['id_user_uloga'];
                          $name = $row['umetnicko_ime'];
                          $datum = $row['datum'];
@@ -136,8 +137,9 @@
         
         <!--================Banner Area =================-->
         <?php 
-            if(isset($_SESSION['id_uloga']) && $_SESSION['id_uloga']==$id_user_uloga)
+            if(isset($_SESSION['id_uloga']) && $_SESSION['id_uloga']==$id_user_uloga && $_SESSION['username']==$usernm)
             {
+                //the last comparison is to make user that we separated user and user_oglas table, because of id matches
                 include('parts/members_detail_user_oglas.php');
 
             }

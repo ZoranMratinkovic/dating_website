@@ -165,23 +165,12 @@
                     </div>
                     <div class="col-md-3">
                         <div class="right_sidebar_area">
-                            <aside class="s_widget photo_widget">
-                                <div class="s_title">
-                                    <h4>Photo</h4>
-                                    <img src="img/widget-title-border.png" alt="">
-                                </div>
-                                <ul>
-                                    <li><a href="#"><img src="img/photo/photo-1.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="img/photo/photo-2.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="img/photo/photo-3.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="img/photo/photo-4.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="img/photo/photo-5.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="img/photo/photo-6.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="img/photo/photo-7.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="img/photo/photo-8.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="img/photo/photo-9.jpg" alt=""></a></li>
-                                </ul>
-                            </aside>
+                            <?php
+                                include('functions.php');
+                                $id_userr = (int)$_GET['id_girl'];
+                                list_of_albums_reg_user($id_userr);
+                                //This functions will show albums to regular users, without form etc
+                             ?>
                             <aside class="s_widget recent_post_widget">
                                 <div class="s_title">
                                     <h4>Recent Post</h4>
