@@ -111,7 +111,7 @@
                               <td>{$r['monat']}</td>
                               <td>{$r['jahr']}</td>
                               <td>{$r['uloga']}</td>
-                              <td><a href='users.php?idr={$r['user_id']}'>status aendern</a></td>
+                              <td><a href='users.php?idr={$r['user_id']}'>status ändern</a></td>
                               <td><a href='users.php?idc={$r['user_id']}'>x</a></td>
 
                       </tr>";
@@ -140,12 +140,12 @@
                         echo "<option value='{$r1['id_user_uloga']}'>{$r1['uloga']}</option>";
                       }
                       echo "</select>";
-                      echo "<input type='submit' class='btn' name='change' value='Status aendern'></form>";
+                      echo "<input type='submit' class='btn' name='change' value='Status ändern'></form>";
                       if(isset($_POST['change'])){
                         $uloga=$_POST['uloga'];
                         $upitupdate="UPDATE user SET id_user_uloga=$uloga where user_id=".$_GET['idr'];;
                         $rezupitupdate=$conn->query($upitupdate)or die('loseee uptade');
-                        echo "<script>alert('status wurde geaendert!')</script>";
+                        echo "<script>alert('status wurde geändert!')</script>";
                         echo "<script>window.location.href = 'users.php';
 </script>";
                       }

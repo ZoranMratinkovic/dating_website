@@ -89,7 +89,7 @@
         <!-- /#page-content-wrapper -->
 <h1>Contact</h1>
 <h3>Admin panel Beta version.für alle probleme melden sie sich bei uns</h3>
-<h3>email:info@supermedia.rs</h3>
+<h3>email:office@supermedia.rs</h3>
     </div>
     <!-- /#wrapper -->
 

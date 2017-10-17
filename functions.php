@@ -124,7 +124,7 @@ function show_specific_category($id_cat)
             {
 
                         echo "<div class='alert alert-danger'>
-                            <h2>No results for that category!</h2>
+                            <h2>Kein Suchresultat bitte etwas anderes versuchen</h2>
                             </div>";
 
             }
@@ -197,7 +197,7 @@ function filter_girls_left()
             else
             {
                             echo "<div class='alert alert-danger'>
-                                    <h2>No results! Try again!</h2>
+                                    <h2>Kein Suchresultat bitte etwas anderes versuchen</h2>
                                  </div>";
             }
 
@@ -205,7 +205,7 @@ function filter_girls_left()
         else
         {
             echo "<div class='alert alert-warning'>
-                                     <strong>Warning!</strong> No results for! Try again!
+                                     <strong>Kein Suchresultat bitte etwas anderes versuchen
                   </div>";
         }
 

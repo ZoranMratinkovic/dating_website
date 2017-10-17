@@ -109,9 +109,9 @@
                               <td>{$r['umetnicko_ime']}</td>
                               <td>{$r['username']}</td>
                               <td>{$r['datum']}</td>
-                              <td><img src='"."../"."{$r['profilna_slika']}' width='50px' height='50px'></td>
+                              <td><img src='{$r['profilna_slika']}' width='50px' height='50px'></td>
                               <td>{$r['uloga']}</td>
-                              <td><a href='anbieter.php?idr={$r['id_user']}'>status aendern</a></td>
+                              <td><a href='anbieter.php?idr={$r['id_user']}'>status ändern</a></td>
                               <td><a href='anbieter.php?idc={$r['id_user']}'>x</a></td>
 
                       </tr>";
@@ -140,12 +140,12 @@
                         echo "<option value='{$r1['id_user_uloga']}'>{$r1['uloga']}</option>";
                       }
                       echo "</select>";
-                      echo "<input type='submit' class='btn' name='change' value='Status aendern'></form>";
+                      echo "<input type='submit' class='btn' name='change' value='Status ändern'></form>";
                       if(isset($_POST['change'])){
                         $uloga=$_POST['uloga'];
                         $upitupdate="UPDATE user_oglas SET id_user_uloga=$uloga where id_user=".$_GET['idr'];
                         $rezupitupdate=$conn->query($upitupdate)or die('loseee uptade');
-                        echo "<script>alert('status wurde geaendert!')</script>";
+                        echo "<script>alert('status wurde gändert!')</script>";
                         echo "<script>window.location.href = 'anbieter.php';
 </script>";
                       }
