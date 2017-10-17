@@ -71,10 +71,10 @@
         <!--================End Banner Area =================-->
 
         <!--================Blog grid Area =================-->
-        <section class="blog_grid_area">
+        <section class="blog_grid_area paddingOnPhones">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-9 right_side">
+                <div class="row flexboxClass">
+                    <div class="col-md-9 right_side bFlex">
                         <div class="row">
                             <div class="blog_grid_inner">
                              <?php
@@ -91,7 +91,7 @@
                                 }
                                 else if(isset($_POST['filterGirlsLeft']))
                                 {
-                                    //search form on the ledt
+                                    //search form on the left
                                     filter_girls_left();
                                 }
                                 else
@@ -113,8 +113,10 @@
                             <a class="next" href="#">Next</a>
                         </div>
                     </div>
-                    <div class="col-md-3 right_side">
-                        <div class="right_sidebar_area">
+
+                    <div class="col-md-3 right_side aFlex">
+                        <button id='ShowFilterForm' class='mt-35 btn btn-md dugmeSearch hidden-md hidden-lg'>Filter Members</button>
+                        <div class="right_sidebar_area filterForma">
                             <aside class="s_widget categories_widget">
                             <form action='#' method='post'>
 
@@ -153,7 +155,7 @@
                                             }
                                        ?>
                                 </select>
-                                <input type='submit' class="register_angkar_btn dugmeSearch" name="filterGirlsLeft" value='Find Now'>
+                                <input type='submit' class="register_angkar_btn dugmeSearch" name="filterGirlsLeft" value='Find Now' id='filterGirlsLeftForm'>
                             </form>
                             </aside>
 
@@ -171,7 +173,7 @@
 
 
 
-        <script type="text/javascript" src='js/our_script.js'></script>
+        
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="js/jquery-2.1.4.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -205,7 +207,8 @@
 
         <script src="js/video_player.js"></script>
         <script src="js/theme.js"></script>
-         <script src="//netsh.pp.ua/upwork-demo/1/js/typeahead.js"></script>
+        <script src="//netsh.pp.ua/upwork-demo/1/js/typeahead.js"></script>
 
+        <script type="text/javascript" src='js/our_script.js'></script>
     </body>
 </html>

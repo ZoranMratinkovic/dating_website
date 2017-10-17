@@ -28,12 +28,53 @@
                     <div class="col-md-9">
                         <div class="members_profile_inners">
                             <ul class="nav nav-tabs profile_menu" role="tablist">
+                                 <li role="presentation"><a href="#sites" aria-controls="sites" role="tab" data-toggle="tab">Tref Location</a></li>
                                 <li role="presentation" class="active"><a href="#activity" aria-controls="activity" role="tab" data-toggle="tab">über mich</a></li>
                                 <li role="presentation" ><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Details über mich</a></li>
-                                <li role="presentation"><a href="#sites" aria-controls="sites" role="tab" data-toggle="tab">Tref Location</a></li>
+                               
 
                             </ul>
                             <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade" id="sites">
+                                    <div class="profile_list">
+                                        <ul>
+                                          <li><a href="#">Kanton</a></li>
+                                          <li><a href="#">Stadt</a></li>
+                                          <li><a href="#">Studio Name</a></li>
+                                          <li><a href="#">Location Name</a></li>
+                                          <li><a href="#">Klinge</a></li>
+                                          <li><a href="#">Adresse</a></li>
+
+                                        </ul>
+                                        <ul>
+                                            <li><a href="#"><?php echo $drzava; ?></a></li>
+                                            <li><a href="#"><?php echo $kanton; ?></a></li>
+                                            <li><a href="#"><?php echo $studio_name; ?></a></li>
+                                            <li><a href="#"><?php echo $location_name; ?></a></li>
+                                            <li><a href="#"><?php echo $interfon; ?></a></li>
+                                            <li><a href="#"><?php echo $ulica; ?></a></li>
+
+                                        </ul>
+                                        <ul>
+                                          <li><a href="#">Wohnungs zustand</a></li>
+                                         <li><a href="#">Platz</a></li>
+                                         <li><a href="#">Name</a></li>
+                                         <li><a href="#">Email</a></li>
+                                         <li><a href="#">Telefonnummer</a></li>
+                                         <li><a href="#">Website</a></li>
+
+                                        </ul>
+                                        <ul>
+                                            <li><a href="#"><?php echo $sredjenost; ?></a></li>
+                                            <li><a href="#"><?php echo $platz; ?></a></li>
+                                            <li><a href="#"><?php echo $name; ?></a></li>
+                                            <li><a href="#"><?php echo $email; ?></a></li>
+                                            <li><a href="#"><?php echo $tel; ?></a></li>
+                                            <li><a href="#"><?php echo $link; ?></a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
                                 <div role="tabpanel" class="tab-pane active fade in" id="activity">
                                     <div class="profile_list">
                                         <ul>
@@ -97,46 +138,7 @@
 
                                     </div>
                                 </div>
-                                <div role="tabpanel" class="tab-pane fade" id="sites">
-                                    <div class="profile_list">
-                                        <ul>
-                                          <li><a href="#">Kanton</a></li>
-                                          <li><a href="#">Stadt</a></li>
-                                          <li><a href="#">Studio Name</a></li>
-                                          <li><a href="#">Location Name</a></li>
-                                          <li><a href="#">Klinge</a></li>
-                                          <li><a href="#">Adresse</a></li>
-
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#"><?php echo $drzava; ?></a></li>
-                                            <li><a href="#"><?php echo $kanton; ?></a></li>
-                                            <li><a href="#"><?php echo $studio_name; ?></a></li>
-                                            <li><a href="#"><?php echo $location_name; ?></a></li>
-                                            <li><a href="#"><?php echo $interfon; ?></a></li>
-                                            <li><a href="#"><?php echo $ulica; ?></a></li>
-
-                                        </ul>
-                                        <ul>
-                                          <li><a href="#">Wohnungs zustand</a></li>
-                                         <li><a href="#">Platz</a></li>
-                                         <li><a href="#">Name</a></li>
-                                         <li><a href="#">Email</a></li>
-                                         <li><a href="#">Telefonnummer</a></li>
-                                         <li><a href="#">Website</a></li>
-
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#"><?php echo $sredjenost; ?></a></li>
-                                            <li><a href="#"><?php echo $platz; ?></a></li>
-                                            <li><a href="#"><?php echo $name; ?></a></li>
-                                            <li><a href="#"><?php echo $email; ?></a></li>
-                                            <li><a href="#"><?php echo $tel; ?></a></li>
-                                            <li><a href="#"><?php echo $link; ?></a></li>
-
-                                        </ul>
-                                    </div>
-                                </div>
+                                
 
 
                             </div>
@@ -164,39 +166,6 @@
                                 list_of_albums_reg_user($id_userr);
                                 //This functions will show albums to regular users, without form etc
                              ?>
-                            <!--<aside class="s_widget recent_post_widget">
-                                <div class="s_title">
-                                    <h4>Recent Post</h4>
-                                    <img src="img/widget-title-border.png" alt="">
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <img src="img/blog/recent-post/recent-post-1.jpg" alt="">
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>Blog Image Post</h4>
-                                        <a href="#">14 Sep, 2016 at 08:00 Pm</a>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <img src="img/blog/recent-post/recent-post-2.jpg" alt="">
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>Blog Standard Post</h4>
-                                        <a href="#">14 Sep, 2016 at 08:00 Pm</a>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <img src="img/blog/recent-post/recent-post-3.jpg" alt="">
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>Blog Image Post</h4>
-                                        <a href="#">14 Sep, 2016 at 08:00 Pm</a>
-                                    </div>
-                                </div>
-                            </aside>-->
                             <aside class="s_widget social_widget">
                                 <div class="s_title">
                                     <h4>Tags</h4>

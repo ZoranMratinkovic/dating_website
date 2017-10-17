@@ -1,3 +1,17 @@
+$(document).ready(function(){
+    //jquery code to toggle the form on mobile screens
+    $('#ShowFilterForm').click(function(){
+            var newWindowWidth = $(window).width();
+            if (newWindowWidth < 800)
+            {
+                $('.filterForma').toggle('slow');
+            }
+            else
+            {
+                $('.filterForma').hide();
+            }
+        });
+});
 /*Category field ajax*/
 function kreiraj(){
     if (window.XMLHttpRequest){ 

@@ -321,7 +321,7 @@ function list_of_albums($id)
                                 <img src='img/widget-title-border.png' alt=''>
                                 <form action='insertImagesIntoAlbum.php?id_album={$row['id_album']}' method='post' enctype='multipart/form-data'>
                                     <span class='btn btn-default btn-file'>Choose image<input type='file' name='AlbumPictures'></span>
-                                   <input type='submit' value='Insert' name='InsertPics{$i}' class='btn btn-lg dugmeSearch'>
+                                   <input type='submit' value='Insert' name='InsertPics{$i}' class='btn btn-lg dugmeSearch form-control btnInsertAl'>
                                 </form>
                                 <br/>
                            ";
@@ -431,8 +431,8 @@ function show_video($id_user)
         while($row = $rez->fetch_assoc())
         {
             echo 
-            "   <div class='col-xs-6'>
-                <video width='350' height='350' controls>
+            "   <div class='col-xs-12 col-sm-6'>
+                <video class='videoClass' width='350' height='350' controls>
                   <source src='{$row['video_src']}' type='video/mp4'>
              
                   Your browser does not support the video tag.
@@ -483,8 +483,8 @@ function show_video_reg_user($id_user)
         while($row = $rez->fetch_assoc())
         {
             echo 
-            "   <div class='col-xs-6'>
-                <video width='350' height='350' controls>
+            "   <div class='col-xs-12 col-sm-6'>
+                <video class='videoClass' width='350' height='350' controls>
                   <source src='{$row['video_src']}' type='video/mp4'>
              
                   Your browser does not support the video tag.

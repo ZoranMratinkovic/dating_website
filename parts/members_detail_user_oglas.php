@@ -88,9 +88,10 @@
                     <div class="col-md-9">
                         <div class="members_profile_inners">
                             <ul class="nav nav-tabs profile_menu" role="tablist">
+                                <li role="presentation"><a href="#sites" aria-controls="sites" role="tab" data-toggle="tab">Teff Location</a></li>
                                 <li role="presentation" class="active"><a href="#activity" aria-controls="activity" role="tab" data-toggle="tab">Personal Informationen</a></li>
                                 <li role="presentation" ><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Details</a></li>
-                                <li role="presentation"><a href="#sites" aria-controls="sites" role="tab" data-toggle="tab">Teff Location</a></li>
+                                
 
                             </ul>
                             <div class="tab-content">

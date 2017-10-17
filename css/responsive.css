@@ -1,3 +1,173 @@
+/*My code*/
+
+
+/*Iphone 5s 320 x 568*/
+@media (max-width:374px) and (min-width:320px)
+{
+    /*Nav*/
+    .white_menu .navbar-nav .open .dropdown-menu
+    {
+        background-color: #e74c3c!important;
+    }
+    .nothing
+    {
+        line-height: 2.5!important;
+    }
+    .nothing > li
+    {
+        width: 100%!important;
+        text-align: center!important;
+    }
+    /*Nav*/
+
+    /*Index page*/
+    .tp-caption,.footer_area,.download_app_icon,.header_menu_area .navbar-default .navbar-collapse .navbar-nav li
+    {
+        text-align:center!important;
+    }
+    .mtNula
+    {
+        margin-top: 0!important;
+    }
+    /*Index page*/
+
+    /*Members1.php*/
+    .flexboxClass
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    .filterForma
+    {
+        display:none;
+    }
+    .aFlex
+    {
+        /*This is the filter form area on members1.php*/
+        text-align: center;
+        order:1;
+        margin-bottom:60px;
+    }
+    .bFlex
+    {
+        /*This is the list of girls under the filter form*/
+        order:2;
+    }
+    .paddingOnPhones
+    {
+        padding-bottom: 0!important;
+        padding-top: 0!important;
+    }
+    #filterGirlsLeftForm
+    {
+        margin: 10px auto!important;
+    }
+    /*Members1.php*/
+
+   /*Members-detail.php*/
+    .banner_area.profile_banner .profiles_inners .profile_content .user_img
+    {
+        margin-top:90px!important;
+    }
+    .profile_menu
+    {
+        text-align: center;
+    }
+    .profile_menu > li
+    {
+        width: 100%;
+    }
+    .videoClass{
+        width: 100%!important;
+    }
+}
+/*Iphone 5s 320 x 568*/
+
+/*Iphone 6, 6+*/
+@media (max-width:414px) and (min-width:375px)
+{
+    /*Nav*/
+    .white_menu .navbar-nav .open .dropdown-menu
+    {
+        background-color: #e74c3c!important;
+    }
+    .nothing
+    {
+        line-height: 2.5!important;
+    }
+    .nothing > li
+    {
+        width: 100%!important;
+        text-align: center!important;
+    }
+    /*Nav*/
+
+    /*Index page*/
+    .tp-caption,.footer_area,.download_app_icon,.header_menu_area .navbar-default .navbar-collapse .navbar-nav li
+    {
+        text-align:center!important;
+    }
+    .mtNula
+    {
+        margin-top: 0!important;
+    }
+    /*Index page*/
+    
+     /*Members1.php*/
+    .flexboxClass
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    .filterForma
+    {
+        display:none;
+    }
+    .aFlex
+    {
+        /*This is filter form on members1.php*/
+        text-align: center;
+        order:1;
+        margin-bottom:60px;
+    }
+    .bFlex
+    {
+        /*This is the list of girls under the filter form*/
+        order:2;
+    }
+    .paddingOnPhones
+    {
+        padding-bottom: 0!important;
+        padding-top: 0!important;
+    }
+    #filterGirlsLeftForm
+    {
+        margin: 10px auto!important;
+    }
+    /*Members1.php*/
+
+     /*Members-detail.php*/
+    .banner_area.profile_banner .profiles_inners .profile_content .user_img
+    {
+        margin-top:90px!important;
+    }
+    .profile_menu
+    {
+        text-align: center;
+    }
+    .profile_menu > li
+    {
+        width: 100%;
+    }
+    .videoClass{
+        width: 100%!important;
+    }
+}
+/*Iphone 6, 6+*/
+
+/*My code ends*/
+
+
 @media (max-width: 1199px){
     .header_menu_area .navbar-default .navbar-collapse .navbar-nav li {
         margin-right: 20px;

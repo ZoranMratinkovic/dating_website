@@ -173,7 +173,7 @@ Table of Content:
   border-bottom: 1px solid #ff0000;
 
 }
-#btnInsertAlbumImg{
+#btnInsertAlbumImg,.btnInsertAl{
   line-height: 0.33px!important;
 }
 .imgAlbum{
