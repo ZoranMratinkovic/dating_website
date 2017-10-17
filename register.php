@@ -279,21 +279,20 @@ function toggle(source) {
                       <div class="form-group">
                             <label for="">Bild aus datei auswahlen</label>
                           <input type="file" name="image1" value="Neues Bild" class="btn_price_chose">
-                          <label for="">Jetzt bild aufnehmen</label>
 
-                        <a href="capture.php"><input type="button" name="" id="kamerap" class="btn" value="bild jetzt aufnehmen"></a>
 
                       </div>
                       <div class="form-group">
                         <label for="">Username</label>
-                          <input type="text" class="form-control" name="username" id="reg_user" placeholder="Name">
+                          <input type="text" class="form-control" name="username" id="reg_user" placeholder="Username">
                       </div>
                         <div class="form-group">
                           <label for="">Name</label>
                             <input type="text" class="form-control" name="name" id="reg_first" placeholder="Name">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="age" placeholder="26" name="age" required>
+                            <label for="">Alter</label>
+                            <input type="text" class="form-control" id="age" placeholder="26" name="Alter" required>
                         </div>
 
                         <div class="form-group">
@@ -371,15 +370,15 @@ function toggle(source) {
             <div class="col-md-6">
                 <div class="registration_form_s">
 <h4>Registration</h4>                  <div class="form-group">
-  <label for="">Grosse</label>
+  <label for="">Grösse</label>
       <input type="text" class="form-control" id="reg_pass" name="grosse" placeholder="Grosse">
   </div>
   <div class="form-group">
-    <label for="">text</label>
+    <label for="">Titel</label>
       <input type="text" class="form-control" name="titel" id="reg_pass" placeholder="Titel über dich!">
   </div>
   <div class="form-group">
-    <label for="">text</label>
+    <label for="">Über dich</label>
       <textarea name="opis" rows="8" cols="40" placeholder="Hallo ich bin Klara und mag es !!"></textarea>
   </div>
                               <?php $upituser="SELECT * FROM sex_orj";
@@ -482,7 +481,7 @@ function toggle(source) {
             <div class="col-md-6">
                 <div class="registration_form_s">
 
-                                  <h4>Mehr Uber dich</h4>
+                                  <h4>Mehr Über dich</h4>
                                   <?php $upituser="SELECT * FROM gradja";
 
                               $rezupituser=$conn->query($upituser)or die("los upit");?>
@@ -502,7 +501,7 @@ function toggle(source) {
                               $rezupituser=$conn->query($upituser)or die("los upit");?>
                                   <div class="form-group">
                                       <div class="btn-group">
-                                        <label for="">Haar Lange </label>
+                                        <label for="">Haar Länge </label>
                                       <select class="form-control" name="haarlength">
                                       <?php while($r=mysqli_fetch_array($rezupituser)){
                                         echo "<option value='{$r['id_duz_kose']}'>".$r['duzina_kose']."</option>";
@@ -523,19 +522,7 @@ function toggle(source) {
                                       </select>
                                       </div>
                                   </div>
-                                  <?php $upituser="SELECT * FROM boja_kose";
 
-                              $rezupituser=$conn->query($upituser)or die("los upit");?>
-                                  <div class="form-group">
-                                      <div class="btn-group">
-                                        <label for="">Haar Farbe </label>
-                                      <select class="form-control" name="">
-                                      <?php while($r=mysqli_fetch_array($rezupituser)){
-                                        echo "<option value='{$r['id_boja_kose']}'>".$r['boja_kose']."</option>";
-                                      } ?>
-                                      </select>
-                                      </div>
-                                  </div>
                                   <?php $upituser="SELECT * FROM boja_ociju";
 
                               $rezupituser=$conn->query($upituser)or die("los upit");?>
@@ -554,7 +541,7 @@ function toggle(source) {
                               $rezupituser=$conn->query($upituser)or die("los upit");?>
                                   <div class="form-group">
                                       <div class="btn-group">
-                                        <label for="">Brille Kontaktlizen</label>
+                                        <label for="">Brille Kontaktlinzen</label>
                                       <select class="form-control" name="brille">
                                       <?php while($r=mysqli_fetch_array($rezupituser)){
                                         echo "<option value='{$r['id_naocare_sociva']}'>".$r['naziv_naoc_soc']."</option>";

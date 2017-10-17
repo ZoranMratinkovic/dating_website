@@ -33,7 +33,7 @@
 
                         </li>
                         <li class="dropdown menu-large">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kategorien <b class="caret"></b></a>
                                 <ul class="dropdown-menu megamenu row backg">
                                     <li class="col-sm-12">
                                           <ul>
@@ -54,7 +54,7 @@
                             </li>
 
 
-                                <li><a href="members1.php">Members</a></li>
+                                <li><a href="members1.php">User</a></li>
 
 
 
@@ -63,7 +63,7 @@
 
 
 
-                        <li><a href="contact.html">Contact us</a></li>
+                        <li><a href="contact.php">Kontakt</a></li>
                     </ul>
 
 
@@ -95,13 +95,9 @@
 
                         </li>
                         <?php } ?>
-                        <li class="flag_drop">
-                            <div class="selector">
-                                <select class="language_drop" name="countries" id="countries" style="width:300px;">
-                                  <option value='yt' data-image="img/country-aus.png" data-imagecss="flag yt" data-title="English">Deutsch</option>
+                        <li class="flag_drop"><a href="contact.php">PREMIUM</a>
 
-                                </select>
-                            </div>
+
                         </li>
                     </ul>
 

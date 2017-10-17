@@ -47,7 +47,7 @@
 
   <script type="text/javascript">
   function posalji() {
-    alert('radii');
+
 var email = document.getElementById('reg_email').value;
 var ime = document.getElementById('reg_first').value;
 var user = document.getElementById('reg_user').value;
@@ -156,12 +156,12 @@ else
 
 if(sadrzaj.length == 6)
 {
-  alert("Vaša poruka je poslata,odgovor ce biti najkasnije sledečeg radnog dana");
+  alert("Angaben sind ok!");
   return true;
 
 
 }
-else {alert('ima greske!!!');
+else {alert('Angaben überprüfen');
 return false;}
 }
 
@@ -295,7 +295,7 @@ $errors[]="pw nije dobroo!";
 
                             $upit="UPDATE user SET email='$email',username='$username',password='$password',male='$geschlecht',tag=$tag,monat=$monat,jahr=$jahr,age=$age";
                             $rezupit=$conn->query($upit)or die('losee');
-                            echo "<script>alert('radi uptade')</script>";
+                            echo "<script>alert('Update erfoglreich')</script>";
 
 
                           }

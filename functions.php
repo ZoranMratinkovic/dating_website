@@ -1,4 +1,4 @@
-<?php 
+<?php
 function all_members()
 {
 	$all_members = "SELECT uo.id_user,uo.title,uo.umetnicko_ime,uo.datum,uo.profilna_slika,k.naziv_kanton,bs.brak_status FROM user_oglas uo INNER JOIN kanton k ON uo.id_kanton=k.id_kanton INNER JOIN brak_status bs ON uo.id_brak_status = bs.id_brak_status";
@@ -56,9 +56,10 @@ function all_members_with_desc()
             {
                 $opis = substr($row['opis'],0,strlen($row['opis'])/4);
                 echo " <div class='col-md-4 col-sm-6'>
+								  <a href='members-detail.php?id_girl={$row['id_user']}'>
                                     <div class='blog_grid_item'>
                                         <div class='blog_grid_img '>
-                                            <img src='{$row['profilna_slika']}' class='img-270x299' alt=''>
+                                            <a href='members-detail.php?id_girl={$row['id_user']}'><img src='{$row['profilna_slika']}' class='img-270x299' alt=''>
                                             <div class='blog_share_area '>
                                                 <a href='members-detail.php?id_girl={$row['id_user']}'><i class='fa fa-heart' aria-hidden='true'></i>95</a>
                                             </div>
@@ -71,10 +72,10 @@ function all_members_with_desc()
                                                 <a href='members-detail.php?id_girl={$row['id_user']}'>{$row['brak_status']}</a>
                                             </div>
                                             <p>{$opis}...</p>
-                                            <a href='members-detail.php?id_girl={$row['id_user']}'>Get in touch<i class='fa fa-angle-double-right'></i></a>
+                                            <a href='members-detail.php?id_girl={$row['id_user']}'>Mehr über mich<i class='fa fa-angle-double-right'></i></a>
                                         </div>
                                     </div>
-                                </div>";
+                                </div></a>";
             }
     }
 }
@@ -121,13 +122,13 @@ function show_specific_category($id_cat)
             }
             else
             {
-                        
+
                         echo "<div class='alert alert-danger'>
-                            <h2>No results for that category!</h2>
+                            <h2>Kein Suchresultat bitte etwas anderes versuchen</h2>
                             </div>";
-                        
+
             }
-            
+
         }
     }
 
@@ -135,9 +136,9 @@ function show_specific_category($id_cat)
 function filter_girls_left()
 {
         include("connectionFile/connection.php");
-        
+
         $sqlInv="SELECT uo.id_user,uo.title,uo.umetnicko_ime,uo.datum,uo.profilna_slika,uo.opis,k.naziv_kanton,bs.brak_status,kat.kategorija FROM user_oglas uo INNER JOIN kanton k ON uo.id_kanton=k.id_kanton INNER JOIN brak_status bs ON uo.id_brak_status = bs.id_brak_status INNER JOIN user_kat uk on uo.id_user = uk.id_user INNER JOIN kategorije kat on uk.id_kat = kat.id_kat INNER JOIN sex_orj sr on uo.id_sex_orj =sr.id_sexorj WHERE 1";
-               
+
                 $cat = trim($_POST['tbCategory']);
                 $cat = stripslashes($cat);
                 $cat = htmlspecialchars($cat);
@@ -161,14 +162,14 @@ function filter_girls_left()
                 {
                     $sqlInv.= " AND uo.id_sex_orj =". $id_sex_orj;
                 }
-        
+
         $rez1 = $conn->query($sqlInv);
         if($rez1)
         {
             if(mysqli_num_rows($rez1) > 0)
             {
                 while($row = mysqli_fetch_array($rez1))
-                {                   
+                {
 
                                 $opis = substr($row['opis'],0,strlen($row['opis'])/4);
                                     echo " <div class='col-md-4 col-sm-6 sa'>
@@ -176,7 +177,7 @@ function filter_girls_left()
                                             <div class='blog_grid_img '>
                                                 <img src='{$row['profilna_slika']}' class='img-270x299' alt=''>
                                                 <div class='blog_share_area '>
-                                                    <a href='members-detail.php?id_girl={$row['id_user']}'><i class='fa fa-heart' aria-hidden='true'></i>95</a>
+                                                    <a href='members-detail.php?id_girl={$row['id_user']}'><i class='fa fa-heart' aria-hidden='true'></i>99</a>
                                                 </div>
                                             </div>
                                             <div class='blog_grid_content'>
@@ -196,30 +197,30 @@ function filter_girls_left()
             else
             {
                             echo "<div class='alert alert-danger'>
-                                    <h2>No results! Try again!</h2>
+                                    <h2>Kein Suchresultat bitte etwas anderes versuchen</h2>
                                  </div>";
             }
-            
+
         }
         else
         {
             echo "<div class='alert alert-warning'>
-                                     <strong>Warning!</strong> No results for! Try again!
+                                     <strong>Kein Suchresultat bitte etwas anderes versuchen
                   </div>";
         }
 
-}	
+}
 function upload_img($name,$tmp,$target_dir,$resized_dir)
 {
     $upload = 1;
     $imageFileType = pathinfo($target_dir.$name,PATHINFO_EXTENSION);
-    
+
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" && $imageFileType != "JPG" && $imageFileType != "PNG" && $imageFileType != "JPEG")
     {
         $upload = 0;
     }
     /*if(file_exists($target_dir.$name))
-    {   
+    {
         $upload = 0;
     }*///ovo moras da promenis da se ne bi nalepilo jedno preko drugog
     if($upload == 1)
@@ -228,7 +229,7 @@ function upload_img($name,$tmp,$target_dir,$resized_dir)
         {
             return true;
         }
-           
+
         else{
             echo "No success";
         }
@@ -238,25 +239,25 @@ function upload_img($name,$tmp,$target_dir,$resized_dir)
 function compress($source, $destination, $quality, $w) {
 
     $info = getimagesize($source);
-    if ($info['mime'] == 'image/jpeg') 
+    if ($info['mime'] == 'image/jpeg')
     {
         $image = imagecreatefromjpeg($source);
-        
+
     }
 
-    else if ($info['mime'] == 'image/gif') 
+    else if ($info['mime'] == 'image/gif')
     {
         $image = imagecreatefromgif($source);
-        
+
     }
-      
-    else if ($info['mime'] == 'image/png') 
+
+    else if ($info['mime'] == 'image/png')
     {
           $image = imagecreatefrompng($source);
     }
 
     list($width,$height) = getimagesize($source);
-    
+
     $new_width = $w;
     $new_height = ($height/$width)*$new_width;
 
@@ -265,8 +266,8 @@ function compress($source, $destination, $quality, $w) {
     imagecopyresampled($tmp,$image,0,0,0,0,$new_width,$new_height,$width,$height);
 
 
-     
-   
+
+
     imagejpeg($tmp, $destination, $quality);
 
     return $destination;
@@ -285,14 +286,14 @@ function list_of_albums($id)
 
         if($rez->num_rows > 0)//If she actually has an album, show it
         {
-            
+
             while($row = $rez->fetch_assoc())
             {
-                
+
                 $listAlbumss = "SELECT * FROM `images` i INNER JOIN `album_image` ai ON i.id_image = ai.id_image INNER JOIN album a ON ai.id_album= a.id_album where ai.id_album={$row['id_album']}";
-                
+
                 $result = $conn->query($listAlbumss);
-                
+
                 if(mysqli_num_rows($result) > 0)
                 {
                      echo "<aside class='s_widget photo_widget brd pad'>
@@ -301,7 +302,7 @@ function list_of_albums($id)
                                     <img src='img/widget-title-border.png' alt=''>
                                 </div>
                                 <ul class=''>";
-               
+
                     while($row1 = mysqli_fetch_array($result))
                     {
                         echo "<li><a href='#'><img class='imgAlbum' src='{$row1['image_resized']}' alt=''></a></li>";
@@ -315,7 +316,7 @@ function list_of_albums($id)
                 else
                 {
                         //if she doesn't have an album, show her the form, to insert images
-                        echo 
+                        echo
                             "
                                 <h4>{$row['album_name']}</h4>
                                 <img src='img/widget-title-border.png' alt=''>
@@ -326,10 +327,10 @@ function list_of_albums($id)
                                 <br/>
                            ";
                 }
-               
-                  $i++;              
+
+                  $i++;
             }
-           
+
         }
 
 
@@ -350,14 +351,14 @@ function list_of_albums_reg_user($id)
     $rez = $stmtAlbum->get_result();
         if($rez->num_rows > 0)//If she actually has an album, show it
         {
-            
+
             while($row = $rez->fetch_assoc())
             {
-                
+
                 $listAlbumss = "SELECT * FROM `images` i INNER JOIN `album_image` ai ON i.id_image = ai.id_image INNER JOIN album a ON ai.id_album= a.id_album where ai.id_album={$row['id_album']}";
-                
+
                 $result = $conn->query($listAlbumss);
-                
+
                 if(mysqli_num_rows($result) > 0)
                 {
                     if(isset($_SESSION['age']) && $_SESSION['age'] >= $row['age_type'])
@@ -369,7 +370,7 @@ function list_of_albums_reg_user($id)
                                     <img src='img/widget-title-border.png' alt=''>
                                 </div>
                                 <ul>";
-               
+
                         while($row1 = mysqli_fetch_array($result))
                         {
                             echo "<li><a href='#'><img src='{$row1['image_src']}' alt=''></a></li>";
@@ -382,34 +383,34 @@ function list_of_albums_reg_user($id)
                         echo "   <aside class='s_widget photo_widget brd pad'>
                                         <h3>{$row['album_name']}<h3>
                                         <img src='img/widget-title-border.png' alt=''>
-                                        <h5>Users under 18 or unregistered users can't see this album!</h5>
+                                        <h5>User unter 18 können diese Blider nicht sehen!</h5>
                                   </aside>
-                    
-                    ";  
+
+                    ";
                     }
                 }
                 else
                 {
                         //if she doesn't have an album, show her the form, to insert images
-                        echo 
-                            "  
+                        echo
+                            "
                                 <h4>{$row['album_name']}</h4>
                                 <img src='img/widget-title-border.png' alt=''>
                                 <form action='insertImagesIntoAlbum.php?id_album={$row['id_album']}' method='post' enctype='multipart/form-data'>
                                     <input type='file' name='AlbumPictures'>
                                    <input type='submit' value='Insert' name='InsertPics{$i}' class='btn btn-lg dugmeSearch'>
                                 </form>
-                              
-                               
+
+
                             ";
                 }
-                          
+
             }
-           
+
         }
         else
         {
-            echo "<h3>No albums yet!</h3>";
+            echo "<h3>Keine Alben verfügbar</h3>";
             echo "<img src='img/widget-title-border.png' alt=''>";
         }
 
@@ -434,7 +435,7 @@ function show_video($id_user)
             "   <div class='col-xs-12 col-sm-6'>
                 <video class='videoClass' width='350' height='350' controls>
                   <source src='{$row['video_src']}' type='video/mp4'>
-             
+
                   Your browser does not support the video tag.
                 </video><br/>
                 </div>
@@ -444,7 +445,7 @@ function show_video($id_user)
         echo "
             <div class='col-xs-12'>
             <form action='parts/upload_video.php' method='post' enctype='multipart/form-data'>
-                    <span class='btn btn-default btn-file'> 
+                    <span class='btn btn-default btn-file'>
                         Choose video<input type='file' name='video1' id='video1'>
 
                     </span>
@@ -453,19 +454,19 @@ function show_video($id_user)
     }
     else
     {
-       echo 
+       echo
        "
             <form action='parts/upload_video.php' method='post' enctype='multipart/form-data'>
                 <h3 class='mb-35'>Insert video that only <strong>Premium</strong> members can see.</h3>
-                    <span class='btn btn-default btn-file'> 
+                    <span class='btn btn-default btn-file'>
                         Choose video<input type='file' name='video1' id='video1'>
 
                     </span>
                     <input type='submit' value='Insert video' id='insertVideo' name='insertVideo' class='btn btn-danger'>
             </form>
-       "; 
+       ";
     }
-    
+
 }
 function show_video_reg_user($id_user)
 {
@@ -486,7 +487,7 @@ function show_video_reg_user($id_user)
             "   <div class='col-xs-12 col-sm-6'>
                 <video class='videoClass' width='350' height='350' controls>
                   <source src='{$row['video_src']}' type='video/mp4'>
-             
+
                   Your browser does not support the video tag.
                 </video><br/>
                 </div>
@@ -496,11 +497,11 @@ function show_video_reg_user($id_user)
     }
     else
     {
-       echo 
+       echo
        "
-            <h3>No videos yet!</h3>
-       "; 
+            <h3>Keine Videos verfügbar</h3>
+       ";
     }
-    
+
 }
  ?>

@@ -58,12 +58,12 @@
                            if(mysqli_num_rows($rezupit1)==1)
                            {
                                   $row=mysqli_fetch_array($rezupit1);
-                                  echo "<script>alert('radi');</script>";
+                                  echo "<script>alert('Wilkommen');</script>";
                                   $_SESSION['username'] = $row['username'];
                                   $_SESSION['id_uloga'] = $row['id_user_uloga'];
                                   $_SESSION['id'] = $row['user_id'];
                                   $_SESSION['age'] = $row['age'];
-                                  
+
                            }
                            else
                            {
@@ -73,7 +73,7 @@
                                if(mysqli_num_rows($rezupit12)==1)
                                {
                                       $row=mysqli_fetch_array($rezupit12);
-                                      echo "<script>alert('radi');</script>";
+                                      echo "<script>alert('Herzlich Wilkommen');</script>";
                                       $_SESSION['username'] = $row['username'];
                                       $_SESSION['id_uloga'] = $row['id_user_uloga'];
                                       $_SESSION['id'] = $row['id_user'];
@@ -81,13 +81,13 @@
                                }
                                else
                                {
-                                  echo "<script>alert('oglas nema rez');</script>";
+                                  echo "<script>alert('Bitte angaben überprüfen');</script>";
                                }
                            }
                         }
                         else
                         {
-                          echo "<script>alert('ima gresaka');</script>";
+                          echo "<script>alert('Bitte angaben überprüfen');</script>";
                         }
 
 

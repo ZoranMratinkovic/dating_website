@@ -17,7 +17,7 @@
                                 data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
                                 data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
                                 data-start="1800" >
-                                <img class='img-slider' src="img/slider-img/slider1.png" alt="" height='602' width='456'>
+                                <img class='img-slider' src="img/slider-img/slider3.jpg" alt="" height='602' width='456'>
                             </div>
                             <div class="tp-caption first_text"
                                 data-width="none"
@@ -88,7 +88,7 @@
                                 data-paddingleft="[0,0,0,0]"
                                 data-y="top"
                                 data-start="1800" >
-                                <a class="register_angkar_btn" href="#">Jetzt registrieren</a>
+                                <a class="register_angkar_btn" href="members1.php">User anschauen</a>
                             </div>
                         </li>
                         <li data-slotamount="7" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="600" data-rotate="0" data-saveperformance="off">
@@ -106,7 +106,7 @@
                                 data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
                                 data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
                                 data-start="1800" >
-                                <img class='img-slider2' src="img/slider-img/slider2.png" alt="">
+                                <img class='img-slider2' src="img/slider-img/slider5.jpg" alt="">
                             </div>
                             <div class="tp-caption first_text"
                                 data-width="none"
@@ -172,7 +172,7 @@
                                 data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
                                 data-y="top"
                                 data-start="1800" >
-                                <a class="register_angkar_btn" href="#">Alle Member</a>
+                                <a class="register_angkar_btn" href="members1.php">Alle Member</a>
                             </div>
                         </li>
                     </ul>
