@@ -30,33 +30,22 @@
                         <div class="col-md-3">
                             <aside class="f_widget">
                                 <div class="f_widget_title">
-                                    <h3>Recent posts</h3>
+                                    <h3>Infos</h3>
                                 </div>
                                 <div class="recent_post_widget">
                                     <ul>
-                                        <li><a href="#">Blog Standard Post <span>14 Sep, 2016</span></a></li>
-                                        <li><a href="#">Blog Image Post <span>12 Sep, 2016</span></a></li>
-                                        <li><a href="#">BlogVideo Post <span>08 Sep, 2016</span></a></li>
-                                        <li><a href="#">Blog Audio  Post <span>03 Sep, 2016</span></a></li>
-                                        <li><a href="#">Blog Standard Post <span>16 Aug, 2016</span></a></li>
+                                        <li><a href="#">Sodom24</li>
+                                        <li><a href="#">Email: info@sodom24.ch</li>
+                                          <li><a href="#">Email: support@sodom24.ch</li>
+                                          <li><a href="#">Tel: 0787874789</li>
+
                                     </ul>
                                 </div>
                             </aside>
                         </div>
                         <div class="col-md-3">
                             <aside class="f_widget">
-                                <div class="f_widget_title">
-                                    <h3>Newsletter Signup</h3>
-                                </div>
-                                <div class="newsletter_widget">
-                                    <p>Get Alert Directly Into Your Inbox After Each Post.</p>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Enter your email">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default" type="button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                                        </span>
-                                    </div>
-                                </div>
+                              <img src="img/slider4.jpg" alt="">
                             </aside>
                         </div>
                     </div>
