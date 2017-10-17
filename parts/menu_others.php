@@ -63,7 +63,7 @@
 
 
 
-                        <li><a href="contact.html">Kontakt</a></li>
+                        <li><a href="contact.php">Kontakt</a></li>
                     </ul>
 
 

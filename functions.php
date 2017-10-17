@@ -177,7 +177,7 @@ function filter_girls_left()
                                             <div class='blog_grid_img '>
                                                 <img src='{$row['profilna_slika']}' class='img-270x299' alt=''>
                                                 <div class='blog_share_area '>
-                                                    <a href='members-detail.php?id_girl={$row['id_user']}'><i class='fa fa-heart' aria-hidden='true'></i>95</a>
+                                                    <a href='members-detail.php?id_girl={$row['id_user']}'><i class='fa fa-heart' aria-hidden='true'></i>99</a>
                                                 </div>
                                             </div>
                                             <div class='blog_grid_content'>
