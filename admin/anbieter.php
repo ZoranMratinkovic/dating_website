@@ -109,7 +109,7 @@
                               <td>{$r['umetnicko_ime']}</td>
                               <td>{$r['username']}</td>
                               <td>{$r['datum']}</td>
-                              <td><img src='"."/../"."{$r['profilna_slika']}' width='50px' height='50px'></td>
+                              <td><img src='"."../"."{$r['profilna_slika']}' width='50px' height='50px'></td>
                               <td>{$r['uloga']}</td>
                               <td><a href='anbieter.php?idr={$r['id_user']}'>status aendern</a></td>
                               <td><a href='anbieter.php?idc={$r['id_user']}'>x</a></td>

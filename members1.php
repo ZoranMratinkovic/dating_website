@@ -64,7 +64,7 @@
                     <h3 title="Blog"><img class="left_img" src="img/banner/t-left-img.png" alt="">Alle Nutzer<img class="right_img" src="img/banner/t-right-img.png" alt=""></h3>
                     <a href="index.php">Home</a>
                     <a href="blog.html">Members</a>
-      
+
                 </div>
             </div>
         </section>
@@ -107,7 +107,7 @@
                         </div>
 
                         <div class="pagination_area " id='Paginacija'>
-                            <a class="prev" href="#">Previous</a>
+                            <a class="prev" href="#">Back</a>
                             <a class="arrow_left" href="#"><i class="fa fa-angle-left"></i></a>
                             <a class="arrow_right" href="#"><i class="fa fa-angle-right"></i></a>
                             <a class="next" href="#">Next</a>
@@ -123,7 +123,7 @@
                                     <img src="img/widget-title-border.png" alt="">
                                 </div>
 
-                                <input type="text" name="tbCategory" id='tbCategory' class='form-control' autofocus onKeyUp='AjaxSearch(this.value);' autocomplete='off' placeholder='Type Category Name'>
+                                <input type="text" name="tbCategory" id='tbCategory' class='form-control' autofocus onKeyUp='AjaxSearch(this.value);' autocomplete='off' placeholder='Kategorie eingeben'>
                                 <div id="ajaxUpis"></div>
 
                                 <div class="s_title">
@@ -131,7 +131,7 @@
                                     <img src="img/widget-title-border.png" alt="">
                                 </div>
 
-                                <input type="text" name="tbKanton" id='tbKanton' class='form-control' autofocus onKeyUp='AjaxSearch1(this.value);' autocomplete='off' placeholder='Type Kanton Name'>
+                                <input type="text" name="tbKanton" id='tbKanton' class='form-control' autofocus onKeyUp='AjaxSearch1(this.value);' autocomplete='off' placeholder='Kanton eingeben'>
                                 <div id="ajaxUpis1"></div>
 
                                 <div class="s_title">
@@ -153,7 +153,7 @@
                                             }
                                        ?>
                                 </select>
-                                <input type='submit' class="register_angkar_btn dugmeSearch" name="filterGirlsLeft" value='Find Now'>
+                                <input type='submit' class="register_angkar_btn dugmeSearch" name="filterGirlsLeft" value='Jetzt finden'>
                             </form>
                             </aside>
 

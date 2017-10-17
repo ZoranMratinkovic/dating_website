@@ -54,7 +54,7 @@
                   			</li>
 
 
-                                <li><a href="members1.php">Members</a></li>
+                                <li><a href="members1.php">User</a></li>
 
 
 
@@ -82,7 +82,7 @@
                             </ul>
                         </li>
 -->
-                        <li><a href="contact.html">Kontakt</a></li>
+                        <li><a href="contact.php">Kontakt</a></li>
                     </ul>
 
 
@@ -114,13 +114,7 @@
 
                         </li>
                         <?php } ?>
-                        <li class="flag_drop">
-                            <div class="selector">
-                                <select class="language_drop" name="countries" id="countries" style="width:300px;">
-                                  <option value='yt' data-image="img/country-aus.png" data-imagecss="flag yt" data-title="English">Deutsch</option>
-
-                                </select>
-                            </div>
+                        <li class="flag_drop"><a href="contact.php">PREMIUM</a>
                         </li>
                     </ul>
 
