@@ -15,7 +15,7 @@
         include('functions.php');
         //uploads regular picture
         $dest = upload_img($ime_slike,$tmp,$target_dir,$resized_dir);
-        
+        //DONT FORGET TO ASK IF DEST != ""
       
 
           $sqlUpit = "INSERT INTO images VALUES(?,?,?)";
