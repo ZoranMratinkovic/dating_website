@@ -143,11 +143,11 @@
 
                             </div>
                             <div class="members_about_box">
-                                <h4>About me</h4>
+                                <h4 class='text-center'>About me</h4>
                                 <p><?php echo $opis; ?></p>
                             </div>
                             <div class="members_about_box">
-                                <div class="row">
+                                <div class="row text-center">
                                     <?php 
                                         include('functions.php');
                                         $id_userr = (int)$_GET['id_girl'];

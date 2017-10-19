@@ -197,6 +197,7 @@
         <script src="js/video_player.js"></script>
         <script src="js/costome-circle.js"></script>
         <script src="js/theme.js"></script>
+        <script type="text/javascript" src='js/our_script.js'></script>
         <script type="text/javascript">
             $(document).ready(function(){
                 $('#ChangeProfilePic').change(function(){

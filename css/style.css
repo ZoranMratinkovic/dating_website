@@ -186,6 +186,18 @@ Table of Content:
 #insertVideo{
   display:none;
 }
+.warning{
+
+  display:none;
+}
+.showError{
+    color:#ff0000;
+  display:block!important;
+}
+.hide{
+  display:none;
+  /*hides the form if she has more than 15 pictures*/
+}
 /*Obrisati posle ove klase jer ces da smanjis stvarno slike*/
 /*Our code end*/
 

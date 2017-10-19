@@ -12,6 +12,40 @@ $(document).ready(function(){
             }
         });
 });
+function check_pic(name)
+{
+    var image = document.getElementById('AlbumPictures').value;
+    alert(name);
+    if(image != "")
+    {
+        //document.getElementById('warning1').className='warning';
+        document.name.className='warning';
+        return true;
+    }
+    else 
+    {
+        //document.getElementById('warning1').className='showError';
+        document.name.className='showError';
+        return false;
+    } 
+        
+}
+function check_pic1()
+{
+    var image = document.getElementById('AlbumPictures1').value;
+
+    if(image != "")
+    {
+        document.getElementById('warning2').className='warning';
+        return true;
+    }
+    else 
+    {
+        document.getElementById('warning2').className='showError';
+        return false;
+    } 
+        
+}
 /*Category field ajax*/
 function kreiraj(){
     if (window.XMLHttpRequest){ 

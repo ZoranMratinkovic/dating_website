@@ -19,7 +19,7 @@
                                     </span>
                                     <input type="submit" name="SubmitProfileChange" id='SubmitProfileChange' class='none btn btn-default' value='Submit'>
                                     <?php
-                                           if(isset($_POST['SubmitProfileChange'])&&isset($_FILES['ChangeProfilePic']['tmp_name']))
+                                           if(isset($_POST['SubmitProfileChange'])&& isset($_FILES['ChangeProfilePic']['tmp_name']))
                                            {
                                                    $ime_slike = $_FILES['ChangeProfilePic']['name'];
                                                    $tmp = $_FILES['ChangeProfilePic']['tmp_name'];
@@ -202,7 +202,7 @@
 
                             </div>
                             <div class="members_about_box">
-                                <h4>About me</h4>
+                                <h4 class='text-center'>About me</h4>
                                 <p><?php echo $opis; ?></p>
                             </div>
                             <div class="members_about_box">
@@ -211,7 +211,7 @@
                                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</p>
                             </div>
                             <div class="members_about_box">
-                                <div class="row">
+                                <div class="row text-center">
                                     <?php 
                                         include('functions.php');
                                         $id_userr = (int)$_SESSION['id'];

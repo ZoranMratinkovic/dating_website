@@ -125,7 +125,7 @@
                                     <img src="img/widget-title-border.png" alt="">
                                 </div>
 
-                                <input type="text" name="tbCategory" id='tbCategory' class='form-control' autofocus onKeyUp='AjaxSearch(this.value);' autocomplete='off' placeholder='Kategorie eingeben'>
+                                <input type="text" name="tbCategory" id='tbCategory' class='form-control' onKeyUp='AjaxSearch(this.value);' autocomplete='off' placeholder='Kategorie eingeben'>
                                 <div id="ajaxUpis"></div>
 
                                 <div class="s_title">
@@ -133,7 +133,7 @@
                                     <img src="img/widget-title-border.png" alt="">
                                 </div>
 
-                                <input type="text" name="tbKanton" id='tbKanton' class='form-control' autofocus onKeyUp='AjaxSearch1(this.value);' autocomplete='off' placeholder='Kanton eingeben'>
+                                <input type="text" name="tbKanton" id='tbKanton' class='form-control' onKeyUp='AjaxSearch1(this.value);' autocomplete='off' placeholder='Kanton eingeben'>
                                 <div id="ajaxUpis1"></div>
 
                                 <div class="s_title">

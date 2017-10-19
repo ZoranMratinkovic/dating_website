@@ -162,6 +162,7 @@ function filter_girls_left()
                 {
                     $sqlInv.= " AND uo.id_sex_orj =". $id_sex_orj;
                 }
+                $sqlInv.=" GROUP BY uo.id_user;";
 
         $rez1 = $conn->query($sqlInv);
         if($rez1)
@@ -213,25 +214,39 @@ function filter_girls_left()
 function upload_img($name,$tmp,$target_dir,$resized_dir)
 {
     $upload = 1;
-    $imageFileType = pathinfo($target_dir.$name,PATHINFO_EXTENSION);
-
+    $fname = $name;
+    $imageFileType = pathinfo($target_dir.$fname,PATHINFO_EXTENSION);
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" && $imageFileType != "JPG" && $imageFileType != "PNG" && $imageFileType != "JPEG")
     {
         $upload = 0;
     }
-    /*if(file_exists($target_dir.$name))
+    if(file_exists($target_dir.$fname))
     {
-        $upload = 0;
-    }*///ovo moras da promenis da se ne bi nalepilo jedno preko drugog
+
+        $file = explode('.',$fname);    // explode file name and extension
+        $rand = rand(1, 100);
+        $fname = $file[0].'.'.$rand.$file[1];
+
+    }///ovo moras da promenis da se ne bi nalepilo jedno preko drugog
+
     if($upload == 1)
     {
-        if(move_uploaded_file($tmp, $target_dir.$name))
+        $d1="";
+        if(move_uploaded_file($tmp, $target_dir.$fname))
         {
-            return true;
+            if($d = compress($target_dir.$fname,$target_dir.$resized_dir."/".$fname, 80, 270))
+            {
+                $putanja = $target_dir.$fname;
+                $array = Array($putanja,$d);
+                return $array;
+            }
+            else return $d1;
+
         }
 
         else{
             echo "No success";
+            return $d1;
         }
     }
 }
@@ -293,8 +308,8 @@ function list_of_albums($id)
                 $listAlbumss = "SELECT * FROM `images` i INNER JOIN `album_image` ai ON i.id_image = ai.id_image INNER JOIN album a ON ai.id_album= a.id_album where ai.id_album={$row['id_album']}";
 
                 $result = $conn->query($listAlbumss);
-
-                if(mysqli_num_rows($result) > 0)
+                $countImage = mysqli_num_rows($result);
+                if($countImage > 0)//if she has images, show them
                 {
                      echo "<aside class='s_widget photo_widget brd pad'>
                                 <div class='s_title '>
@@ -305,13 +320,22 @@ function list_of_albums($id)
 
                     while($row1 = mysqli_fetch_array($result))
                     {
-                        echo "<li><a href='#'><img class='imgAlbum' src='{$row1['image_resized']}' alt=''></a></li>";
+                        echo "<li><a href='{$row1['image_src']}' target='_blank'><img class='imgAlbum' src='{$row1['image_resized']}' height='270' width='270' alt=''></a></li>";
                     }
-
-                    echo "</ul><br/><form action='insertImagesIntoAlbum.php?id_album={$row['id_album']}' method='post' enctype='multipart/form-data'>
-                                    <span class='btn btn-default btn-file'>Choose image<input type='file' name='AlbumPictures'></span>
-                                    <input type='submit' value='Insert' name='InsertPics{$i}' class='btn btn-lg dugmeSearch form-control' id='btnInsertAlbumImg'>
-                                </form></aside>";
+                    //The form under pictures that only registered girl sees
+                    echo "</ul><br/>
+                                    <form action='insertImagesIntoAlbum.php?id_album={$row['id_album']}' method='post' enctype='multipart/form-data' id='formaZaUpis15Slika{$i}' name='formaZaUpis15Slika{$i}'>
+                                        <span class='btn btn-default btn-file'>Choose image<input type='file' name='AlbumPictures' id='AlbumPictures'>
+                                        </span>
+                                        <span class='warning' id='warning1'>First, you must choose your picture!</span>
+                                        <input type='submit' value='Insert' name='InsertPics{$i}' class='btn btn-lg dugmeSearch form-control' id='btnInsertAlbumImg'>
+                                    </form>
+                        </aside>";
+                    if($countImage >= 15)
+                    {
+                        echo "<script>document.getElementById('formaZaUpis15Slika{$i}').className='hide';</script>";
+                        //hides the form if there is 15 or more pictures 
+                    }
                 }
                 else
                 {
@@ -320,8 +344,10 @@ function list_of_albums($id)
                             "
                                 <h4>{$row['album_name']}</h4>
                                 <img src='img/widget-title-border.png' alt=''>
-                                <form action='insertImagesIntoAlbum.php?id_album={$row['id_album']}' method='post' enctype='multipart/form-data'>
-                                    <span class='btn btn-default btn-file'>Choose image<input type='file' name='AlbumPictures'></span>
+                                <form action='insertImagesIntoAlbum.php?id_album={$row['id_album']}' method='post' enctype='multipart/form-data' onSubmit='return check_pic1();'>
+                                    <span class='btn btn-default btn-file'>Choose image<input type='file' name='AlbumPictures' id='AlbumPictures1'>
+                                    </span>
+                                    <span class='warning' id='warning2'>First, you must choose your picture!</span>
                                    <input type='submit' value='Insert' name='InsertPics{$i}' class='btn btn-lg dugmeSearch form-control btnInsertAl'>
                                 </form>
                                 <br/>
@@ -373,7 +399,7 @@ function list_of_albums_reg_user($id)
 
                         while($row1 = mysqli_fetch_array($result))
                         {
-                            echo "<li><a href='#'><img src='{$row1['image_src']}' alt=''></a></li>";
+                            echo "<li><a href='{$row1['image_src']}' target='_blank'><img class='imgAlbum' src='{$row1['image_resized']}' height='270' width='270' alt=''></a></li>";
                         }
 
                         echo "</ul></aside>";
