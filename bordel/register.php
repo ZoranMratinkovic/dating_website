@@ -176,72 +176,10 @@ function toggle(source) {
  <body class="redbg" style="
     background: url(img/background.jpeg);
 ">
-   <header class="header_menu_area white_menu">
-
-            <nav class="navbar navbar-default">
-                <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.php"><img src="img/logo-2.png" alt=""></a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown submenu active">
-
-                                <a href="index.php">Home</a>
-
-                        </li>
-                        <li class="dropdown menu-large">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kategorien <b class="caret"></b></a>
-                          <ul class="dropdown-menu megamenu row backg">
-                            <li class="col-sm-12">
-                                <ul>
-                                  <?php $upitcat="SELECT * FROM kategorije ORDER BY kategorija";
-
-                                  $rezupituser=$conn->query($upitcat)or die("los upit");;
-
-                                  while($r1=mysqli_fetch_array($rezupituser))
-                                  {
-                                    echo "<a href='members1.php?category={$r1['id_kat']}' class='nothing'><li style='width:20%'>".$r1['kategorija']."</li></a>";
-                                  }
 
 
-                             ?>
-                                </ul>
-                            </li>
+          <?php include("menu_others.php"); ?>
 
-                          </ul>
-
-                        </li>
-
-
-                                <li><a href="members1.php">User</a></li>
-
-
-
-
-                        </li>
-
-
-
-                        <li><a href="contact.html">Kontakt</a></li>
-                    </ul>
-
-
-
-</form>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav>
-        </header>
 <div class="container">
 <div class="col-xs-12 col-sm-12 col-lg-12">
 

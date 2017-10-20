@@ -29,7 +29,7 @@
                     <ul class="nav navbar-nav">
                         <li class="dropdown submenu active">
 
-                                <a href="index.php">Home</a>
+                                <a href="../index.php">Home</a>
 
                         </li>
                         <li class="dropdown menu-large">
@@ -38,12 +38,12 @@
                                     <li class="col-sm-12">
                                           <ul>
                                   <?php $upitcat="SELECT * FROM kategorije ORDER BY kategorija";
-                                  include("connectionFile/connection.php");
+                                  include("../connectionFile/connection.php");
                                   $rezupituser=$conn->query($upitcat)or die("los upit");;
 
                                   while($r1=mysqli_fetch_array($rezupituser))
                                   {
-                                    echo "<a href='members1.php?category={$r1['id_kat']}' class='nothing'><li style='width:20%'>".$r1['kategorija']."</li></a>";
+                                    echo "<a href='../members1.php?category={$r1['id_kat']}' class='nothing'><li style='width:20%'>".$r1['kategorija']."</li></a>";
                                   }
                              ?>
                                           </ul>
@@ -54,7 +54,7 @@
                             </li>
 
 
-                                <li><a href="members1.php">User</a></li>
+                                <li><a href="../members1.php">User</a></li>
 
 
 
@@ -63,7 +63,7 @@
 
 
 
-                        <li><a href="contact.php">Kontakt</a></li>
+                        <li><a href="../contact.php">Kontakt</a></li>
                     </ul>
 
 
@@ -81,7 +81,7 @@
                           ";
                         }
                         else if($_SESSION['id_uloga']==6){
-                         echo "<li><a href='bordel/admin_bordel.php?bordel={$_SESSION['id']}'<i class='mdi mdi-key-variant'></i>".$_SESSION['username']."</a></li>
+                         echo "<li><a href='admin_bordel.php?bordel={$_SESSION['id']}'<i class='mdi mdi-key-variant'></i>".$_SESSION['username']."</a></li>
                          <li><form method='post'><input type='submit' value='logout' class='btn-danger' name='logout' /></form></li>
                          ";
                        }
@@ -97,16 +97,12 @@
                         <li><a href="#register_form" class="popup-with-zoom-anim"><i class="fa fa-user-plus"></i>als user</a></li>
                         <li><a href="register.php" class=""><i class="fa fa-user-plus"></i>als anbieter</a></li>
 
-  </ul>
+</ul>
 
                         </li>
                         <?php } ?>
                         <li class="flag_drop"><a href="contact.php">PREMIUM</a>
                         </li>
-                    </ul>
-
-                        </li>
-                      
                     </ul>
 
                     </div><!-- /.navbar-collapse -->

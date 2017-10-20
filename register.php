@@ -6,20 +6,20 @@
   <title></title>
 
 <meta charset="UTF-8">
-<link href="vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="vendors/linears-icon/style.css" rel="stylesheet">
+<link href="../vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../vendors/linears-icon/style.css" rel="stylesheet">
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
   <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="js/jquery.selectlistactions.js"></script>
+  <script src="../js/jquery.selectlistactions.js"></script>
 
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="../css/site.css">
 <!-- RS5.0 Layers and Navigation Styles -->
-<link rel="stylesheet" type="text/css" href="vendors/revolution/css/layers.css">
-<link rel="stylesheet" type="text/css" href="vendors/revolution/css/navigation.css">
-<link rel="stylesheet" type="text/css" href="vendors/revolution/css/settings.css">
+<link rel="stylesheet" type="text/css" href="../vendors/revolution/css/layers.css">
+<link rel="stylesheet" type="text/css" href="../vendors/revolution/css/navigation.css">
+<link rel="stylesheet" type="text/css" href="../vendors/revolution/css/settings.css">
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -175,72 +175,7 @@ function toggle(source) {
  <body class="redbg" style="
     background: url(img/background.jpeg);
 ">
-   <header class="header_menu_area white_menu">
-
-            <nav class="navbar navbar-default">
-                <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.php"><img src="img/logo-2.png" alt=""></a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown submenu active">
-
-                                <a href="index.php">Home</a>
-
-                        </li>
-                        <li class="dropdown menu-large">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kategorien <b class="caret"></b></a>
-                          <ul class="dropdown-menu megamenu row backg">
-                            <li class="col-sm-12">
-                                <ul>
-                                  <?php $upitcat="SELECT * FROM kategorije ORDER BY kategorija";
-
-                                  $rezupituser=$conn->query($upitcat)or die("los upit");;
-
-                                  while($r1=mysqli_fetch_array($rezupituser))
-                                  {
-                                    echo "<a href='members1.php?category={$r1['id_kat']}' class='nothing'><li style='width:20%'>".$r1['kategorija']."</li></a>";
-                                  }
-
-
-                             ?>
-                                </ul>
-                            </li>
-
-                          </ul>
-
-                        </li>
-
-
-                                <li><a href="members1.php">User</a></li>
-
-
-
-
-                        </li>
-
-
-
-                        <li><a href="contact.html">Kontakt</a></li>
-                    </ul>
-
-
-
-</form>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav>
-        </header>
+   <?php include("menu_others.php"); ?>
 <div class="container">
 <div class="col-xs-12 col-sm-12 col-lg-12">
 
@@ -817,7 +752,7 @@ foreach($_POST['kateg'] as $item){
   </div>
 
     </div>
-    <?php include("parts/footer.php"); ?>
+    <?php include("../parts/footer.php"); ?>
     <script>
     $('#btnAvenger').click(function (e) {
              $('select').moveToList('#StaffList', '#PresenterList');

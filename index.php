@@ -64,8 +64,8 @@
 
         <!--================Slider Reg Area =================-->
             <?php include('parts/slider.php'); ?>
-        <!--================End Slider Reg Area =================-->
-
+        <!--================End <Sli></Sli>der Reg Area =================-->
+                   <?php include('parts/banners.php'); ?>
         <!--================Register Members slider Area =================-->
              <?php include('parts/members_slider.php'); ?>
         <!--================End Register Members  slider Area =================-->

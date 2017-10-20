@@ -21,6 +21,37 @@
 
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
+    <!-- Icon css link -->
+    <link href="vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendors/linears-icon/style.css" rel="stylesheet">
+
+    <!-- RS5.0 Layers and Navigation Styles -->
+    <link rel="stylesheet" type="text/css" href="../vendors/revolution/css/layers.css">
+    <link rel="stylesheet" type="text/css" href="../vendors/revolution/css/navigation.css">
+    <link rel="stylesheet" type="text/css" href="../vendors/revolution/css/settings.css">
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/image-dropdown/dd.css" rel="stylesheet">
+    <link href="../vendors/image-dropdown/flags.css" rel="stylesheet">
+    <link href="../vendors/image-dropdown/skin2.css" rel="stylesheet">
+    <link href="../vendors/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="../vendors/bootstrap-selector/bootstrap-select.css" rel="stylesheet">
+    <link href="../vendors/bootstrap-datepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="../vendors/owl-carousel/assets/owl.carousel.css" rel="stylesheet">
+    <link href="../vendors/animate-css/animate.css" rel="stylesheet">
+    <link href="../vendors/bs-tooltip/jquery.webui-popover.css" rel="stylesheet">
+    <link href="../vendors/jquery-ui/jquery-ui.css" rel="stylesheet">
+
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+
+    <script src="js/map-custome.js"></script>
+
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,7 +63,7 @@
 </head>
 
 <body>
-
+<?php include("menu_others.php"); ?>
     <div id="wrapper">
 
         <!-- Sidebar -->
@@ -67,7 +98,7 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 margintp">
                         <h1>Simple Sidebar</h1>
 
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
@@ -149,7 +180,7 @@
           </form>
     </div>
     <!-- /#wrapper -->
-
+  <?php include("../parts/footer.php"); ?>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
