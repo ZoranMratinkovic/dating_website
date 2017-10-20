@@ -8311,6 +8311,9 @@ background: rgba(0, 0, 0, 0.9);
 .margintp{
       margin-top: 112px;
 }
+.margintpmax{
+  margin-top: 142px;
+}
 .multy{
     height: 399px!important;
 }
@@ -8333,9 +8336,4 @@ margin-top: 32px;
 .slider_area.slider_bg {
     /* background: #2e3c43; */
     background:url(../img/background2.jpg)!important;
-}
-.imgreg{
-  width: 495px;
-height: 568px;
-padding: 15px;
 }

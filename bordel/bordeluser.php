@@ -1,3 +1,6 @@
+<?php session_start();
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="img/fav-icon.png" type="image/x-icon" />
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>MEMBERs - Dating Social Network Website</title>
+        <title>VeroDate - Dating Social Network Website</title>
 
         <!-- Icon css link -->
         <link href="vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
@@ -33,6 +36,10 @@
 
         <link href="css/style.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
+       <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+
+        <script src="js/map-custome.js"></script>-->
+
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,94 +50,34 @@
     </head>
     <body>
 
-        <!--================ login.php =================-->
-            <?php include('parts/login.php'); ?>
-        <!--================ login.php =================-->
 
-        <!--================ Registration.php =================-->
-            <?php include('parts/registration.php'); ?>
-        <!--================ Registration.php =================-->
 
         <!--================Frist Main hader Area =================-->
-            <?php include('parts/menu_others.php'); ?>
+            <?php include('parts/menu.php'); ?>
         <!--================Frist Main hader Area =================-->
 
-        <!--================Banner Area =================-->
-        <section class="banner_area banner_area2">
-            <div class="container">
-                <div class="banner_content">
-                    <h3 title="Members"><img class="left_img" src="img/banner/t-left-img.png" alt="">Members<img class="right_img" src="img/banner/t-right-img.png" alt=""></h3>
-                    <a href="index.html">Home</a>
-                    <a href="">Community</a>
-                    <a href="blog.html">Members</a>
-                    <div class="advanced_search">
-                        <div class="search_inner">
-                            <div class="search_item">
-                                <h5>I am a</h5>
-                                <select class="selectpicker">
-                                    <option>Man</option>
-                                    <option>Woman</option>
-                                </select>
-                            </div>
-                            <div class="search_item">
-                                <h5>Seeking a</h5>
-                                <select class="selectpicker">
-                                    <option>Woman</option>
-                                    <option>Man</option>
-                                </select>
-                            </div>
-                            <div class="search_item">
-                                <h5>From</h5>
-                                <select class="selectpicker">
-                                    <option>20</option>
-                                    <option>28</option>
-                                </select>
-                            </div>
-                            <div class="search_item">
-                                <h5>To</h5>
-                                <select class="selectpicker">
-                                    <option>28</option>
-                                    <option>38</option>
-                                </select>
-                            </div>
-                            <div class="search_item">
-                                <button type="submit" value="LogIn" class="btn form-control login_btn">Search</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--================End Banner Area =================-->
+        <!--================Slider Reg Area =================-->
 
-        <!--================Active Memebers Area =================-->
-        <section class="actives_members mb-60">
-            <div class="container">
-                <div class="welcome_title">
-                    <h3>All Members</h3>
-                    <img src="img/w-title-b.png" alt="">
-                </div>
-                <div class="row">
-                   <?php
-                        if(isset($_GET['all_members']))
-                        {
-                              include('functions.php');
-                              all_members();
-                        }
-
-                   ?>
-            </div>
-        </section>
-
-        <!--================End All Members Area =================-->
 
         <!--================Footer Area =================-->
-        <?php include('parts/footer.php'); ?>
+            <?php include('parts/footer.php'); ?>
         <!--================End Footer Area =================-->
 
+        <div id="largeContent" style="display:none;">
+            <div class="media tool_content">
+                <div class="media-left">
+                    <img src="img/map-persion.png" alt="">
+                </div>
+                <div class="media-body">
+                    <h3>Sandi Williams</h3>
+                    <h5>21 years old</h5>
+                    <h5>From Paris</h5>
+                    <h5>Distance 16 km</h5>
+                </div>
+            </div>
+        </div>
 
-
-
+        <script type="text/javascript" src='js/our_script.js'></script>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="js/jquery-2.1.4.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->

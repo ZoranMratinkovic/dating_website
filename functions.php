@@ -320,7 +320,7 @@ function list_of_albums($id)
 
                     while($row1 = mysqli_fetch_array($result))
                     {
-                        echo "<li><a href='{$row1['image_src']}' target='_blank'><img class='imgAlbum' src='{$row1['image_resized']}' height='270' width='270' alt=''></a></li>";
+                        echo "<li class='imgcrop'><a class='example-image-link' data-lightbox='example-set' data-title='Click the right half of the image to move forward.' href='{$row1['image_src']}'><img class='imgAlbum' src='{$row1['image_resized']}' height='270px' width='270px'></a></li>";
                     }
                     //The form under pictures that only registered girl sees
                     echo "</ul><br/>
@@ -334,7 +334,7 @@ function list_of_albums($id)
                     if($countImage >= 15)
                     {
                         echo "<script>document.getElementById('formaZaUpis15Slika{$i}').className='hide';</script>";
-                        //hides the form if there is 15 or more pictures 
+                        //hides the form if there is 15 or more pictures
                     }
                 }
                 else
@@ -399,7 +399,7 @@ function list_of_albums_reg_user($id)
 
                         while($row1 = mysqli_fetch_array($result))
                         {
-                            echo "<li><a href='{$row1['image_src']}' target='_blank'><img class='imgAlbum' src='{$row1['image_resized']}' height='270' width='270' alt=''></a></li>";
+                            echo "<li class='imgcrop'><a class='example-image-link' data-lightbox='example-set' data-title='Click the right half of the image to move forward.' href='{$row1['image_src']}' ><img class='imgAlbum' src='{$row1['image_resized']}' height='270px' width='270px' alt=''></a></li>";
                         }
 
                         echo "</ul></aside>";
@@ -457,7 +457,7 @@ function show_video($id_user)
 
         while($row = $rez->fetch_assoc())
         {
-            echo 
+            echo
             "   <div class='col-xs-12 col-sm-6'>
                 <video class='videoClass' width='350' height='350' controls>
                   <source src='{$row['video_src']}' type='video/mp4'>
@@ -509,7 +509,7 @@ function show_video_reg_user($id_user)
 
         while($row = $rez->fetch_assoc())
         {
-            echo 
+            echo
             "   <div class='col-xs-12 col-sm-6'>
                 <video class='videoClass' width='350' height='350' controls>
                   <source src='{$row['video_src']}' type='video/mp4'>

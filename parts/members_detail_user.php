@@ -31,7 +31,7 @@
                                  <li role="presentation"><a href="#sites" aria-controls="sites" role="tab" data-toggle="tab">Tref Location</a></li>
                                 <li role="presentation" class="active"><a href="#activity" aria-controls="activity" role="tab" data-toggle="tab">über mich</a></li>
                                 <li role="presentation" ><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Details über mich</a></li>
-                               
+
 
                             </ul>
                             <div class="tab-content">
@@ -138,7 +138,7 @@
 
                                     </div>
                                 </div>
-                                
+
 
 
                             </div>
@@ -148,14 +148,14 @@
                             </div>
                             <div class="members_about_box">
                                 <div class="row text-center">
-                                    <?php 
+                                    <?php
                                         include('functions.php');
                                         $id_userr = (int)$_GET['id_girl'];
 
                                         show_video_reg_user($id_userr);
                                      ?>
                                 </div>
-                               
+
                             </div>
                         </div>
                     </div>
@@ -186,3 +186,9 @@
                 </div>
             </div>
         </section>
+
+
+<a class="example-image-link" href="http://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-3.jpg" alt=""/></a>
+<a class="example-image-link" href="http://lokeshdhakar.com/projects/lightbox2/images/image-4.jpg" data-lightbox="example-set" data-title="Or press the right arrow on your keyboard."><img class="example-image" src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-4.jpg" alt="" /></a>
+<a class="example-image-link" href="http://lokeshdhakar.com/projects/lightbox2/images/image-5.jpg" data-lightbox="example-set" data-title="The next image in the set is preloaded as you're viewing."><img class="example-image" src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-5.jpg" alt="" /></a>
+<a class="example-image-link" href="http://lokeshdhakar.com/projects/lightbox2/images/image-6.jpg" data-lightbox="example-set" data-title="Click anywhere outside the image or the X to the right to close."><img class="example-image" src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-6.jpg" alt="" /></a>

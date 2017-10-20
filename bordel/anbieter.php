@@ -40,7 +40,7 @@
           <ul class="sidebar-nav">
               <li class="sidebar-brand">
                   <a href="../index.php">
-                      Back to home
+                      Ihre Bordel
                   </a>
 
               </li>
@@ -50,22 +50,11 @@
                 </a>
               </li>
               <li>
-                  <a href="users.php">Users</a>
+                  <a href="anbieter.php">Dein bordel</a>
               </li>
+
               <li>
-                  <a href="anbieter.php">Anbieter</a>
-              </li>
-              <li>
-                  <a href="statistik.php">Statistik</a>
-              </li>
-              <li>
-                  <a href="premium.php">premium user</a>
-              </li>
-              <li>
-                  <a href="anbieterpremium.php">anbieterpremium</a>
-              </li>
-              <li>
-                  <a href="#">Services</a>
+                  <a href="register.php">neue Anbieterin</a>
               </li>
               <li>
                   <a href="contact.php">Contact</a>
@@ -97,11 +86,11 @@
                 <th>Datum</th>
                 <th>Bild</th>
                 <th>Status</th>
-                <th>Details</th>
-                <th>status ändern</th>
+                <th>Profil bearbeiten</th>
+                <th>profil ansehen</th>
                 <th>Delete</th>
               </tr>
-              <?php $upit="SELECT * from user_oglas i INNER JOIN uloga a on i.id_user_uloga = a.id_user_uloga";
+              <?php $upit="SELECT * from user_oglas i INNER JOIN uloga a on i.id_user_uloga = a.id_user_uloga where bordel=".$_SESSION['id'];
                     $rezupit=$conn->query($upit);
                     while($r=mysqli_fetch_array($rezupit)){
                       echo "<tr>
@@ -112,8 +101,8 @@
                               <td>{$r['datum']}</td>
                               <td><img src='{$r['profilna_slika']}' width='50px' height='50px'></td>
                               <td>{$r['uloga']}</td>
-                              <td><a href='../update_info_admin.php?idgirla={$r['id_user']}'>status ändern</a></td>
-                              <td><a href='anbieter.php?idr={$r['id_user']}'>status ändern</a></td>
+                              <td><a href='../update_info_admin.php?idgirla={$r['id_user']}'>bearbeiten</a></td>
+                              <td><a href='../members-detail.php?id_girl={$r['id_user']}'>Profil ansehen</a></td>
                               <td><a href='anbieter.php?idc={$r['id_user']}'>x</a></td>
 
                       </tr>";

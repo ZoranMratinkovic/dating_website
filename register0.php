@@ -52,7 +52,6 @@ var ime = document.getElementById('reg_first').value;
 var user = document.getElementById('reg_user').value;
 var pass=document.getElementById('reg_pass').value;
 var pass1=document.getElementById('reg_pass1').value;
-var age=document.getElementById('age').value;
 
 
 
@@ -64,7 +63,6 @@ var reime= /^[A-z\s0-9]{2,20}$/;
 var reemail= /^(\w+[\-\.])*\w+@(\w+\.)+[A-Za-z]+$/;
 var repass= /^[a-zA-Z0-9!@#$%^&*-_]{6,}/;
 var reuser= /^[A-z0-9]{2,14}$/;
-var reage= /^[0-9]{1,7}$/;
 
 if(reime.test(ime))
 {
@@ -155,7 +153,7 @@ return true;
 
 
 }
-else {alert('Bitte angaben überprüfen!!! Password muss mindestens 6 Karaktere haben!!');
+else {alert('Bitte angaben überprüfen!!!');
 return false;}
 }
 function toggle(source) {
@@ -793,7 +791,7 @@ function toggle(source) {
 
 
 
-$upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2,$age,0)";
+$upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2,$age)";
 $query = mysqli_query($conn, $upitunos1) or die (mysqli_error());
 echo "<script>alert('erfolgreich registriert!');</script>";
 

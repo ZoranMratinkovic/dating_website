@@ -1,4 +1,5 @@
-<?php include("connectionFile/connection.php");?>
+<?php session_start();
+ include("../connectionFile/connection.php");?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,33 +18,33 @@
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/site.css">
 <!-- RS5.0 Layers and Navigation Styles -->
-<link rel="stylesheet" type="text/css" href="vendors/revolution/css/layers.css">
-<link rel="stylesheet" type="text/css" href="vendors/revolution/css/navigation.css">
-<link rel="stylesheet" type="text/css" href="vendors/revolution/css/settings.css">
+<link rel="stylesheet" type="text/css" href="../vendors/revolution/css/layers.css">
+<link rel="stylesheet" type="text/css" href="../vendors/revolution/css/navigation.css">
+<link rel="stylesheet" type="text/css" href="../vendors/revolution/css/settings.css">
 
 <!-- Bootstrap -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="vendors/image-dropdown/dd.css" rel="stylesheet">
-<link href="vendors/image-dropdown/flags.css" rel="stylesheet">
-<link href="vendors/image-dropdown/skin2.css" rel="stylesheet">
-<link href="vendors/magnific-popup/magnific-popup.css" rel="stylesheet">
-<link href="vendors/bootstrap-selector/bootstrap-select.css" rel="stylesheet">
-<link href="vendors/bootstrap-datepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-<link href="vendors/owl-carousel/assets/owl.carousel.css" rel="stylesheet">
-<link href="vendors/animate-css/animate.css" rel="stylesheet">
-<link href="vendors/bs-tooltip/jquery.webui-popover.css" rel="stylesheet">
-<link href="vendors/jquery-ui/jquery-ui.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../vendors/image-dropdown/dd.css" rel="stylesheet">
+<link href="../vendors/image-dropdown/flags.css" rel="stylesheet">
+<link href="../vendors/image-dropdown/skin2.css" rel="stylesheet">
+<link href="../vendors/magnific-popup/magnific-popup.css" rel="stylesheet">
+<link href="../vendors/bootstrap-selector/bootstrap-select.css" rel="stylesheet">
+<link href="../vendors/bootstrap-datepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+<link href="../vendors/owl-carousel/assets/owl.carousel.css" rel="stylesheet">
+<link href="../vendors/animate-css/animate.css" rel="stylesheet">
+<link href="../vendors/bs-tooltip/jquery.webui-popover.css" rel="stylesheet">
+<link href="../vendors/jquery-ui/jquery-ui.css" rel="stylesheet">
 
-<link href="css/style.css" rel="stylesheet">
-<link href="css/responsive.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
+<link href="../css/responsive.css" rel="stylesheet">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-<script src="js/jquery.selectlistactions.js"></script>
-<script src="assets/fancybox/jquery.easing-1.3.pack.js"></script>
-<script src="assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-<script src="assets/webcam/webcam.js"></script>
-<script src="assets/js/script.js"></script>
-<script src="js/map-custome.js"></script>
-<script type="text/javascript">
+<script src="../js/jquery.selectlistactions.js"></script>
+<script src="../assets/fancybox/jquery.easing-1.3.pack.js"></script>
+<script src="../assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<script src="../assets/webcam/webcam.js"></script>
+<script src="../assets/js/script.js"></script>
+<script src="../js/map-custome.js"></script>
+<script type="../text/javascript">
 
 function posalji() {
 
@@ -296,10 +297,13 @@ function toggle(source) {
                             <label for="">Alter</label>
                             <input type="text" class="form-control" id="age" placeholder="26" name="age" required>
                         </div>
-
+<?php $upit="SELECT * FROM user where user_id=".$_SESSION['id'];
+$reupit=$conn->query($upit) or die('bad');
+$r=mysqli_fetch_array($reupit);
+?>
                         <div class="form-group">
                           <label for="">Email</label>
-                            <input type="email" class="form-control" name="email" id="reg_email" placeholder="email" required>
+                            <input type="email" class="form-control" name="email" id="reg_email" placeholder="<?php echo $r['email']; ?>" required>
                         </div>
                         <div class="form-group">
                           <label for="">Passwort</label>
@@ -791,9 +795,9 @@ function toggle(source) {
 
 
 
+$idsession=$_SESSION['id'];
 
-
-$upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2,$age,0)";
+$upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2,$age,$idsession)";
 $query = mysqli_query($conn, $upitunos1) or die (mysqli_error());
 echo "<script>alert('erfolgreich registriert!');</script>";
 
@@ -817,7 +821,7 @@ foreach($_POST['kateg'] as $item){
   </div>
 
     </div>
-    <?php include("parts/footer.php"); ?>
+    <?php include("../parts/footer.php"); ?>
     <script>
     $('#btnAvenger').click(function (e) {
              $('select').moveToList('#StaffList', '#PresenterList');

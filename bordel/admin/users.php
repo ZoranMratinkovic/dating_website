@@ -92,48 +92,46 @@
               <tr>
                 <th>id user</th>
                 <th>email</th>
-                <th>Name</th>
-                <th>Username</th>
-                <th>Datum</th>
-                <th>Bild</th>
+                <th>username</th>
+                <th>tag</th>
+                <th>monat</th>
+                <th>jahr</th>
                 <th>Status</th>
-                <th>Details</th>
                 <th>status ändern</th>
                 <th>Delete</th>
               </tr>
-              <?php $upit="SELECT * from user_oglas i INNER JOIN uloga a on i.id_user_uloga = a.id_user_uloga";
+              <?php $upit="SELECT * from user i INNER JOIN uloga a on i.id_user_uloga = a.id_user_uloga";
                     $rezupit=$conn->query($upit);
                     while($r=mysqli_fetch_array($rezupit)){
                       echo "<tr>
-                              <td>{$r['id_user']}</td>
+                              <td>{$r['user_id']}</td>
                               <td>{$r['email']}</td>
-                              <td>{$r['umetnicko_ime']}</td>
                               <td>{$r['username']}</td>
-                              <td>{$r['datum']}</td>
-                              <td><img src='{$r['profilna_slika']}' width='50px' height='50px'></td>
+                              <td>{$r['tag']}</td>
+                              <td>{$r['monat']}</td>
+                              <td>{$r['jahr']}</td>
                               <td>{$r['uloga']}</td>
-                              <td><a href='../update_info_admin.php?idgirla={$r['id_user']}'>status ändern</a></td>
-                              <td><a href='anbieter.php?idr={$r['id_user']}'>status ändern</a></td>
-                              <td><a href='anbieter.php?idc={$r['id_user']}'>x</a></td>
+                              <td><a href='users.php?idr={$r['user_id']}'>status ändern</a></td>
+                              <td><a href='users.php?idc={$r['user_id']}'>x</a></td>
 
                       </tr>";
                     }
                     if(isset($_GET['idc'])){
 
-                      $upitdelete="DELETE FROM user_oglas where id_user=".$_GET['idc'];
+                      $upitdelete="DELETE FROM user where user_id=".$_GET['idc'];
                       $rezupitdel=$conn->query($upitdelete);
                       echo "<script>alert('user wurde gelöscht')</script>";
-                        echo "<script>window.location.href = 'anbieter.php';</script>";
+                        echo "<script>window.location.href = 'users.php';</script>";
                     }
                     if(isset($_GET['idr'])){
 
 
                       $upit1="SELECT * from uloga";
                            $rezupit1=$conn->query($upit1);
-                           $upit2="SELECT * FROM user_oglas where id_user=".$_GET['idr'];
+                           $upit2="SELECT * FROM user where user_id=".$_GET['idr'];
                            $rezupit5=$conn->query($upit2) or die('losupit');
                              $ruser=mysqli_fetch_array($rezupit5);
-                             echo "<form class='form-control' action='anbieter.php' method='post'>";
+                             echo "<form class='form-control' action='users.php' method='post'>";
                            echo "<h3>username: ".$ruser['username']."</h3>";
 
                       echo "<select class='form-control' name='uloga' style='width:30%;'>";
@@ -145,10 +143,10 @@
                       echo "<input type='submit' class='btn' name='change' value='Status ändern'></form>";
                       if(isset($_POST['change'])){
                         $uloga=$_POST['uloga'];
-                        $upitupdate="UPDATE user_oglas SET id_user_uloga=$uloga where id_user=".$_GET['idr'];
+                        $upitupdate="UPDATE user SET id_user_uloga=$uloga where user_id=".$_GET['idr'];;
                         $rezupitupdate=$conn->query($upitupdate)or die('loseee uptade');
-                        echo "<script>alert('status wurde gändert!')</script>";
-                        echo "<script>window.location.href = 'anbieter.php';
+                        echo "<script>alert('status wurde geändert!')</script>";
+                        echo "<script>window.location.href = 'users.php';
 </script>";
                       }
                     }

@@ -1,4 +1,14 @@
-<?php include("connectionFile/connection.php");?>
+<?php   session_start();
+
+ if(isset($_SESSION['id_uloga'])==4){
+
+
+ include("connectionFile/connection.php");
+if(isset($_GET['idgirla'])){
+  $upitchange="SELECT * from user_oglas where id_user=".$_GET['idgirla'];
+  $rezupit=$conn->query($upitchange);
+  $r11=mysqli_fetch_array($rezupit);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,7 +62,6 @@ var ime = document.getElementById('reg_first').value;
 var user = document.getElementById('reg_user').value;
 var pass=document.getElementById('reg_pass').value;
 var pass1=document.getElementById('reg_pass1').value;
-var age=document.getElementById('age').value;
 
 
 
@@ -64,7 +73,6 @@ var reime= /^[A-z\s0-9]{2,20}$/;
 var reemail= /^(\w+[\-\.])*\w+@(\w+\.)+[A-Za-z]+$/;
 var repass= /^[a-zA-Z0-9!@#$%^&*-_]{6,}/;
 var reuser= /^[A-z0-9]{2,14}$/;
-var reage= /^[0-9]{1,7}$/;
 
 if(reime.test(ime))
 {
@@ -136,7 +144,7 @@ document.getElementById('reg_pass1').className = 'red';
 if(repass.test(pass))
 {
   document.getElementById('reg_pass').className = 'green';
-sadrzaj.push(pass);
+sadrzaj.push(pass)
 
 }
 else
@@ -155,7 +163,7 @@ return true;
 
 
 }
-else {alert('Bitte angaben überprüfen!!! Password muss mindestens 6 Karaktere haben!!');
+else {alert('Bitte angaben überprüfen!!!');
 return false;}
 }
 function toggle(source) {
@@ -171,8 +179,10 @@ function toggle(source) {
 </script>
 
 
+
+
 </head>
- <body class="redbg" style="
+ <body style="
     background: url(img/background.jpeg);
 ">
    <header class="header_menu_area white_menu">
@@ -222,7 +232,7 @@ function toggle(source) {
                         </li>
 
 
-                                <li><a href="members1.php">User</a></li>
+                                <li><a href="members1.php">Users</a></li>
 
 
 
@@ -231,12 +241,11 @@ function toggle(source) {
 
 
 
-                        <li><a href="contact.html">Kontakt</a></li>
+                        <li><a href="contact.php">Kontakt</a></li>
                     </ul>
 
 
 
-</form>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
             </nav>
@@ -262,7 +271,9 @@ function toggle(source) {
 
                          $expensions= array("jpeg","jpg","png");
 
-
+                         if(in_array($file_ext,$expensions)=== false){
+                            $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+                         }
 
                          if($file_size > 2097152) {
                             $errors[]='File size must be excately 2 MB';
@@ -277,38 +288,21 @@ function toggle(source) {
                       } ?>
 
 
-                      <label for="">Porfil bild</label>
-                      <div class="form-group">
-                            <label for="">Bild aus datei auswahlen</label>
-                          <input type="file" name="image1" value="Neues Bild" class="btn_price_chose">
 
-
-                      </div>
                       <div class="form-group">
                         <label for="">Username</label>
-                          <input type="text" class="form-control" name="username" id="reg_user" placeholder="Username" required>
+                          <input type="text" class="form-control" name="username" id="reg_user"  placeholder="Name" value="<?php echo  $r11['username'] ?>">
                       </div>
                         <div class="form-group">
                           <label for="">Name</label>
-                            <input type="text" class="form-control" name="name" id="reg_first" placeholder="Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Alter</label>
-                            <input type="text" class="form-control" id="age" placeholder="26" name="age" required>
+                            <input type="text" class="form-control" name="name" id="reg_first" placeholder="Name" value="<?php echo  $r11['umetnicko_ime'] ?>">
                         </div>
 
                         <div class="form-group">
                           <label for="">Email</label>
-                            <input type="email" class="form-control" name="email" id="reg_email" placeholder="email" required>
+                            <input type="email" class="form-control" name="email" id="reg_email" placeholder="email" value="<?php echo  $r11['email'] ?>">
                         </div>
-                        <div class="form-group">
-                          <label for="">Passwort</label>
-                            <input type="password" class="form-control" name="password" id="reg_pass" placeholder="Password" required>
-                        </div>
-                        <div class="form-group">
-                          <label for="">Passwort again</label>
-                            <input type="password" class="form-control" name="password1" id="reg_pass1" placeholder="Repeat Password" required>
-                        </div>
+
 
                         <?php $upituser="SELECT * FROM tip";
 
@@ -318,37 +312,18 @@ function toggle(source) {
                               <label for="">Geschlecht</label>
                             <select class="form-control" name="geschlecht">
                             <?php while($r=mysqli_fetch_array($rezupituser)){
+                              if($r['id_tip']==$r11['id_tip']){
+                                      echo "<option selected value='{$r['id_tip']}'>".$r['naziv_tip']."</option>";
+                              }else{
                               echo "<option value='{$r['id_tip']}'>".$r['naziv_tip']."</option>";
-                            } ?>
+                            } }?>
                             </select>
                             </div>
                         </div>
                         <div class="form-group"><label for="">Geburstag</label>
                             <div class="datepicker">
 
-                              <?php
-
-  echo '<select name="monat" class="trecina form-control" required>';
-    echo '<option>Monat</option>';
-    for($i = 1; $i <= 12; $i++){
-      $i = str_pad($i, 2, 0, STR_PAD_LEFT);
-      echo "<option value='$i'>$i</option>";
-    }
-  echo '</select>';
-  echo '<select name="tag" class="trecina form-control" required>';
-    echo '<option>Tag</option>';
-    for($i = 1; $i <= 31; $i++){
-      $i = str_pad($i, 2, 0, STR_PAD_LEFT);
-      echo "<option value='$i'>$i</option>";
-    }
-  echo '</select>';
-  echo '<select name="jahr" class="trecina form-control" required>';
-    echo '<option>Jahr</option>';
-    for($i = date('Y'); $i >= date('Y', strtotime('-100 years')); $i--){
-      echo "<option value='$i'>$i</option>";
-    }
-  echo '</select>';
-?>
+                              <input type="text" name="datum" value="<?php echo $r11['datum']; ?>">
 
                             </div>
                         </div>
@@ -359,9 +334,12 @@ function toggle(source) {
                             <div class="btn-group">
                               <label for="">Herkunft</label>
                             <select class="form-control" name="herkunft">
-                            <?php while($r=mysqli_fetch_array($rezupituser)){
-                              echo "<option value='{$r['id_poreklo']}'>".$r['naziv_poreklo']."</option>";
-                            } ?>
+                              <?php while($r=mysqli_fetch_array($rezupituser)){
+                                if($r['id_poreklo']==$r11['id_drzava']){
+                                        echo "<option selected value='{$r['id_poreklo']}'>".$r['naziv_poreklo']."</option>";
+                                }else{
+                                echo "<option value='{$r['id_poreklo']}'>".$r['naziv_poreklo']."</option>";
+                              } }?>
                             </select>
                             </div>
                         </div>
@@ -372,16 +350,16 @@ function toggle(source) {
             <div class="col-md-6">
                 <div class="registration_form_s">
 <h4>Registration</h4>                  <div class="form-group">
-  <label for="">Grösse</label>
-      <input type="text" class="form-control" id="reg_pass" name="grosse" placeholder="Grosse">
+  <label for="">Grosse</label>
+      <input type="text" class="form-control" id="reg_pass" name="grosse" placeholder="Grosse" value="<?php echo $r11['visina']; ?>">
   </div>
   <div class="form-group">
-    <label for="">Titel</label>
-      <input type="text" class="form-control" name="titel" id="reg_pass" placeholder="Titel über dich!">
+    <label for="">text</label>
+      <input type="text" class="form-control" name="titel" id="reg_pass" placeholder="text uber dich" value="<?php echo $r11['title']; ?>">
   </div>
   <div class="form-group">
-    <label for="">Über dich</label>
-      <textarea name="opis" rows="8" cols="40" placeholder="Hallo ich bin Klara und mag es !!"></textarea>
+    <label for="">text</label>
+      <textarea name="opis" rows="8" cols="40"><?php echo $r11['opis'] ;?></textarea>
   </div>
                               <?php $upituser="SELECT * FROM sex_orj";
 
@@ -390,9 +368,12 @@ function toggle(source) {
                                             <div class="btn-group">
                                               <label for="">Sex Orientation</label>
                                             <select class="form-control" name="sex_orj">
-                                            <?php while($r=mysqli_fetch_array($rezupituser)){
-                                              echo "<option value='{$r['id_sexorj']}'>".$r['naziv_sexorj']."</option>";
-                                            } ?>
+                                              <?php while($r=mysqli_fetch_array($rezupituser)){
+                                                if($r['id_sexorj']==$r11['id_sex_orj']){
+                                                        echo "<option selected value='{$r['id_sexorj']}'>".$r['naziv_sexorj']."</option>";
+                                                }else{
+                                                echo "<option value='{$r['id_sexorj']}'>".$r['naziv_sexorj']."</option>";
+                                              } }?>
                                             </select>
                                             </div>
                                         </div>
@@ -403,9 +384,12 @@ function toggle(source) {
                                         <div class="btn-group">
                                           <label for="">Interessiert an</label>
                                         <select class="form-control" name="interessiert_an">
-                                        <?php while($r=mysqli_fetch_array($rezupituser)){
-                                          echo "<option value='{$r['id_trazim']}'>".$r['Naziv']."</option>";
-                                        } ?>
+                                          <?php while($r=mysqli_fetch_array($rezupituser)){
+                                            if($r['id_trazim']==$r11['id_trazim']){
+                                                    echo "<option selected value='{$r['id_trazim']}'>".$r['Naziv']."</option>";
+                                            }else{
+                                            echo "<option value='{$r['id_trazim']}'>".$r['Naziv']."</option>";
+                                          } }?>
                                         </select>
                                         </div>
                                     </div>
@@ -416,9 +400,12 @@ function toggle(source) {
                                     <div class="btn-group">
                                       <label for="">Status</label>
                                     <select class="form-control" name="status">
-                                    <?php while($r=mysqli_fetch_array($rezupituser)){
-                                      echo "<option value='{$r['id_brak_status']}'>".$r['brak_status']."</option>";
-                                    } ?>
+                                      <?php while($r=mysqli_fetch_array($rezupituser)){
+                                        if($r['id_brak_status']==$r11['id_brak_status']){
+                                                echo "<option selected value='{$r['id_brak_status']}'>".$r['brak_status']."</option>";
+                                        }else{
+                                        echo "<option value='{$r['id_brak_status']}'>".$r['brak_status']."</option>";
+                                      } }?>
                                     </select>
                                     </div>
                                 </div>
@@ -430,9 +417,13 @@ function toggle(source) {
                                         <div class="btn-group">
                                           <label for="">Ethnie</label>
                                         <select class="form-control" name="poreklo">
-                                        <?php while($r=mysqli_fetch_array($rezupituser)){
-                                          echo "<option value='{$r['id_poreklo']}'>".$r['naziv_poreklo']."</option>";
-                                        } ?>
+                                          <?php while($r=mysqli_fetch_array($rezupituser)){
+                                            if($r['id_poreklo']==$r11['id_rasa']){
+                                                    echo "<option selected value='{$r['id_poreklo']}'>".$r['naziv_poreklo']."</option>";
+                                            }else{
+                                            echo "<option value='{$r['id_poreklo']}'>".$r['naziv_poreklo']."</option>";
+                                          } }?>
+
                                         </select>
                                         </div>
                                     </div>
@@ -443,9 +434,14 @@ function toggle(source) {
                                         <div class="btn-group">
                                           <label for="">Kanton</label>
                                         <select class="form-control" name="kanton">
-                                        <?php while($r=mysqli_fetch_array($rezupituser)){
-                                          echo "<option value='{$r['id_kanton']}'>".$r['naziv_kanton']."</option>";
-                                        } ?>
+                                          <?php while($r=mysqli_fetch_array($rezupituser)){
+                                            if($r['id_kanton']==$r11['id_kanton']){
+                                                    echo "<option selected value='{$r['id_kanton']}'>".$r['naziv_kanton']."</option>";
+                                            }else{
+                                            echo "<option value='{$r['id_kanton']}'>".$r['naziv_kanton']."</option>";
+                                          } }?>
+
+
                                         </select>
                                         </div>
                                     </div>
@@ -456,12 +452,18 @@ function toggle(source) {
                                         <div class="btn-group">
                                           <label for="">Was du magst </label>
                                         <select class="form-control" name="was_magst_du">
-                                        <?php while($r=mysqli_fetch_array($rezupituser)){
-                                          echo "<option value='{$r['id_tvoja_uloga']}'>".$r['naziv_tvoja_uloga']."</option>";
-                                        } ?>
+                                          <?php while($r=mysqli_fetch_array($rezupituser)){
+                                            if($r['id_tvoja_uloga']==$r11['id_tvoja_uloga']){
+                                                    echo "<option selected value='{$r['id_tvoja_uloga']}'>".$r['naziv_tvoja_uloga']."</option>";
+                                            }else{
+                                            echo "<option value='{$r['id_tvoja_uloga']}'>".$r['naziv_tvoja_uloga']."</option>";
+                                          } }?>
+
                                         </select>
                                         </div>
                                     </div>
+
+
                                     <?php $upituser="SELECT * FROM njegova_uloga";
 
                                 $rezupituser=$conn->query($upituser)or die("los upit");?>
@@ -469,9 +471,14 @@ function toggle(source) {
                                         <div class="btn-group">
                                           <label for="">Was du magst wen er Sie/Er dir macht </label>
                                         <select class="form-control" name="was_mag_er">
-                                        <?php while($r=mysqli_fetch_array($rezupituser)){
-                                          echo "<option value='{$r['id_njeg_uloga']}'>".$r['naziv_njeg_uloga']."</option>";
-                                        } ?>
+                                          <?php while($r=mysqli_fetch_array($rezupituser)){
+                                            if($r['id_njeg_uloga']==$r11['id_njeg_uloga']){
+                                                    echo "<option selected value='{$r['id_njeg_uloga']}'>".$r['naziv_njeg_uloga']."</option>";
+                                            }else{
+                                            echo "<option value='{$r['id_njeg_uloga']}'>".$r['naziv_njeg_uloga']."</option>";
+                                          } }?>
+
+
                                         </select>
                                         </div>
                                     </div>
@@ -483,7 +490,7 @@ function toggle(source) {
             <div class="col-md-6">
                 <div class="registration_form_s">
 
-                                  <h4>Mehr Über dich</h4>
+                                  <h4>Mehr Uber dich</h4>
                                   <?php $upituser="SELECT * FROM gradja";
 
                               $rezupituser=$conn->query($upituser)or die("los upit");?>
@@ -491,9 +498,13 @@ function toggle(source) {
                                       <div class="btn-group">
                                         <label for="">Wie bist du gebaut? </label>
                                       <select class="form-control" name="gebaut">
-                                      <?php while($r=mysqli_fetch_array($rezupituser)){
-                                        echo "<option value='{$r['id_gradja']}'>".$r['naziv_gradja']."</option>";
-                                      } ?>
+                                        <?php while($r=mysqli_fetch_array($rezupituser)){
+                                          if($r['id_gradja']==$r11['id_gradja']){
+                                                  echo "<option selected value='{$r['id_gradja']}'>".$r['naziv_gradja']."</option>";
+                                          }else{
+                                          echo "<option value='{$r['id_gradja']}'>".$r['naziv_gradja']."</option>";
+                                        } }?>
+
                                       </select>
                                       </div>
                                   </div>
@@ -503,11 +514,16 @@ function toggle(source) {
                               $rezupituser=$conn->query($upituser)or die("los upit");?>
                                   <div class="form-group">
                                       <div class="btn-group">
-                                        <label for="">Haar Länge </label>
+                                        <label for="">Haar Lange </label>
                                       <select class="form-control" name="haarlength">
-                                      <?php while($r=mysqli_fetch_array($rezupituser)){
-                                        echo "<option value='{$r['id_duz_kose']}'>".$r['duzina_kose']."</option>";
-                                      } ?>
+                                        <?php while($r=mysqli_fetch_array($rezupituser)){
+                                          if($r['id_duz_kose']==$r11['id_duz_kose']){
+                                                  echo "<option selected value='{$r['id_duz_kose']}'>".$r['duzina_kose']."</option>";
+                                          }else{
+                                          echo "<option value='{$r['id_duz_kose']}'>".$r['duzina_kose']."</option>";
+                                        } }?>
+
+
                                       </select>
                                       </div>
                                   </div>
@@ -518,9 +534,13 @@ function toggle(source) {
                                       <div class="btn-group">
                                         <label for="">Haar Farbe </label>
                                       <select class="form-control" name="haar_farbe">
-                                      <?php while($r=mysqli_fetch_array($rezupituser)){
-                                        echo "<option value='{$r['id_boja_kose']}'>".$r['boja_kose']."</option>";
-                                      } ?>
+                                        <?php while($r=mysqli_fetch_array($rezupituser)){
+                                          if($r['id_boja_kose']==$r11['id_boja_kose']){
+                                                  echo "<option selected value='{$r['id_boja_kose']}'>".$r['boja_kose']."</option>";
+                                          }else{
+                                          echo "<option value='{$r['id_boja_kose']}'>".$r['boja_kose']."</option>";
+                                        } }?>
+
                                       </select>
                                       </div>
                                   </div>
@@ -532,9 +552,13 @@ function toggle(source) {
                                       <div class="btn-group">
                                         <label for="">Augen Farbe </label>
                                       <select class="form-control" name="augen_farbe">
-                                      <?php while($r=mysqli_fetch_array($rezupituser)){
-                                        echo "<option value='{$r['id_boja_ociju']}'>".$r['boja_ociju']."</option>";
-                                      } ?>
+                                        <?php while($r=mysqli_fetch_array($rezupituser)){
+                                          if($r['id_boja_ociju']==$r11['id_boja_ociju']){
+                                                  echo "<option selected value='{$r['id_boja_ociju']}'>".$r['boja_ociju']."</option>";
+                                          }else{
+                                          echo "<option value='{$r['id_boja_ociju']}'>".$r['boja_ociju']."</option>";
+                                        } }?>
+
                                       </select>
                                       </div>
                                   </div>
@@ -543,11 +567,15 @@ function toggle(source) {
                               $rezupituser=$conn->query($upituser)or die("los upit");?>
                                   <div class="form-group">
                                       <div class="btn-group">
-                                        <label for="">Brille Kontaktlinzen</label>
+                                        <label for="">Brille Kontaktlizen</label>
                                       <select class="form-control" name="brille">
-                                      <?php while($r=mysqli_fetch_array($rezupituser)){
-                                        echo "<option value='{$r['id_naocare_sociva']}'>".$r['naziv_naoc_soc']."</option>";
-                                      } ?>
+                                        <?php while($r=mysqli_fetch_array($rezupituser)){
+                                          if($r['id_naocare_sociva']==$r11['id_naocare_sociva']){
+                                                  echo "<option selected value='{$r['id_naocare_sociva']}'>".$r['naziv_naoc_soc']."</option>";
+                                          }else{
+                                          echo "<option value='{$r['id_naocare_sociva']}'>".$r['naziv_naoc_soc']."</option>";
+                                        } }?>
+
                                       </select>
                                       </div>
                                   </div>
@@ -555,35 +583,7 @@ function toggle(source) {
 
 
                 </div>
-                <div class="form-group mgt">
-                  <div class="row style-select">
-                    <?php $upituser="SELECT * FROM kategorije";
 
-                      $rezupituser=$conn->query($upituser)or die("los upit"); ?>
-  			<div class="col-md-12">
-          <h3>Kategorien</h3>
-<input type="checkbox" onClick="toggle(this)" /> Ich Kann alles <br/>
-          <?php
-                     while($r=mysqli_fetch_array($rezupituser)){
-            if($r['id_kat']==20){
-              echo "<div class='col-md-6'>";
-              echo "<input type='checkbox' name='kateg[]' class='checks' id='foo' value='{$r['id_kat']}'>".$r['kategorija']."<br/>";
-              echo "</div>";
-            }else {
-                echo "<div class='col-md-6'>";
-                echo "<input type='checkbox' name='kateg[]' class='checks' id='foo' value='{$r['id_kat']}'>".$r['kategorija']."<br/>";
-                echo "</div>";
-            }
-
-          } ?>
-
-
-
-
-
-  			</div>
-  		</div>
-                </div>
             </div>
             <div class="col-md-6">
               <br/>
@@ -598,9 +598,13 @@ function toggle(source) {
                       <div class="btn-group">
                         <label for="">Oberweite </label>
                       <select class="form-control" name="oberweite">
-                      <?php while($r=mysqli_fetch_array($rezupituser)){
-                        echo "<option value='{$r['id_oberweite']}'>".$r['oberweite']."</option>";
-                      } ?>
+                        <?php while($r=mysqli_fetch_array($rezupituser)){
+                          if($r['id_oberweite']==$r11['id_oberweite']){
+                                  echo "<option selected value='{$r['id_oberweite']}'>".$r['oberweite']."</option>";
+                          }else{
+                          echo "<option value='{$r['id_oberweite']}'>".$r['oberweite']."</option>";
+                        } }?>
+
                       </select>
                       </div>
                   </div>
@@ -611,9 +615,13 @@ function toggle(source) {
                       <div class="btn-group">
                         <label for="">Körbchen grösse </label>
                       <select class="form-control" name="bh">
-                      <?php while($r=mysqli_fetch_array($rezupituser)){
-                        echo "<option value='{$r['id_brus']}'>".$r['naziv_brus']."</option>";
-                      } ?>
+                        <?php while($r=mysqli_fetch_array($rezupituser)){
+                          if($r['id_brus']==$r11['id_brus']){
+                                  echo "<option selected value='{$r['id_brus']}'>".$r['naziv_brus']."</option>";
+                          }else{
+                          echo "<option value='{$r['id_brus']}'>".$r['naziv_brus']."</option>";
+                        } }?>
+
                       </select>
                       </div>
                   </div>
@@ -624,28 +632,32 @@ function toggle(source) {
                       <div class="btn-group">
                         <label for="">Wer kann mich sehen? </label>
                       <select class="form-control" name="who_see">
-                      <?php while($r=mysqli_fetch_array($rezupituser)){
-                        echo "<option value='{$r['id_kome_pojavljuje']}'>".$r['naziv_pojava']."</option>";
-                      } ?>
+                        <?php while($r=mysqli_fetch_array($rezupituser)){
+                          if($r['id_kome_pojavljuje']==$r11['id_kome_pojavljuje']){
+                                  echo "<option selected value='{$r['id_kome_pojavljuje']}'>".$r['naziv_pojava']."</option>";
+                          }else{
+                          echo "<option value='{$r['id_kome_pojavljuje']}'>".$r['naziv_pojava']."</option>";
+                        } }?>
+
                       </select>
                       </div>
                   </div>
                   <div class="form-group">
                     <label for="">Meine Website</label>
-                      <input type="text" class="form-control" id="reg_pass" name="website" placeholder="www.sexchange.ch">
+                      <input type="text" class="form-control" id="reg_pass" name="website" placeholder="www.sexchange.ch" value="<?php echo $r11['link']; ?>">
                   </div>
                   <h4>Location Treffen wo</h4>
                   <div class="form-group">
                     <label for="">Tel</label>
-                      <input type="text" class="form-control" id="reg_pass" name="tel" placeholder="078888888">
+                      <input type="text" class="form-control" id="reg_pass" name="tel" placeholder="Burgger Strasse 15" value="<?php echo $r11['tel']; ?>">
                   </div>
                   <div class="form-group">
                     <label for="">Klinge</label>
-                      <input type="text" class="form-control" id="reg_pass" name="klinge" placeholder="15">
+                      <input type="text" class="form-control" id="reg_pass" name="klinge" placeholder="Burgger Strasse 15" value="<?php echo $r11['interfon']; ?>">
                   </div>
                         <div class="form-group">
                           <label for="">Adresse</label>
-                            <input type="text" class="form-control" id="reg_pass" name="adresse_tref" placeholder="Burgger Strasse 15">
+                            <input type="text" class="form-control" id="reg_pass" name="adresse_tref" placeholder="Burgger Strasse 15" value="<?php echo $r11['ulica']; ?>">
                         </div>
                         <?php $upituser="SELECT * FROM kanton";
 
@@ -654,23 +666,27 @@ function toggle(source) {
                             <div class="btn-group">
                               <label for="">Kanton</label>
                             <select class="form-control" name="kanton1">
-                            <?php while($r=mysqli_fetch_array($rezupituser)){
-                              echo "<option value='{$r['id_kanton']}'>".$r['naziv_kanton']."</option>";
-                            } ?>
+                              <?php while($r=mysqli_fetch_array($rezupituser)){
+                                if($r['id_kanton']==$r11['id_mesto']){
+                                        echo "<option selected value='{$r['id_kanton']}'>".$r['naziv_kanton']."</option>";
+                                }else{
+                                echo "<option value='{$r['id_kanton']}'>".$r['naziv_kanton']."</option>";
+                              } }?>
+
                             </select>
                             </div>
                         </div>
                         <div class="form-group">
                           <label for="">Platz</label>
-                            <input type="text" class="form-control" id="reg_pass" name="platz" placeholder="9015">
+                            <input type="text" class="form-control" id="reg_pass" name="platz" placeholder="Burgger Strasse 15" value="<?php echo $r11['platz']; ?>">
                         </div>
                         <div class="form-group">
                           <label for="">Name der Location</label>
-                            <input type="text" class="form-control" id="reg_pass" name="location" placeholder="Los Lita">
+                            <input type="text" class="form-control" id="reg_pass" name="location" placeholder="Los Lita" value="<?php echo $r11['location_name']; ?>">
                         </div>
                         <div class="form-group">
                           <label for="">Name des Studio</label>
-                            <input type="text" class="form-control" id="reg_pass" name="location1" placeholder="Los Lita Studio">
+                            <input type="text" class="form-control" id="reg_pass" name="location1" placeholder="Los Lita" value="<?php echo $r11['studio_name']; ?>">
                         </div>
 
                         <?php $upituser="SELECT * FROM sredjenost";
@@ -680,15 +696,19 @@ function toggle(source) {
                             <div class="btn-group">
                               <label for="">Ist die Location eingerichtet? </label>
                             <select class="form-control" name="spremnost">
-                            <?php while($r=mysqli_fetch_array($rezupituser)){
-                              echo "<option value='{$r['id_sredjenost']}'>".$r['sredjenost']."</option>";
-                            } ?>
+                              <?php while($r=mysqli_fetch_array($rezupituser)){
+                                if($r['id_sredjenost']==$r11['id_sredjenost']){
+                                        echo "<option selected value='{$r['id_sredjenost']}'>".$r['sredjenost']."</option>";
+                                }else{
+                                echo "<option value='{$r['id_sredjenost']}'>".$r['sredjenost']."</option>";
+                              } }?>
+
                             </select>
                             </div></div>
                         </div>
                         <div class="reg_chose form-group">
 
-                            <input type="submit" name="register" value="jetzt registrieren" class="btn">
+                            <input type="submit" name="register" value="Informationen aendern" class="btn">
                         </div>
 
                 </div>
@@ -699,24 +719,20 @@ function toggle(source) {
 
       </form>
     <?php if(isset($_POST['register'])){
-  $kategorijee=$_POST['kateg'];
-    if(count($kategorijee)==0){
-      echo "<script>alert('Bitte Kategorijen auswahlen')</script>";
-    } else{
       $name=$_POST['name'];
       $email=$_POST['email'];
-      $password=$_POST['password1'];
+
       $geschlecht=$_POST['geschlecht'];
-      $monat=$_POST['monat'];
-      $tag=$_POST['tag'];
-      $jahr=$_POST['jahr'];
+
+        $kanton=$_POST['kanton'];
+
       $herkunft=$_POST['herkunft'];
       $grosse=$_POST['grosse'];
       $sex_orj=$_POST['sex_orj'];
       $interesse_am=$_POST['interessiert_an'];
       $status=$_POST['status'];
       $poreklo=$_POST['poreklo'];
-      $kanton=$_POST['kanton'];
+
       $kanton1=$_POST['kanton1'];
       $was_magst_du=$_POST['was_magst_du'];
       $was_mag_er=$_POST['was_mag_er'];
@@ -733,86 +749,26 @@ function toggle(source) {
       $name_tref=$_POST['location'];
         $name_tref1=$_POST['location1'];
       $spremnost=$_POST['spremnost'];
-      $username=$_POST['username'];
+
       $titel=$_POST['titel'];
       $opis=$_POST['opis'];
       $platz=$_POST['platz'];
       $klinge=$_POST['klinge'];
       $tel=$_POST['tel'];
-      $age=$_POST['age'];
-      $datum=$tag.'.'.$monat.'.'.$jahr;
-      echo $geschlecht."<br/>";
-      echo $interesse_am."<br/>";
-      echo $datum."<br/>";
-      echo $name."<br/>";
-      echo $kanton."<br/>";
-      echo $herkunft."<br/>";
-      echo $email."<br/>";
-      echo $username."<br/>";
-      echo $titel."<br/>";
-      echo $opis."<br/>";
-      echo $platz."<br/>";
-      echo $klinge."<br/>";
-      echo $tel."<br/>";
-      echo $datum."<br/>";
+      $datum=$_POST['datum'];
 
 
-      echo $password."<br/>";
-
-      echo $monat."<br/>";
-      echo $tag."<br/>";
-      echo $jahr."<br/>";
-
-      echo $grosse."<br/>";
-      echo $sex_orj."<br/>";
-
-      echo $status."<br/>";
-      echo $poreklo."<br/>";
-
-      echo $was_magst_du."<br/>";
-      echo $was_mag_er."<br/>";
-      echo $gebaut."<br/>";
-      echo $haarlength."<br/>";
-      echo $haarfarbe."<br/>";
-      echo $whoseeme."<br/>";
-      echo $bh."<br/>";
-      echo $oberweite."<br/>";
-      echo $brille."<br/>";
-      echo $website."<br/>";
-      echo $haarfarbe."<br/>";
-      echo $whoseeme."<br/>";
-      echo $bh."<br/>";
-
-      echo $adresse_tref."<br/>";
-      echo $name_tref."<br/>";
-      echo $spremnost."<br/>";
+$newupitunos="UPDATE user_oglas SET id_tip=$geschlecht,id_trazim=$interesse_am,umetnicko_ime='$name',id_drzava=$herkunft,email='$email',id_rasa=$poreklo,id_kome_pojavljuje=$whoseeme,id_gradja=$gebaut,id_sex_orj=$sex_orj,id_brak_status=$status,id_tvoja_uloga=$was_magst_du,id_njeg_uloga=$was_mag_er,title='$titel',opis='$opis',id_pol=$geschlecht,visina='$grosse',id_boja_kose=$haarfarbe,id_duz_kose=$haarlength,id_boja_ociju=$augenfarbe,id_naocare_sociva=$brille,id_oberweite=$oberweite,ulica='$adresse_tref',platz='$platz',id_mesto=$kanton1,tel='$tel',studio_name='$name_tref',location_name='$name_tref1',interfon='$klinge',id_sredjenost=$spremnost,link='$website',id_brus=$bh,datum='$datum',id_kanton=$kanton where id_user=".$_GET['idgirla'];
+$query =$conn->query($newupitunos) or die("los upit".mysqli_error());
+echo "<script>alert('ihre informationen wurden geändert')</script>";
 
 
-
-
-
-
-
-$upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2,$age,0)";
-$query = mysqli_query($conn, $upitunos1) or die (mysqli_error());
-echo "<script>alert('erfolgreich registriert!');</script>";
-
-
-$upitprikaz="SELECT id_user from user_oglas ORDER BY id_user DESC limit 1";
-$rezupitprikazus=$conn->query($upitprikaz) or die("1 upit los");
-$r3=mysqli_fetch_array($rezupitprikazus);
-$iduser1=$r3['id_user'];
-foreach($_POST['kateg'] as $item){
-  echo "<h1>$item</h1>";
-  echo "<h3>$iduser1</h3>";
-  $upitkat="INSERT INTO user_kat VALUES('',$iduser1,$item)";
-  $rezupitprikazus=$conn->query($upitkat) or die("2 upit los");
-
-}
-
-
-
-    } }?>
+/*
+,id_drzava=$herkunft,id_kanton=$kanton,email='$email',username='$username',sifra='$password',id_rasa=$poreklo,id_kome_pojavljuje=$whoseeme,id_gradja=$gebaut,id_sex_orj=$sex_orj,id_brak_status=$status,id_tvoja_uloga=$was_magst_du,id_njeg_uloga=$was_mag_er,title='$titel',opis='$opis',id_pol=$geschlecht,visina=$grosse,id_boja_kose=$haarfarbe,id_duz_kose=$haarlength,id_boja_ociju=$augenfarbe,id_naocare_sociva=$brille,brus=$bh,id_oberweite=$oberweite,ulica='$adresse_tref',platz=$platz,id_mesto=$kanton1,tel='$tel',studio_name='$name_tref',location_name='$name_tref1',interfon='$klinge',id_sredjenost=$spremnost,link='$website'
+,id_kanton=$kanton
+,brus=$bh
+*/
+    } ?>
 
   </div>
 
@@ -901,3 +857,6 @@ foreach($_POST['kateg'] as $item){
     </script>
     </body>
     </html>
+<?php }}else {
+  echo "<h1>noACESS</h1>";
+} ?>

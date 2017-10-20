@@ -5,9 +5,12 @@
                         <div class="col-md-3">
                             <aside class="f_widget">
                                 <div class="vero_widget">
-                                    <h4><span>Vero</span>Date</h4>
-                                    <p>Ob beste Freunde, lockerer Flirt oder die große Liebe – Bei uns kannst, was du daraus machst. Schau dir hier einige unserer Erfolgsgeschichten an und fange noch heute damit an, deine eigene zu schreiben.</p>
-                                    <p>Chats, Dates oder Bekanntschaften? Wähle aus, wonach du suchst und erhalte passende Vorschläge .</p>
+                                    <h4><span>SODOM</span>24</h4>
+                                    <p>Dieses Portal ist für Liebhaber von SEX,BDSM,Fetisch usw. gedacht. Ob mit
+Finanziellen Interessen oder nicht. Inseriere hier deine Vorlieben und Location
+wo du bist und finde den richtigen Gast für deine Vorlieben.
+</p>
+
                                 </div>
                             </aside>
                         </div>

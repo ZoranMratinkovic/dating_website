@@ -97,11 +97,10 @@
                 <th>Datum</th>
                 <th>Bild</th>
                 <th>Status</th>
-                <th>Details</th>
                 <th>status ändern</th>
                 <th>Delete</th>
               </tr>
-              <?php $upit="SELECT * from user_oglas i INNER JOIN uloga a on i.id_user_uloga = a.id_user_uloga";
+              <?php $upit="SELECT * from user_oglas i INNER JOIN uloga a on i.id_user_uloga = a.id_user_uloga where i.id_user_uloga=5";
                     $rezupit=$conn->query($upit);
                     while($r=mysqli_fetch_array($rezupit)){
                       echo "<tr>
@@ -110,11 +109,10 @@
                               <td>{$r['umetnicko_ime']}</td>
                               <td>{$r['username']}</td>
                               <td>{$r['datum']}</td>
-                              <td><img src='{$r['profilna_slika']}' width='50px' height='50px'></td>
+                              <td><img src='"."/../"."{$r['profilna_slika']}' width='50px' height='50px'></td>
                               <td>{$r['uloga']}</td>
-                              <td><a href='../update_info_admin.php?idgirla={$r['id_user']}'>status ändern</a></td>
-                              <td><a href='anbieter.php?idr={$r['id_user']}'>status ändern</a></td>
-                              <td><a href='anbieter.php?idc={$r['id_user']}'>x</a></td>
+                              <td><a href='premiumanbieter.php?idr={$r['id_user']}'>status ändern</a></td>
+                              <td><a href='premiumanbieter.php?idc={$r['id_user']}'>x</a></td>
 
                       </tr>";
                     }
@@ -123,7 +121,7 @@
                       $upitdelete="DELETE FROM user_oglas where id_user=".$_GET['idc'];
                       $rezupitdel=$conn->query($upitdelete);
                       echo "<script>alert('user wurde gelöscht')</script>";
-                        echo "<script>window.location.href = 'anbieter.php';</script>";
+                        echo "<script>window.location.href = 'premiumanbieter.php';</script>";
                     }
                     if(isset($_GET['idr'])){
 
@@ -133,7 +131,7 @@
                            $upit2="SELECT * FROM user_oglas where id_user=".$_GET['idr'];
                            $rezupit5=$conn->query($upit2) or die('losupit');
                              $ruser=mysqli_fetch_array($rezupit5);
-                             echo "<form class='form-control' action='anbieter.php' method='post'>";
+                             echo "<form class='form-control' action='premiumanbieter.php' method='post'>";
                            echo "<h3>username: ".$ruser['username']."</h3>";
 
                       echo "<select class='form-control' name='uloga' style='width:30%;'>";
@@ -147,8 +145,8 @@
                         $uloga=$_POST['uloga'];
                         $upitupdate="UPDATE user_oglas SET id_user_uloga=$uloga where id_user=".$_GET['idr'];
                         $rezupitupdate=$conn->query($upitupdate)or die('loseee uptade');
-                        echo "<script>alert('status wurde gändert!')</script>";
-                        echo "<script>window.location.href = 'anbieter.php';
+                        echo "<script>alert('status wurde geändert!')</script>";
+                        echo "<script>window.location.href = 'premiumanbieter.php';
 </script>";
                       }
                     }

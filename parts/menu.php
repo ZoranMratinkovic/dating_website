@@ -99,6 +99,11 @@
                           <li><form method='post'><input type='submit' value='logout' class='btn-danger' name='logout' /></form></li>
                           ";
                         }
+                        else if($_SESSION['id_uloga']==6){
+                         echo "<li><a href='bordel/admin_bordel.php?bordel={$_SESSION['id']}'<i class='mdi mdi-key-variant'></i>".$_SESSION['username']."</a></li>
+                         <li><form method='post'><input type='submit' value='logout' class='btn-danger' name='logout' /></form></li>
+                         ";
+                       }
                           else{
                             echo "<li><a href='update.php?userch={$_SESSION['id']}'<i class='mdi mdi-key-variant'></i>".$_SESSION['username']."</a></li>
                             <li><form method='post'><input type='submit' value='logout' class='btn-danger' name='logout' /></form></li>
@@ -110,6 +115,7 @@
                                 <ul class="dropdown-menu black">
                         <li><a href="#register_form" class="popup-with-zoom-anim"><i class="fa fa-user-plus"></i>als user</a></li>
                         <li><a href="register.php" class=""><i class="fa fa-user-plus"></i>als anbieter</a></li>
+                        <li><a href="bordel.php" class=""><i class="fa fa-user-plus"></i>Bordel</a></li>
 </ul>
 
                         </li>
