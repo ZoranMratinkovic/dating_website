@@ -270,7 +270,7 @@ function toggle(source) {
                          }
 
                          if(empty($errors)==true) {
-                            move_uploaded_file($file_tmp,"img/profiles/".$file_name);
+                            move_uploaded_file($file_tmp,"../img/profiles/".$file_name);
                             echo "Success";
                          }else{
                             print_r($errors);
@@ -303,7 +303,7 @@ $r=mysqli_fetch_array($reupit);
 ?>
                         <div class="form-group">
                           <label for="">Email</label>
-                            <input type="email" class="form-control" name="email" id="reg_email" placeholder="<?php echo $r['email']; ?>" required>
+                            <input type="email" class="form-control" name="email" id="reg_email" value="<?php echo $r['email']; ?>" required>
                         </div>
                         <div class="form-group">
                           <label for="">Passwort</label>

@@ -48,7 +48,7 @@ var ime = document.getElementById('reg_first').value;
 var user = document.getElementById('reg_user').value;
 var pass=document.getElementById('reg_pass').value;
 var pass1=document.getElementById('reg_pass1').value;
-var age=document.getElementById('age').value;
+
 
 var greske= new Array();
 var sadrzaj=new Array();
@@ -57,7 +57,7 @@ var reime= /^[A-z\s]{2,40}$/;
 var reemail= /^(\w+[\-\.])*\w+@(\w+\.)+[A-Za-z]+$/;
 var repass= /^[a-zA-Z0-9!@#$%^&*-_]{6,}/;
 var reuser= /^[A-z0-9]{2,25}$/;
-var reage= /^[0-9]{1,3}$/;
+
 
 if(reime.test(ime))
 {
@@ -143,7 +143,8 @@ return false;}
 }
 
 </script>
-<div class="register_form_inner zoom-anim-dialog" id="register_form">
+<?php include("parts/menu.php"); ?>
+<div class="register_form_inner zoom-anim-dialog margintp" id="register_form">
       <div class="row">
           <div class="col-md-6">
               <div class="registration_man">
@@ -186,9 +187,10 @@ return false;}
 
                       <div class="reg_chose form-group">
 
-                          <button type="submit" value="LogIn" class="btn form-control login_btn" name="registeru">Register</button>
+                          <button type="submit" value="LogIn" class="btn form-control login_btn" name="register1">Register</button>
                       </div>
-                      <?php     if(isset($_REQUEST['registeru'])){
+
+                      <?php     if(isset($_REQUEST['register1'])){
                           $email=$_POST['email'];
                           $fullname=$_POST['fullname'];
                           $username=$_POST['username'];
@@ -196,45 +198,13 @@ return false;}
                           $password1=$_POST['password1'];
 
 
-    $reusername="/^[A-z0-9]{2,14}$/";
-    $reime_prezime="/^[A-z0-9]{2,14}$/";
-    $reemail="/^(\w+[\-\.])*\w+@(\w+\.)+[A-Za-z]+$/";
-    $repw="/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/";
-    $errors = array();
-$podaci = array();
-
-if(preg_match($reusername,$username)){
-$podaci[]=$username;
-}
-else {
-$errors[]="username nije dobroo!";
-}
-if(preg_match($reime_prezime,$fullname)){
-$podaci[]=$reime_prezime;
-}
-else {
-$errors[]="ime nije dobroo!";
-}
-if(preg_match($reemail,$email)){
-$podaci[]=$reemail;
-}
-else {
-$errors[]="email nije dobroo!";
-}
-if(preg_match($repw,$password)){
-$podaci[]=$repw;
-}
-else {
-$errors[]="pw nije dobroo!";
-}
 
 
 
 
-
-                            $upit="INSERT INTO user VALUES('','$email','$username','$password','bordel',0,0,0,6,0)";
-                            $rezupit=$conn->query($upit)or die('losee');
-                            echo "<script>alert('radii')</script>";
+                            $upit1="INSERT INTO user VALUES('','$email','$username','$password','bordel',1,1,1,6,1)";
+                            $rezupit=$conn->query($upit1)or die('losee');
+                            echo "<script>alert('radii upit')</script>";
 
 
                           }
@@ -246,3 +216,4 @@ $errors[]="pw nije dobroo!";
           </div>
       </div>
   </div>
+        <?php include("parts/footer.php"); ?>

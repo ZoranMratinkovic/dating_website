@@ -115,7 +115,7 @@
                                 <ul class="dropdown-menu black">
                         <li><a href="#register_form" class="popup-with-zoom-anim"><i class="fa fa-user-plus"></i>als user</a></li>
                         <li><a href="register.php" class=""><i class="fa fa-user-plus"></i>als anbieter</a></li>
-                        <li><a href="bordel.php" class=""><i class="fa fa-user-plus"></i>Bordel</a></li>
+                        
 </ul>
 
                         </li>

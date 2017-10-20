@@ -133,7 +133,8 @@ return false;}
             <div class="row">
                 <div class="col-md-6">
                     <div class="registration_man">
-                        <img src="img/girl.jpg" alt="" class="imgreg">
+                        <img src="img/girl.jpg" alt="" class="imgreg" style="
+    width: 366px;">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -160,6 +161,12 @@ return false;}
                             <div class="form-group">
                                 <input type="password" class="form-control" id="reg_pass1" placeholder="again password" name="password1" required>
                             </div>
+                            <div class="">
+                              <label for="">Bordel oder user?</label><br/>
+                              <input type="radio" name="bordel" value="1" checked="checked">User<br/>
+                              <input type="radio" name="bordel" value="6">Bordel<br/>
+                            </div>
+
                             <div class="form-group">
                                 <div class="btn-group">
 
@@ -197,11 +204,8 @@ return false;}
 ?>
                             </div>
                             <div class="reg_chose form-group">
-                                <div class="reg_check_box">
-                                    <input type="radio" id="s-option" name="selector">
-                                    <label for="s-option">I`m Not Robot</label>
-                                    <div class="check"><div class="inside"></div></div>
-                                </div>
+
+
                                 <button type="submit" value="LogIn" class="btn form-control login_btn" name="registeru">Register</button>
                             </div>
                             <?php     if(isset($_REQUEST['registeru'])){
@@ -215,44 +219,14 @@ return false;}
                                 $tag=$_REQUEST['tag'];
                                 $jahr=$_REQUEST['jahr'];
                                 $age=$_REQUEST['age'];
-
-          $reusername="/^[A-z0-9]{2,14}$/";
-          $reime_prezime="/^[A-z0-9]{2,14}$/";
-          $reemail="/^(\w+[\-\.])*\w+@(\w+\.)+[A-Za-z]+$/";
-          $repw="/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/";
-          $errors = array();
-		$podaci = array();
-
-if(preg_match($reusername,$username)){
-  $podaci[]=$username;
-}
-else {
-  $gerrors[]="username nije dobroo!";
-}
-if(preg_match($reime_prezime,$fullname)){
-  $podaci[]=$reime_prezime;
-}
-else {
-  $errors[]="ime nije dobroo!";
-}
-if(preg_match($reemail,$email)){
-  $podaci[]=$reemail;
-}
-else {
-  $errors[]="email nije dobroo!";
-}
-if(preg_match($repw,$password)){
-  $podaci[]=$repw;
-}
-else {
-  $errors[]="pw nije dobroo!";
-}
+                                $bordel=$_REQUEST['bordel'];
 
 
 
 
 
-                                  $upit="INSERT INTO user VALUES('','$email','$username','$password','$geschlecht',$tag,$monat,$jahr,1,$age)";
+
+                                  $upit="INSERT INTO user VALUES('','$email','$username','$password','$geschlecht',$tag,$monat,$jahr,$bordel,$age)";
                                   $rezupit=$conn->query($upit)or die('losee');
 
 

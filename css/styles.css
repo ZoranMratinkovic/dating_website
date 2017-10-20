@@ -30,6 +30,9 @@ h1,h2{
 	left: 50%;
 	margin-left: -446px;
 }
+.imgreg{
+  width:350px!important;
+}
 
 h1{
 	font-size: 33px;

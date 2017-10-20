@@ -63,19 +63,7 @@
             <?php include('parts/footer.php'); ?>
         <!--================End Footer Area =================-->
 
-        <div id="largeContent" style="display:none;">
-            <div class="media tool_content">
-                <div class="media-left">
-                    <img src="img/map-persion.png" alt="">
-                </div>
-                <div class="media-body">
-                    <h3>Sandi Williams</h3>
-                    <h5>21 years old</h5>
-                    <h5>From Paris</h5>
-                    <h5>Distance 16 km</h5>
-                </div>
-            </div>
-        </div>
+  
 
         <script type="text/javascript" src='js/our_script.js'></script>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

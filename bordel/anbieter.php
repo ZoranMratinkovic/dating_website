@@ -99,7 +99,7 @@
                               <td>{$r['umetnicko_ime']}</td>
                               <td>{$r['username']}</td>
                               <td>{$r['datum']}</td>
-                              <td><img src='{$r['profilna_slika']}' width='50px' height='50px'></td>
+                              <td><img src='../{$r['profilna_slika']}' width='50px' height='50px'></td>
                               <td>{$r['uloga']}</td>
                               <td><a href='../update_info_admin.php?idgirla={$r['id_user']}'>bearbeiten</a></td>
                               <td><a href='../members-detail.php?id_girl={$r['id_user']}'>Profil ansehen</a></td>
