@@ -156,7 +156,7 @@ function toggle(source) {
                          $file_size = $_FILES['image1']['size'];
                          $file_tmp = $_FILES['image1']['tmp_name'];
                          $file_type = $_FILES['image1']['type'];
-                         $file_ext=strtolower(end(explode('.',$_FILES['image1']['name'])));
+                         @$file_ext=strtolower(end(explode('.',$_FILES['image1']['name'])));
                          $expensions= array("jpeg","jpg","png");
                          if($file_size > 2097152) {
                             $errors[]='File size must be excately 2 MB';
@@ -723,7 +723,7 @@ function toggle(source) {
                                                       $mail->Port = 587;
                                                       $mail->From = EMAIL;
                                                       $mail->FromName = NAME;
-                                                      $mail->addAddress($email, $fName);
+                                                      $mail->addAddress($email, $username);
                                                       $mail->isHTML(true);
                                                       $mail->Subject = "Subject Text";
                                                       $mail->Body = "
