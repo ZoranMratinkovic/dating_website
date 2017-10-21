@@ -331,10 +331,10 @@ function list_of_albums($id)
                                         <input type='submit' value='Insert' name='InsertPics{$i}' class='btn btn-lg dugmeSearch form-control' id='btnInsertAlbumImg'>
                                     </form>
                         </aside>";
-                    if($countImage >= 15)
+                    if($countImage >= 5 && $_SESSION['id_uloga']!=5)
                     {
                         echo "<script>document.getElementById('formaZaUpis15Slika{$i}').className='hide';</script>";
-                        //hides the form if there is 15 or more pictures
+                        //hides the form if there is 20 or more pictures
                     }
                 }
                 else

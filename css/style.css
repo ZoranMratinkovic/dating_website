@@ -205,6 +205,10 @@ Table of Content:
   width:170px;
   height:320px;
 }
+.regform input{
+  width: 13px!important;
+  height: 13px!important;
+}
 /*Obrisati posle ove klase jer ces da smanjis stvarno slike*/
 /*Our code end*/
 

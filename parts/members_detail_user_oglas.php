@@ -222,9 +222,9 @@
                                         else
                                         {
                                         
-                                            echo "<div class='alert alert-success'>
+                                            echo "<div class='alert alert-danger'>
                                                     <h5><strong>Go premium!</strong> Only premium users can have videos!</h5>&nbsp
-                                                    <a href='#' class='btn btn-success btn-lg'>Go premium</a>
+                                                    <a href='#' class='btn btn-danger btn-lg'>Go premium</a>
                                                   </div>";
                                         
                                         }

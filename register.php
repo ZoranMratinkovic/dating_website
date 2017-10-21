@@ -146,7 +146,7 @@ function toggle(source) {
   <div class="register_form_inner zoom-anim-dialog" id="register_form">
 
           <div class="row margintp">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="registration_form_s">
                     <h4>Registration</h4>
                   <form class="" action="#" method="post" enctype = "multipart/form-data" onsubmit="return posalji();">
@@ -259,20 +259,20 @@ function toggle(source) {
 
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="registration_form_s">
-<h4>Registration</h4>                  <div class="form-group">
-  <label for="">Grösse</label>
-      <input type="text" class="form-control" id="reg_pass" name="grosse" placeholder="Grosse">
-  </div>
-  <div class="form-group">
-    <label for="">Titel</label>
-      <input type="text" class="form-control" name="titel" id="reg_pass" placeholder="Titel über dich!">
-  </div>
-  <div class="form-group">
-    <label for="">Über dich</label>
-      <textarea name="opis" rows="8" cols="40" placeholder="Hallo ich bin Klara und mag es !!"></textarea>
-  </div>
+            <div class="col-md-12">
+                <div class="registration_form_s">              
+                    <div class="form-group">
+                      <label for="">Grösse</label>
+                          <input type="text" class="form-control" id="reg_pass" name="grosse" placeholder="Grosse">
+                      </div>
+                      <div class="form-group">
+                        <label for="">Titel</label>
+                          <input type="text" class="form-control" name="titel" id="reg_pass" placeholder="Titel über dich!">
+                      </div>
+                      <div class="form-group">
+                        <label for="">Über dich</label>
+                          <textarea name="opis" rows="8" cols="40" placeholder="Hallo ich bin Klara und mag es !!"></textarea>
+                      </div>
                               <?php $upituser="SELECT * FROM sex_orj";
                                         $rezupituser=$conn->query($upituser)or die("los upit");?>
                                         <div class="form-group">
@@ -363,7 +363,7 @@ function toggle(source) {
 
           </div>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="registration_form_s">
 
                                   <h4>Mehr Über dich</h4>
@@ -433,35 +433,39 @@ function toggle(source) {
 
 
                 </div>
+                <div class="registration_form_s regform">
                 <div class="form-group mgt">
+                  
                   <div class="row style-select">
                     <?php $upituser="SELECT * FROM kategorije";
                       $rezupituser=$conn->query($upituser)or die("los upit"); ?>
-  			<div class="col-md-12">
-          <h3>Kategorien</h3>
-<input type="checkbox" onClick="toggle(this)" /> Ich Kann alles <br/>
-          <?php
-                     while($r=mysqli_fetch_array($rezupituser)){
-            if($r['id_kat']==20){
-              echo "<div class='col-md-6'>";
-              echo "<input type='checkbox' name='kateg[]' class='checks' id='foo' value='{$r['id_kat']}'>".$r['kategorija']."<br/>";
-              echo "</div>";
-            }else {
-                echo "<div class='col-md-6'>";
-                echo "<input type='checkbox' name='kateg[]' class='checks' id='foo' value='{$r['id_kat']}'>".$r['kategorija']."<br/>";
-                echo "</div>";
-            }
-          } ?>
+                			<div class="col-md-12">
+                        
+                        <h3>Kategorien</h3>
+                        <input type="checkbox" onClick="toggle(this)" /> Ich Kann alles <br/>
+                        <?php
+                                   while($r=mysqli_fetch_array($rezupituser)){
+                          if($r['id_kat']==20){
+                            echo "<div class='col-md-3'>";
+                            echo "<input type='checkbox' name='kateg[]' class='checks' id='foo' value='{$r['id_kat']}'>".$r['kategorija']."<br/>";
+                            echo "</div>";
+                          }else {
+                              echo "<div class='col-md-3'>";
+                              echo "<input type='checkbox' name='kateg[]' class='checks' id='foo' value='{$r['id_kat']}'>".$r['kategorija']."<br/>";
+                              echo "</div>";
+                          }
+                        } ?>
 
 
 
 
 
-  			</div>
-  		</div>
+                			</div>
+  		            </div>
+                </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
               <br/>
 
                 <div class="registration_form_s">
@@ -559,7 +563,7 @@ function toggle(source) {
                         </div>
                         <div class="reg_chose form-group">
 
-                            <input type="submit" name="register" value="jetzt registrieren" class="btn">
+                            <input type="submit" name="register" value="jetzt registrieren" class="btn btn-danger btn-lg">
                         </div>
 
                 </div>
