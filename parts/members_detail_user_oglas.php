@@ -215,8 +215,19 @@
                                     <?php 
                                         include('functions.php');
                                         $id_userr = (int)$_SESSION['id'];
-
-                                        show_video($id_userr);
+                                        if(isset($_SESSION['id_uloga']) && $_SESSION['id_uloga']==5)
+                                        {
+                                            show_video($id_userr);
+                                        }
+                                        else
+                                        {
+                                        
+                                            echo "<div class='alert alert-success'>
+                                                    <h5><strong>Go premium!</strong> Only premium users can have videos!</h5>&nbsp
+                                                    <a href='#' class='btn btn-success btn-lg'>Go premium</a>
+                                                  </div>";
+                                        
+                                        }
                                      ?>
                                 </div>
                                     

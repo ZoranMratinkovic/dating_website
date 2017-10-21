@@ -263,26 +263,26 @@ function toggle(source) {
 
                               <?php
 
-  echo '<select name="monat" class="trecina form-control" required>';
-    echo '<option>Monat</option>';
-    for($i = 1; $i <= 12; $i++){
-      $i = str_pad($i, 2, 0, STR_PAD_LEFT);
-      echo "<option value='$i'>$i</option>";
-    }
-  echo '</select>';
-  echo '<select name="tag" class="trecina form-control" required>';
-    echo '<option>Tag</option>';
-    for($i = 1; $i <= 31; $i++){
-      $i = str_pad($i, 2, 0, STR_PAD_LEFT);
-      echo "<option value='$i'>$i</option>";
-    }
-  echo '</select>';
-  echo '<select name="jahr" class="trecina form-control" required>';
-    echo '<option>Jahr</option>';
-    for($i = date('Y'); $i >= date('Y', strtotime('-100 years')); $i--){
-      echo "<option value='$i'>$i</option>";
-    }
-  echo '</select>';
+                                  echo '<select name="monat" class="trecina form-control" required>';
+                                    echo '<option>Monat</option>';
+                                    for($i = 1; $i <= 12; $i++){
+                                      $i = str_pad($i, 2, 0, STR_PAD_LEFT);
+                                      echo "<option value='$i'>$i</option>";
+                                    }
+                                  echo '</select>';
+                                  echo '<select name="tag" class="trecina form-control" required>';
+                                    echo '<option>Tag</option>';
+                                    for($i = 1; $i <= 31; $i++){
+                                      $i = str_pad($i, 2, 0, STR_PAD_LEFT);
+                                      echo "<option value='$i'>$i</option>";
+                                    }
+                                  echo '</select>';
+                                  echo '<select name="jahr" class="trecina form-control" required>';
+                                    echo '<option>Jahr</option>';
+                                    for($i = date('Y'); $i >= date('Y', strtotime('-100 years')); $i--){
+                                      echo "<option value='$i'>$i</option>";
+                                    }
+                                  echo '</select>';
 ?>
 
                             </div>
@@ -610,7 +610,7 @@ function toggle(source) {
 
                         <?php $upituser="SELECT * FROM sredjenost";
 
-                    $rezupituser=$conn->query($upituser)or die("los upit");?>
+                         $rezupituser=$conn->query($upituser)or die("los upit");?>
                         <div class="form-group">
                             <div class="btn-group">
                               <label for="">Ist die Location eingerichtet? </label>
@@ -633,117 +633,234 @@ function toggle(source) {
 
 
       </form>
-    <?php if(isset($_POST['register'])){
-  $kategorijee=$_POST['kateg'];
-    if(count($kategorijee)==0){
-      echo "<script>alert('Bitte Kategorijen auswahlen')</script>";
-    } else{
-      $name=$_POST['name'];
-      $email=$_POST['email'];
-      $password=$_POST['password1'];
-      $geschlecht=$_POST['geschlecht'];
-      $monat=$_POST['monat'];
-      $tag=$_POST['tag'];
-      $jahr=$_POST['jahr'];
-      $herkunft=$_POST['herkunft'];
-      $grosse=$_POST['grosse'];
-      $sex_orj=$_POST['sex_orj'];
-      $interesse_am=$_POST['interessiert_an'];
-      $status=$_POST['status'];
-      $poreklo=$_POST['poreklo'];
-      $kanton=$_POST['kanton'];
-      $kanton1=$_POST['kanton1'];
-      $was_magst_du=$_POST['was_magst_du'];
-      $was_mag_er=$_POST['was_mag_er'];
-      $gebaut=$_POST['gebaut'];
-      $haarlength=$_POST['haarlength'];
-      $haarfarbe=$_POST['haar_farbe'];
-      $augenfarbe=$_POST['augen_farbe'];
-      $whoseeme=$_POST['who_see'];
-      $bh=$_POST['bh'];
-      $oberweite=$_POST['oberweite'];
-      $brille=$_POST['brille'];
-      $website=$_POST['website'];
-      $adresse_tref=$_POST['adresse_tref'];
-      $name_tref=$_POST['location'];
-        $name_tref1=$_POST['location1'];
-      $spremnost=$_POST['spremnost'];
-      $username=$_POST['username'];
-      $titel=$_POST['titel'];
-      $opis=$_POST['opis'];
-      $platz=$_POST['platz'];
-      $klinge=$_POST['klinge'];
-      $tel=$_POST['tel'];
-      $age=$_POST['age'];
-      $datum=$tag.'.'.$monat.'.'.$jahr;
-      echo $geschlecht."<br/>";
-      echo $interesse_am."<br/>";
-      echo $datum."<br/>";
-      echo $name."<br/>";
-      echo $kanton."<br/>";
-      echo $herkunft."<br/>";
-      echo $email."<br/>";
-      echo $username."<br/>";
-      echo $titel."<br/>";
-      echo $opis."<br/>";
-      echo $platz."<br/>";
-      echo $klinge."<br/>";
-      echo $tel."<br/>";
-      echo $datum."<br/>";
+    <?php if(isset($_POST['register']))
+    {
+        $kategorijee=$_POST['kateg'];
+        if(count($kategorijee)==0)
+        {
+          echo "<script>alert('Bitte Kategorijen auswahlen')</script>";
+        } 
+        else
+        {
+            $name=$_POST['name'];
+            $email=$_POST['email'];
+            $password=$_POST['password1'];
+            $geschlecht=$_POST['geschlecht'];
+            $monat=$_POST['monat'];
+            $tag=$_POST['tag'];
+            $jahr=$_POST['jahr'];
+            $herkunft=$_POST['herkunft'];
+            $grosse=$_POST['grosse'];
+            $sex_orj=$_POST['sex_orj'];
+            $interesse_am=$_POST['interessiert_an'];
+            $status=$_POST['status'];
+            $poreklo=$_POST['poreklo'];
+            $kanton=$_POST['kanton'];
+            $kanton1=$_POST['kanton1'];
+            $was_magst_du=$_POST['was_magst_du'];
+            $was_mag_er=$_POST['was_mag_er'];
+            $gebaut=$_POST['gebaut'];
+            $haarlength=$_POST['haarlength'];
+            $haarfarbe=$_POST['haar_farbe'];
+            $augenfarbe=$_POST['augen_farbe'];
+            $whoseeme=$_POST['who_see'];
+            $bh=$_POST['bh'];
+            $oberweite=$_POST['oberweite'];
+            $brille=$_POST['brille'];
+            $website=$_POST['website'];
+            $adresse_tref=$_POST['adresse_tref'];
+            $name_tref=$_POST['location'];
+              $name_tref1=$_POST['location1'];
+            $spremnost=$_POST['spremnost'];
+            $username=$_POST['username'];
+            $titel=$_POST['titel'];
+            $opis=$_POST['opis'];
+            $platz=$_POST['platz'];
+            $klinge=$_POST['klinge'];
+            $tel=$_POST['tel'];
+            $age=$_POST['age'];
+            $datum=$tag.'.'.$monat.'.'.$jahr;
+
+            echo $geschlecht."<br/>";
+            echo $interesse_am."<br/>";
+            echo $datum."<br/>";
+            echo $name."<br/>";
+            echo $kanton."<br/>";
+            echo $herkunft."<br/>";
+            echo $email."<br/>";
+            echo $username."<br/>";
+            echo $titel."<br/>";
+            echo $opis."<br/>";
+            echo $platz."<br/>";
+            echo $klinge."<br/>";
+            echo $tel."<br/>";
+            echo $datum."<br/>";
 
 
-      echo $password."<br/>";
+            echo $password."<br/>";
 
-      echo $monat."<br/>";
-      echo $tag."<br/>";
-      echo $jahr."<br/>";
+            echo $monat."<br/>";
+            echo $tag."<br/>";
+            echo $jahr."<br/>";
 
-      echo $grosse."<br/>";
-      echo $sex_orj."<br/>";
+            echo $grosse."<br/>";
+            echo $sex_orj."<br/>";
 
-      echo $status."<br/>";
-      echo $poreklo."<br/>";
+            echo $status."<br/>";
+            echo $poreklo."<br/>";
 
-      echo $was_magst_du."<br/>";
-      echo $was_mag_er."<br/>";
-      echo $gebaut."<br/>";
-      echo $haarlength."<br/>";
-      echo $haarfarbe."<br/>";
-      echo $whoseeme."<br/>";
-      echo $bh."<br/>";
-      echo $oberweite."<br/>";
-      echo $brille."<br/>";
-      echo $website."<br/>";
-      echo $haarfarbe."<br/>";
-      echo $whoseeme."<br/>";
-      echo $bh."<br/>";
+            echo $was_magst_du."<br/>";
+            echo $was_mag_er."<br/>";
+            echo $gebaut."<br/>";
+            echo $haarlength."<br/>";
+            echo $haarfarbe."<br/>";
+            echo $whoseeme."<br/>";
+            echo $bh."<br/>";
+            echo $oberweite."<br/>";
+            echo $brille."<br/>";
+            echo $website."<br/>";
+            echo $haarfarbe."<br/>";
+            echo $whoseeme."<br/>";
+            echo $bh."<br/>";
 
-      echo $adresse_tref."<br/>";
-      echo $name_tref."<br/>";
-      echo $spremnost."<br/>";
-
-
+            echo $adresse_tref."<br/>";
+            echo $name_tref."<br/>";
+            echo $spremnost."<br/>";
 
 
+                                                $stmtUserEmailExist = $conn-> prepare("SELECT email FROM user_oglas WHERE email=?");
+                                                $stmtUserEmailExist->bind_param("s",$email);
+                                                $stmtUserEmailExist->execute();
+                                                $resultUserEmailExist = $stmtUserEmailExist->get_result();
+                                                
+                                                //if email already exists
+                                                if($resultUserEmailExist->num_rows > 0)
+                                                {
+
+                                                  echo"
+                                                        <script>
+
+                                                            alert('es besteht bereits ein user mit dieser email adresse');
+                                                        </script>";
+                                                        $stmtUserEmailExist->close();
+
+                                                }
+                                                //if email doesn't exists
+                                                else
+                                                {
+                                                    //data for email verification
+                                                    $idUserOglas= "";
+                                                    $hash_ver = md5(rand(0,1000));
+                                                    $status_verified = 0;
+                                                    $slidza = "img/profiles/".$file_name;
+                                                    $id_gal = 4; // Ovo ne treba ????????
+                                                    $video = "vide ovde . ne treba ovo polje";
+                                                    $id_status_gold = 1;
+                                                    $id_user_uloga =2;
+                                                    $bordel = 0;
+
+                                                    $insertSql = "INSERT INTO user_oglas VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                                                    
+                                                    $insertSqlQuery = $conn->prepare($insertSql);
+                                                    
+                                                    $insertSqlQuery->bind_param('iiissiisssiiiiiiissisiiiiiisssssssissisiiisi',$idUserOglas,$geschlecht,$interesse_am,$datum,$name,$herkunft,$kanton,$email,$username,$password,$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,$titel,$opis,$geschlecht,$grosse,$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,$adresse_tref,$platz,$kanton1,$tel,$name_tref,$name_tref1,$klinge,$spremnost,$website,$slidza,$id_gal,$video, $id_status_gold, $id_user_uloga,$bordel,$hash_ver,$status_verified);
+                                                    
+                                                    $insertSqlQuery->execute();
+                                                      /* $upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2,$age,0)";
+                                                      
+                                                      $query = mysqli_query($conn, $upitunos1) or die (mysqli_error());
+                                                      
+                                                      echo "<script>alert('erfolgreich registriert!');</script>";*/
+
+                                                    if($insertSqlQuery)
+                                                    {
+                                                      
+                                                        $upitprikaz="SELECT id_user from user_oglas ORDER BY id_user DESC limit 1";
+             
+                                                        $rezupitprikazus=$conn->query($upitprikaz) or die("1 upit los");
+                                                        
+                                                        $r3=mysqli_fetch_array($rezupitprikazus);
+                                                       
+                                                        $iduser1=$r3['id_user'];
+                                                        
+                                                        foreach($_POST['kateg'] as $item)
+                                                        {
+                                                          
+                                                          echo "<h1>$item</h1>";
+                                                          echo "<h3>$iduser1</h3>";
+                                                          $upitkat="INSERT INTO user_kat VALUES('',$iduser1,$item)";
+                                                          $rezupitprikazus=$conn->query($upitkat) or die("2 upit los");
+
+                                                        }
+
+                                                      //After inserting, send an email verification
+
+                                                      include('phpmailer/PHPMailerAutoload.php');
+                                                      include("connectionFile/define.php");
+                                                      $mail = new PHPMailer;
+
+                                                      //Enable SMTP debugging.
+                                                      //$mail->SMTPDebug = 3; -> client ---> server dialog
+                                                      //Set PHPMailer to use SMTP.
+                                                      $mail->isSMTP();
+                                                      //Set SMTP host name
+                                                      $mail->Host = "smtp.gmail.com";
+                                                      //Set this to true if SMTP host requires authentication to send email
+                                                      $mail->SMTPAuth = true;
+                                                      //Provide username and password
+                                                      $mail->Username = USERNAME;
+                                                      $mail->Password = PASSWORD;
+                                                      //If SMTP requires TLS encryption then set it
+                                                      $mail->SMTPSecure = "tls";
+                                                      //Set TCP port to connect to
+                                                      $mail->Port = 587;
+
+                                                      $mail->From = EMAIL;
+                                                      $mail->FromName = NAME;
+
+                                                      $mail->addAddress($email, $fName);
+
+                                                      $mail->isHTML(true);
+
+                                                      $mail->Subject = "Subject Text";
+                                                      $mail->Body = "
+
+                                                          <i>Your username is: $username</i><br/>
+                                                          <p><strong>Click on the link below to verify you account</strong></p>
+                                                          <b><a href='localhost/sexchange/dating_website/verify_user.php?hash={$hash_ver}&email={$email}'>Klicken sie hier um Ihren Account zu verifizieren:</a></b>
+
+                                                      ";
+                                                      $mail->AltBody = "Your username is: $username";
+
+                                                      //If there was an error with sending
+                                                      if(!$mail->send())
+                                                      {
+                                                          echo "Mailer Error: " . $mail->ErrorInfo;
+                                                          echo "<script>alert('verifikations email nicht gesendet!');</script>";
+                                                      }
+                                                      else
+                                                      {
+                                                           echo "<script>alert('Erfolgreich registert! Bitte verifizieren Sie ihre Email');</script>";
+                                                      }
+                                                    }
+                                                }
 
 
+            /*$upitprikaz="SELECT id_user from user_oglas ORDER BY id_user DESC limit 1";
+           
+            $rezupitprikazus=$conn->query($upitprikaz) or die("1 upit los");
+            
+            $r3=mysqli_fetch_array($rezupitprikazus);
+           
+            $iduser1=$r3['id_user'];
+            
+            foreach($_POST['kateg'] as $item){
+              echo "<h1>$item</h1>";
+              echo "<h3>$iduser1</h3>";
+              $upitkat="INSERT INTO user_kat VALUES('',$iduser1,$item)";
+              $rezupitprikazus=$conn->query($upitkat) or die("2 upit los");
 
-$upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2,$age,0)";
-$query = mysqli_query($conn, $upitunos1) or die (mysqli_error());
-echo "<script>alert('erfolgreich registriert!');</script>";
-
-
-$upitprikaz="SELECT id_user from user_oglas ORDER BY id_user DESC limit 1";
-$rezupitprikazus=$conn->query($upitprikaz) or die("1 upit los");
-$r3=mysqli_fetch_array($rezupitprikazus);
-$iduser1=$r3['id_user'];
-foreach($_POST['kateg'] as $item){
-  echo "<h1>$item</h1>";
-  echo "<h3>$iduser1</h3>";
-  $upitkat="INSERT INTO user_kat VALUES('',$iduser1,$item)";
-  $rezupitprikazus=$conn->query($upitkat) or die("2 upit los");
-
-}
+            }*/
 
 
 

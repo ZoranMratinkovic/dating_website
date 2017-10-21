@@ -57,12 +57,24 @@
                            $rezupit1=$conn->query($upitlogin1)or die('losee');
                            if(mysqli_num_rows($rezupit1)==1)
                            {
-                                  $row=mysqli_fetch_array($rezupit1);
-                                  echo "<script>alert('Wilkommen');</script>";
-                                  $_SESSION['username'] = $row['username'];
-                                  $_SESSION['id_uloga'] = $row['id_user_uloga'];
-                                  $_SESSION['id'] = $row['user_id'];
-                                  $_SESSION['age'] = $row['age'];
+                                $row=mysqli_fetch_array($rezupit1);
+                                if($row['status_verified']==1)
+                                {
+                                      echo "<script>alert('Wilkommen');</script>";
+                                      $_SESSION['username'] = $row['username'];
+                                      $_SESSION['id_uloga'] = $row['id_user_uloga'];
+                                      $_SESSION['id'] = $row['user_id'];
+                                      $_SESSION['age'] = $row['age'];
+
+                                }      //verification successful ends
+                                else
+                                {
+                                    echo
+                                    "<script>
+                                        alert('You must verify your account');
+                                    </script>";
+
+                                }                      
 
                            }
                            else
@@ -70,14 +82,30 @@
 
                                $upitlogin12 = "SELECT * FROM user_oglas where username='$username1' and sifra ='$password1'";
                                $rezupit12=$conn->query($upitlogin12)or die('losee');
+                               
                                if(mysqli_num_rows($rezupit12)==1)
                                {
-                                      $row=mysqli_fetch_array($rezupit12);
-                                      echo "<script>alert('Herzlich Wilkommen');</script>";
-                                      $_SESSION['username'] = $row['username'];
-                                      $_SESSION['id_uloga'] = $row['id_user_uloga'];
-                                      $_SESSION['id'] = $row['id_user'];
-                                      $_SESSION['age'] = $row['age'];
+                                    
+                                    $row=mysqli_fetch_array($rezupit12);
+                                    
+                                    if($row['status_verified']==1)
+                                    {
+                                          echo "<script>alert('Wilkommen');</script>";
+                                          $_SESSION['username'] = $row['username'];
+                                          $_SESSION['id_uloga'] = $row['id_user_uloga'];
+                                          $_SESSION['id'] = $row['id_user'];
+                                          $_SESSION['age'] = $row['age'];
+
+                                    }      //verification successful ends
+                                    else
+                                    {
+                                        echo
+                                        "<script>
+                                            alert('You must verify your account');
+                                        </script>";
+
+                                    }
+
                                }
                                else
                                {

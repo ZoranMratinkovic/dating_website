@@ -454,7 +454,7 @@ function show_video($id_user)
 
     if($count > 0)
     {
-
+        //Show videos and form if there is any
         while($row = $rez->fetch_assoc())
         {
             echo
@@ -480,6 +480,7 @@ function show_video($id_user)
     }
     else
     {
+        //show only form
        echo
        "
             <form action='parts/upload_video.php' method='post' enctype='multipart/form-data'>
