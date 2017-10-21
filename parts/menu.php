@@ -93,17 +93,73 @@
                          if(mysqli_num_rows($rezupit)==1){
                            echo "<li><a href='admin/admin.php'<i class='mdi mdi-key-variant'></i>Adminpanel</a></li>
                            <li><form method='post'><input type='submit' value='logout' class='btn-danger' name='logout' /></form></li>";
+                           if($_SESSION['id_uloga']==1){
+                             $upituloga="SELECT * FROM uloga where id_user_uloga=1";
 
+                             $rezupituloga=$conn->query($upituloga) or die("lose!");
+                              $r=mysqli_fetch_array($rezupituloga);
+
+                                echo "<li><i class='mdi mdi-key-variant'></i>{$r['uloga']}</li>";
+                           }
                          }else if($_SESSION['id_uloga']==2){
                           echo "<li><a href='members-detail.php?id_girl={$_SESSION['id']}'<i class='mdi mdi-key-variant'></i>".$_SESSION['username']."</a></li>
                           <li><form method='post'><input type='submit' value='logout' class='btn-danger' name='logout' /></form></li>
                           ";
+                          if($_SESSION['id_uloga']==2){
+                            $upituloga="SELECT * FROM uloga where id_user_uloga=2";
+
+                            $rezupituloga=$conn->query($upituloga) or die("lose!");
+                             $r=mysqli_fetch_array($rezupituloga);
+
+                               echo "<li><i class='mdi mdi-key-variant'></i>{$r['uloga']}</li>";
+                          }
                         }
                         else if($_SESSION['id_uloga']==6){
                          echo "<li><a href='bordel/admin_bordel.php?bordel={$_SESSION['id']}'<i class='mdi mdi-key-variant'></i>".$_SESSION['username']."</a></li>
+
+
                          <li><form method='post'><input type='submit' value='logout' class='btn-danger' name='logout' /></form></li>
                          ";
+                         if($_SESSION['id_uloga']==6){
+                           $upituloga="SELECT * FROM uloga where id_user_uloga=6";
+
+                           $rezupituloga=$conn->query($upituloga) or die("lose!");
+                            $r=mysqli_fetch_array($rezupituloga);
+
+                              echo "<li><i class='mdi mdi-key-variant'></i>{$r['uloga']}</li>";
+                         }
                        }
+                       else if($_SESSION['id_uloga']==7){
+                        echo "<li><a href='members-detail.php?id_girl={$_SESSION['id']}'<i class='mdi mdi-key-variant'></i>".$_SESSION['username']."</a></li>
+
+
+                        <li><form method='post'><input type='submit' value='logout' class='btn-danger' name='logout' /></form></li>
+                        ";
+                        if($_SESSION['id_uloga']==7){
+                          $upituloga="SELECT * FROM uloga where id_user_uloga=7";
+
+                          $rezupituloga=$conn->query($upituloga) or die("lose!");
+                           $r=mysqli_fetch_array($rezupituloga);
+
+                             echo "<li><i class='mdi mdi-key-variant'></i>{$r['uloga']}</li>";
+                        }
+                      }
+                       else if($_SESSION['id_uloga']==5){
+                        echo "<li><a href='members-detail.php?id_girl={$_SESSION['id']}'<i class='mdi mdi-key-variant'></i>".$_SESSION['username']."</a></li>
+
+
+                        <li><form method='post'><input type='submit' value='logout' class='btn-danger' name='logout' /></form></li>
+                        ";
+                        if($_SESSION['id_uloga']==5){
+                          $upituloga="SELECT * FROM uloga where id_user_uloga=5";
+
+                          $rezupituloga=$conn->query($upituloga) or die("lose!");
+                           $r=mysqli_fetch_array($rezupituloga);
+
+                             echo "<li><i class='mdi mdi-key-variant'></i>{$r['uloga']}</li>";
+                        }
+                      }
+
                           else{
                             echo "<li><a href='update.php?userch={$_SESSION['id']}'<i class='mdi mdi-key-variant'></i>".$_SESSION['username']."</a></li>
                             <li><form method='post'><input type='submit' value='logout' class='btn-danger' name='logout' /></form></li>
@@ -115,7 +171,7 @@
                                 <ul class="dropdown-menu black">
                         <li><a href="#register_form" class="popup-with-zoom-anim"><i class="fa fa-user-plus"></i>als user</a></li>
                         <li><a href="register.php" class=""><i class="fa fa-user-plus"></i>als anbieter</a></li>
-                        
+
 </ul>
 
                         </li>
