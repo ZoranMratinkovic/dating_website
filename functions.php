@@ -524,10 +524,9 @@ function show_video_reg_user($id_user)
     }
     else
     {
-       echo
-       "
-            <h3>Keine Videos verfügbar</h3>
-       ";
+       echo "<div class='alert alert-danger'>
+            <h3>Keine Videos verfügbar!</h3>
+       </div>"; 
     }
 
 }
