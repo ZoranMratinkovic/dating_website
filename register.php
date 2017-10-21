@@ -6,20 +6,20 @@
   <title></title>
 
 <meta charset="UTF-8">
-<link href="vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="vendors/linears-icon/style.css" rel="stylesheet">
+<link href="../vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../vendors/linears-icon/style.css" rel="stylesheet">
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
   <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="js/jquery.selectlistactions.js"></script>
+  <script src="../js/jquery.selectlistactions.js"></script>
 
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="../css/site.css">
 <!-- RS5.0 Layers and Navigation Styles -->
-<link rel="stylesheet" type="text/css" href="vendors/revolution/css/layers.css">
-<link rel="stylesheet" type="text/css" href="vendors/revolution/css/navigation.css">
-<link rel="stylesheet" type="text/css" href="vendors/revolution/css/settings.css">
+<link rel="stylesheet" type="text/css" href="../vendors/revolution/css/layers.css">
+<link rel="stylesheet" type="text/css" href="../vendors/revolution/css/navigation.css">
+<link rel="stylesheet" type="text/css" href="../vendors/revolution/css/settings.css">
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -44,19 +44,13 @@
 <script src="assets/js/script.js"></script>
 <script src="js/map-custome.js"></script>
 <script type="text/javascript">
-
 function posalji() {
-
 var email = document.getElementById('reg_email').value;
 var ime = document.getElementById('reg_first').value;
 var user = document.getElementById('reg_user').value;
 var pass=document.getElementById('reg_pass').value;
 var pass1=document.getElementById('reg_pass1').value;
 var age=document.getElementById('age').value;
-
-
-
-
 var greske= new Array();
 var sadrzaj=new Array();
 var greskeID = new Array();
@@ -65,69 +59,48 @@ var reemail= /^(\w+[\-\.])*\w+@(\w+\.)+[A-Za-z]+$/;
 var repass= /^[a-zA-Z0-9!@#$%^&*-_]{6,}/;
 var reuser= /^[A-z0-9]{2,14}$/;
 var reage= /^[0-9]{1,7}$/;
-
 if(reime.test(ime))
 {
 sadrzaj.push(ime);
   document.getElementById('reg_first').className = 'green';
-
 }
 else
-
 {
   document.getElementById('reg_first').className = 'red';
 greske.push('erorr');
-
 }
 if(reage.test(age))
   {
-
     sadrzaj.push(age);
       document.getElementById('age').className = 'green';
-
-
-
   }
   else
-
   {
-
     greske.push('erorr');
     document.getElementById('age').className = 'red';
-
-
-
   }
 if(reuser.test(user))
 {
   sadrzaj.push(user);
   document.getElementById('reg_user').className = 'green';
-
-
 }
 else
-
 {
       document.getElementById('reg_user').className = 'red';
     greske.push('erorr');
-
 }
 if(reemail.test(email))
 {
 sadrzaj.push(email);
   document.getElementById('reg_email').className = 'green';
-
 }
 else
 {
 greske.push('erorr');
   document.getElementById('reg_email').className = 'red';
-
 }
-
 if(pass==pass1){
   sadrzaj.push(pass);
-
 }
 else{
 greske.push('error');
@@ -137,37 +110,27 @@ if(repass.test(pass))
 {
   document.getElementById('reg_pass').className = 'green';
 sadrzaj.push(pass);
-
 }
 else
 {
     document.getElementById('reg_pass').className = 'red';
   greske.push('erorr');
-
 }
-
-
-
 if(sadrzaj.length == 6)
 {
 alert("Erfolgreich!");
 return true;
-
-
 }
 else {alert('Bitte angaben überprüfen!!! Password muss mindestens 6 Karaktere haben!!');
 return false;}
 }
 function toggle(source) {
-
     var checkboxes = document.querySelectorAll('input[type="checkbox"]');
     for (var i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i] != source)
             checkboxes[i].checked = source.checked;
     }
 }
-
-
 </script>
 
 
@@ -175,72 +138,7 @@ function toggle(source) {
  <body class="redbg" style="
     background: url(img/background.jpeg);
 ">
-   <header class="header_menu_area white_menu">
-
-            <nav class="navbar navbar-default">
-                <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.php"><img src="img/logo-2.png" alt=""></a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown submenu active">
-
-                                <a href="index.php">Home</a>
-
-                        </li>
-                        <li class="dropdown menu-large">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kategorien <b class="caret"></b></a>
-                          <ul class="dropdown-menu megamenu row backg">
-                            <li class="col-sm-12">
-                                <ul>
-                                  <?php $upitcat="SELECT * FROM kategorije ORDER BY kategorija";
-
-                                  $rezupituser=$conn->query($upitcat)or die("los upit");;
-
-                                  while($r1=mysqli_fetch_array($rezupituser))
-                                  {
-                                    echo "<a href='members1.php?category={$r1['id_kat']}' class='nothing'><li style='width:20%'>".$r1['kategorija']."</li></a>";
-                                  }
-
-
-                             ?>
-                                </ul>
-                            </li>
-
-                          </ul>
-
-                        </li>
-
-
-                                <li><a href="members1.php">User</a></li>
-
-
-
-
-                        </li>
-
-
-
-                        <li><a href="contact.html">Kontakt</a></li>
-                    </ul>
-
-
-
-</form>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav>
-        </header>
+   <?php include("parts/menu_others.php"); ?>
 <div class="container">
 <div class="col-xs-12 col-sm-12 col-lg-12">
 
@@ -259,15 +157,10 @@ function toggle(source) {
                          $file_tmp = $_FILES['image1']['tmp_name'];
                          $file_type = $_FILES['image1']['type'];
                          $file_ext=strtolower(end(explode('.',$_FILES['image1']['name'])));
-
                          $expensions= array("jpeg","jpg","png");
-
-
-
                          if($file_size > 2097152) {
                             $errors[]='File size must be excately 2 MB';
                          }
-
                          if(empty($errors)==true) {
                             move_uploaded_file($file_tmp,"img/profiles/".$file_name);
                             echo "Success";
@@ -311,7 +204,6 @@ function toggle(source) {
                         </div>
 
                         <?php $upituser="SELECT * FROM tip";
-
                         $rezupituser=$conn->query($upituser)or die("los upit");?>
                         <div class="form-group">
                             <div class="btn-group">
@@ -327,33 +219,31 @@ function toggle(source) {
                             <div class="datepicker">
 
                               <?php
-
-  echo '<select name="monat" class="trecina form-control" required>';
-    echo '<option>Monat</option>';
-    for($i = 1; $i <= 12; $i++){
-      $i = str_pad($i, 2, 0, STR_PAD_LEFT);
-      echo "<option value='$i'>$i</option>";
-    }
-  echo '</select>';
-  echo '<select name="tag" class="trecina form-control" required>';
-    echo '<option>Tag</option>';
-    for($i = 1; $i <= 31; $i++){
-      $i = str_pad($i, 2, 0, STR_PAD_LEFT);
-      echo "<option value='$i'>$i</option>";
-    }
-  echo '</select>';
-  echo '<select name="jahr" class="trecina form-control" required>';
-    echo '<option>Jahr</option>';
-    for($i = date('Y'); $i >= date('Y', strtotime('-100 years')); $i--){
-      echo "<option value='$i'>$i</option>";
-    }
-  echo '</select>';
+                                  echo '<select name="monat" class="trecina form-control" required>';
+                                    echo '<option>Monat</option>';
+                                    for($i = 1; $i <= 12; $i++){
+                                      $i = str_pad($i, 2, 0, STR_PAD_LEFT);
+                                      echo "<option value='$i'>$i</option>";
+                                    }
+                                  echo '</select>';
+                                  echo '<select name="tag" class="trecina form-control" required>';
+                                    echo '<option>Tag</option>';
+                                    for($i = 1; $i <= 31; $i++){
+                                      $i = str_pad($i, 2, 0, STR_PAD_LEFT);
+                                      echo "<option value='$i'>$i</option>";
+                                    }
+                                  echo '</select>';
+                                  echo '<select name="jahr" class="trecina form-control" required>';
+                                    echo '<option>Jahr</option>';
+                                    for($i = date('Y'); $i >= date('Y', strtotime('-100 years')); $i--){
+                                      echo "<option value='$i'>$i</option>";
+                                    }
+                                  echo '</select>';
 ?>
 
                             </div>
                         </div>
                         <?php $upituser="SELECT * FROM poreklo";
-
                     $rezupituser=$conn->query($upituser)or die("los upit");?>
                         <div class="form-group">
                             <div class="btn-group">
@@ -384,7 +274,6 @@ function toggle(source) {
       <textarea name="opis" rows="8" cols="40" placeholder="Hallo ich bin Klara und mag es !!"></textarea>
   </div>
                               <?php $upituser="SELECT * FROM sex_orj";
-
                                         $rezupituser=$conn->query($upituser)or die("los upit");?>
                                         <div class="form-group">
                                             <div class="btn-group">
@@ -397,7 +286,6 @@ function toggle(source) {
                                             </div>
                                         </div>
                                         <?php $upituser="SELECT * FROM trazim";
-
                                     $rezupituser=$conn->query($upituser)or die("los upit");?>
                                     <div class="form-group">
                                         <div class="btn-group">
@@ -410,7 +298,6 @@ function toggle(source) {
                                         </div>
                                     </div>
                                     <?php $upituser="SELECT * FROM brak_status";
-
                                 $rezupituser=$conn->query($upituser)or die("los upit");?>
                                 <div class="form-group">
                                     <div class="btn-group">
@@ -424,7 +311,6 @@ function toggle(source) {
                                 </div>
 
                                     <?php $upituser="SELECT * FROM poreklo";
-
                                 $rezupituser=$conn->query($upituser)or die("los upit");?>
                                     <div class="form-group">
                                         <div class="btn-group">
@@ -437,7 +323,6 @@ function toggle(source) {
                                         </div>
                                     </div>
                                     <?php $upituser="SELECT * FROM kanton";
-
                                 $rezupituser=$conn->query($upituser)or die("los upit");?>
                                     <div class="form-group">
                                         <div class="btn-group">
@@ -450,7 +335,6 @@ function toggle(source) {
                                         </div>
                                     </div>
                                     <?php $upituser="SELECT * FROM tvoja_uloga";
-
                                 $rezupituser=$conn->query($upituser)or die("los upit");?>
                                     <div class="form-group">
                                         <div class="btn-group">
@@ -463,7 +347,6 @@ function toggle(source) {
                                         </div>
                                     </div>
                                     <?php $upituser="SELECT * FROM njegova_uloga";
-
                                 $rezupituser=$conn->query($upituser)or die("los upit");?>
                                     <div class="form-group">
                                         <div class="btn-group">
@@ -485,7 +368,6 @@ function toggle(source) {
 
                                   <h4>Mehr Über dich</h4>
                                   <?php $upituser="SELECT * FROM gradja";
-
                               $rezupituser=$conn->query($upituser)or die("los upit");?>
                                   <div class="form-group">
                                       <div class="btn-group">
@@ -499,7 +381,6 @@ function toggle(source) {
                                   </div>
 
                                   <?php $upituser="SELECT * FROM duzina_kose";
-
                               $rezupituser=$conn->query($upituser)or die("los upit");?>
                                   <div class="form-group">
                                       <div class="btn-group">
@@ -512,7 +393,6 @@ function toggle(source) {
                                       </div>
                                   </div>
                                   <?php $upituser="SELECT * FROM boja_kose";
-
                               $rezupituser=$conn->query($upituser)or die("los upit");?>
                                   <div class="form-group">
                                       <div class="btn-group">
@@ -526,7 +406,6 @@ function toggle(source) {
                                   </div>
 
                                   <?php $upituser="SELECT * FROM boja_ociju";
-
                               $rezupituser=$conn->query($upituser)or die("los upit");?>
                                   <div class="form-group">
                                       <div class="btn-group">
@@ -539,7 +418,6 @@ function toggle(source) {
                                       </div>
                                   </div>
                                   <?php $upituser="SELECT * FROM nocare_sociva";
-
                               $rezupituser=$conn->query($upituser)or die("los upit");?>
                                   <div class="form-group">
                                       <div class="btn-group">
@@ -558,7 +436,6 @@ function toggle(source) {
                 <div class="form-group mgt">
                   <div class="row style-select">
                     <?php $upituser="SELECT * FROM kategorije";
-
                       $rezupituser=$conn->query($upituser)or die("los upit"); ?>
   			<div class="col-md-12">
           <h3>Kategorien</h3>
@@ -574,7 +451,6 @@ function toggle(source) {
                 echo "<input type='checkbox' name='kateg[]' class='checks' id='foo' value='{$r['id_kat']}'>".$r['kategorija']."<br/>";
                 echo "</div>";
             }
-
           } ?>
 
 
@@ -592,7 +468,6 @@ function toggle(source) {
 
 
                   <?php $upituser="SELECT * FROM oberweite";
-
               $rezupituser=$conn->query($upituser)or die("los upit");?>
                   <div class="form-group">
                       <div class="btn-group">
@@ -605,7 +480,6 @@ function toggle(source) {
                       </div>
                   </div>
                   <?php $upituser="SELECT * FROM brus";
-
               $rezupituser=$conn->query($upituser)or die("los upit");?>
                   <div class="form-group">
                       <div class="btn-group">
@@ -618,7 +492,6 @@ function toggle(source) {
                       </div>
                   </div>
                   <?php $upituser="SELECT * FROM kome_se_pojavljuje";
-
               $rezupituser=$conn->query($upituser)or die("los upit");?>
                   <div class="form-group">
                       <div class="btn-group">
@@ -648,7 +521,6 @@ function toggle(source) {
                             <input type="text" class="form-control" id="reg_pass" name="adresse_tref" placeholder="Burgger Strasse 15">
                         </div>
                         <?php $upituser="SELECT * FROM kanton";
-
                     $rezupituser=$conn->query($upituser)or die("los upit");?>
                         <div class="form-group">
                             <div class="btn-group">
@@ -674,8 +546,7 @@ function toggle(source) {
                         </div>
 
                         <?php $upituser="SELECT * FROM sredjenost";
-
-                    $rezupituser=$conn->query($upituser)or die("los upit");?>
+                         $rezupituser=$conn->query($upituser)or die("los upit");?>
                         <div class="form-group">
                             <div class="btn-group">
                               <label for="">Ist die Location eingerichtet? </label>
@@ -698,118 +569,7 @@ function toggle(source) {
 
 
       </form>
-
-    <?php if(isset($_POST['register'])){
-  $kategorijee=$_POST['kateg'];
-    if(count($kategorijee)==0){
-      echo "<script>alert('Bitte Kategorijen auswahlen')</script>";
-    } else{
-      $name=$_POST['name'];
-      $email=$_POST['email'];
-      $password=$_POST['password1'];
-      $geschlecht=$_POST['geschlecht'];
-      $monat=$_POST['monat'];
-      $tag=$_POST['tag'];
-      $jahr=$_POST['jahr'];
-      $herkunft=$_POST['herkunft'];
-      $grosse=$_POST['grosse'];
-      $sex_orj=$_POST['sex_orj'];
-      $interesse_am=$_POST['interessiert_an'];
-      $status=$_POST['status'];
-      $poreklo=$_POST['poreklo'];
-      $kanton=$_POST['kanton'];
-      $kanton1=$_POST['kanton1'];
-      $was_magst_du=$_POST['was_magst_du'];
-      $was_mag_er=$_POST['was_mag_er'];
-      $gebaut=$_POST['gebaut'];
-      $haarlength=$_POST['haarlength'];
-      $haarfarbe=$_POST['haar_farbe'];
-      $augenfarbe=$_POST['augen_farbe'];
-      $whoseeme=$_POST['who_see'];
-      $bh=$_POST['bh'];
-      $oberweite=$_POST['oberweite'];
-      $brille=$_POST['brille'];
-      $website=$_POST['website'];
-      $adresse_tref=$_POST['adresse_tref'];
-      $name_tref=$_POST['location'];
-        $name_tref1=$_POST['location1'];
-      $spremnost=$_POST['spremnost'];
-      $username=$_POST['username'];
-      $titel=$_POST['titel'];
-      $opis=$_POST['opis'];
-      $platz=$_POST['platz'];
-      $klinge=$_POST['klinge'];
-      $tel=$_POST['tel'];
-      $age=$_POST['age'];
-      $datum=$tag.'.'.$monat.'.'.$jahr;
-      echo $geschlecht."<br/>";
-      echo $interesse_am."<br/>";
-      echo $datum."<br/>";
-      echo $name."<br/>";
-      echo $kanton."<br/>";
-      echo $herkunft."<br/>";
-      echo $email."<br/>";
-      echo $username."<br/>";
-      echo $titel."<br/>";
-      echo $opis."<br/>";
-      echo $platz."<br/>";
-      echo $klinge."<br/>";
-      echo $tel."<br/>";
-      echo $datum."<br/>";
-
-
-      echo $password."<br/>";
-
-      echo $monat."<br/>";
-      echo $tag."<br/>";
-      echo $jahr."<br/>";
-
-      echo $grosse."<br/>";
-      echo $sex_orj."<br/>";
-
-      echo $status."<br/>";
-      echo $poreklo."<br/>";
-
-      echo $was_magst_du."<br/>";
-      echo $was_mag_er."<br/>";
-      echo $gebaut."<br/>";
-      echo $haarlength."<br/>";
-      echo $haarfarbe."<br/>";
-      echo $whoseeme."<br/>";
-      echo $bh."<br/>";
-      echo $oberweite."<br/>";
-      echo $brille."<br/>";
-      echo $website."<br/>";
-      echo $haarfarbe."<br/>";
-      echo $whoseeme."<br/>";
-      echo $bh."<br/>";
-
-      echo $adresse_tref."<br/>";
-      echo $name_tref."<br/>";
-      echo $spremnost."<br/>";
-
-
-
-
-
-
-
-$upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2,$age,0)";
-$query = mysqli_query($conn, $upitunos1) or die (mysqli_error());
-echo "<script>alert('erfolgreich registriert!');</script>";
-
-
-$upitprikaz="SELECT id_user from user_oglas ORDER BY id_user DESC limit 1";
-$rezupitprikazus=$conn->query($upitprikaz) or die("1 upit los");
-$r3=mysqli_fetch_array($rezupitprikazus);
-$iduser1=$r3['id_user'];
-foreach($_POST['kateg'] as $item){
-  echo "<h1>$item</h1>";
-  echo "<h3>$iduser1</h3>";
-  $upitkat="INSERT INTO user_kat VALUES('',$iduser1,$item)";
-  $rezupitprikazus=$conn->query($upitkat) or die("2 upit los");
-
-    if(isset($_POST['register']))
+    <?php if(isset($_POST['register']))
     {
         $kategorijee=$_POST['kateg'];
         if(count($kategorijee)==0)
@@ -856,7 +616,6 @@ foreach($_POST['kateg'] as $item){
             $tel=$_POST['tel'];
             $age=$_POST['age'];
             $datum=$tag.'.'.$monat.'.'.$jahr;
-
             echo $geschlecht."<br/>";
             echo $interesse_am."<br/>";
             echo $datum."<br/>";
@@ -871,20 +630,14 @@ foreach($_POST['kateg'] as $item){
             echo $klinge."<br/>";
             echo $tel."<br/>";
             echo $datum."<br/>";
-
-
             echo $password."<br/>";
-
             echo $monat."<br/>";
             echo $tag."<br/>";
             echo $jahr."<br/>";
-
             echo $grosse."<br/>";
             echo $sex_orj."<br/>";
-
             echo $status."<br/>";
             echo $poreklo."<br/>";
-
             echo $was_magst_du."<br/>";
             echo $was_mag_er."<br/>";
             echo $gebaut."<br/>";
@@ -898,28 +651,21 @@ foreach($_POST['kateg'] as $item){
             echo $haarfarbe."<br/>";
             echo $whoseeme."<br/>";
             echo $bh."<br/>";
-
             echo $adresse_tref."<br/>";
             echo $name_tref."<br/>";
             echo $spremnost."<br/>";
-
-
                                                 $stmtUserEmailExist = $conn-> prepare("SELECT email FROM user_oglas WHERE email=?");
                                                 $stmtUserEmailExist->bind_param("s",$email);
                                                 $stmtUserEmailExist->execute();
                                                 $resultUserEmailExist = $stmtUserEmailExist->get_result();
-
                                                 //if email already exists
                                                 if($resultUserEmailExist->num_rows > 0)
                                                 {
-
                                                   echo"
                                                         <script>
-
                                                             alert('es besteht bereits ein user mit dieser email adresse');
                                                         </script>";
                                                         $stmtUserEmailExist->close();
-
                                                 }
                                                 //if email doesn't exists
                                                 else
@@ -934,48 +680,32 @@ foreach($_POST['kateg'] as $item){
                                                     $id_status_gold = 1;
                                                     $id_user_uloga =2;
                                                     $bordel = 0;
-
-
                                                     $insertSql = "INSERT INTO user_oglas VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
                                                     $insertSqlQuery = $conn->prepare($insertSql);
 
                                                     $insertSqlQuery->bind_param('iiissiisssiiiiiiissisiiiiiisssssssissisiiiisi',$idUserOglas,$geschlecht,$interesse_am,$datum,$name,$herkunft,$kanton,$email,$username,$password,$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,$titel,$opis,$geschlecht,$grosse,$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,$adresse_tref,$platz,$kanton1,$tel,$name_tref,$name_tref1,$klinge,$spremnost,$website,$slidza,$id_gal,$video,$id_status_gold,$id_user_uloga,$age,$bordel,$hash_ver,$status_verified);
-
                                                     $insertSqlQuery->execute();
                                                       /* $upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2,$age,0)";
-
                                                       $query = mysqli_query($conn, $upitunos1) or die (mysqli_error());
-
                                                       echo "<script>alert('erfolgreich registriert!');</script>";*/
-
                                                     if($insertSqlQuery)
                                                     {
-
                                                         $upitprikaz="SELECT id_user from user_oglas ORDER BY id_user DESC limit 1";
-
                                                         $rezupitprikazus=$conn->query($upitprikaz) or die("1 upit los");
-
                                                         $r3=mysqli_fetch_array($rezupitprikazus);
-
                                                         $iduser1=$r3['id_user'];
-
                                                         foreach($_POST['kateg'] as $item)
                                                         {
-
-                                                           echo "<h1>$item</h1>";
+                                                          echo "<h1>$item</h1>";
                                                           echo "<h3>$iduser1</h3>";
                                                           $upitkat="INSERT INTO user_kat VALUES('',$iduser1,$item)";
                                                           $rezupitprikazus=$conn->query($upitkat) or die("2 upit los");
-
                                                         }
-
                                                       //After inserting, send an email verification
-
                                                       include('phpmailer/PHPMailerAutoload.php');
                                                       include("connectionFile/define.php");
                                                       $mail = new PHPMailer;
-
                                                       //Enable SMTP debugging.
                                                       //$mail->SMTPDebug = 3; -> client ---> server dialog
                                                       //Set PHPMailer to use SMTP.
@@ -991,20 +721,40 @@ foreach($_POST['kateg'] as $item){
                                                       $mail->SMTPSecure = "tls";
                                                       //Set TCP port to connect to
                                                       $mail->Port = 587;
-
                                                       $mail->From = EMAIL;
                                                       $mail->FromName = NAME;
-
                                                       $mail->addAddress($email, $fName);
-
                                                       $mail->isHTML(true);
-
-
-}
-
-
-
-    } }}}}}?>
+                                                      $mail->Subject = "Subject Text";
+                                                      $mail->Body = "
+                                                          <i>Your username is: $username</i><br/>
+                                                          <p><strong>Click on the link below to verify you account</strong></p>
+                                                          <b><a href='localhost/sexchange/dating_website/verify_user.php?hash={$hash_ver}&email={$email}'>Klicken sie hier um Ihren Account zu verifizieren:</a></b>
+                                                      ";
+                                                      $mail->AltBody = "Your username is: $username";
+                                                      //If there was an error with sending
+                                                      if(!$mail->send())
+                                                      {
+                                                          echo "Mailer Error: " . $mail->ErrorInfo;
+                                                          echo "<script>alert('verifikations email nicht gesendet!');</script>";
+                                                      }
+                                                      else
+                                                      {
+                                                           echo "<script>alert('Erfolgreich registert! Bitte verifizieren Sie ihre Email');</script>";
+                                                      }
+                                                    }
+                                                }
+            /*$upitprikaz="SELECT id_user from user_oglas ORDER BY id_user DESC limit 1";
+            $rezupitprikazus=$conn->query($upitprikaz) or die("1 upit los");
+            $r3=mysqli_fetch_array($rezupitprikazus);
+            $iduser1=$r3['id_user'];
+            foreach($_POST['kateg'] as $item){
+              echo "<h1>$item</h1>";
+              echo "<h3>$iduser1</h3>";
+              $upitkat="INSERT INTO user_kat VALUES('',$iduser1,$item)";
+              $rezupitprikazus=$conn->query($upitkat) or die("2 upit los");
+            }*/
+    } }?>
 
   </div>
 
@@ -1015,77 +765,62 @@ foreach($_POST['kateg'] as $item){
              $('select').moveToList('#StaffList', '#PresenterList');
              e.preventDefault();
          });
-
          $('#btnRemoveAvenger').click(function (e) {
              $('select').removeSelected('#PresenterList');
              e.preventDefault();
          });
-
          $('#btnAvengerUp').click(function (e) {
              $('select').moveUpDown('#PresenterList', true, false);
              e.preventDefault();
          });
-
          $('#btnAvengerDown').click(function (e) {
              $('select').moveUpDown('#PresenterList', false, true);
              e.preventDefault();
          });
-
          $('#btnShield').click(function (e) {
              $('select').moveToList('#StaffList', '#ContactList');
              e.preventDefault();
          });
-
          $('#btnRemoveShield').click(function (e) {
              $('select').removeSelected('#ContactList');
              e.preventDefault();
          });
-
          $('#btnShieldUp').click(function (e) {
              $('select').moveUpDown('#ContactList', true, false);
              e.preventDefault();
          });
-
          $('#btnShieldDown').click(function (e) {
              $('select').moveUpDown('#ContactList', false, true);
              e.preventDefault();
          });
-
          $('#btnJusticeLeague').click(function (e) {
              $('select').moveToList('#StaffList', '#FacilitatorList');
              e.preventDefault();
          });
-
          $('#btnRemoveJusticeLeague').click(function (e) {
              $('select').removeSelected('#FacilitatorList');
              e.preventDefault();
          });
-
          $('#btnJusticeLeagueUp').click(function (e) {
              $('select').moveUpDown('#FacilitatorList', true, false);
              e.preventDefault();
          });
-
          $('#btnJusticeLeagueDown').click(function (e) {
              $('select').moveUpDown('#FacilitatorList', false, true);
              e.preventDefault();
          });
-
          $('#btnRight').click(function (e) {
              $('select').moveToListAndDelete('#lstBox1', '#lstBox2');
              e.preventDefault();
          });
-
          $('#btnAllRight').click(function (e) {
              $('select').moveAllToListAndDelete('#lstBox1', '#lstBox2');
              e.preventDefault();
          });
-
          $('#btnLeft').click(function (e) {
              $('select').moveToListAndDelete('#lstBox2', '#lstBox1');
              e.preventDefault();
          });
-
          $('#btnAllLeft').click(function (e) {
              $('select').moveAllToListAndDelete('#lstBox2', '#lstBox1');
              e.preventDefault();
