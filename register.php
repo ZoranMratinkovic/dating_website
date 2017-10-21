@@ -787,7 +787,7 @@ function toggle(source) {
                                                         foreach($_POST['kateg'] as $item)
                                                         {
 
-                                                          echo "<h1>$item</h1>";
+                                                           echo "<h1>$item</h1>";
                                                           echo "<h3>$iduser1</h3>";
                                                           $upitkat="INSERT INTO user_kat VALUES('',$iduser1,$item)";
                                                           $rezupitprikazus=$conn->query($upitkat) or die("2 upit los");
