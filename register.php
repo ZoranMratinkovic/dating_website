@@ -175,7 +175,7 @@ function toggle(source) {
  <body class="redbg" style="
     background: url(img/background.jpeg);
 ">
-   <?php include("menu_others.php"); ?>
+   <?php include("parts/menu_others.php"); ?>
 <div class="container">
 <div class="col-xs-12 col-sm-12 col-lg-12">
 
@@ -639,7 +639,7 @@ function toggle(source) {
         if(count($kategorijee)==0)
         {
           echo "<script>alert('Bitte Kategorijen auswahlen')</script>";
-        } 
+        }
         else
         {
             $name=$_POST['name'];
@@ -732,7 +732,7 @@ function toggle(source) {
                                                 $stmtUserEmailExist->bind_param("s",$email);
                                                 $stmtUserEmailExist->execute();
                                                 $resultUserEmailExist = $stmtUserEmailExist->get_result();
-                                                
+
                                                 //if email already exists
                                                 if($resultUserEmailExist->num_rows > 0)
                                                 {
@@ -760,32 +760,32 @@ function toggle(source) {
                                                     $bordel = 0;
 
                                                     $insertSql = "INSERT INTO user_oglas VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-                                                    
+
                                                     $insertSqlQuery = $conn->prepare($insertSql);
-                                                    
+
                                                     $insertSqlQuery->bind_param('iiissiisssiiiiiiissisiiiiiisssssssissisiiisi',$idUserOglas,$geschlecht,$interesse_am,$datum,$name,$herkunft,$kanton,$email,$username,$password,$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,$titel,$opis,$geschlecht,$grosse,$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,$adresse_tref,$platz,$kanton1,$tel,$name_tref,$name_tref1,$klinge,$spremnost,$website,$slidza,$id_gal,$video, $id_status_gold, $id_user_uloga,$bordel,$hash_ver,$status_verified);
-                                                    
+
                                                     $insertSqlQuery->execute();
                                                       /* $upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2,$age,0)";
-                                                      
+
                                                       $query = mysqli_query($conn, $upitunos1) or die (mysqli_error());
-                                                      
+
                                                       echo "<script>alert('erfolgreich registriert!');</script>";*/
 
                                                     if($insertSqlQuery)
                                                     {
-                                                      
+
                                                         $upitprikaz="SELECT id_user from user_oglas ORDER BY id_user DESC limit 1";
-             
+
                                                         $rezupitprikazus=$conn->query($upitprikaz) or die("1 upit los");
-                                                        
+
                                                         $r3=mysqli_fetch_array($rezupitprikazus);
-                                                       
+
                                                         $iduser1=$r3['id_user'];
-                                                        
+
                                                         foreach($_POST['kateg'] as $item)
                                                         {
-                                                          
+
                                                           echo "<h1>$item</h1>";
                                                           echo "<h3>$iduser1</h3>";
                                                           $upitkat="INSERT INTO user_kat VALUES('',$iduser1,$item)";
@@ -847,13 +847,13 @@ function toggle(source) {
 
 
             /*$upitprikaz="SELECT id_user from user_oglas ORDER BY id_user DESC limit 1";
-           
+
             $rezupitprikazus=$conn->query($upitprikaz) or die("1 upit los");
-            
+
             $r3=mysqli_fetch_array($rezupitprikazus);
-           
+
             $iduser1=$r3['id_user'];
-            
+
             foreach($_POST['kateg'] as $item){
               echo "<h1>$item</h1>";
               echo "<h3>$iduser1</h3>";
@@ -869,7 +869,7 @@ function toggle(source) {
   </div>
 
     </div>
-    <?php include("../parts/footer.php"); ?>
+    <?php include("parts/footer.php"); ?>
     <script>
     $('#btnAvenger').click(function (e) {
              $('select').moveToList('#StaffList', '#PresenterList');
