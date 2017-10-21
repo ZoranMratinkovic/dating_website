@@ -65,7 +65,10 @@
                   <a href="anbieterpremium.php">anbieterpremium</a>
               </li>
               <li>
-                  <a href="#">Services</a>
+                  <a href="partner.php">Banner</a>
+              </li>
+              <li>
+                  <a href="newpartner.php">Banner</a>
               </li>
               <li>
                   <a href="contact.php">Contact</a>

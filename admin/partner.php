@@ -65,7 +65,10 @@
                   <a href="anbieterpremium.php">anbieterpremium</a>
               </li>
               <li>
-                  <a href="#">Services</a>
+                  <a href="partner.php">Banner</a>
+              </li>
+              <li>
+                  <a href="newpartner.php">new Banner</a>
               </li>
               <li>
                   <a href="contact.php">Contact</a>
@@ -86,6 +89,7 @@
                 </div>
             </div>
         </div>
+  
         <!-- /#page-content-wrapper -->
         <form class="" action="#" method="post" enctype = "multipart/form-data">
           <table class='table table-bordered'>
@@ -95,7 +99,7 @@
             <th>Id</th>
             <th>Link</th>
             <th>Slika</th>
-            <th>Change</th>
+
             <th>delete</th>
               </tr>
               <?php $upit6="SELECT * FROM partneri";
@@ -105,11 +109,16 @@
               echo "<td>{$r23['link']}</td>";
               echo "<td><img src='../{$r23['slika']}' width='100px' height='100px'></td>";
 
-                echo "<td><a href='delete.php?idr={$r23['id']}'>Delete</a></td>";
+                echo "<td><a href='partner.php?idr={$r23['id']}'>Delete</a></td>";
 
 
             echo "</tr>";
-              } ?>
+              }
+if(isset($_GET['idr'])){
+  $upit51 = "DELETE FROM partneri where id=".$_GET['idr'];
+  $rezupit=$conn->query($upit51) or die("ba");
+}
+               ?>
 
           </table>
           </form>

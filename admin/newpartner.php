@@ -65,7 +65,10 @@
                   <a href="anbieterpremium.php">anbieterpremium</a>
               </li>
               <li>
-                  <a href="#">Services</a>
+                  <a href="partner.php">Banner</a>
+              </li>
+              <li>
+                  <a href="newpartner.php">new Banner</a>
               </li>
               <li>
                   <a href="contact.php">Contact</a>
@@ -111,8 +114,14 @@
                }else{
                   print_r($errors);
                }
-            } ?>
-          <label for="">Banner LINK  </label><input type="text" name="" class="form-control" value="link">
+            }
+            if(isset($_REQUEST['insert'])){
+              $link=$_REQUEST['link'];
+                $slidza = "img/partneri/".$file_name;
+              $upit="INSERT INTO partneri VALUES('','$link','$slidza')";
+              $rezupit=$conn->query($upit);
+            }?>
+          <label for="">Banner LINK  </label><input type="text" name="link" class="form-control" value="link">
           <input type="file" name="image1" class="btn"  value="">
           <input type="submit" name="insert" class="btn" value="Neuer partner einfuegen">
           </form>

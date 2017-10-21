@@ -7,16 +7,16 @@
   <title></title>
 
 <meta charset="UTF-8">
-<link href="vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="vendors/linears-icon/style.css" rel="stylesheet">
+<link href="../vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../vendors/linears-icon/style.css" rel="stylesheet">
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
   <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="js/jquery.selectlistactions.js"></script>
+  <script src="../js/jquery.selectlistactions.js"></script>
 
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="../css/site.css">
 <!-- RS5.0 Layers and Navigation Styles -->
 <link rel="stylesheet" type="text/css" href="../vendors/revolution/css/layers.css">
 <link rel="stylesheet" type="text/css" href="../vendors/revolution/css/navigation.css">
@@ -735,7 +735,7 @@ $r=mysqli_fetch_array($reupit);
 
 $idsession=$_SESSION['id'];
 
-$upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2,$age,$idsession)";
+$upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2,$age,$idsession,'test',1)";
 $query = mysqli_query($conn, $upitunos1) or die (mysqli_error());
 echo "<script>alert('erfolgreich registriert!');</script>";
 
