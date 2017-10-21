@@ -6,20 +6,20 @@
   <title></title>
 
 <meta charset="UTF-8">
-<link href="../vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
-<link href="../css/font-awesome.min.css" rel="stylesheet">
-<link href="../vendors/linears-icon/style.css" rel="stylesheet">
+<link href="vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="vendors/linears-icon/style.css" rel="stylesheet">
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
   <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="../js/jquery.selectlistactions.js"></script>
+  <script src="js/jquery.selectlistactions.js"></script>
 
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="css/site.css">
 <!-- RS5.0 Layers and Navigation Styles -->
-<link rel="stylesheet" type="text/css" href="../vendors/revolution/css/layers.css">
-<link rel="stylesheet" type="text/css" href="../vendors/revolution/css/navigation.css">
-<link rel="stylesheet" type="text/css" href="../vendors/revolution/css/settings.css">
+<link rel="stylesheet" type="text/css" href="vendors/revolution/css/layers.css">
+<link rel="stylesheet" type="text/css" href="vendors/revolution/css/navigation.css">
+<link rel="stylesheet" type="text/css" href="vendors/revolution/css/settings.css">
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -175,7 +175,72 @@ function toggle(source) {
  <body class="redbg" style="
     background: url(img/background.jpeg);
 ">
-   <?php include("parts/menu_others.php"); ?>
+   <header class="header_menu_area white_menu">
+
+            <nav class="navbar navbar-default">
+                <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.php"><img src="img/logo-2.png" alt=""></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown submenu active">
+
+                                <a href="index.php">Home</a>
+
+                        </li>
+                        <li class="dropdown menu-large">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kategorien <b class="caret"></b></a>
+                          <ul class="dropdown-menu megamenu row backg">
+                            <li class="col-sm-12">
+                                <ul>
+                                  <?php $upitcat="SELECT * FROM kategorije ORDER BY kategorija";
+
+                                  $rezupituser=$conn->query($upitcat)or die("los upit");;
+
+                                  while($r1=mysqli_fetch_array($rezupituser))
+                                  {
+                                    echo "<a href='members1.php?category={$r1['id_kat']}' class='nothing'><li style='width:20%'>".$r1['kategorija']."</li></a>";
+                                  }
+
+
+                             ?>
+                                </ul>
+                            </li>
+
+                          </ul>
+
+                        </li>
+
+
+                                <li><a href="members1.php">User</a></li>
+
+
+
+
+                        </li>
+
+
+
+                        <li><a href="contact.html">Kontakt</a></li>
+                    </ul>
+
+
+
+</form>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </header>
 <div class="container">
 <div class="col-xs-12 col-sm-12 col-lg-12">
 
@@ -263,26 +328,26 @@ function toggle(source) {
 
                               <?php
 
-                                  echo '<select name="monat" class="trecina form-control" required>';
-                                    echo '<option>Monat</option>';
-                                    for($i = 1; $i <= 12; $i++){
-                                      $i = str_pad($i, 2, 0, STR_PAD_LEFT);
-                                      echo "<option value='$i'>$i</option>";
-                                    }
-                                  echo '</select>';
-                                  echo '<select name="tag" class="trecina form-control" required>';
-                                    echo '<option>Tag</option>';
-                                    for($i = 1; $i <= 31; $i++){
-                                      $i = str_pad($i, 2, 0, STR_PAD_LEFT);
-                                      echo "<option value='$i'>$i</option>";
-                                    }
-                                  echo '</select>';
-                                  echo '<select name="jahr" class="trecina form-control" required>';
-                                    echo '<option>Jahr</option>';
-                                    for($i = date('Y'); $i >= date('Y', strtotime('-100 years')); $i--){
-                                      echo "<option value='$i'>$i</option>";
-                                    }
-                                  echo '</select>';
+  echo '<select name="monat" class="trecina form-control" required>';
+    echo '<option>Monat</option>';
+    for($i = 1; $i <= 12; $i++){
+      $i = str_pad($i, 2, 0, STR_PAD_LEFT);
+      echo "<option value='$i'>$i</option>";
+    }
+  echo '</select>';
+  echo '<select name="tag" class="trecina form-control" required>';
+    echo '<option>Tag</option>';
+    for($i = 1; $i <= 31; $i++){
+      $i = str_pad($i, 2, 0, STR_PAD_LEFT);
+      echo "<option value='$i'>$i</option>";
+    }
+  echo '</select>';
+  echo '<select name="jahr" class="trecina form-control" required>';
+    echo '<option>Jahr</option>';
+    for($i = date('Y'); $i >= date('Y', strtotime('-100 years')); $i--){
+      echo "<option value='$i'>$i</option>";
+    }
+  echo '</select>';
 ?>
 
                             </div>
@@ -610,7 +675,7 @@ function toggle(source) {
 
                         <?php $upituser="SELECT * FROM sredjenost";
 
-                         $rezupituser=$conn->query($upituser)or die("los upit");?>
+                    $rezupituser=$conn->query($upituser)or die("los upit");?>
                         <div class="form-group">
                             <div class="btn-group">
                               <label for="">Ist die Location eingerichtet? </label>
@@ -633,235 +698,117 @@ function toggle(source) {
 
 
       </form>
-    <?php if(isset($_POST['register']))
-    {
-        $kategorijee=$_POST['kateg'];
-        if(count($kategorijee)==0)
-        {
-          echo "<script>alert('Bitte Kategorijen auswahlen')</script>";
-        }
-        else
-        {
-            $name=$_POST['name'];
-            $email=$_POST['email'];
-            $password=$_POST['password1'];
-            $geschlecht=$_POST['geschlecht'];
-            $monat=$_POST['monat'];
-            $tag=$_POST['tag'];
-            $jahr=$_POST['jahr'];
-            $herkunft=$_POST['herkunft'];
-            $grosse=$_POST['grosse'];
-            $sex_orj=$_POST['sex_orj'];
-            $interesse_am=$_POST['interessiert_an'];
-            $status=$_POST['status'];
-            $poreklo=$_POST['poreklo'];
-            $kanton=$_POST['kanton'];
-            $kanton1=$_POST['kanton1'];
-            $was_magst_du=$_POST['was_magst_du'];
-            $was_mag_er=$_POST['was_mag_er'];
-            $gebaut=$_POST['gebaut'];
-            $haarlength=$_POST['haarlength'];
-            $haarfarbe=$_POST['haar_farbe'];
-            $augenfarbe=$_POST['augen_farbe'];
-            $whoseeme=$_POST['who_see'];
-            $bh=$_POST['bh'];
-            $oberweite=$_POST['oberweite'];
-            $brille=$_POST['brille'];
-            $website=$_POST['website'];
-            $adresse_tref=$_POST['adresse_tref'];
-            $name_tref=$_POST['location'];
-              $name_tref1=$_POST['location1'];
-            $spremnost=$_POST['spremnost'];
-            $username=$_POST['username'];
-            $titel=$_POST['titel'];
-            $opis=$_POST['opis'];
-            $platz=$_POST['platz'];
-            $klinge=$_POST['klinge'];
-            $tel=$_POST['tel'];
-            $age=$_POST['age'];
-            $datum=$tag.'.'.$monat.'.'.$jahr;
-
-            echo $geschlecht."<br/>";
-            echo $interesse_am."<br/>";
-            echo $datum."<br/>";
-            echo $name."<br/>";
-            echo $kanton."<br/>";
-            echo $herkunft."<br/>";
-            echo $email."<br/>";
-            echo $username."<br/>";
-            echo $titel."<br/>";
-            echo $opis."<br/>";
-            echo $platz."<br/>";
-            echo $klinge."<br/>";
-            echo $tel."<br/>";
-            echo $datum."<br/>";
+    <?php if(isset($_POST['register'])){
+  $kategorijee=$_POST['kateg'];
+    if(count($kategorijee)==0){
+      echo "<script>alert('Bitte Kategorijen auswahlen')</script>";
+    } else{
+      $name=$_POST['name'];
+      $email=$_POST['email'];
+      $password=$_POST['password1'];
+      $geschlecht=$_POST['geschlecht'];
+      $monat=$_POST['monat'];
+      $tag=$_POST['tag'];
+      $jahr=$_POST['jahr'];
+      $herkunft=$_POST['herkunft'];
+      $grosse=$_POST['grosse'];
+      $sex_orj=$_POST['sex_orj'];
+      $interesse_am=$_POST['interessiert_an'];
+      $status=$_POST['status'];
+      $poreklo=$_POST['poreklo'];
+      $kanton=$_POST['kanton'];
+      $kanton1=$_POST['kanton1'];
+      $was_magst_du=$_POST['was_magst_du'];
+      $was_mag_er=$_POST['was_mag_er'];
+      $gebaut=$_POST['gebaut'];
+      $haarlength=$_POST['haarlength'];
+      $haarfarbe=$_POST['haar_farbe'];
+      $augenfarbe=$_POST['augen_farbe'];
+      $whoseeme=$_POST['who_see'];
+      $bh=$_POST['bh'];
+      $oberweite=$_POST['oberweite'];
+      $brille=$_POST['brille'];
+      $website=$_POST['website'];
+      $adresse_tref=$_POST['adresse_tref'];
+      $name_tref=$_POST['location'];
+        $name_tref1=$_POST['location1'];
+      $spremnost=$_POST['spremnost'];
+      $username=$_POST['username'];
+      $titel=$_POST['titel'];
+      $opis=$_POST['opis'];
+      $platz=$_POST['platz'];
+      $klinge=$_POST['klinge'];
+      $tel=$_POST['tel'];
+      $age=$_POST['age'];
+      $datum=$tag.'.'.$monat.'.'.$jahr;
+      echo $geschlecht."<br/>";
+      echo $interesse_am."<br/>";
+      echo $datum."<br/>";
+      echo $name."<br/>";
+      echo $kanton."<br/>";
+      echo $herkunft."<br/>";
+      echo $email."<br/>";
+      echo $username."<br/>";
+      echo $titel."<br/>";
+      echo $opis."<br/>";
+      echo $platz."<br/>";
+      echo $klinge."<br/>";
+      echo $tel."<br/>";
+      echo $datum."<br/>";
 
 
-            echo $password."<br/>";
+      echo $password."<br/>";
 
-            echo $monat."<br/>";
-            echo $tag."<br/>";
-            echo $jahr."<br/>";
+      echo $monat."<br/>";
+      echo $tag."<br/>";
+      echo $jahr."<br/>";
 
-            echo $grosse."<br/>";
-            echo $sex_orj."<br/>";
+      echo $grosse."<br/>";
+      echo $sex_orj."<br/>";
 
-            echo $status."<br/>";
-            echo $poreklo."<br/>";
+      echo $status."<br/>";
+      echo $poreklo."<br/>";
 
-            echo $was_magst_du."<br/>";
-            echo $was_mag_er."<br/>";
-            echo $gebaut."<br/>";
-            echo $haarlength."<br/>";
-            echo $haarfarbe."<br/>";
-            echo $whoseeme."<br/>";
-            echo $bh."<br/>";
-            echo $oberweite."<br/>";
-            echo $brille."<br/>";
-            echo $website."<br/>";
-            echo $haarfarbe."<br/>";
-            echo $whoseeme."<br/>";
-            echo $bh."<br/>";
+      echo $was_magst_du."<br/>";
+      echo $was_mag_er."<br/>";
+      echo $gebaut."<br/>";
+      echo $haarlength."<br/>";
+      echo $haarfarbe."<br/>";
+      echo $whoseeme."<br/>";
+      echo $bh."<br/>";
+      echo $oberweite."<br/>";
+      echo $brille."<br/>";
+      echo $website."<br/>";
+      echo $haarfarbe."<br/>";
+      echo $whoseeme."<br/>";
+      echo $bh."<br/>";
 
-            echo $adresse_tref."<br/>";
-            echo $name_tref."<br/>";
-            echo $spremnost."<br/>";
-
-
-                                                $stmtUserEmailExist = $conn-> prepare("SELECT email FROM user_oglas WHERE email=?");
-                                                $stmtUserEmailExist->bind_param("s",$email);
-                                                $stmtUserEmailExist->execute();
-                                                $resultUserEmailExist = $stmtUserEmailExist->get_result();
-
-                                                //if email already exists
-                                                if($resultUserEmailExist->num_rows > 0)
-                                                {
-
-                                                  echo"
-                                                        <script>
-
-                                                            alert('es besteht bereits ein user mit dieser email adresse');
-                                                        </script>";
-                                                        $stmtUserEmailExist->close();
-
-                                                }
-                                                //if email doesn't exists
-                                                else
-                                                {
-                                                    //data for email verification
-                                                    $idUserOglas= "";
-                                                    $hash_ver = md5(rand(0,1000));
-                                                    $status_verified = 0;
-                                                    $slidza = "img/profiles/".$file_name;
-                                                    $id_gal = 4; // Ovo ne treba ????????
-                                                    $video = "vide ovde . ne treba ovo polje";
-                                                    $id_status_gold = 1;
-                                                    $id_user_uloga =2;
-                                                    $bordel = 0;
+      echo $adresse_tref."<br/>";
+      echo $name_tref."<br/>";
+      echo $spremnost."<br/>";
 
 
-                                                    $insertSql = "INSERT INTO user_oglas VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-                                                    
-                                                    $insertSqlQuery = $conn->prepare($insertSql);
-                                                    
-                                                    $insertSqlQuery->bind_param('iiissiisssiiiiiiissisiiiiiisssssssissisiiiisi',$idUserOglas,$geschlecht,$interesse_am,$datum,$name,$herkunft,$kanton,$email,$username,$password,$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,$titel,$opis,$geschlecht,$grosse,$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,$adresse_tref,$platz,$kanton1,$tel,$name_tref,$name_tref1,$klinge,$spremnost,$website,$slidza,$id_gal,$video,$id_status_gold,$id_user_uloga,$age,$bordel,$hash_ver,$status_verified);
-
-                                                    $insertSqlQuery->execute();
-                                                      /* $upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2,$age,0)";
-
-                                                      $query = mysqli_query($conn, $upitunos1) or die (mysqli_error());
-
-                                                      echo "<script>alert('erfolgreich registriert!');</script>";*/
-
-                                                    if($insertSqlQuery)
-                                                    {
-
-                                                        $upitprikaz="SELECT id_user from user_oglas ORDER BY id_user DESC limit 1";
-
-                                                        $rezupitprikazus=$conn->query($upitprikaz) or die("1 upit los");
-
-                                                        $r3=mysqli_fetch_array($rezupitprikazus);
-
-                                                        $iduser1=$r3['id_user'];
-
-                                                        foreach($_POST['kateg'] as $item)
-                                                        {
-
-                                                          echo "<h1>$item</h1>";
-                                                          echo "<h3>$iduser1</h3>";
-                                                          $upitkat="INSERT INTO user_kat VALUES('',$iduser1,$item)";
-                                                          $rezupitprikazus=$conn->query($upitkat) or die("2 upit los");
-
-                                                        }
-
-                                                      //After inserting, send an email verification
-
-                                                      include('phpmailer/PHPMailerAutoload.php');
-                                                      include("connectionFile/define.php");
-                                                      $mail = new PHPMailer;
-
-                                                      //Enable SMTP debugging.
-                                                      //$mail->SMTPDebug = 3; -> client ---> server dialog
-                                                      //Set PHPMailer to use SMTP.
-                                                      $mail->isSMTP();
-                                                      //Set SMTP host name
-                                                      $mail->Host = "smtp.gmail.com";
-                                                      //Set this to true if SMTP host requires authentication to send email
-                                                      $mail->SMTPAuth = true;
-                                                      //Provide username and password
-                                                      $mail->Username = USERNAME;
-                                                      $mail->Password = PASSWORD;
-                                                      //If SMTP requires TLS encryption then set it
-                                                      $mail->SMTPSecure = "tls";
-                                                      //Set TCP port to connect to
-                                                      $mail->Port = 587;
-
-                                                      $mail->From = EMAIL;
-                                                      $mail->FromName = NAME;
-
-                                                      $mail->addAddress($email, $fName);
-
-                                                      $mail->isHTML(true);
-
-                                                      $mail->Subject = "Subject Text";
-                                                      $mail->Body = "
-
-                                                          <i>Your username is: $username</i><br/>
-                                                          <p><strong>Click on the link below to verify you account</strong></p>
-                                                          <b><a href='localhost/sexchange/dating_website/verify_user.php?hash={$hash_ver}&email={$email}'>Klicken sie hier um Ihren Account zu verifizieren:</a></b>
-
-                                                      ";
-                                                      $mail->AltBody = "Your username is: $username";
-
-                                                      //If there was an error with sending
-                                                      if(!$mail->send())
-                                                      {
-                                                          echo "Mailer Error: " . $mail->ErrorInfo;
-                                                          echo "<script>alert('verifikations email nicht gesendet!');</script>";
-                                                      }
-                                                      else
-                                                      {
-                                                           echo "<script>alert('Erfolgreich registert! Bitte verifizieren Sie ihre Email');</script>";
-                                                      }
-                                                    }
-                                                }
 
 
-            /*$upitprikaz="SELECT id_user from user_oglas ORDER BY id_user DESC limit 1";
 
-            $rezupitprikazus=$conn->query($upitprikaz) or die("1 upit los");
 
-            $r3=mysqli_fetch_array($rezupitprikazus);
 
-            $iduser1=$r3['id_user'];
+$upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2,$age,0)";
+$query = mysqli_query($conn, $upitunos1) or die (mysqli_error());
+echo "<script>alert('erfolgreich registriert!');</script>";
 
-            foreach($_POST['kateg'] as $item){
-              echo "<h1>$item</h1>";
-              echo "<h3>$iduser1</h3>";
-              $upitkat="INSERT INTO user_kat VALUES('',$iduser1,$item)";
-              $rezupitprikazus=$conn->query($upitkat) or die("2 upit los");
 
-            }*/
+$upitprikaz="SELECT id_user from user_oglas ORDER BY id_user DESC limit 1";
+$rezupitprikazus=$conn->query($upitprikaz) or die("1 upit los");
+$r3=mysqli_fetch_array($rezupitprikazus);
+$iduser1=$r3['id_user'];
+foreach($_POST['kateg'] as $item){
+  echo "<h1>$item</h1>";
+  echo "<h3>$iduser1</h3>";
+  $upitkat="INSERT INTO user_kat VALUES('',$iduser1,$item)";
+  $rezupitprikazus=$conn->query($upitkat) or die("2 upit los");
+
+}
 
 
 
