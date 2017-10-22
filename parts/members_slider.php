@@ -9,7 +9,7 @@
                     <?php
                         include("connectionFile/connection.php");
 
-                        $members = "SELECT id_user,umetnicko_ime,datum,profilna_slika FROM user_oglas";
+                        $members = "SELECT id_user,umetnicko_ime,datum,profilna_slika FROM user_oglas ORDER BY id_user_uloga DESC";
                         $stmt = $conn->query($members);
                         if($stmt)
                         {

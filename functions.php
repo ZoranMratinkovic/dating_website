@@ -44,7 +44,7 @@ function all_members()
 ///All_members_with_desc function lists all members on members1.php
 function all_members_with_desc()
 {
-    $all_members = "SELECT uo.id_user,uo.title,uo.umetnicko_ime,uo.datum,uo.profilna_slika,uo.opis,k.naziv_kanton,bs.brak_status FROM user_oglas uo INNER JOIN kanton k ON uo.id_kanton=k.id_kanton INNER JOIN brak_status bs ON uo.id_brak_status = bs.id_brak_status";
+    $all_members = "SELECT uo.id_user_uloga,uo.id_user,uo.title,uo.umetnicko_ime,uo.datum,uo.profilna_slika,uo.opis,k.naziv_kanton,bs.brak_status FROM user_oglas uo INNER JOIN kanton k ON uo.id_kanton=k.id_kanton INNER JOIN brak_status bs ON uo.id_brak_status = bs.id_brak_status ORDER BY uo.id_user_uloga DESC";
 
     include('connectionFile/connection.php');
 
