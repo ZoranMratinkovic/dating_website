@@ -212,8 +212,8 @@
                                 <div class="row text-center">
                                     <?php
                                         include('functions.php');
-                                       
-                                            $id_userr = (int)$_SESSION['id']; 
+
+                                            $id_userr = (int)$_SESSION['id'];
 
                                         if(isset($_SESSION['id_uloga']) && $_SESSION['id_uloga']==5)
                                         {
@@ -223,7 +223,7 @@
                                         {
 
                                             echo "<div class='alert alert-danger'>
-                                                    <h5><strong>Go premium!</strong> Hollen sie sich jetzt Ihren Premium account und laden sie Videos hoch</h5>&nbsp
+                                                    <h5><strong>Go premium!</strong> Hollen sie sich jetzt Ihren Premium account und laden sie Videos hoch </h5>&nbsp
                                                     <a href='#' class='btn btn-danger btn-lg'>Go premium</a>
                                                   </div>";
 
