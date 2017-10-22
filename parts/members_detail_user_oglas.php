@@ -27,9 +27,12 @@
                                                    include('functions.php');
 
                                                    $dest = upload_img($ime_slike,$tmp,$target_dir,$resized_dir);
+
                                                    if($dest)
                                                    {
-                                                        $d = compress($target_dir.$ime_slike,$target_dir.$resized_dir."/".$ime_slike, 80, 130);
+                                                        //270x270 -> profile change picture
+                                                        $d = compress($target_dir.$ime_slike,$target_dir.$resized_dir."/".$ime_slike, 100, 270);
+
                                                         $sqlUpit = "UPDATE user_oglas SET profilna_slika = ? WHERE id_user = ?";
                                                         $id_user_girl = (int)$_SESSION['id'];
 
@@ -41,7 +44,7 @@
 
                                                        if($stmtInsert)
                                                        {
-                                                          echo "<script>alert('uspeh');</script>";
+                                                          echo "<script>location.href='members-detail.php?id_girl={$_SESSION['id']}';</script>";
                                                        }
                                                        else
                                                        {
