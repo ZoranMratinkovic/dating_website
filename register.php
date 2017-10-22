@@ -263,15 +263,15 @@ function toggle(source) {
                 <div class="registration_form_s">
                     <div class="form-group">
                       <label for="">Grösse</label>
-                          <input type="text" class="form-control" id="reg_pass" name="grosse" placeholder="Grosse">
+                          <input type="text" class="form-control" id="reg_pass" name="grosse" placeholder="Grosse" required>
                       </div>
                       <div class="form-group">
                         <label for="">Titel</label>
-                          <input type="text" class="form-control" name="titel" id="reg_pass" placeholder="Titel über dich!">
+                          <input type="text" class="form-control" name="titel" id="reg_pass" placeholder="Titel über dich!" required>
                       </div>
                       <div class="form-group">
                         <label for="">Über dich</label>
-                          <textarea name="opis" rows="8" cols="40" placeholder="Hallo ich bin Klara und mag es !!"></textarea>
+                          <textarea name="opis" rows="8" cols="40" placeholder="Hallo ich bin Klara und mag es !!" required></textarea>
                       </div>
                               <?php $upituser="SELECT * FROM sex_orj";
                                         $rezupituser=$conn->query($upituser)or die("los upit");?>
@@ -514,7 +514,7 @@ function toggle(source) {
                   <h4>Location Treffen wo</h4>
                   <div class="form-group">
                     <label for="">Tel</label>
-                      <input type="text" class="form-control" id="reg_pass" name="tel" placeholder="078888888">
+                      <input type="text" class="form-control" id="reg_pass" name="tel" placeholder="078888888" required>
                   </div>
                   <div class="form-group">
                     <label for="">Klinge</label>
