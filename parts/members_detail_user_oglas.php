@@ -1,5 +1,3 @@
-
-<?php echo "kurva"; ?>
 <section class="banner_area profile_banner">
             <div class="profiles_inners">
                 <div class="container">

@@ -683,51 +683,6 @@ $r=mysqli_fetch_array($reupit);
       $tel=$_POST['tel'];
       $age=$_POST['age'];
       $datum=$tag.'.'.$monat.'.'.$jahr;
-      echo $geschlecht."<br/>";
-      echo $interesse_am."<br/>";
-      echo $datum."<br/>";
-      echo $name."<br/>";
-      echo $kanton."<br/>";
-      echo $herkunft."<br/>";
-      echo $email."<br/>";
-      echo $username."<br/>";
-      echo $titel."<br/>";
-      echo $opis."<br/>";
-      echo $platz."<br/>";
-      echo $klinge."<br/>";
-      echo $tel."<br/>";
-      echo $datum."<br/>";
-
-
-      echo $password."<br/>";
-
-      echo $monat."<br/>";
-      echo $tag."<br/>";
-      echo $jahr."<br/>";
-
-      echo $grosse."<br/>";
-      echo $sex_orj."<br/>";
-
-      echo $status."<br/>";
-      echo $poreklo."<br/>";
-
-      echo $was_magst_du."<br/>";
-      echo $was_mag_er."<br/>";
-      echo $gebaut."<br/>";
-      echo $haarlength."<br/>";
-      echo $haarfarbe."<br/>";
-      echo $whoseeme."<br/>";
-      echo $bh."<br/>";
-      echo $oberweite."<br/>";
-      echo $brille."<br/>";
-      echo $website."<br/>";
-      echo $haarfarbe."<br/>";
-      echo $whoseeme."<br/>";
-      echo $bh."<br/>";
-
-      echo $adresse_tref."<br/>";
-      echo $name_tref."<br/>";
-      echo $spremnost."<br/>";
 
 
 
@@ -735,8 +690,10 @@ $r=mysqli_fetch_array($reupit);
 
 $idsession=$_SESSION['id'];
 
+
 $upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2,$age,$idsession,'test',1)";
 $query = mysqli_query($conn, $upitunos1) or die (mysqli_error());
+
 echo "<script>alert('erfolgreich registriert!');</script>";
 
 
