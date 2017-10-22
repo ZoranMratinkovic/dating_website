@@ -640,7 +640,7 @@ function toggle(source) {
                                                     $idUserOglas= "";
                                                     $hash_ver = md5(rand(0,1000));
                                                     $status_verified = 0;
-                                                    $slidza = "img/profiles/".$file_name;
+                                                    $slidza = "/img/profiles/".$file_name;
                                                     $id_gal = 4; // Ovo ne treba ????????
                                                     $video = "vide ovde . ne treba ovo polje";
                                                     $id_status_gold = 1;
