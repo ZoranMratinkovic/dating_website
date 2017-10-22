@@ -260,7 +260,7 @@ function toggle(source) {
                 </div>
             </div>
             <div class="col-md-12">
-                <div class="registration_form_s">              
+                <div class="registration_form_s">
                     <div class="form-group">
                       <label for="">Grösse</label>
                           <input type="text" class="form-control" id="reg_pass" name="grosse" placeholder="Grosse">
@@ -435,12 +435,12 @@ function toggle(source) {
                 </div>
                 <div class="registration_form_s regform">
                 <div class="form-group mgt">
-                  
+
                   <div class="row style-select">
                     <?php $upituser="SELECT * FROM kategorije";
                       $rezupituser=$conn->query($upituser)or die("los upit"); ?>
                 			<div class="col-md-12">
-                        
+
                         <h3>Kategorien</h3>
                         <input type="checkbox" onClick="toggle(this)" /> Ich Kann alles <br/>
                         <?php
@@ -672,7 +672,7 @@ function toggle(source) {
                                                       //Enable SMTP debugging.
                                                       //$mail->SMTPDebug = 3; -> client ---> server dialog
                                                       //Set PHPMailer to use SMTP.
-                                                      $mail->isSMTP();
+                                                      // $mail->isSMTP();
                                                       //Set SMTP host name
                                                       $mail->Host = "smtp.gmail.com";
                                                       //Set this to true if SMTP host requires authentication to send email
@@ -692,7 +692,7 @@ function toggle(source) {
                                                       $mail->Body = "
                                                           <i>Your username is: $username</i><br/>
                                                           <p><strong>Click on the link below to verify you account</strong></p>
-                                                          <b><a href='localhost/sexchange/dating_website/verify_user.php?hash={$hash_ver}&email={$email}'>Klicken sie hier um Ihren Account zu verifizieren:</a></b>
+                                                          <b><a href='http://www.sexchange.alpikom.rs/verify_user.php?hash={$hash_ver}&email={$email}'>Klicken sie hier um Ihren Account zu verifizieren:</a></b>
                                                       ";
                                                       $mail->AltBody = "Your username is: $username";
                                                       //If there was an error with sending

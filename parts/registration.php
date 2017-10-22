@@ -10,7 +10,7 @@
 
     <script type="text/javascript">
 
-function posalji() 
+function posalji()
 {
           var email = document.getElementById('reg_email').value;
           var ime = document.getElementById('reg_first').value;
@@ -209,11 +209,11 @@ function posalji()
 
                                 <button type="submit" value="LogIn" class="btn form-control login_btn" name="registeru">Register</button>
                             </div>
-                            <?php     
+                            <?php
 
                                   if(isset($_REQUEST['registeru']))
                                   {
-                                                
+
                                                 $email=$_POST['email'];
                                                 $fullname=$_POST['fullname'];
                                                 $username=$_POST['username'];
@@ -230,7 +230,7 @@ function posalji()
                                                 $stmtUserEmailExist->bind_param("s",$email);
                                                 $stmtUserEmailExist->execute();
                                                 $resultUserEmailExist = $stmtUserEmailExist->get_result();
-                                                
+
                                                 //if email already exists
                                                 if($resultUserEmailExist->num_rows > 0)
                                                 {
@@ -252,17 +252,17 @@ function posalji()
                                                     $status_verified = 0;
 
                                                     $insertSql = "INSERT INTO user VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
-                                                    
+
                                                     $insertSqlQuery = $conn->prepare($insertSql);
-                                                    
+
                                                     $insertSqlQuery->bind_param('issssiiiiisi',$idUserRegular,$email,$username,$password,$geschlecht,$tag,$monat,$jahr,$bordel,$age,$hash_ver,$status_verified);
-                                                    
+
                                                     $insertSqlQuery->execute();
 
                                                     if($insertSqlQuery)
                                                     {
-                                                      
-                                                    
+
+
                                                       //After inserting, send an email verification
 
                                                       include('phpmailer/PHPMailerAutoload.php');
@@ -272,7 +272,7 @@ function posalji()
                                                       //Enable SMTP debugging.
                                                       //$mail->SMTPDebug = 3; -> client ---> server dialog
                                                       //Set PHPMailer to use SMTP.
-                                                      $mail->isSMTP();
+                                                    //  $mail->isSMTP();
                                                       //Set SMTP host name
                                                       $mail->Host = "smtp.gmail.com";
                                                       //Set this to true if SMTP host requires authentication to send email
@@ -297,7 +297,7 @@ function posalji()
 
                                                           <i>Your username is: $username</i><br/>
                                                           <p><strong>Click on the link below to verify you account</strong></p>
-                                                          <b><a href='localhost/sexchange/dating_website/verify.php?hash={$hash_ver}&email={$email}'>Klicken sie hier um Ihren Account zu verifizieren:</a></b>
+                                                          <b><a href='http://www.sexchange.alpikom.rs/verify.php?hash={$hash_ver}&email={$email}'>Klicken sie hier um Ihren Account zu verifizieren:</a></b>
 
                                                       ";
                                                       $mail->AltBody = "Your username is: $username";

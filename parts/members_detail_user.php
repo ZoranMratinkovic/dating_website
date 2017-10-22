@@ -13,7 +13,7 @@
                             </ul>
                         </div>
                         <div class="right_side_content">
-                          <?php 
+                          <?php
                               switch ($id_user_uloga) {
                                 case 5:
                                   $ul = "Premium";
@@ -148,7 +148,7 @@
                                             <li><a href="#"><?php echo $sex_orj; ?></a></li>
                                             <li><a href="#"><?php echo $tvoja_ul; ?></a></li>
                                             <li><a href="#"><?php echo $njeg_uloga; ?></a></li>
-                                            <li><a href="#"><?php echo $kategorija; ?></a></li>
+                                            <li><a href="#"><?php for($i=0;$i<count($niz);$i++){echo $niz[$i].",";} ?></a></li>
 
                                         </ul>
 
