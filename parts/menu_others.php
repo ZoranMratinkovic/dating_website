@@ -7,6 +7,10 @@
     unset($_SESSION['id_uloga']);
       unset($_SESSION['age']);
   }
+  if(isset($_POST['logout']) && isset($_SESSION['bordel_girl']))
+  {
+    unset($_SESSION['bordel_girl']);
+  }
 ?>
 
    <header class="header_menu_area">

@@ -7,6 +7,10 @@
     unset($_SESSION['id_uloga']);
       unset($_SESSION['age']);
   }
+  if(isset($_POST['logout']) && isset($_SESSION['bordel_girl']))
+  {
+    unset($_SESSION['bordel_girl']);
+  }
 ?>
 
    <header class="header_menu_area">
@@ -21,7 +25,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.php"><img src="img/logo-2.png" alt=""></a>
+                    <a class="navbar-brand" href="index.php"><img src="../img/logo-2.png" alt=""></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->

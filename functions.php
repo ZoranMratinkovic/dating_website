@@ -331,11 +331,19 @@ function list_of_albums($id)
                                         <input type='submit' value='Insert' name='InsertPics{$i}' class='btn btn-lg dugmeSearch form-control' id='btnInsertAlbumImg'>
                                     </form>
                         </aside>";
-                    if($countImage >= 5 && $_SESSION['id_uloga']!=5)
+                    if($countImage >= 5 && $_SESSION['id_uloga']==2)
                     {
                         echo "<script>document.getElementById('formaZaUpis15Slika{$i}').className='hide';</script>";
                         //hides the form if there is 20 or more pictures
                     }
+                    else if($countImage >= 20 && $_SESSION['id_uloga']==5)
+                    {
+                        echo "<script>document.getElementById('formaZaUpis15Slika{$i}').className='hide';</script>";
+                    }
+                    else if($countImage >= 100 && $_SESSION['id_uloga']==7)
+                    {
+                        echo "<script>document.getElementById('formaZaUpis15Slika{$i}').className='hide';</script>";
+                    } 
                 }
                 else
                 {
@@ -369,7 +377,7 @@ function list_of_albums_reg_user($id)
     $stmtAlbum = $conn->prepare($listAlbums);
     $stmtAlbum->bind_param('i',$id);
     $stmtAlbum->execute();
-
+    $i = 0;
     if(!isset($_SESSION['username']))
     {
         $_SESSION['age']=2;
@@ -420,12 +428,11 @@ function list_of_albums_reg_user($id)
                         //if she doesn't have an album, show her the form, to insert images
                         echo
                             "
-                                <h4>{$row['album_name']}</h4>
-                                <img src='img/widget-title-border.png' alt=''>
-                                <form action='insertImagesIntoAlbum.php?id_album={$row['id_album']}' method='post' enctype='multipart/form-data'>
-                                    <input type='file' name='AlbumPictures'>
-                                   <input type='submit' value='Insert' name='InsertPics{$i}' class='btn btn-lg dugmeSearch'>
-                                </form>
+                                <aside class='s_widget photo_widget brd pad'>
+                                        <h3>{$row['album_name']}<h3>
+                                        <img src='img/widget-title-border.png' alt=''>
+                                        <h5>Keine Bilder</h5>
+                                  </aside>
 
 
                             ";

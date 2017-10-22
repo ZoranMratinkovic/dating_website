@@ -1,5 +1,3 @@
-
-<?php echo "kurva"; ?>
 <section class="banner_area profile_banner">
             <div class="profiles_inners">
                 <div class="container">
@@ -215,7 +213,7 @@
                                     <?php
                                         include('functions.php');
                                        
-                                            $id_userr = (int)$_SESSION['id']; 
+                                            $id_userr = (int)$_SESSION['bordel_girl']; 
 
                                         if(isset($_SESSION['id_uloga']) && $_SESSION['id_uloga']==5)
                                         {

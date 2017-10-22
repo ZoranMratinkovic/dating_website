@@ -620,44 +620,6 @@ function toggle(source) {
             $tel=$_POST['tel'];
             $age=$_POST['age'];
             $datum=$tag.'.'.$monat.'.'.$jahr;
-            echo $geschlecht."<br/>";
-            echo $interesse_am."<br/>";
-            echo $datum."<br/>";
-            echo $name."<br/>";
-            echo $kanton."<br/>";
-            echo $herkunft."<br/>";
-            echo $email."<br/>";
-            echo $username."<br/>";
-            echo $titel."<br/>";
-            echo $opis."<br/>";
-            echo $platz."<br/>";
-            echo $klinge."<br/>";
-            echo $tel."<br/>";
-            echo $datum."<br/>";
-            echo $password."<br/>";
-            echo $monat."<br/>";
-            echo $tag."<br/>";
-            echo $jahr."<br/>";
-            echo $grosse."<br/>";
-            echo $sex_orj."<br/>";
-            echo $status."<br/>";
-            echo $poreklo."<br/>";
-            echo $was_magst_du."<br/>";
-            echo $was_mag_er."<br/>";
-            echo $gebaut."<br/>";
-            echo $haarlength."<br/>";
-            echo $haarfarbe."<br/>";
-            echo $whoseeme."<br/>";
-            echo $bh."<br/>";
-            echo $oberweite."<br/>";
-            echo $brille."<br/>";
-            echo $website."<br/>";
-            echo $haarfarbe."<br/>";
-            echo $whoseeme."<br/>";
-            echo $bh."<br/>";
-            echo $adresse_tref."<br/>";
-            echo $name_tref."<br/>";
-            echo $spremnost."<br/>";
                                                 $stmtUserEmailExist = $conn-> prepare("SELECT email FROM user_oglas WHERE email=?");
                                                 $stmtUserEmailExist->bind_param("s",$email);
                                                 $stmtUserEmailExist->execute();
@@ -690,9 +652,6 @@ function toggle(source) {
 
                                                     $insertSqlQuery->bind_param('iiissiisssiiiiiiissisiiiiiisssssssissisiiiisi',$idUserOglas,$geschlecht,$interesse_am,$datum,$name,$herkunft,$kanton,$email,$username,$password,$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,$titel,$opis,$geschlecht,$grosse,$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,$adresse_tref,$platz,$kanton1,$tel,$name_tref,$name_tref1,$klinge,$spremnost,$website,$slidza,$id_gal,$video,$id_status_gold,$id_user_uloga,$age,$bordel,$hash_ver,$status_verified);
                                                     $insertSqlQuery->execute();
-                                                      /* $upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','img/profiles/$file_name',4,'video ovde',1,2,$age,0)";
-                                                      $query = mysqli_query($conn, $upitunos1) or die (mysqli_error());
-                                                      echo "<script>alert('erfolgreich registriert!');</script>";*/
                                                     if($insertSqlQuery)
                                                     {
                                                         $upitprikaz="SELECT id_user from user_oglas ORDER BY id_user DESC limit 1";
@@ -748,16 +707,7 @@ function toggle(source) {
                                                       }
                                                     }
                                                 }
-            /*$upitprikaz="SELECT id_user from user_oglas ORDER BY id_user DESC limit 1";
-            $rezupitprikazus=$conn->query($upitprikaz) or die("1 upit los");
-            $r3=mysqli_fetch_array($rezupitprikazus);
-            $iduser1=$r3['id_user'];
-            foreach($_POST['kateg'] as $item){
-              echo "<h1>$item</h1>";
-              echo "<h3>$iduser1</h3>";
-              $upitkat="INSERT INTO user_kat VALUES('',$iduser1,$item)";
-              $rezupitprikazus=$conn->query($upitkat) or die("2 upit los");
-            }*/
+
     } }?>
 
   </div>

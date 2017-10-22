@@ -110,7 +110,7 @@ session_start();
 
     </div>
     <!-- /#wrapper -->
-    <?php include("../parts/footer.php"); ?>
+    <?php include("footer.php"); ?>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 

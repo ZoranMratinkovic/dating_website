@@ -1,9 +1,8 @@
 <?php session_start();
-    /*if(isset($_GET['bordel']))
+    if(isset($_GET['bordel']))
     {
         $_SESSION['bordel_girl'] = $_GET['id_girl'];
     }
-    echo $_SESSION['bordel_girl'];*/
 ?>
 
 <!DOCTYPE html>
@@ -149,6 +148,10 @@
 
                 include('parts/members_detail_user_oglas.php');
 
+            }
+            else if(isset($_SESSION['bordel_girl']) && $_SESSION['id_uloga'] == 6)
+            {
+                include('parts/members_detail_user_oglas1.php');
             }
             else
             {

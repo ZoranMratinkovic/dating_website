@@ -38,8 +38,16 @@
             $stmtInsert11 = $conn->prepare($sqlUpit1);
             $stmtInsert11->bind_param('iis',$id_album_img,$id_album,$last_id);
             $stmtInsert11->execute();
-
-              echo "<script>location.href='members-detail.php?id_girl={$_SESSION['id']}';</script>";
+              
+              if(isset($_SESSION['bordel_girl']) && $_SESSION['id_uloga']==6)
+              {
+                echo "<script>location.href='members-detail.php?id_girl={$_SESSION['bordel_girl']}';</script>";
+              }
+              else
+              {
+                echo "<script>location.href='members-detail.php?id_girl={$_SESSION['id']}';</script>";
+              }
+              
           }
           else
           {

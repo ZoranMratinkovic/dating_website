@@ -22,9 +22,9 @@
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
     <!-- Icon css link -->
-    <link href="vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="vendors/linears-icon/style.css" rel="stylesheet">
+    <link href="../vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../vendors/linears-icon/style.css" rel="stylesheet">
 
     <!-- RS5.0 Layers and Navigation Styles -->
     <link rel="stylesheet" type="text/css" href="../vendors/revolution/css/layers.css">
@@ -49,7 +49,6 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 
-    <script src="js/map-custome.js"></script>
 
 
 
@@ -133,7 +132,7 @@
                               <td><img src='../{$r['profilna_slika']}' width='50px' height='50px'></td>
                               <td>{$r['uloga']}</td>
                               <td><a href='../update_info_admin.php?idgirla={$r['id_user']}'>bearbeiten</a></td>
-                              <td><a href='../members-detail.php?id_girl={$r['id_user']}'>Profil ansehen</a></td>
+                              <td><a href='../members-detail1.php?id_girl={$r['id_user']}&bordel=1'>Profil ansehen</a></td>
                               <td><a href='anbieter.php?idc={$r['id_user']}'>x</a></td>
 
                       </tr>";
@@ -180,7 +179,7 @@
           </form>
     </div>
     <!-- /#wrapper -->
-  <?php include("../parts/footer.php"); ?>
+  <?php include("footer.php"); ?>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
