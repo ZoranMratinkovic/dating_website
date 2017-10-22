@@ -13,7 +13,23 @@
                             </ul>
                         </div>
                         <div class="right_side_content">
-                            <button type="submit" value="LogIn" class="btn form-control login_btn">Follow<img src="img/user.png" alt=""></button>
+                          <?php 
+                              switch ($id_user_uloga) {
+                                case 5:
+                                  $ul = "Premium";
+                                  break;
+                                case 2:
+                                  $ul = "Free User";
+                                  break;
+                                case 7:
+                                  $ul = "Gold User";
+                                  break;
+                                default:
+                                  $ul = "User";
+                                  break;
+                              }
+                           ?>
+                           <button type="button" value="LogIn" class="btn form-control login_btn"><?php echo $ul; ?><img src="img/user.png" alt=""></button>
                         </div>
                     </div>
                 </div>

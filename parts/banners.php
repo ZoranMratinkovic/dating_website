@@ -33,12 +33,4 @@
                 </div>
 
             </div>
-            <div class="container mt-35">
-                <div class="row">
-                    <div class="col-xs-12 text-center ">
-                        <a href="members1.php" role='button' class='btn btn-lg dugmeSearch mtNula'>Alle anzeigen</a>
-
-                    </div>
-                </div>
-            </div>
         </section>

@@ -2827,7 +2827,7 @@ body, p, h1, h2, h3, h4, h5, h6 {
 }
 
 .adms_slider_area .adms_inners .adms_head .left_adms {
-  background: #e74c3c;
+  background: #970000;
 }
 
 .adms_slider_area .adms_inners .adms_head .left_adms .pull-left h3 {
@@ -3333,6 +3333,8 @@ body, p, h1, h2, h3, h4, h5, h6 {
 
 .blog_grid_area .blog_grid_inner .blog_grid_item {
   margin-top: 48px;
+  /*our code*/
+  min-height:530px;
 }
 
 .blog_grid_area .blog_grid_inner .blog_grid_item .blog_grid_img {

@@ -65,11 +65,11 @@
         <!--================Slider Reg Area =================-->
             <?php include('parts/slider.php'); ?>
         <!--================End <Sli></Sli>der Reg Area =================-->
-                   <?php include('parts/banners.php'); ?>
+            <?php include('parts/banner.php'); ?>
         <!--================Register Members slider Area =================-->
              <?php include('parts/members_slider.php'); ?>
         <!--================End Register Members  slider Area =================-->
-
+          
         <!--================Download Area =================-->
             <?php include('parts/download_area.php'); ?>
         <!--================End Download Area =================-->
@@ -104,7 +104,7 @@
             </div>
         </div>
 
-        <script type="text/javascript" src='js/our_script.js'></script>
+       
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="js/jquery-2.1.4.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -138,5 +138,6 @@
 
         <script src="js/video_player.js"></script>
         <script src="js/theme.js"></script>
+         <script type="text/javascript" src='js/our_script.js'></script>
     </body>
 </html>
