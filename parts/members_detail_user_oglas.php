@@ -22,7 +22,7 @@
                                                    $ime_slike = $_FILES['ChangeProfilePic']['name'];
                                                    $tmp = $_FILES['ChangeProfilePic']['tmp_name'];
                                                    $target_dir = "img/";
-                                                   $resized_dir = "/profiles";
+                                                   $resized_dir = "profiles";
 
                                                    include('functions.php');
 
