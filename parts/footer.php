@@ -24,7 +24,7 @@ wo du bist und finde den richtigen Gast für deine Vorlieben.
                                         <li><a href="#">Über uns</a></li>
                                         <li><a href="#">Kontakt</a></li>
                                         <li><a href="#">user</a></li>
-                                        <li><a href="#">AGBS</a></li>
+                                        <li><a href="agbs.php">AGBS</a></li>
                                         <li><a href="#">Support</a></li>
                                     </ul>
                                 </div>
