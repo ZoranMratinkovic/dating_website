@@ -128,12 +128,17 @@
         }
 
      ?>
-<?php $upitkategorije="SELECT * FROM user_kat k INNER JOIN kategorije j on k.id_kat=j.id_kat where k.id_user=".$_GET['id_girl'];
-      $rezupitkat=$conn->query($upitkategorije) or die("los upit prikaz kategorije");
-      $niz=array();
-      while($r1=mysqli_fetch_array($rezupitkat)){
-        $niz[]=$r1['kategorija'];
-      }
+<?php 
+        $upitkategorije="SELECT * FROM user_kat k INNER JOIN kategorije j on k.id_kat=j.id_kat where k.id_user=".$_GET['id_girl'];
+        
+        $rezupitkat=$conn->query($upitkategorije) or die("los upit prikaz kategorije");
+      
+        $niz=array();
+      
+          while($r1=mysqli_fetch_array($rezupitkat))
+          {
+            $niz[]=$r1['kategorija'];
+          }
       
        ?>
         <!--================ login.php =================-->

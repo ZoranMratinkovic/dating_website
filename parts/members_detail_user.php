@@ -148,7 +148,21 @@
                                             <li><a href="#"><?php echo $sex_orj; ?></a></li>
                                             <li><a href="#"><?php echo $tvoja_ul; ?></a></li>
                                             <li><a href="#"><?php echo $njeg_uloga; ?></a></li>
-                                            <li><a href="#"><?php for($i=0;$i<count($niz);$i++){echo $niz[$i].",";} ?></a></li>
+                                            <li><a href="#">
+                                            
+                                              <?php for($i=0;$i<count($niz);$i++)
+                                                    {
+                                                      if(count($niz) == 1)
+                                                      {
+                                                        echo $niz[$i];
+                                                      }
+                                                      else
+                                                        echo $niz[$i].","; 
+
+                                                    } 
+                                              ?>
+                                              
+                                            </a></li>
 
                                         </ul>
 
