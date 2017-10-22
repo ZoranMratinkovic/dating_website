@@ -98,7 +98,7 @@
                           <li class="dropdown submenu">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registration</a>
                                 <ul class="dropdown-menu black">
-                        <li><a href="#register_form" class="popup-with-zoom-anim"><i class="fa fa-user-plus"></i>als user</a></li>
+                        <li><a href="#register_form" class="popup-with-zoom-anim"><i class="fa fa-user-plus"></i>als user/ bordel</a></li>
                         <li><a href="register.php" class=""><i class="fa fa-user-plus"></i>als anbieter</a></li>
 
   </ul>
@@ -110,7 +110,7 @@
                     </ul>
 
                         </li>
-                      
+
                     </ul>
 
                     </div><!-- /.navbar-collapse -->
