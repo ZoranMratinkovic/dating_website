@@ -17,7 +17,7 @@
                             {
                                 echo "<div class='item'>
                                             <a href='{$row['link']}'>
-                                                <img class='members_profile' src='{$row['slika']}' alt=''>
+                                                <img class='img-circle' src='{$row['slika']}' alt=''>
                                             </a>
 
                                       </div>";

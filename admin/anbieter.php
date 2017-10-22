@@ -115,7 +115,7 @@
                               <td>{$r['datum']}</td>
                               <td><img src='{$r['profilna_slika']}' width='50px' height='50px'></td>
                               <td>{$r['uloga']}</td>
-                              <td><a href='../update_info_admin.php?idgirla={$r['id_user']}'>status ändern</a></td>
+                              <td><a href='../update_info_admin.php?idgirla={$r['id_user']}'>Details ändern</a></td>
                               <td><a href='anbieter.php?idr={$r['id_user']}'>status ändern</a></td>
                               <td><a href='anbieter.php?idc={$r['id_user']}'>x</a></td>
 
