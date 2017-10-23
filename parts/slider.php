@@ -88,7 +88,7 @@
                                 data-paddingleft="[0,0,0,0]"
                                 data-y="top"
                                 data-start="1800" >
-                                <a class="register_angkar_btn" href="members1.php">User anschauen</a>
+                                <a href="members1.php"><button class="btn form-control login_btn">Go Premium</button></a>
                             </div>
                         </li>
                         <li data-slotamount="7" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="600" data-rotate="0" data-saveperformance="off">
@@ -172,7 +172,7 @@
                                 data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
                                 data-y="top"
                                 data-start="1800" >
-                                <a class="register_angkar_btn" href="members1.php">Alle Member</a>
+                                <a href="members1.php"><button class="btn form-control login_btn">User anschauen</button></a>
                             </div>
                         </li>
                     </ul>

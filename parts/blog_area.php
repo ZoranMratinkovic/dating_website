@@ -6,7 +6,7 @@
 </div>
 <section class="blog_slider_area mt-35">
             <div class="blog_slider_inner">
-              <?php $upit="SELECT * FROM user_oglas where id_user_uloga=5 or id_user_uloga=7";
+              <?php $upit="SELECT * FROM user_oglas";
                     $rezupit=$conn->query($upit);
                     while($r=mysqli_fetch_array($rezupit)){
                           echo "  <div class='item'>

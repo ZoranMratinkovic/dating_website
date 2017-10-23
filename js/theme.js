@@ -169,9 +169,9 @@
                 sliderType:"fullscreen",
                 sliderLayout:"fullwidth",
                 dottedOverlay:"none",
-                delay:9000,
+                delay:8000,
                 navigation: {
-                    keyboardNavigation:"off",
+                    keyboardNavigation:"on",
                     keyboard_direction: "horizontal",
                     mouseScrollNavigation:"off",
                     mouseScrollReverse:"default",

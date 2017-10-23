@@ -2,24 +2,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title></title>
 
-<meta charset="UTF-8">
-<link href="../vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
-<link href="../css/font-awesome.min.css" rel="stylesheet">
-<link href="../vendors/linears-icon/style.css" rel="stylesheet">
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Register</title>
+<link href="vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="vendors/linears-icon/style.css" rel="stylesheet">
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
   <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="../js/jquery.selectlistactions.js"></script>
+  <script src="js/jquery.selectlistactions.js"></script>
 
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/site.css">
+  <!--<link rel="stylesheet" href="css/site.css"> Nema ovog fajla?-->
 <!-- RS5.0 Layers and Navigation Styles -->
-<link rel="stylesheet" type="text/css" href="../vendors/revolution/css/layers.css">
-<link rel="stylesheet" type="text/css" href="../vendors/revolution/css/navigation.css">
-<link rel="stylesheet" type="text/css" href="../vendors/revolution/css/settings.css">
+<link rel="stylesheet" type="text/css" href="vendors/revolution/css/layers.css">
+<link rel="stylesheet" type="text/css" href="vendors/revolution/css/navigation.css">
+<link rel="stylesheet" type="text/css" href="vendors/revolution/css/settings.css">
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +44,6 @@
 <script src="assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 <script src="assets/webcam/webcam.js"></script>
 <script src="assets/js/script.js"></script>
-<script src="js/map-custome.js"></script>
 <script type="text/javascript">
 function posalji() {
 var email = document.getElementById('reg_email').value;
@@ -196,11 +197,11 @@ function toggle(source) {
                         </div>
                         <div class="form-group">
                           <label for="">Passwort</label>
-                            <input type="password" class="form-control" name="password" id="reg_pass" placeholder="Password" required>
+                            <input type="password" class="form-control" name="password" id="reg_pass" placeholder="Passwort" required>
                         </div>
                         <div class="form-group">
                           <label for="">Passwort again</label>
-                            <input type="password" class="form-control" name="password1" id="reg_pass1" placeholder="Repeat Password" required>
+                            <input type="password" class="form-control" name="password1" id="reg_pass1" placeholder="Repeat Passwort" required>
                         </div>
 
                         <?php $upituser="SELECT * FROM tip";
@@ -271,7 +272,7 @@ function toggle(source) {
                       </div>
                       <div class="form-group">
                         <label for="">Über dich</label>
-                          <textarea name="opis" rows="8" cols="40" placeholder="Hallo ich bin Klara und mag es !!" required></textarea>
+                          <textarea name="opis" rows="8" cols="" class='form-control' placeholder="Hallo ich bin Klara und mag es !!" required></textarea>
                       </div>
                               <?php $upituser="SELECT * FROM sex_orj";
                                         $rezupituser=$conn->query($upituser)or die("los upit");?>

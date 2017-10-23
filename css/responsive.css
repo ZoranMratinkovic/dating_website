@@ -18,6 +18,10 @@
         width: 100%!important;
         text-align: center!important;
     }
+    .header_menu_area .navbar-default .navbar-collapse .navbar-nav li.submenu .dropdown-menu li
+    {
+        margin-left: 0px!important;
+    }
     /*Nav*/
 
     /*Index page*/
@@ -28,6 +32,10 @@
     .mtNula
     {
         margin-top: 0!important;
+    }
+    .team_inner_area .team_items img
+    {
+        margin:auto!important;
     }
     /*Index page*/
 
@@ -370,7 +378,7 @@
         margin-bottom: 20px;
     }
     .banner_area.profile_banner .profiles_inners .profile_content .right_side_content i {
-        display: none;
+        /*display: none;  Tackice za ubacivanje albuma na fonu*/
     }
     .product_item {
         max-width: 270px;
@@ -632,6 +640,7 @@
         float: left;
         overflow: hidden;
         margin-bottom: 30px;
+        min-height: 300px;
     }
     .profile_list{
         overflow: hidden;
