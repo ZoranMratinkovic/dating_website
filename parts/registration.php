@@ -246,7 +246,7 @@ function posalji()
                                                     $idUserRegular= "";
                                                     $hash_ver = md5(rand(0,1000));
                                                     $status_verified = 0;
-
+                                                    $password = md5($password);
                                                     $insertSql = "INSERT INTO user VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
                                                     $insertSqlQuery = $conn->prepare($insertSql);

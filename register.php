@@ -1,29 +1,30 @@
 <?php include("connectionFile/connection.php");?>
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 <head>
 
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Register</title>
+
 <link href="vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
+<title>Register</title>
 <link href="css/font-awesome.min.css" rel="stylesheet">
 <link href="vendors/linears-icon/style.css" rel="stylesheet">
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-  <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
-  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="js/jquery.selectlistactions.js"></script>
+ <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+ <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ <script src="js/jquery.selectlistactions.js"></script>
 
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <!--<link rel="stylesheet" href="css/site.css"> Nema ovog fajla?-->
+ <!--<link rel="stylesheet" href="vendors/animate-css/site.css">-->
 <!-- RS5.0 Layers and Navigation Styles -->
 <link rel="stylesheet" type="text/css" href="vendors/revolution/css/layers.css">
 <link rel="stylesheet" type="text/css" href="vendors/revolution/css/navigation.css">
 <link rel="stylesheet" type="text/css" href="vendors/revolution/css/settings.css">
 
 <!-- Bootstrap -->
+<!--<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="vendors/image-dropdown/dd.css" rel="stylesheet">
 <link href="vendors/image-dropdown/flags.css" rel="stylesheet">
@@ -38,10 +39,12 @@
 
 <link href="css/style.css" rel="stylesheet">
 <link href="css/responsive.css" rel="stylesheet">
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+
 <script src="js/jquery.selectlistactions.js"></script>
-<script src="assets/fancybox/jquery.easing-1.3.pack.js"></script>
-<script src="assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<!--<script src="assets/fancybox/jquery.easing-1.3.pack.js"></script>
+<script src="assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>-->
 <script src="assets/webcam/webcam.js"></script>
 <script src="assets/js/script.js"></script>
 <script type="text/javascript">
@@ -136,29 +139,28 @@ function toggle(source) {
 
 
 </head>
- <body class="redbg" style="
-    background: url(img/background.jpeg);
-">
-   <?php include("parts/menu_others.php"); ?>
+ <body class="redbg" style="background: url(img/background.jpeg);">
+   <?php include("parts/menu_others1.php"); ?>
 <div class="container">
-<div class="col-xs-12 col-sm-12 col-lg-12">
+
+  <div class="col-xs-12 col-sm-12 col-lg-12">
 
 
-  <div class="register_form_inner zoom-anim-dialog" id="register_form">
+    <div class="register_form_inner zoom-anim-dialog" id="register_form">
 
-          <div class="row margintp">
-            <div class="col-md-12">
-                <div class="registration_form_s">
-                    <h4>Registration</h4>
-                  <form class="" action="#" method="post" enctype = "multipart/form-data" onsubmit="return posalji();">
-                    <?php   if(isset($_FILES['image1'])){
-                         $errors= array();
-                         $file_name = $_FILES['image1']['name'];
-                         $file_size = $_FILES['image1']['size'];
-                         $file_tmp = $_FILES['image1']['tmp_name'];
-                         $file_type = $_FILES['image1']['type'];
-                         @$file_ext=strtolower(end(explode('.',$_FILES['image1']['name'])));
-                         $expensions= array("jpeg","jpg","png");
+            <div class="row margintp">
+              <div class="col-md-12">
+                  <div class="registration_form_s">
+                      <h4>Registration</h4>
+                    <form class="" action="#" method="post" enctype = "multipart/form-data" onsubmit="return posalji();">
+                      <?php   if(isset($_FILES['image1'])){
+                           $errors= array();
+                           $file_name = $_FILES['image1']['name'];
+                           $file_size = $_FILES['image1']['size'];
+                           $file_tmp = $_FILES['image1']['tmp_name'];
+                           $file_type = $_FILES['image1']['type'];
+                           @$file_ext=strtolower(end(explode('.',$_FILES['image1']['name'])));
+                           $expensions= array("jpeg","jpg","png");
                          if($file_size > 2097152) {
                             $errors[]='File size must be excately 2 MB';
                          }
@@ -647,6 +649,7 @@ function toggle(source) {
                                                     $id_status_gold = 1;
                                                     $id_user_uloga =2;
                                                     $bordel = 0;
+                                                    $password=md5($password);
                                                     $insertSql = "INSERT INTO user_oglas VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
                                                     $insertSqlQuery = $conn->prepare($insertSql);
@@ -715,6 +718,8 @@ function toggle(source) {
 
     </div>
     <?php include("parts/footer.php"); ?>
+      <script src="vendors/animate-css/wow.min.js"></script>
+      <script src="vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
     <script>
     $('#btnAvenger').click(function (e) {
              $('select').moveToList('#StaffList', '#PresenterList');
@@ -781,5 +786,6 @@ function toggle(source) {
              e.preventDefault();
          });
     </script>
+
     </body>
     </html>

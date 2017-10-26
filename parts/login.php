@@ -39,7 +39,9 @@
                            else {
                              $greske1[]="username nije dobroo!";
                            }
-                           if(preg_match($repw1,$password1)){
+                           if(preg_match($repw1,$password1))
+                           {
+                             $password1 = md5($password1);
                              $podaci1[]=$password1;
 
                            }

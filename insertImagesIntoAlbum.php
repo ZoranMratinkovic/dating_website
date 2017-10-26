@@ -41,7 +41,7 @@
               
               if(isset($_SESSION['bordel_girl']) && $_SESSION['id_uloga']==6)
               {
-                echo "<script>location.href='members-detail.php?id_girl={$_SESSION['bordel_girl']}';</script>";
+                echo "<script>location.href='members-detail1.php?id_girl={$_SESSION['bordel_girl']}';</script>";
               }
               else
               {
