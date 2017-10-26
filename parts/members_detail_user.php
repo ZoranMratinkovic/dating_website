@@ -174,7 +174,9 @@
                             </div>
                             <div class="members_about_box">
                                 <h4 class='text-center'>About me</h4>
-                                <p><?php echo $opis; ?></p>
+                                  
+                                  <p><?php echo $opis; ?></p>
+                                  
                             </div>
                             <div class="members_about_box">
                                 <div class="row text-center">

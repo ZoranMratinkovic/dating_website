@@ -87,7 +87,7 @@
         <!--================End Testimonials Area =================-->
 
         <!--================Footer Area =================-->
-            <?php include('parts/footer.php'); ?>
+             <?php include('parts/footer.php'); ?>
         <!--================End Footer Area =================-->
 
         <div id="largeContent" style="display:none;">
