@@ -39,7 +39,9 @@ h1{
 	padding: 5px 15px 10px;
 	top: 34px;
 }
-
+.banner{
+	margin:5px!important;
+}
 h2{
 	font-size: 14px;
 	padding: 4px 13px 9px 11px;

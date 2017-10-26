@@ -89,70 +89,18 @@
                 </div>
             </div>
         </div>
+<form class="" action="partnersearch.php" method="post" enctype = "multipart/form-data">
+  <?php if(isset($_POST['submit'])){
+    echo "radi:D";
+    echo "<script>alert('radi')</script>";
+  } else{
+     echo "neradi";
+  }?>
+        <h3>Search</h3><input type="text" name="searchf" value=""><input type="submit" value="Submit" name="submit" />
 
         <!-- /#page-content-wrapper -->
-        <form class="" action="#" method="post" enctype = "multipart/form-data">
+      </form>
 
-          <label for="">Banner LINK  </label><input type="text" name="link" class="form-control" placeholder="link">
-          <input type="text" name="email" value="" placeholder="email" class="form-control">
-          <input type="text" name="name23" value="" placeholder="user" class="form-control">
-        
-
-          <input type="file" name="image1" class="btn"  value="">
-          <input type="submit" name="insert" class="btn" value="Neuer partner einfuegen">
-          <?php   if(isset($_FILES['image1'])){
-               $errors= array();
-               $file_name = $_FILES['image1']['name'];
-               $file_size = $_FILES['image1']['size'];
-               $file_tmp = $_FILES['image1']['tmp_name'];
-               $file_type = $_FILES['image1']['type'];
-               $file_ext=strtolower(end(explode('.',$_FILES['image1']['name'])));
-
-               $expensions= array("jpeg","jpg","png");
-
-
-
-               if($file_size > 2097152) {
-                  $errors[]='File size must be excately 2 MB';
-               }
-
-               if(empty($errors)==true) {
-                  move_uploaded_file($file_tmp,"../img/partneri/".$file_name);
-                  echo "Success";
-               }else{
-                  print_r($errors);
-               }
-            }
-            if(isset($_REQUEST['insert'])){
-              $link=$_REQUEST['link'];
-              $email=$_REQUEST['email'];
-              $userr=$_REQUEST['name23'];
-
-                $slidza = "img/partneri/".$file_name;
-              $upit="INSERT INTO partneri VALUES('','$link','$slidza','$email','$userr',2)";
-              $rezupit=$conn->query($upit)or die(mysqli_error($conn));
-            }?>
-          </form>
-    </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
-
-</body>
-
-</html>
 <?php }else{
   echo "<h1>no access</h1>";
 } ?>
