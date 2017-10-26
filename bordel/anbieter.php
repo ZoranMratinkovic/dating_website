@@ -84,7 +84,7 @@
               </li>
 
               <li>
-                  <a href="register.php">neue Anbieterin</a>
+                  <a href="register.php">neues Girl</a>
               </li>
               <li>
                   <a href="contact.php">Contact</a>

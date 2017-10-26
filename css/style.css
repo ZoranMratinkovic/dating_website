@@ -5675,7 +5675,10 @@ body, p, h1, h2, h3, h4, h5, h6 {
   outline: none;
   box-shadow: none;
 }
+.banner{
+	margin:5px!important;
 
+}
 .members_profile_inners .profile_menu li a:before {
   content: "";
   background: #e74c3c;

@@ -89,16 +89,88 @@
                 </div>
             </div>
         </div>
-  
+
         <!-- /#page-content-wrapper -->
         <form class="" action="#" method="post" enctype = "multipart/form-data">
+
+            <?php if(isset($_POST['submit'])){
+              $polje=$_POST['searchf'];
+              echo $polje;
+              $upit6="SELECT * FROM partneri where `email` LIKE '%".$polje."%' or `usr` LIKE '%".$polje."%'";
+              $rez1=$conn->query($upit6)or die("los");
+              echo "<h3>Search</h3><input type='text' name='searchf' value=''><input type='submit' value='Submit' name='submit' />";
+              echo "  <table class='table table-bordered'>
+                  <tr>
+
+
+                  <th>Id</th>
+                  <th>Link</th>
+                  <th>Foto</th>
+                  <th>Email</th>
+                  <th>name</th>
+                  <th>Staus</th>
+                  <th>Aktiviren</th>
+                  <th>deaktiviren</th>
+
+                  <th>delete</th>
+                    </tr>";
+                    while($r23=mysqli_fetch_array($rez1)){
+                    echo "<tr><td>{$r23['id']}</td>";
+                    echo "<td>{$r23['link']}</td>";
+                    echo "<td><img src='../{$r23['slika']}' width='100px' height='100px'></td>";
+
+
+                        echo "<td>{$r23['email']}</td>";
+                          echo "<td>{$r23['usr']}</td>";
+                          if($r23['status']==1){
+                            echo "<td>Deaktivert</td>";
+                          }else
+                          {
+                            echo "<td>Aktiv</td>";
+                          }
+
+
+                            echo "<td><a href='partner.php?ida={$r23['id']}'>Aktiviren</a></td>";
+                            echo "<td><a href='partner.php?idd={$r23['id']}'>Deaktiviren</a></td>";
+                            echo "<td><a href='partner.php?idr={$r23['id']}'>Delete</a></td>";
+
+
+                  echo "</tr>";
+                    }
+      if(isset($_GET['idr'])){
+        $upit51 = "DELETE FROM partneri where id=".$_GET['idr'];
+        $rezupit=$conn->query($upit51) or die("ba");
+        echo "<script>window.location.href = 'partner.php';</script>";
+      }
+      if(isset($_GET['ida'])){
+        $upit123="UPDATE partneri SET status=2 where id=".$_GET['ida'];
+        $rezupit=$conn->query($upit123) or die("ba");
+        echo "<script>window.location.href = 'partner.php';</script>";
+      }
+      if(isset($_GET['idd'])){
+        $upit321="UPDATE partneri SET status=1 where id=".$_GET['idd'];
+        $rezupit=$conn->query($upit321) or die("ba");
+        echo "<script>window.location.href = 'partner.php';</script>";
+      }
+
+
+
+            } else{
+
+          ?>
+  <h3>Search</h3><input type="text" name="searchf" value=""><input type="submit" value="Search" name="submit" />
           <table class='table table-bordered'>
             <tr>
 
 
             <th>Id</th>
             <th>Link</th>
-            <th>Slika</th>
+            <th>Foto</th>
+            <th>Email</th>
+            <th>name</th>
+            <th>Staus</th>
+            <th>Aktiviren</th>
+            <th>deaktiviren</th>
 
             <th>delete</th>
               </tr>
@@ -109,7 +181,20 @@
               echo "<td>{$r23['link']}</td>";
               echo "<td><img src='../{$r23['slika']}' width='100px' height='100px'></td>";
 
-                echo "<td><a href='partner.php?idr={$r23['id']}'>Delete</a></td>";
+
+                  echo "<td>{$r23['email']}</td>";
+                    echo "<td>{$r23['usr']}</td>";
+                    if($r23['status']==1){
+                      echo "<td>Deaktivert</td>";
+                    }else
+                    {
+                      echo "<td>Aktiv</td>";
+                    }
+
+
+                      echo "<td><a href='partner.php?ida={$r23['id']}'>Aktiviren</a></td>";
+                      echo "<td><a href='partner.php?idd={$r23['id']}'>Deaktiviren</a></td>";
+                      echo "<td><a href='partner.php?idr={$r23['id']}'>Delete</a></td>";
 
 
             echo "</tr>";
@@ -117,6 +202,17 @@
 if(isset($_GET['idr'])){
   $upit51 = "DELETE FROM partneri where id=".$_GET['idr'];
   $rezupit=$conn->query($upit51) or die("ba");
+  echo "<script>window.location.href = 'partner.php';</script>";
+}
+if(isset($_GET['ida'])){
+  $upit123="UPDATE partneri SET status=2 where id=".$_GET['ida'];
+  $rezupit=$conn->query($upit123) or die("ba");
+  echo "<script>window.location.href = 'partner.php';</script>";
+}
+if(isset($_GET['idd'])){
+  $upit321="UPDATE partneri SET status=1 where id=".$_GET['idd'];
+  $rezupit=$conn->query($upit321) or die("ba");
+  echo "<script>window.location.href = 'partner.php';</script>";
 }
                ?>
 
@@ -142,6 +238,6 @@ if(isset($_GET['idr'])){
 </body>
 
 </html>
-<?php }else{
+<?php   }}else{
   echo "<h1>no access</h1>";
 } ?>

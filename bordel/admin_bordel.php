@@ -85,7 +85,7 @@ session_start();
               </li>
 
               <li>
-                  <a href="register.php">neue Anbieterin</a>
+                  <a href="register.php">Neues Girl</a>
               </li>
               <li>
                   <a href="contact.php">Contact</a>

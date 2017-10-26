@@ -149,7 +149,7 @@
                                             <li><a href="#"><?php echo $tvoja_ul; ?></a></li>
                                             <li><a href="#"><?php echo $njeg_uloga; ?></a></li>
                                             <li><a href="#">
-                                            
+
                                               <?php for($i=0;$i<count($niz);$i++)
                                                     {
                                                       if(count($niz) == 1)
@@ -157,11 +157,11 @@
                                                         echo $niz[$i];
                                                       }
                                                       else
-                                                        echo $niz[$i].","; 
+                                                        echo $niz[$i].",";
 
-                                                    } 
+                                                    }
                                               ?>
-                                              
+
                                             </a></li>
 
                                         </ul>
@@ -187,6 +187,58 @@
                                         show_video_reg_user($id_userr);
                                      ?>
                                 </div>
+
+                            </div>
+                            <div class="banners">
+                              <section class="adms_slider_area">
+                                         <div class="container">
+                                             <div class="">
+                                                 <div class="adms_head">
+                                                     <div class="col-md-12">
+                                                         <div class="row left_adms">
+                                                             <div class="pull-left">
+
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                                 <div class="container">
+
+
+
+                                                             <?php
+                                                                 include("connectionFile/connection.php");
+
+                                                                 $members = "SELECT * FROM partneri where status=2 ORDER BY RAND()  limit 8 ";
+                                                                 $stmt = $conn->query($members);
+                                                                 if($stmt)
+                                                                 {
+                                                                     while($row=mysqli_fetch_array($stmt))
+                                                                     {
+
+                                                                         echo "<div class='col-xs-6 col-lg-3'>
+                                                                             <div class='item'>
+                                                                                 <div class='team_items'>
+                                                                                     <a href='{$row['link']}'>
+                                                                                         <img class='banner' src='{$row['slika']}' height='100px' width='100%' alt=''>
+                                                                                     </a>
+                                                                                 </div>
+                                                                             </div>
+                                                                             </div>
+                                                                         ";
+                                                                     }
+                                                                 }
+                                                                 else
+                                                                 {
+                                                                     echo "<script>alert('radi');</script>";
+                                                                 }
+                                                             ?>
+
+
+
+                                             </div>
+                                         </div>
+                                     </section>
 
                             </div>
                         </div>
