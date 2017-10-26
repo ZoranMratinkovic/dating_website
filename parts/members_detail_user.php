@@ -214,11 +214,11 @@
                                                                      while($row=mysqli_fetch_array($stmt))
                                                                      {
 
-                                                                         echo "<div class='col-xs-3 col-lg-3'>
+                                                                         echo "<div class='col-xs-6 col-lg-3'>
                                                                              <div class='item'>
                                                                                  <div class='team_items'>
                                                                                      <a href='{$row['link']}'>
-                                                                                         <img class='banner' src='{$row['slika']}' height='100px' width='300px' alt=''>
+                                                                                         <img class='banner' src='{$row['slika']}' height='100px' width='100%' alt=''>
                                                                                      </a>
                                                                                  </div>
                                                                              </div>

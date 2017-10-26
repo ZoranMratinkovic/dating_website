@@ -13,6 +13,9 @@
     {
         line-height: 2.5!important;
     }
+    .banner{
+      width:100%!important;
+    }
     .nothing > li
     {
         width: 100%!important;
