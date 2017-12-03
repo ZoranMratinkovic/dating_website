@@ -694,9 +694,14 @@ function toggle(source) {
                                                       $mail->isHTML(true);
                                                       $mail->Subject = "Sodom24";
                                                       $mail->Body = "
-                                                          <i>Your username is: $username</i><br/>
-                                                          <p><strong>Click on the link below to verify you account</strong></p>
+
+                                                          Herzlich willkommen $username bei sodom24.com - Details zur Anmeldung: <br/>
+                                                          Benutzername: $username<br/>
+
+
                                                           <b><a href='http://www.sodom24.com/verify_user.php?hash={$hash_ver}&email={$email}'>Klicken sie hier um Ihren Account zu verifizieren:</a></b>
+                                                          <p>Viel Spaß und Erfolg wünscht euch das SwissHOT-Team.<br/> info@sodom24.com <br/>https://www.sodom24.com<br/>
+Willkommen auf www.sodom24.com SODOM24 ist das Erotikportal auf dem Du die grösste Auswahl an Girls, Clubs, Studios und Escort Dienste der Schweiz hast. Schnell unkomplizierte und echte Sex- und Callgirls. SODOM24.Ch steht für private Sex und Erotik Kontaktanzeigen und Inserate und ist das Schweizer Erotik-Portal, welches alle Anzeigen und Kontakte der Schweiz aufweist. Dank der Möglichkeit Inserate gratis aufzugeben, sind unsere Informationen besonders aktuell und zuverlässig. </p>
                                                       ";
                                                       $mail->AltBody = "Your username is: $username";
                                                       //If there was an error with sending
