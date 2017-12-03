@@ -46,127 +46,7 @@
 <script src="../js/map-custome.js"></script>
 <script type="../text/javascript">
 
-function posalji() {
 
-var email = document.getElementById('reg_email').value;
-var ime = document.getElementById('reg_first').value;
-var user = document.getElementById('reg_user').value;
-var pass=document.getElementById('reg_pass').value;
-var pass1=document.getElementById('reg_pass1').value;
-var age=document.getElementById('age').value;
-
-
-
-
-var greske= new Array();
-var sadrzaj=new Array();
-var greskeID = new Array();
-var reime= /^[A-z\s0-9]{2,20}$/;
-var reemail= /^(\w+[\-\.])*\w+@(\w+\.)+[A-Za-z]+$/;
-var repass= /^[a-zA-Z0-9!@#$%^&*-_]{6,}/;
-var reuser= /^[A-z0-9]{2,14}$/;
-var reage= /^[0-9]{1,7}$/;
-
-if(reime.test(ime))
-{
-sadrzaj.push(ime);
-  document.getElementById('reg_first').className = 'green';
-
-}
-else
-
-{
-  document.getElementById('reg_first').className = 'red';
-greske.push('erorr');
-
-}
-if(reage.test(age))
-  {
-
-    sadrzaj.push(age);
-      document.getElementById('age').className = 'green';
-
-
-
-  }
-  else
-
-  {
-
-    greske.push('erorr');
-    document.getElementById('age').className = 'red';
-
-
-
-  }
-if(reuser.test(user))
-{
-  sadrzaj.push(user);
-  document.getElementById('reg_user').className = 'green';
-
-
-}
-else
-
-{
-      document.getElementById('reg_user').className = 'red';
-    greske.push('erorr');
-
-}
-if(reemail.test(email))
-{
-sadrzaj.push(email);
-  document.getElementById('reg_email').className = 'green';
-
-}
-else
-{
-greske.push('erorr');
-  document.getElementById('reg_email').className = 'red';
-
-}
-
-if(pass==pass1){
-  sadrzaj.push(pass);
-
-}
-else{
-greske.push('error');
-document.getElementById('reg_pass1').className = 'red';
-}
-if(repass.test(pass))
-{
-  document.getElementById('reg_pass').className = 'green';
-sadrzaj.push(pass);
-
-}
-else
-{
-    document.getElementById('reg_pass').className = 'red';
-  greske.push('erorr');
-
-}
-
-
-
-if(sadrzaj.length == 6)
-{
-alert("Erfolgreich!");
-return true;
-
-
-}
-else {alert('Bitte angaben überprüfen!!! Password muss mindestens 6 Karaktere haben!!');
-return false;}
-}
-function toggle(source) {
-
-    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    for (var i = 0; i < checkboxes.length; i++) {
-        if (checkboxes[i] != source)
-            checkboxes[i].checked = source.checked;
-    }
-}
 
 
 </script>
@@ -223,10 +103,7 @@ function toggle(source) {
 
 
                       </div>
-                      <div class="form-group">
-                        <label for="">Username</label>
-                          <input type="text" class="form-control" name="username" id="reg_user" placeholder="Username" required>
-                      </div>
+
                         <div class="form-group">
                           <label for="">Name</label>
                             <input type="text" class="form-control" name="name" id="reg_first" placeholder="Name" required>
@@ -239,18 +116,7 @@ function toggle(source) {
 $reupit=$conn->query($upit) or die('bad');
 $r=mysqli_fetch_array($reupit);
 ?>
-                        <div class="form-group">
-                          <label for="">Email</label>
-                            <input type="email" class="form-control" name="email" id="reg_email" value="<?php echo $r['email']; ?>" required>
-                        </div>
-                        <div class="form-group">
-                          <label for="">Passwort</label>
-                            <input type="password" class="form-control" name="password" id="reg_pass" placeholder="Password" required>
-                        </div>
-                        <div class="form-group">
-                          <label for="">Passwort again</label>
-                            <input type="password" class="form-control" name="password1" id="reg_pass1" placeholder="Repeat Password" required>
-                        </div>
+                  
 
                         <?php $upituser="SELECT * FROM tip";
 
@@ -684,14 +550,14 @@ $r=mysqli_fetch_array($reupit);
       $age=$_POST['age'];
       $datum=$tag.'.'.$monat.'.'.$jahr;
 
-
+$random=rand(100,1000);
 
 
 
 $idsession=$_SESSION['id'];
 
 
-$upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$username','$password',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','/img/profiles/$file_name',4,'video ovde',1,2,$age,$idsession,'test',1)";
+$upitunos1 = "INSERT INTO user_oglas VALUES('',$geschlecht,$interesse_am,'$datum','$name',$herkunft,$kanton,'$email','$random','$random',$poreklo,$whoseeme,$gebaut,$sex_orj,$status,$was_magst_du,$was_mag_er,'$titel','$opis',$geschlecht,'$grosse',$haarfarbe,$haarlength,$augenfarbe,$brille,$bh,$oberweite,'$adresse_tref','$platz',$kanton1,'$tel','$name_tref','$name_tref1','$klinge',$spremnost,'$website','/img/profiles/$file_name',4,'video ovde',1,2,$age,$idsession,'test',1)";
 $query = mysqli_query($conn, $upitunos1) or die (mysqli_error());
 
 echo "<script>alert('erfolgreich registriert!');</script>";

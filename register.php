@@ -703,7 +703,7 @@ function toggle(source) {
                                                           <p>Viel Spaß und Erfolg wünscht euch das SwissHOT-Team.<br/> info@sodom24.com <br/>https://www.sodom24.com<br/>
 Willkommen auf www.sodom24.com SODOM24 ist das Erotikportal auf dem Du die grösste Auswahl an Girls, Clubs, Studios und Escort Dienste der Schweiz hast. Schnell unkomplizierte und echte Sex- und Callgirls. SODOM24.Ch steht für private Sex und Erotik Kontaktanzeigen und Inserate und ist das Schweizer Erotik-Portal, welches alle Anzeigen und Kontakte der Schweiz aufweist. Dank der Möglichkeit Inserate gratis aufzugeben, sind unsere Informationen besonders aktuell und zuverlässig. </p>
                                                       ";
-                                                      $mail->AltBody = "Your username is: $username";
+                                                      $mail->AltBody = "Sodom24";
                                                       //If there was an error with sending
                                                       if(!$mail->send())
                                                       {
