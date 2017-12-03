@@ -3,7 +3,7 @@ function all_members()
 {
 	$all_members = "SELECT uo.id_user,uo.title,uo.umetnicko_ime,uo.datum,uo.profilna_slika,k.naziv_kanton,bs.brak_status FROM user_oglas uo INNER JOIN kanton k ON uo.id_kanton=k.id_kanton INNER JOIN brak_status bs ON uo.id_brak_status = bs.id_brak_status";
 
-	include('connectionFile/connection.php');
+	 include('connectionFile/connection.php');
 
 	$stmt = $conn->query($all_members);
 

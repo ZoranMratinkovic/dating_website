@@ -11,7 +11,7 @@
 <body>
 
 
-<input type="button" name="" class="tooltip" value="">
+ <input type="button" name="" class="tooltip" value="">
 
 
 <div id="camera">

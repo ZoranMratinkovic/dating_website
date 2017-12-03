@@ -14,7 +14,7 @@
         <link rel="icon" href="img/fav-icon.png" type="image/x-icon" />
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>dejtail - Dating Social Network Website</title>
-          <script src="dist/js/lightbox-plus-jquery.min.js"></script>
+        <script src="dist/js/lightbox-plus-jquery.min.js"></script>
         <link rel="stylesheet" href="dist/css/lightbox.min.css">
         <!-- Icon css link -->
         <link href="vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
