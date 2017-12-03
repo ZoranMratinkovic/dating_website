@@ -174,7 +174,9 @@
                             </div>
                             <div class="members_about_box">
                                 <h4 class='text-center'>About me</h4>
-                                <p><?php echo $opis; ?></p>
+                                  
+                                  <p><?php echo $opis; ?></p>
+                                  
                             </div>
                             <div class="members_about_box">
                                 <div class="row text-center">
@@ -214,11 +216,11 @@
                                                                      while($row=mysqli_fetch_array($stmt))
                                                                      {
 
-                                                                         echo "<div class='col-xs-6 col-lg-3'>
+                                                                         echo "<div class='col-xs-6 col-md-3'>
                                                                              <div class='item'>
                                                                                  <div class='team_items'>
                                                                                      <a href='{$row['link']}'>
-                                                                                         <img class='banner' src='{$row['slika']}' height='100px' width='100%' alt=''>
+                                                                                         <img class='banner' src='{$row['slika']}' height='130px' width='100%' alt=''>
                                                                                      </a>
                                                                                  </div>
                                                                              </div>

@@ -1,5 +1,5 @@
-<?php 
-	
+<?php
+
 	$host = "localhost";
 	$root = "root";
 	$pass = "";
@@ -8,6 +8,6 @@
 	if(!$conn){
 		echo "Connection problem: " . mysqli_connect_errno() . PHP_EOL();;
 	}
-	
+mysqli_set_charset($conn,"utf8");
 
  ?>

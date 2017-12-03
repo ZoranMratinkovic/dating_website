@@ -7,13 +7,7 @@
                <input type="password" placeholder="Password" name="pass">
                <div class="login_btn_area">
                    <button type="submit" value="LogIn" name="login" class="btn form-control login_btn">LogIn</button>
-                   <div class="login_social">
-                       <h5>Login With</h5>
-                       <ul>
-                           <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                           <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                       </ul>
-                   </div>
+                
                </div>
            </form>
            <img class="mfp-close" src="img/close-btn.png" alt="">
@@ -39,7 +33,9 @@
                            else {
                              $greske1[]="username nije dobroo!";
                            }
-                           if(preg_match($repw1,$password1)){
+                           if(preg_match($repw1,$password1))
+                           {
+                             $password1 = md5($password1);
                              $podaci1[]=$password1;
 
                            }
@@ -74,7 +70,7 @@
                                         alert('You must verify your account');
                                     </script>";
 
-                                }                      
+                                }
 
                            }
                            else
@@ -82,12 +78,12 @@
 
                                $upitlogin12 = "SELECT * FROM user_oglas where username='$username1' and sifra ='$password1'";
                                $rezupit12=$conn->query($upitlogin12)or die('losee');
-                               
+
                                if(mysqli_num_rows($rezupit12)==1)
                                {
-                                    
+
                                     $row=mysqli_fetch_array($rezupit12);
-                                    
+
                                     if($row['status_verified']==1)
                                     {
                                           echo "<script>alert('Wilkommen');</script>";

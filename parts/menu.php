@@ -92,7 +92,7 @@
 
                     <ul class="nav navbar-nav navbar-right">
                       <?php if(isset($_SESSION['username']))
-                      {  $upit="SELECT * FROM user where user_id=".$_SESSION['id']."&& id_user_uloga=4";
+                      {  $upit="SELECT * FROM user where user_id=".$_SESSION['id']."&& id_user_uloga=3";
                          $rezupit=$conn->query($upit) or die('los upit');
                          if(mysqli_num_rows($rezupit)==1){
                            echo "<li><a href='admin/admin.php'<i class='mdi mdi-key-variant'></i>Adminpanel</a></li>
@@ -174,7 +174,7 @@
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registration</a>
                                 <ul class="dropdown-menu black">
                         <li><a href="#register_form" class="popup-with-zoom-anim"><i class="fa fa-user-plus"></i>als user/ bordel</a></li>
-                        <li><a href="register.php" class=""><i class="fa fa-user-plus"></i>als anbieter</a></li>
+                        <li><a href="register.php" class=""><i class="fa fa-user-plus"></i>als Girl</a></li>
 
 </ul>
 

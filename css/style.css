@@ -5677,7 +5677,7 @@ body, p, h1, h2, h3, h4, h5, h6 {
 }
 .banner{
 	margin:5px!important;
-
+  padding:15px;
 }
 .members_profile_inners .profile_menu li a:before {
   content: "";

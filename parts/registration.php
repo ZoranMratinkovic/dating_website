@@ -246,7 +246,7 @@ function posalji()
                                                     $idUserRegular= "";
                                                     $hash_ver = md5(rand(0,1000));
                                                     $status_verified = 0;
-
+                                                    $password = md5($password);
                                                     $insertSql = "INSERT INTO user VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
                                                     $insertSqlQuery = $conn->prepare($insertSql);
@@ -293,7 +293,7 @@ function posalji()
 
                                                           <i>Your username is: $username</i><br/>
                                                           <p><strong>Click on the link below to verify you account</strong></p>
-                                                          <b><a href='http://www.sexchange.alpikom.rs/verify.php?hash={$hash_ver}&email={$email}'>Klicken sie hier um Ihren Account zu verifizieren:</a></b>
+                                                          <b><a href='http://www.sodom24.com/verify.php?hash={$hash_ver}&email={$email}'>Klicken sie hier um Ihren Account zu verifizieren:</a></b>
 
                                                       ";
                                                       $mail->AltBody = "Your username is: $username";

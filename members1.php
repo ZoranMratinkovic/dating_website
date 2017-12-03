@@ -106,12 +106,12 @@
                             </div>
                         </div>
 
-                        <div class="pagination_area " id='Paginacija'>
+                        <!--<div class="pagination_area " id='Paginacija'>
                             <a class="prev" href="#">Back</a>
                             <a class="arrow_left" href="#"><i class="fa fa-angle-left"></i></a>
                             <a class="arrow_right" href="#"><i class="fa fa-angle-right"></i></a>
                             <a class="next" href="#">Next</a>
-                        </div>
+                        </div>-->
                     </div>
 
                     <div class="col-md-3 right_side aFlex">
