@@ -209,6 +209,18 @@ Table of Content:
   width: 13px!important;
   height: 13px!important;
 }
+#profile_1{
+  width: 20%;
+}
+#profile_2{
+  width:80%;
+}
+.cleaner{
+  clear:both;
+}
+.members_profile_inners .profile_list ul{
+  float:left!important;
+}
 /*Obrisati posle ove klase jer ces da smanjis stvarno slike*/
 /*Our code end*/
 

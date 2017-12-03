@@ -142,14 +142,14 @@
                                 </div>
                                 <div role="tabpanel" class="tab-pane fade" id="profile">
                                     <div class="profile_list">
-                                        <ul>
+                                        <ul id="profile_1">
                                             <li><a href="#">Sex Orientierung</a></li>
                                             <li><a href="#">Was ich mag</a></li>
                                             <li><a href="#">Was erwate ich</a></li>
                                             <li><a href="#">Kategor</a></li>
 
                                         </ul>
-                                        <ul>
+                                        <ul id="profile_2">
                                             <li><a href="#"><?php echo $sex_orj; ?></a></li>
                                             <li><a href="#"><?php echo $tvoja_ul; ?></a></li>
                                             <li><a href="#"><?php echo $njeg_uloga; ?></a></li>
@@ -202,6 +202,7 @@
 
 
                             </div>
+                            <div class="cleaner"></div>
                             <div class="members_about_box">
                                 <h4 class='text-center'>About me</h4>
                                 <p><?php echo $opis; ?></p>

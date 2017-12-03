@@ -98,6 +98,7 @@
                         <?php } ?>
                         <li class="flag_drop"><a href="contact.php">PREMIUM</a>
                         </li>
+                        <li><a href="parts/forgot_change_pswd.php" class=""><i class="fa fa-user-plus"></i>Change Password</a></li>
                     </ul>
 
                         </li>
