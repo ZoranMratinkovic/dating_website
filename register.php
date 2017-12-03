@@ -692,7 +692,7 @@ function toggle(source) {
                                                       $mail->FromName = NAME;
                                                       $mail->addAddress($email, $username);
                                                       $mail->isHTML(true);
-                                                      $mail->Subject = "Subject Text";
+                                                      $mail->Subject = "Sodom24";
                                                       $mail->Body = "
                                                           <i>Your username is: $username</i><br/>
                                                           <p><strong>Click on the link below to verify you account</strong></p>

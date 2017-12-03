@@ -291,12 +291,17 @@ function posalji()
                                                       $mail->Subject = "Subject Text";
                                                       $mail->Body = "
 
-                                                          <i>Your username is: $username</i><br/>
-                                                          <p><strong>Click on the link below to verify you account</strong></p>
-                                                          <b><a href='http://www.sodom24.com/verify.php?hash={$hash_ver}&email={$email}'>Klicken sie hier um Ihren Account zu verifizieren:</a></b>
+                                                          <br/>
+                                                          <p><strong>Herzlich willkommen „$username“ bei sodom24.com - Details zur Anmeldung:</strong></p><br/>
+                                                          <i>Ihr Benutzername ist: $username</i><br/>
+                                                          <i>Passwort: $password </i><br/>
+                                                          <b><a href='http://www.sodom24.com/verify.php?hash={$hash_ver}&email={$email}'>Klicken sie hier um Ihren Account zu verifizieren:</a></b><br/>
+                                                          Link zur Anmeldung : https://www.sodom24.com/index.php<br/>
+                                                          <p>Der Freischaltecode verfällt nach 24 h. Danach musst du dich erneut registrieren.<br/> Viel Spaß und Erfolg wünscht euch das SwissHOT-Team. info@sodom24.com https://www.sodom24.com<br/>
+Willkommen auf www.sodom24.com SODOM24 ist das Erotikportal auf dem Du die grösste Auswahl an Girls, Clubs, Studios und Escort Dienste der Schweiz hast. Schnell unkomplizierte und echte Sex- und Callgirls. SODOM24.Ch steht für private Sex und Erotik Kontaktanzeigen und Inserate und ist das Schweizer Erotik-Portal, welches alle Anzeigen und Kontakte der Schweiz aufweist. Dank der Möglichkeit Inserate gratis aufzugeben, sind unsere Informationen besonders aktuell und zuverlässig. </p>
 
                                                       ";
-                                                      $mail->AltBody = "Your username is: $username";
+                                                      $mail->AltBody = "Verifikation Sodom24";
 
                                                       //If there was an error with sending
                                                       if(!$mail->send())
