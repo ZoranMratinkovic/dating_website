@@ -80,15 +80,13 @@
                 </a>
               </li>
               <li>
-                  <a href="anbieter.php">Dein bordel</a>
+                  <a href="anbieter.php">Deine Inserate</a>
               </li>
 
               <li>
                   <a href="register.php">neues Girl</a>
               </li>
-              <li>
-                  <a href="contact.php">Contact</a>
-              </li>
+
           </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -110,9 +108,9 @@
             <table class='table table-bordered'>
               <tr>
                 <th>id user</th>
-                <th>email</th>
+
                 <th>Name</th>
-                <th>Username</th>
+
                 <th>Datum</th>
                 <th>Bild</th>
                 <th>Status</th>
@@ -125,11 +123,11 @@
                     while($r=mysqli_fetch_array($rezupit)){
                       echo "<tr>
                               <td>{$r['id_user']}</td>
-                              <td>{$r['email']}</td>
+
                               <td>{$r['umetnicko_ime']}</td>
-                              <td>{$r['username']}</td>
+                              
                               <td>{$r['datum']}</td>
-                              <td><img src='/{$r['profilna_slika']}' width='50px' height='50px'></td>
+                              <td><img src='..{$r['profilna_slika']}' width='50px' height='50px'></td>
                               <td>{$r['uloga']}</td>
                               <td><a href='../update_info_admin.php?idgirla={$r['id_user']}'>bearbeiten</a></td>
                               <td><a href='../members-detail1.php?id_girl={$r['id_user']}&bordel=1'>Profil ansehen</a></td>

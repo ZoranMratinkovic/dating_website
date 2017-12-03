@@ -292,9 +292,9 @@ function posalji()
                                                       $mail->Body = "
 
                                                           <br/>
-                                                          <p><strong>Herzlich willkommen „$username“ bei sodom24.com - Details zur Anmeldung:</strong></p><br/>
-                                                          <i>Ihr Benutzername ist: $username</i><br/>
-                                                          <i>Passwort: $password </i><br/>
+                                                          <p><strong>Herzlich willkommen „$username“ bei sodom24.com - Details zur Anmeldung:</strong></p><br/><br/>
+                                                          Ihr Benutzername ist: $username<br/>
+
                                                           <b><a href='http://www.sodom24.com/verify.php?hash={$hash_ver}&email={$email}'>Klicken sie hier um Ihren Account zu verifizieren:</a></b><br/>
                                                           Link zur Anmeldung : https://www.sodom24.com/index.php<br/>
                                                           <p>Der Freischaltecode verfällt nach 24 h. Danach musst du dich erneut registrieren.<br/> Viel Spaß und Erfolg wünscht euch das SwissHOT-Team. info@sodom24.com https://www.sodom24.com<br/>

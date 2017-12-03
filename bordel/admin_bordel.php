@@ -71,7 +71,7 @@ session_start();
           <ul class="sidebar-nav">
               <li class="sidebar-brand">
                   <a href="../index.php">
-                      Ihre Bordel
+                      Deine Inserate
                   </a>
 
               </li>
@@ -87,9 +87,7 @@ session_start();
               <li>
                   <a href="register.php">Neues Girl</a>
               </li>
-              <li>
-                  <a href="contact.php">Contact</a>
-              </li>
+
           </ul>
         </div>
         <!-- /#sidebar-wrapper -->
