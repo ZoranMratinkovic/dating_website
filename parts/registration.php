@@ -121,8 +121,20 @@ function posalji()
 
 
           }
-          else {alert('ima greske!!!');
+          else {alert('Bitte Angaben überprüfen');
           return false;}
+}
+function show2(){
+
+  document.getElementById('div1').style.display ='none';
+  document.getElementById('div2').style.display ='none';
+  document.getElementById('div3').style.display ='none';
+}
+function show1(){
+
+  document.getElementById('div1').style.display = 'block';
+    document.getElementById('div2').style.display = 'block';
+    document.getElementById('div3').style.display ='block';
 }
 
     </script>
@@ -146,7 +158,7 @@ function posalji()
                             <div class="form-group">
                                 <input type="text" class="form-control" id="reg_first" placeholder="Full Name" name="fullname" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="div3">
                                 <input type="text" class="form-control" id="age" placeholder="26" name="age" required>
                             </div>
                             <div class="form-group">
@@ -160,11 +172,11 @@ function posalji()
                             </div>
                             <div class="">
                               <label for="">Bordel oder user?</label><br/>
-                              <input type="radio" name="bordel" value="1" checked="checked">User<br/>
-                              <input type="radio" name="bordel" value="6">Bordel<br/>
+                              <input type="radio" name="bordel" value="1" checked="checked" onclick="show1();">User<br/>
+                              <input type="radio" name="bordel" value="6" onclick="show2();">Bordel<br/>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" id="div1">
                                 <div class="btn-group">
 
                                     <select class="form-control" name="gender">
@@ -175,7 +187,7 @@ function posalji()
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group div1" id="div2">
                               <?php
 
                                                         echo '<select name="monat" class="trecina form-control" required>';
